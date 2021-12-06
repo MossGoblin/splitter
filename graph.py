@@ -1,6 +1,7 @@
 from typing import List
 import toolbox as tb
 import workbench as wb
+import math
 
 
 class Node():
@@ -48,6 +49,8 @@ class Node():
 class Graph():
     nodes = []
     node_map = {}
+    map_total = 0
+    split_deviations = {}
 
     def __init__(self):
         pass
@@ -78,4 +81,24 @@ class Graph():
             for link in node.links:
                 if link not in node_list:
                     return False
+        self.map_total = self.calculate_total()
         return True
+
+    def derive_couples(self):
+        # TODO collect all possible linked couples and calculate their sum
+        pass
+
+    def calculate_deviation(self, split_number):
+        if split_number in self.split_deviations:
+            return self.split_deviations[split_number]
+        else:
+            split_floor = math.floor(self.map_total / split_number)
+            split_deviation = self.map_total % split_number
+            self.split_deviations[split_number] = {}
+            self.split_deviations[split_number]['floor'] = split_floor
+            self.split_deviations[split_number]['deviation'] = split_deviation
+            return split_deviation
+
+    def calculate_total(self):
+        for node in self.nodes:
+            self.map_total = self.map_total + node.value

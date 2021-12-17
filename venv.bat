@@ -1,0 +1,1 @@
+D:\Codee\VENV\package_splitter\Scripts\Activate.bat

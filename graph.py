@@ -1,4 +1,4 @@
-from typing import List
+from typing import Dict, List
 import toolbox as tb
 import workbench as wb
 import math
@@ -9,15 +9,15 @@ class Node():
     value = 0
     links = []
 
-    def __init__(self, value: int = None, links: List = None, label: str = None):
+    def __init__(self, label: int, value: int, links: List):
         if value == None or links == None:
             return
-        self.init(value, links, label)
+        self.init(label, value, links)
 
     def __str__(self):
         string_links = [str(int) for int in self.links]
         links = ', '.join(string_links)
-        return f'{self.label}: {self.value} [{links}]'
+        return f'{self.label} ({self.value}) -> [{links}]'
 
     def set_value(self, value):
         self.value = value
@@ -25,12 +25,10 @@ class Node():
     def set_links(self, links: List):
         self.links = links
 
-    def set_label(self, label: str):
+    def set_label(self, label: int):
         self.label = label
 
-    def init(self, value: int, links: List, label: str = None):
-        if not label:
-            label, wb.LABEL_LIST = tb.get_label(wb.LABEL_LIST)
+    def init(self, label: int, value: int, links: List):
         self.set_label(label)
         self.set_value(value)
         self.set_links(links)
@@ -41,7 +39,7 @@ class Node():
     def validate(self):
         # validate for self-reference
         for link in self.links:
-            if link == self.value:
+            if link == self.label:
                 return False
         return True
 
@@ -63,32 +61,28 @@ class Graph():
 
     def add_node(self, node):
         self.nodes.append(node)
-        self.node_map[node.value] = {}
-        self.node_map[node.value]['label'] = node.label
-        self.node_map[node.value]['full_links'] = node.links
-        self.node_map[node.value]['filtered_links'] = node.links
+        self.node_map[node.label] = {}
+        self.node_map[node.label]['value'] = node.value
+        self.node_map[node.label]['links'] = node.links
+        self.node_map[node.label]['level'] = 0
 
     def add_nodes(self, nodes: List):
         self.nodes.extend(nodes)
+        self.validate()
 
-    def validate(self):
-        # check if all node links lead to other nodes
-        node_list = []
+    def validate(self) -> bool:
+        # check if there are no dead links - leading to unexisting nodes
+        node_links_list = []
         for node in self.nodes:
-            node_list.append(node)
+            node_links_list.extend(node.links)
 
         for node in self.nodes:
-            for link in node.links:
-                if link not in node_list:
-                    return False
-        self.map_total = self.calculate_total()
+            if node.value not in node_links_list:
+                return False
+        self.calculate_total()
         return True
 
-    def derive_couples(self):
-        # TODO collect all possible linked couples and calculate their sum
-        pass
-
-    def calculate_deviation(self, split_number):
+    def calculate_deviation(self, split_number) -> Dict:
         if split_number in self.split_deviations:
             return self.split_deviations[split_number]
         else:
@@ -102,3 +96,26 @@ class Graph():
     def calculate_total(self):
         for node in self.nodes:
             self.map_total = self.map_total + node.value
+
+    def process_graph(self, split_number: int):
+        '''
+        == PROCESS ==
+        start iterating from count 0
+        count = 0:
+        iterate all nodes in node_map with level 0
+            for each node calculate all couples between that node and their linked level 0 nodes and add the couples to the node_map:
+                for A and B being each two connected nodes
+                label = sort([A, B])
+                value = A.value + B.value
+                links = A.links + B.links -> remove A and B from the new list AND remove all duplicates
+                level = count (the first is 1)
+        check if there are (split-1) number of values that:
+            have no common index in their label
+            AND
+            have a total deviation no greater than the split_deviation for split_number
+        if NOT:
+            increase count by 1
+            repeat procedure by combining all nodes with level (count-1) with their linked nodes (of level 0)
+        '''
+
+        pass

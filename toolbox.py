@@ -3,7 +3,7 @@ from typing import Dict, List
 import json
 
 def get_label(label_list: List):
-    for label in ascii_uppercase:
+    for label in ascii_letters:
         if label not in label_list:
             label_list.append(label)
             break

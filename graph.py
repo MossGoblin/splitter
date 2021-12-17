@@ -9,7 +9,7 @@ class Node():
     links = []
     signature = []
 
-    def __init__(self, label: int, value: int, links: List):
+    def __init__(self, label: int, value: int, signature: List, links: List):
         if value == None or links == None:
             return
         self.init(label, value, links)
@@ -28,10 +28,14 @@ class Node():
     def set_label(self, label: int):
         self.label = label
 
-    def init(self, label: int, value: int, links: List):
+    def set_signature(self, signature: List):
+        self.signature = signature
+
+    def init(self, label: int, value: int, signature: List, links: List):
         self.set_label(label)
         self.set_value(value)
         self.set_links(links)
+        self.set_signature(signature)
         if not self.validate():
             raise Exception(
                 f'A node can not link to itself. Node: {self.label}({self.value})')
@@ -45,9 +49,9 @@ class Node():
 
 
 class Graph():
-    nodes = [] # a list of all 0 level nodes
-    node_map = {} # an enchanced map of nodes, separated by level
-    map_total = 0 # the total weight of all the level 0 nodes
+    nodes = []  # a list of all 0 level nodes
+    node_map = {}  # an enchanced map of nodes, separated by level
+    map_total = 0  # the total weight of all the level 0 nodes
 
     def __init__(self):
         pass
@@ -59,6 +63,8 @@ class Graph():
         return graph_str
 
     def add_node(self, node, level):
+        if level == 0:
+            self.nodes.append(node)
         pass
 
     def calculate_deviation(self, split_number) -> Dict:
@@ -72,19 +78,20 @@ class Graph():
         == PROCESS ==
         start iterating from count 0
         count = 0:
-        iterate all nodes in node_map with level 0
-            for each node calculate all couples between that node and their linked level 0 nodes and add the couples to the node_map:
-                for A and B being each two connected nodes
-                label = sort([A, B])
-                value = A.value + B.value
-                links = A.links + B.links -> remove A and B from the new list AND remove all duplicates
-                level = count (the first is 1)
         check if there are (split-1) nodes of level = count that:
             have no common index in their label
             AND
             have values with a total deviation no greater than the split_deviation for split_number
         if NOT:
             increase count by 1
-            repeat procedure by combining all nodes with level (count-1) with their linked nodes (of level 0)
+            Add another level of nodes
+        ADD LEVEL
+        iterate all nodes in node_map with the highest level
+            for each node calculate all couples between that node and their linked level 0 nodes and add the couples to the node_map:
+                for A and B being each two connected nodes
+                label = sort([A, B])
+                value = A.value + B.value
+                links = A.links + B.links -> remove A and B from the new list AND remove all duplicates
+                level = count (the first is 1)
         '''
         pass

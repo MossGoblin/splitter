@@ -2,15 +2,9 @@ from graph import Node, Graph
 from workbench import WorkBench
 
 def main():
-    # MOTHBALLED WHILE REWORKING NODE
-    # gr = create_graph_from_file()
-    # print(gr)
-    # gr.validate()
-    # split_deviation = gr.calculate_deviation(2)
-    # print(f'split_deviation: {split_deviation}')
-    # gr.process_graph(3)
-    pass
-
+    gr = create_graph_from_file()
+    print(gr)
+    gr.find_distances()
 
 def create_graph_from_file(node_list_fliename: str = None) -> Graph:
     wb = WorkBench()

@@ -41,6 +41,7 @@ class WorkBench():
     def read_node_list(self, node_list_filename: str) -> Dict:
         if not node_list_filename:
             node_list_filename = 'splitter/node_list.json'
+            node_list_filename = 'node_list.json'
         with open(node_list_filename, 'r') as file:
             node_dict = json.load(file)
         return node_dict

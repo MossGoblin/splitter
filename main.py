@@ -11,8 +11,8 @@ def create_graph_from_file(node_list_fliename: str = None) -> Graph:
     node_dict = wb.read_node_list(node_list_fliename)
     gr = Graph()
     for node_label, node_attributes in node_dict.items():
-        label = node_label
-        signature = [label]
+        label = int(node_label)
+        signature = wb.get_label()
         value = node_attributes['value']
         links = node_attributes['links']
         node = Node(label=label, value=value, signature=signature, links=links)

@@ -17,7 +17,7 @@ class Node():
     def __str__(self):
         string_links = [str(int) for int in self.links]
         links = ', '.join(string_links)
-        return f'{self.label} ({self.value}) -> [{links}]'
+        return f'{self.signature} ({self.value}) -> [{links}]'
 
     def set_value(self, value):
         self.value = value
@@ -105,10 +105,30 @@ class Graph():
 
     def find_distances(self):
         exploration_queue = []
+        exploration_queue.append(self.nodes[0])
+
+        # init distance map
         for node in self.nodes:
-            exploration_queue.append(node)
             self.distance_map[node.label] = {}
-            for nbr in node.links:
-                self.distance_map[node.label][nbr] = 1
-        # HERE
+            for node_again in self.nodes:
+                if node_again.label == node.label:
+                    continue
+                self.distance_map[node.label][node_again.label] = 0
+
+        parent = None
+        checked = []
+        while len(exploration_queue) > 0:
+            current_node = exploration_queue.pop()
+            print(f'checking {current_node.label}')
+            if current_node not in checked:
+                checked.append(current_node.label)
+            for nbr in self.nodes:
+                if nbr.label == current_node.label:
+                    continue
+                # add each nbr in the exploration queue
+                if nbr.label not in checked and nbr.label in current_node.links:
+                    exploration_queue.append(nbr)
+                    print(f'  adding {nbr.label} to Q')
+                    self.distance_map[current_node.label][nbr.label] = 1
+        # TODO BAD ITERATION
         pass

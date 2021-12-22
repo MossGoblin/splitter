@@ -4,7 +4,7 @@ import math
 import queue
 
 class Node():
-    label = ''
+    label = None
     value = 0
     links = []
     signature = []
@@ -68,6 +68,13 @@ class Graph():
             self.nodes.append(node)
         pass
 
+    def get_node(self, label):
+        for node in self.nodes:
+            if node.label == label:
+                return node
+        return None
+        pass
+
     def calculate_deviation(self, split_number) -> Dict:
         pass
 
@@ -105,30 +112,44 @@ class Graph():
 
     def find_distances(self):
         exploration_queue = []
-        exploration_queue.append(self.nodes[0])
-
-        # init distance map
-        for node in self.nodes:
-            self.distance_map[node.label] = {}
-            for node_again in self.nodes:
-                if node_again.label == node.label:
-                    continue
-                self.distance_map[node.label][node_again.label] = 0
-
-        parent = None
-        checked = []
+        checked_nodes = []
+        exploration_queue.append((self.nodes[0], None))
+        checked_nodes.append(self.nodes[0])
         while len(exploration_queue) > 0:
-            current_node = exploration_queue.pop()
-            print(f'checking {current_node.label}')
-            if current_node not in checked:
-                checked.append(current_node.label)
-            for nbr in self.nodes:
-                if nbr.label == current_node.label:
-                    continue
-                # add each nbr in the exploration queue
-                if nbr.label not in checked and nbr.label in current_node.links:
-                    exploration_queue.append(nbr)
-                    print(f'  adding {nbr.label} to Q')
-                    self.distance_map[current_node.label][nbr.label] = 1
-        # TODO BAD ITERATION
+            # pop a node
+            current_node, parent = exploration_queue.pop()
+            # place all links in the Q
+            # mark all links as checked
+            # add links to exploration queue
+            for link in current_node.links:
+                linked_node = self.get_node(link)
+                if linked_node not in checked_nodes:
+                    checked_nodes.append(linked_node)
+                    exploration_queue.append((linked_node, current_node))
+            # process current_node
+            self.process_node_distances(current_node, parent)
+        pass
+
+    def process_node_distances(self, node, parent):
+        print(f'processing distances for {node.signature}')
+        # init node in distance_map
+        if node not in self.distance_map:
+            self.distance_map[node] = {}
+        # note down own link distances
+        for link in node.links:
+            self.distance_map[node][link] = 1
+        # iterate through all other nodes already in the distance map
+        for measured_node in self.nodes:
+            if measured_node not in self.distance_map:
+                continue
+            # print(f'measured node: {measured_mode}')
+            # print(f'    distances: {dist_data}')
+            if not parent:
+                continue
+            if measured_node is not node:
+                # check new straight distance - through the new node
+                #   = add the wne link (1) to the distance between the measured_node and the parent
+                print(f'update {measured_node}')
+
+        print(f'== == ==')
         pass

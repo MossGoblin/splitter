@@ -163,11 +163,15 @@ class Graph():
         print(f'Processing distances for {node.signature}')
         '''
         == NEW PROCEDURE ==
-        Declare - write the new node in distance map and record link as distances
-        BackProp - edit parent's links: - DO THIS FOR ALL OTHER NODES
-            *   if the parent has a link to the node link and it is larger than 2, set it to 2
-            *   if the parent has a link to the node link and it is 2 or less, leave it
-            *   if the parent does not have a link to the node link, create it as 2
+        Declare - write the new node in distance map:
+            *   record new links as distances
+            *   check all previous nodes against the new node:
+                *   if they have no record of it, set it to distance to parent + 1
+                *   if they have a distance to the new node, conpare it with distance to parent + 1 and record the lower
+        BackProp - edit the links of all previously recorded nodes
+            *   if the prev has a link to the node link and it is larger than 2, set it to 2
+            *   if the prev has a link to the node link and it is 2 or less, leave it
+            *   if the prev does not have a link to the node link, create it as 2
         Inherit - get all links from parent that are not present in node - add them as + 1
         ''' 
         # DECLARE
@@ -178,11 +182,25 @@ class Graph():
         # note down own link distances
         for link in node.links:
             self.distance_map[node][link] = 1
+        # check if previous nodes know about the new node
+        for recorded_node in self.distance_map:
+            if recorded_node is node:
+                continue
+            if recorded_node is parent:
+                continue
+            if node.label not in self.distance_map[recorded_node]:
+                self.distance_map[recorded_node][node.label] = self.distance_map[recorded_node][parent.label] + 1
+            else:
+                if parent.label not in self.distance_map[recorded_node]:
+                    continue
+                if self.distance_map[recorded_node][node.label] > self.distance_map[recorded_node][parent.label] + 1:
+                    self.distance_map[recorded_node][node.label] = self.distance_map[recorded_node][parent.label] + 1
 
         print(f'* back propagation from node {node.label}')
         # BACK PROPAGATE
         for node_link in node.links:
             for recorded_node in self.distance_map:
+                print(f'    * checking node {recorded_node.label} for distance to {node_link}')
                 if recorded_node is node:
                     continue
                 if node_link == recorded_node.label:
@@ -197,7 +215,7 @@ class Graph():
         # INHERIT
         print(f'* inheritence from node {node.label}')
         if parent:
-            for parent_link in parent.links:
+            for parent_link in self.distance_map[parent]:
                 if parent_link == node.label:
                     continue
                 if parent_link not in self.distance_map[node]:

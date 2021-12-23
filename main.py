@@ -3,6 +3,7 @@ from workbench import WorkBench
 
 def main():
     gr = create_graph_from_file()
+    gr.validate()
     print(gr)
     gr.find_distances()
 

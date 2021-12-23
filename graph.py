@@ -139,17 +139,26 @@ class Graph():
         for link in node.links:
             self.distance_map[node][link] = 1
         # iterate through all other nodes already in the distance map
-        for measured_node in self.nodes:
-            if measured_node not in self.distance_map:
-                continue
-            # print(f'measured node: {measured_mode}')
-            # print(f'    distances: {dist_data}')
+        for recorded_node in self.nodes:
+            # do not update recorded_node if has no parent (i.e dno update if this is the first node)
             if not parent:
                 continue
-            if measured_node is not node:
+            # update only nodes that are already in the distance map
+            if recorded_node not in self.distance_map:
+                continue
+            # do not update recorded_node if it is parent
+            if recorded_node is parent:
+                continue
+            # do not update recorded node if it is node
+            if recorded_node is not node:
                 # check new straight distance - through the new node
-                #   = add the wne link (1) to the distance between the measured_node and the parent
-                print(f'update {measured_node}')
+                #   = if there is no link between the recorded_node and node:
+                #      = add the new link as the distance between the recorded_node and the parent + 1
+                if not node.label in self.distance_map[recorded_node]:
+                    print(f'update {recorded_node}')
+                    self.distance_map[recorded_node][node.label] = self.distance_map[recorded_node][parent.label] + 1
+                    # TODO breaks above, additional checks required for self.distance_map[recorded_node][parent.label]
+                    print(f'updated distance from {recorded_node.signature} to {node.signature} to {self.distance_map[recorded_node][node.label]}')
 
         print(f'== == ==')
         pass

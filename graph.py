@@ -7,17 +7,16 @@ class Node():
     label = None
     value = 0
     links = []
-    signature = []
 
-    def __init__(self, label: int, value: int, signature: List, links: List):
+    def __init__(self, label: int, value: int, links: List):
         if value == None or links == None:
             return
-        self.init(label, value, signature, links)
+        self.init(label, value, links)
 
     def __str__(self):
         string_links = [str(int) for int in self.links]
         links = ', '.join(string_links)
-        return f'{self.signature} ({self.value}) -> [{links}]'
+        return f'{self.label} ({self.value}) -> [{links}]'
 
     def set_value(self, value):
         self.value = value
@@ -28,14 +27,10 @@ class Node():
     def set_label(self, label: int):
         self.label = label
 
-    def set_signature(self, signature: List):
-        self.signature = signature
-
-    def init(self, label: int, value: int, signature: List, links: List):
+    def init(self, label: int, value: int, links: List):
         self.set_label(label)
         self.set_value(value)
         self.set_links(links)
-        self.set_signature(signature)
         if not self.validate():
             raise Exception(
                 f'Node {self.label}({self.value}) is trying to link to itself.')
@@ -93,7 +88,7 @@ class Graph():
                 if label in another_node.links:
                     links_check.append(another_node.label)
             if sorted(links_check) != sorted(node.links):
-                print(f'node {node.signature} needs to be rechecked')
+                print(f'node {node.label} needs to be rechecked')
                 valid = False
         if valid:
             print('The graph is valid')
@@ -153,14 +148,14 @@ class Graph():
         print('== Distance Map ==')
         print('===')
         for node in self.distance_map:
-            print(f'{node.signature}({node.label}):')
+            print(f'{node.label}:')
             for link, distance in self.distance_map[node].items():
                 print(f'    {link} : {distance}')
             print('---')
         print('===')
 
     def process_node_distances(self, node, parent):
-        print(f'== Processing distances for {node.signature}')
+        print(f'== Processing distances for {node.label}')
         '''
         == NEW PROCEDURE ==
         BackProp - check if the new node provides shorter paths to his links
@@ -172,9 +167,9 @@ class Graph():
         Inherit - get all links from prev that are not present in node - add them as + 1
         ''' 
         # BACKPROPAGATION
-        print(f'* BACKPROPAGATION checking for new distances to {node.signature}`s links')
+        print(f'* BACKPROPAGATION checking for new distances to {node.label}`s links')
         for prev_node in self.distance_map:
-            print(f'  -   checking if {prev_node.signature} has got a new path to new links')
+            print(f'  -   checking if {prev_node.label} has got a new path to new links')
             for link in node.links:
                 # skip backlinks
                 if link == prev_node.label:
@@ -182,27 +177,27 @@ class Graph():
                 # the previous node does not know about the new link - set it to the distance to parent + 1
                 if prev_node is parent:
                     if link not in self.distance_map[prev_node]:
-                        print(f'    --  {prev_node.signature} got NEW link - {link} at distance 2')
+                        print(f'    --  {prev_node.label} got NEW link - {link} at distance 2')
                         self.distance_map[prev_node][link] = 2
                     elif self.distance_map[prev_node][link] > 2:
-                        print(f'    --  {prev_node.signature} UPDATED link - {link} at distance 2')
+                        print(f'    --  {prev_node.label} UPDATED link - {link} at distance 2')
                         self.distance_map[prev_node][link] = 2
                 else:
                     if link not in self.distance_map[prev_node]:
                     # if the previos node has distance to the new link longer than the distance through the new node
-                        print(f'    --  {prev_node.signature} got NEW link - {link} at distance {self.distance_map[prev_node][node.label] + 1}')
+                        print(f'    --  {prev_node.label} got NEW link - {link} at distance {self.distance_map[prev_node][node.label] + 1}')
                         self.distance_map[prev_node][link] = self.distance_map[prev_node][node.label] + 1
                     elif self.distance_map[prev_node][link] > self.distance_map[prev_node][node.label] + 1:
-                        print(f'    --  {prev_node.signature} got UPDATED link - {link} at distance {self.distance_map[prev_node][node.label] + 1}')
+                        print(f'    --  {prev_node.label} got UPDATED link - {link} at distance {self.distance_map[prev_node][node.label] + 1}')
                         self.distance_map[prev_node][link] = self.distance_map[prev_node][node.label] + 1
 
         # DECLARATION
-        print(f'- DECLARATION for {node.signature}')
+        print(f'- DECLARATION for {node.label}')
         if node in self.distance_map:
-            raise Exception (f'Node {node.signature} is already in distance map')
+            raise Exception (f'Node {node.label} is already in distance map')
         self.distance_map[node] = {}
         for link in node.links:
-            print(f'    -   Node {node.signature} declared new link to {link} at distance 1')
+            print(f'    -   Node {node.label} declared new link to {link} at distance 1')
             self.distance_map[node][link] = 1
 
         # INHERITENCE
@@ -210,19 +205,19 @@ class Graph():
             print('No parent to inherit links from')
             print(' \n')
             return
-        print(f'INHERITENCE new links for {node.signature} from parent {parent.signature}')
+        print(f'INHERITENCE new links for {node.label} from parent {parent.label}')
         for parent_link in parent.links:
             if parent_link == node.label:
                 continue
             if parent_link not in self.distance_map[node]:
-                print(f'    --  Node {node.signature} inherited link to {parent_link} as distance {self.distance_map[parent][parent_link] + 1}')
+                print(f'    --  Node {node.label} inherited link to {parent_link} as distance {self.distance_map[parent][parent_link] + 1}')
                 self.distance_map[node][parent_link] = self.distance_map[parent][parent_link] + 1
         print(' \n')
         pass
 
 
     def process_node_distances_(self, node, parent):
-        print(f'Processing distances for {node.signature}')
+        print(f'Processing distances for {node.label}')
         '''
         == NEW PROCEDURE ==
         Declare - write the new node in distance map:

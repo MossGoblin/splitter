@@ -160,14 +160,73 @@ class Graph():
         print('===')
 
     def process_node_distances(self, node, parent):
+        print(f'== Processing distances for {node.signature}')
+        '''
+        == NEW PROCEDURE ==
+        BackProp - check if the new node provides shorter paths to his links
+            *   if the prev has a link to the node link and it is larger than 2, set it to 2
+            *   if the prev has a link to the node link and it is 2 or less, leave it
+            *   if the prev does not have a link to the node link, create it as 2
+        Declare - write the new node in distance map:
+            *   record new node links as distances
+        Inherit - get all links from prev that are not present in node - add them as + 1
+        ''' 
+        # BACKPROPAGATION
+        print(f'* BACKPROPAGATION checking for new distances to {node.signature}`s links')
+        for prev_node in self.distance_map:
+            print(f'  -   checking if {prev_node.signature} has got a new path to new links')
+            for link in node.links:
+                # skip backlinks
+                if link == prev_node.label:
+                    continue
+                # the previous node does not know about the new link - set it to the distance to parent + 1
+                if prev_node is parent:
+                    if link not in self.distance_map[prev_node]:
+                        print(f'    --  {prev_node.signature} got NEW link - {link} at distance 2')
+                        self.distance_map[prev_node][link] = 2
+                    elif self.distance_map[prev_node][link] > 2:
+                        print(f'    --  {prev_node.signature} UPDATED link - {link} at distance 2')
+                        self.distance_map[prev_node][link] = 2
+                else:
+                    if link not in self.distance_map[prev_node]:
+                    # if the previos node has distance to the new link longer than the distance through the new node
+                        print(f'    --  {prev_node.signature} got NEW link - {link} at distance {self.distance_map[prev_node][node.label] + 1}')
+                        self.distance_map[prev_node][link] = self.distance_map[prev_node][node.label] + 1
+                    elif self.distance_map[prev_node][link] > self.distance_map[prev_node][node.label] + 1:
+                        print(f'    --  {prev_node.signature} got UPDATED link - {link} at distance {self.distance_map[prev_node][node.label] + 1}')
+                        self.distance_map[prev_node][link] = self.distance_map[prev_node][node.label] + 1
+
+        # DECLARATION
+        print(f'- DECLARATION for {node.signature}')
+        if node in self.distance_map:
+            raise Exception (f'Node {node.signature} is already in distance map')
+        self.distance_map[node] = {}
+        for link in node.links:
+            print(f'    -   Node {node.signature} declared new link to {link} at distance 1')
+            self.distance_map[node][link] = 1
+
+        # INHERITENCE
+        if not parent:
+            print('No parent to inherit links from')
+            print(' \n')
+            return
+        print(f'INHERITENCE new links for {node.signature} from parent {parent.signature}')
+        for parent_link in parent.links:
+            if parent_link == node.label:
+                continue
+            if parent_link not in self.distance_map[node]:
+                print(f'    --  Node {node.signature} inherited link to {parent_link} as distance {self.distance_map[parent][parent_link] + 1}')
+                self.distance_map[node][parent_link] = self.distance_map[parent][parent_link] + 1
+        print(' \n')
+        pass
+
+
+    def process_node_distances_(self, node, parent):
         print(f'Processing distances for {node.signature}')
         '''
         == NEW PROCEDURE ==
         Declare - write the new node in distance map:
-            *   record new links as distances
-            *   check all previous nodes against the new node:
-                *   if they have no record of it, set it to distance to parent + 1
-                *   if they have a distance to the new node, conpare it with distance to parent + 1 and record the lower
+            *   record new node links as distances
         BackProp - edit the links of all previously recorded nodes
             *   if the prev has a link to the node link and it is larger than 2, set it to 2
             *   if the prev has a link to the node link and it is 2 or less, leave it

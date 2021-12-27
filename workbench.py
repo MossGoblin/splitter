@@ -3,6 +3,8 @@ from typing import Dict, List
 import json
 import copy
 
+CONSOLE_DUMP = False
+
 
 class WorkBench():
     label_list = {}
@@ -28,7 +30,6 @@ class WorkBench():
                 break
         return new_label
 
-
     def add_level_to_labels(self):
         new_label_list = copy.deepcopy(self.label_list)
         self.label_list_level = self.label_list_level + 1
@@ -45,3 +46,8 @@ class WorkBench():
         with open(node_list_filename, 'r') as file:
             node_dict = json.load(file)
         return node_dict
+
+
+def report(message):
+    if CONSOLE_DUMP:
+        print(message)

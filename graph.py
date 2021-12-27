@@ -91,10 +91,10 @@ class Graph():
                 if label in another_node.links:
                     links_check.append(another_node.label)
             if sorted(links_check) != sorted(node.links):
-                print(f'node {node.sig} needs to be rechecked')
+                wb.report(f'node {node.sig} needs to be rechecked')
                 valid = False
         if valid:
-            print('The graph is valid')
+            wb.report('The graph is valid')
 
     def find_distances(self):
         distance_queue = []
@@ -116,29 +116,29 @@ class Graph():
         if not self.verify_cmg(node):
             raise Exception(
                 f'Adding node {node.sig} failed - no nbrs to existing map nodes')
-        print(f'Adding node {node.sig} to distance graph')
+        wb.report(f'Adding node {node.sig} to distance graph')
         # DECLARE - add the node to the graph
-        print(f'*   Declaring {node.sig}')
+        wb.report(f'*   Declaring {node.sig}')
         self.distance_map[node] = {}
         # distance to self is always 0
         self.distance_map[node][node.label] = 0
         # add node nbrs to map
-        print(f'*   Adding nbrs of {node.sig}')
+        wb.report(f'*   Adding nbrs of {node.sig}')
         for nbr in node.links:
-            print(f'    -   Nbr {nbr} added')
+            wb.report(f'    -   Nbr {nbr} added')
             self.distance_map[node][nbr] = 1
             if self.get_node(nbr) in self.distance_map and node.label not in self.distance_map[self.get_node(nbr)]:
                 self.distance_map[self.get_node(nbr)][node.label] = 1
         # process links to all other nodes
         self.adjust_distances_to_node(node)
         self.adjust_old_distances_through_node(node)
-        print('== == ==\n')
+        wb.report('== == ==\n')
         pass
 
     def adjust_distances_to_node(self, node):
-        print(f'*   Adding nbrs of {node.sig}')
+        wb.report(f'*   Adding nbrs of {node.sig}')
         if len(self.distance_map) == 1:
-            print(f'    *   No distances to adjust for {node.sig}')
+            wb.report(f'    *   No distances to adjust for {node.sig}')
             return
         # find all parents of node
         parents = []
@@ -158,12 +158,12 @@ class Graph():
                 distance = self.distance_map[distant_node][parent.label] + 1
                 if distance < min_distance:
                     min_distance = distance
-            print(f'    *   Distance between {node.sig} and {distant_node.sig} recorded as {min_distance}')
+            wb.report(f'    *   Distance between {node.sig} and {distant_node.sig} recorded as {min_distance}')
             self.distance_map[node][distant_node.label] = min_distance
             self.distance_map[distant_node][node.label] = min_distance
 
     def adjust_old_distances_through_node(self, node):
-        print(f'    *   Checking distances between old nodes through {node.sig}')
+        wb.report(f'    *   Checking distances between old nodes through {node.sig}')
         # Iterate pais of nodes (other than node)
         for node_one, node_two in self.distance_map_pairs(node):
             if node_one.label in self.distance_map[node_two] and self.distance_map[node_two][node_one.label] == 1:
@@ -173,7 +173,7 @@ class Graph():
                     self.distance_map[node_two][node.label]
                 self.distance_map[node_two][node_one.label] = self.distance_map[node_one][node.label] + \
                     self.distance_map[node_two][node.label]
-                print(f'      *   Distance between {node_one.sig} and {node_two.sig} adjusted to {self.distance_map[node_one][node_two.label]}')
+                wb.report(f'      *   Distance between {node_one.sig} and {node_two.sig} adjusted to {self.distance_map[node_one][node_two.label]}')
         pass
 
     def distance_map_pairs(self, excluded_nodes):
@@ -205,11 +205,11 @@ class Graph():
         return False
 
     def print_distance_map(self):
-        print('== Distance Map ==')
-        print('===')
+        wb.report('== Distance Map ==')
+        wb.report('===')
         for node in self.distance_map:
-            print(f'{node.sig}:')
+            wb.report(f'{node.sig}:')
             for link, distance in self.distance_map[node].items():
-                print(f'    {link} : {distance}')
-            print('---')
-        print('===')
+                wb.report(f'    {link} : {distance}')
+            wb.report('---')
+        wb.report('===')

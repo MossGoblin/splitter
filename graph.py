@@ -1,8 +1,6 @@
 from typing import Dict, List
 import workbench as wb
-import math
-import queue
-import collections
+import json
 
 
 class Node():
@@ -108,11 +106,11 @@ class Graph():
                 if nbr not in processed_nodes:
                     distance_queue.append(self.get_node(nbr))
                     processed_nodes.append(nbr)
-            self.add_node_to_distance_graph(node_to_add)
+            self.add_node_to_distance_map(node_to_add)
         pass
         self.print_distance_map()
 
-    def add_node_to_distance_graph(self, node):
+    def add_node_to_distance_map(self, node):
         # Check if the node can be added - needs to be adjacent to at least on other node in the map
         if not self.verify_cmg(node):
             raise Exception(
@@ -234,8 +232,8 @@ class Graph():
                     distance_distribution[distance].append(sorted([node.label, distant_node_distance]))
                 elif sorted([node.label, distant_node_distance]) not in distance_distribution[distance]:
                     distance_distribution[distance].append(sorted([node.label, distant_node_distance]))
-        wb.report(f'Distance distrubution done')
-        wb.report(distance_distribution)
+        wb.report(f'Distance distrubution built')
+        wb.report(json.dumps(distance_distribution))
         pass
 
 

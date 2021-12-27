@@ -7,8 +7,9 @@ def main():
     print(gr)
     gr.find_distances()
     new_node = Node("j", 4, ["g", "h", "i"])
-    gr.add_node_to_distance_graph(new_node)
+    # gr.add_node_to_distance_graph(new_node)
     print(gr.print_distance_map())
+    gr.get_peripheral_nodes(2)
 
 def create_graph_from_file(node_list_fliename: str = None) -> Graph:
     wb = WorkBench()

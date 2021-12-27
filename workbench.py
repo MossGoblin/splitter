@@ -3,7 +3,7 @@ from typing import Dict, List
 import json
 import copy
 
-CONSOLE_DUMP = False
+CONSOLE_DUMP = True
 
 
 class WorkBench():

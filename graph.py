@@ -2,6 +2,7 @@ from typing import Dict, List
 import workbench as wb
 import math
 import queue
+import collections
 
 
 class Node():
@@ -209,7 +210,34 @@ class Graph():
         wb.report('===')
         for node in self.distance_map:
             wb.report(f'{node.sig}:')
+            wb.report(f'    {node.label} : {self.distance_map[node][node.label]}')
             for link, distance in self.distance_map[node].items():
+                if link == node.label:
+                    continue
                 wb.report(f'    {link} : {distance}')
-            wb.report('---')
+            wb.report('')
         wb.report('===')
+
+    def get_peripheral_nodes(self, node_number):
+        '''
+        find [node_number] nodes that are as far away from each other as possible
+        definition of "as far away from each other as possible":
+            the minimum distance between any two of the selected nodes is as large as possible
+        '''
+        distance_distribution = {}
+        # get a list of all possible distances
+        for node, distant_node in self.distance_map.items():
+            for distant_node_distance in distant_node:
+                distance = self.distance_map[node][distant_node_distance]
+                if distance not in distance_distribution:
+                    distance_distribution[distance] = []
+                    distance_distribution[distance].append(sorted([node.label, distant_node_distance]))
+                elif sorted([node.label, distant_node_distance]) not in distance_distribution[distance]:
+                    distance_distribution[distance].append(sorted([node.label, distant_node_distance]))
+        wb.report(f'Distance distrubution done')
+        wb.report(distance_distribution)
+        pass
+
+
+
+        pass

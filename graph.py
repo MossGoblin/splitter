@@ -3,6 +3,7 @@ import workbench as wb
 import math
 import queue
 
+
 class Node():
     label = ''
     value = 0
@@ -28,7 +29,6 @@ class Node():
     def set_label(self, label: int):
         self.label = label
         self.sig = '[' + label + ']'
-
 
     def init(self, label: int, value: int, links: List):
         self.set_label(label)
@@ -96,36 +96,6 @@ class Graph():
         if valid:
             print('The graph is valid')
 
-
-    def process_graph(self, split_number: int):
-        '''
-        == PROCESS ==
-        Find all distances within the map
-        Select (split) number of nodes that are as far away from each other as possible (definition to be scrutinized -> highest min distance)
-        Spread sub-networks from each of the nodes simultaneously until all nodes are within any one of the subnetworks
-        Negotiate bordering nodes to adjust subnetwork weights
-
-                == (OBSOLETE) ==
-                start iterating from count 0
-                count = 0:
-                check if there are (split-1) nodes of level = count that:
-                    have no common index in their label
-                    AND
-                    have values with a total deviation no greater than the split_deviation for split_number
-                if NOT:
-                    increase count by 1
-                    Add another level of nodes
-                ADD LEVEL
-                iterate all nodes in node_map with the highest level
-                    for each node calculate all couples between that node and their linked level 0 nodes and add the couples to the node_map:
-                        for A and B being each two connected nodes
-                        label = sort([A, B])
-                        value = A.value + B.value
-                        links = A.links + B.links -> remove A and B from the new list AND remove all duplicates
-                        level = count (the first is 1)
-        '''
-        pass
-
     def find_distances(self):
         distance_queue = []
         processed_nodes = []
@@ -141,11 +111,11 @@ class Graph():
         pass
         self.print_distance_map()
 
-
     def add_node_to_distance_graph(self, node):
         # Check if the node can be added - needs to be adjacent to at least on other node in the map
         if not self.verify_cmg(node):
-            raise Exception(f'Adding node {node.sig} failed - no nbrs to existing map nodes')
+            raise Exception(
+                f'Adding node {node.sig} failed - no nbrs to existing map nodes')
         print(f'Adding node {node.sig} to distance graph')
         # DECLARE - add the node to the graph
         print(f'*   Declaring {node.sig}')
@@ -174,7 +144,8 @@ class Graph():
             if self.get_node(nbr) in self.distance_map:
                 parents.append(self.get_node(nbr))
         if len(parents) == 0:
-            raise Exception(f'Something went wrong. Could not find a parent for {node.sig}')
+            raise Exception(
+                f'Something went wrong. Could not find a parent for {node.sig}')
 
         # the distance from the other nodes to node equals their distance to parent + 1
         min_distance = len(self.distance_map)
@@ -190,15 +161,22 @@ class Graph():
             self.distance_map[distant_node][node.label] = min_distance
 
     def adjust_old_distances_through_node(self, node):
+        print(f'    *   Checking distances between old nodes through {node.sig}')
         # Iterate pais of nodes (other than node)
         for node_one, node_two in self.distance_map_pairs(node):
+            if node_one.label in self.distance_map[node_two] and self.distance_map[node_two][node_one.label] == 1:
+                continue
             if self.distance_map[node_one][node_two.label] > self.distance_map[node_one][node.label] + self.distance_map[node_two][node.label]:
-                self.distance_map[node_one][node_two.label] = self.distance_map[node_one][node.label] + self.distance_map[node_two][node.label]
-                self.distance_map[node_two][node_one.label] = self.distance_map[node_one][node.label] + self.distance_map[node_two][node.label]
-            print(f'*   Distance between {node_one.sig} and {node_two.sig} adjusted to {self.distance_map[node_one][node_two.label]}')
+                self.distance_map[node_one][node_two.label] = self.distance_map[node_one][node.label] + \
+                    self.distance_map[node_two][node.label]
+                self.distance_map[node_two][node_one.label] = self.distance_map[node_one][node.label] + \
+                    self.distance_map[node_two][node.label]
+                print(f'      *   Distance between {node_one.sig} and {node_two.sig} adjusted to {self.distance_map[node_one][node_two.label]}')
         pass
 
     def distance_map_pairs(self, excluded_nodes):
+        # used to avoid duplicates
+        checked_pairs = []
         if isinstance(excluded_nodes, Node):
             excluded_nodes = [excluded_nodes]
         for node_one in self.distance_map:
@@ -207,8 +185,13 @@ class Graph():
             for node_two in self.distance_map:
                 if node_two in excluded_nodes:
                     continue
+                if node_one is node_two:
+                    continue
+                pair_labels = sorted([node_one.label, node_two.label])
+                if pair_labels in checked_pairs:
+                    continue
+                checked_pairs.append(sorted([node_one.label, node_two.label]))
                 yield (node_one, node_two)
-
 
     def verify_cmg(self, node):
         if len(self.distance_map) == 0:

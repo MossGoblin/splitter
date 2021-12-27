@@ -127,6 +127,8 @@ class Graph():
         for nbr in node.links:
             print(f'    -   Nbr {nbr} added')
             self.distance_map[node][nbr] = 1
+            if self.get_node(nbr) in self.distance_map and node.label not in self.distance_map[self.get_node(nbr)]:
+                self.distance_map[self.get_node(nbr)][node.label] = 1
         # process links to all other nodes
         self.adjust_distances_to_node(node)
         self.adjust_old_distances_through_node(node)
@@ -148,8 +150,8 @@ class Graph():
                 f'Something went wrong. Could not find a parent for {node.sig}')
 
         # the distance from the other nodes to node equals their distance to parent + 1
-        min_distance = len(self.distance_map)
         for distant_node in self.distance_map:
+            min_distance = len(self.distance_map)
             if distant_node.label in self.distance_map[node]:
                 continue
             for parent in parents:

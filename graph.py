@@ -234,8 +234,23 @@ class Graph():
                     distance_distribution[distance].append(sorted([node.label, distant_node_distance]))
         wb.report(f'Distance distrubution built')
         wb.report(json.dumps(distance_distribution))
+
+        # select the peripherals
+        # try to find the requisite number in the highest distance category
+        # if there is no suitable combination, add the lower category and search in the highest two
+        # if needed, repeat by adding another one and so on
+        distribution_cut_off = 1
+        reduced_distribution = self.get_reduced_distribution(distance_distribution, distribution_cut_off)
         pass
 
 
-
-        pass
+    def get_reduced_distribution(self, distance_distribution, cut_off):
+        reduced_distribution = {}
+        sorted_distribution_keys = sorted(distance_distribution.keys(), reverse=True)
+        selected_key_categories = []
+        for key in sorted_distribution_keys:
+            selected_key_categories.append(key)
+            if len(selected_key_categories) > cut_off:
+                break
+            reduced_distribution[key] = distance_distribution[key]
+        return reduced_distribution

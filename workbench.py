@@ -47,6 +47,56 @@ class WorkBench():
             node_dict = json.load(file)
         return node_dict
 
+    def read_nodes_from_graph_file(self, graph_filename: str = None) -> Dict:
+
+        def get_neighbours(graph_array, row_dot, element_dot):
+            nbrs = []
+            nbr_indeces = [(-1, 0), (0, 1), (1, 0), (0, -1)]
+            for nbr_row, nbr_element in nbr_indeces:
+                row_index = row_dot + nbr_row
+                element_index = element_dot + nbr_element
+                if row_index > -1 and row_index < len(graph_array[row_dot]) and element_index > -1 and element_index < len(graph_array):
+                    nbrs.append(graph_array[row_index][element_index])
+            return list(set(nbrs))
+
+        graph_dict = {}
+        graph_array = []
+        if not graph_filename:
+            graph_filename = 'basic.graph'
+        with open(graph_filename, 'r') as file:
+            lines = file.readlines()
+            line_length = 0
+            for line in lines:
+                row = [char for char in line]
+                if '\n' in row:
+                    row.remove('\n')
+                if line_length > 0:
+                    if len(row) != line_length:
+                        raise Exception(
+                            'Graph file seems to have lines of different length')
+                else:
+                    line_length = len(row)
+                graph_array.append(row)
+        for row_index, row in enumerate(graph_array):
+            for element_index, element in enumerate(row):
+                if element not in graph_dict:
+                    graph_dict[element] = {}
+                    graph_dict[element]["links"] = []
+                nbrs = get_neighbours(graph_array, row_index, element_index)
+                for nbr in nbrs:
+                    if nbr == element:
+                        continue
+                    if nbr not in graph_dict[element]["links"]:
+                        graph_dict[element]["links"].append(nbr)
+                print(nbrs)
+        for node in graph_dict:
+            node_count = 0
+            for row in graph_array:
+                node_count = node_count + row.count(node)
+            graph_dict[node]["value"] = node_count
+
+        return graph_dict
+
 
 def report(message):
     if CONSOLE_DUMP:

@@ -10,9 +10,10 @@ def get_label(label_list: List):
     
     return label, label_list
 
-def read_node_list(node_list_filename: str) -> Dict:
+def read_nodes_from_json(node_list_filename: str) -> Dict:
     if not node_list_filename:
         node_list_filename = 'splitter/node_list.json'
     with open(node_list_filename, 'r') as file:
         node_dict = json.load(file)
     return node_dict
+

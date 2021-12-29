@@ -1,5 +1,4 @@
-*   REDO procedure:
-    -   init the whole distance map
-    -   nodes have 0 distance to themselves
-    -   new links are recorded symmetrically
-    -   updates are recorded symmetrically
+*   TODO:
+    -   keep all pairs sorted
+    -   add sorting of arrays of pairs
+        -   keep only unique values in checked_pairs list

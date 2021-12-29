@@ -1,11 +1,1 @@
-{
-  "A": { "links": ["D", "B"], "value": 1 },
-  "B": { "links": ["A", "C", "D", "F", "E", "G"], "value": 4 },
-  "C": { "links": ["E", "B"], "value": 1 },
-  "D": { "links": ["B", "F", "A"], "value": 1 },
-  "E": { "links": ["B", "C", "I", "G"], "value": 2 },
-  "F": { "links": ["D", "H", "B", "G"], "value": 2 },
-  "G": { "links": ["E", "B", "F", "I", "H"], "value": 2 },
-  "H": { "links": ["F", "G"], "value": 2 },
-  "I": { "links": ["E", "G"], "value": 1 }
-}
+{"a": {"links": ["b", "d"], "value": 1}, "b": {"links": ["a", "c", "d", "f", "g", "e"], "value": 4}, "c": {"links": ["b", "e"], "value": 1}, "d": {"links": ["b", "a", "f"], "value": 1}, "e": {"links": ["b", "c", "i", "g"], "value": 2}, "f": {"links": ["h", "d", "b", "g"], "value": 2}, "g": {"links": ["b", "e", "f", "i", "h"], "value": 2}, "h": {"links": ["f", "g"], "value": 2}, "i": {"links": ["g", "e"], "value": 1}}

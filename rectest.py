@@ -13,6 +13,7 @@ def getsum(target, nodes, collection, checked_states):
                 # send in
     # if there are no mode nodes - return fail
     '''
+    # add node - unique combination
     for node in nodes:
         if node in collection:
             continue
@@ -40,6 +41,7 @@ def getsum(target, nodes, collection, checked_states):
         collection.pop()
         return getsum(target, nodes, collection, checked_states)
 
+    # nodes exhausted
     return collection, False
                 
 

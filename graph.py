@@ -248,15 +248,18 @@ class Graph():
         '''
         found = False
         # cut_off = 1 # DBG start from 1 in order to check both distance groups 2 and 3
-        cut_off = 0
+        cut_off = 1
         while not found:
             cut_off = cut_off + 1
             peripheral_group = []
             reduced_distribution = self.get_reduced_distribution(distance_distribution, cut_off)
+            distribution_flatmap = self.flatten_reduced_distribution(reduced_distribution)
+
 
             # DBG only
             checked_pairs = []
-            peripheral_group, found = self.search_reduced_distribution_for_peripherals(reduced_distribution, peripheral_group, node_number, checked_pairs)
+            peripheral_group, found = self.search_reduced_distribution_for_peripherals(distribution_flatmap, peripheral_group, node_number, checked_pairs)
+            wb.report(f'Periferals found: {peripheral_group}')
         pass
 
     def search_reduced_distribution_for_peripherals(self, distribution, group, count, checked_pairs):
@@ -288,76 +291,57 @@ class Graph():
             # 2nd bool - pair count overshot ?
             return False, True
 
-
-
-        # 1. add new pair from the distribution to the group
-        new_group = copy.deepcopy(group)
-
-        new_pair_added = False
-        for distance, pairs in distribution.items():
-            wb.report(f'. cheking distance {distance}')
-            for pair in pairs:
-                if pair not in new_group:
-                    new_group.append(pair)
-                    new_pair_added = True
-                    checked_pairs.append(pair)
-                    wb.report(f'. adding {pair}')
-                    wb.report(f'. new group {new_group}')
-                    break
-            if not new_pair_added:
-                # the group has been exhausted and peripherals can not be found
-                wb.report(f'. pairs exhausted')
-                return new_group, False
-
-            
-            # build a list of all elements of the group with count of occurences
+        # add new pair - unique combination
+        for distance, pair in distribution:
+            if pair in group:
+                continue
+            state = copy.deepcopy(group)
+            state.append(pair)
+            if state in checked_pairs:
+                continue
+            group = copy.deepcopy(state)
+            checked_pairs.append(state)
+            # add all nodes from group to node_counter
             node_counter = []
-            for pair in new_group:
+            for pair in group:
                 node_counter.extend(pair)
                 node_counter = list(set(node_counter))
+            # calculate check conditions
+            nodes_match, nodes_overshot = node_number_condition(node_counter, count)
+            pairs_match, pairs_overshot = pair_number_condition(group, count)
+            # DBG var
+            can_continue = nodes_match and not nodes_overshot and pairs_match and not pairs_overshot
+            # DBG var
+            overshot = nodes_overshot or pairs_overshot
+            # check for completion
+            if nodes_match and not nodes_overshot and pairs_match and not pairs_overshot:
+                return group, True
 
-            # node_counter = []
-            # for element in new_group:
-            #     if element[0] not in node_counter:
-            #         node_counter.append(element[0])
-            #     if element[1] not in node_counter:
-            #         node_counter.append(element[1])
-            # check for completeness:
-
-            node_count_matching, node_count_overshot = node_number_condition(node_counter, count)
-            pair_matching, pair_count_overshot = pair_number_condition(new_group, count)
-
-            # DBG VERIABLE
-            can_continue = not node_count_overshot and not pair_count_overshot
-
-            if node_count_matching and not node_count_overshot and pair_matching and not pair_count_overshot:
-                # we have found a group with the exact number of nodes and pairs
-                # COMPLETE
-                wb.report(f'. group completed: {new_group}')
-                return new_group, True
-
-
-            # if not complete:
-            # check if we can continue
-            if node_count_overshot or pair_count_overshot:
-                # the last iteration overshot the number of pairs OR nodes
-                # return without the new pair pair and declare not finished
-                wb.report(f'. target overshot: {new_group} -> {"nodes" if node_count_overshot else "pairs"}')
-                wb.report(f'. reverting to : {group}')
-                return group, False
-
-            # if the pair count and the node count did not overshoot
-            # continue digging in
-            wb.report(f'. digging in with {new_group}')
-            group, completed = self.search_reduced_distribution_for_peripherals(distribution, new_group, count, checked_pairs)
-            if completed:
-                wb.report(f'. group found: {group}')
-                return group, completed
-            # reset new_group
-            new_group = copy.deepcopy(group)
-        wb.report(f'. reverting to : {group}')
+            # not complete
+            else:
+                # if over
+                if nodes_overshot or pairs_overshot:
+                    group.pop()
+                    return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs)
+                # if under
+                else:
+                    return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs)
+        # no more pairs in the distance class
+        if len(group) > 0:
+            group.pop()
+            return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs)
+        
+        # distribution exhausted
         return group, False
 
+    def flatten_reduced_distribution(self, distribution):
+        flatmap = []
+        for distance, pairs in distribution.items():
+            for pair in pairs:
+                pair = sorted(pair, key=lambda element: element[0])
+                flatmap.append((distance, pair))
+        flatmap = sorted(flatmap, key=lambda tup: tup[0], reverse=True)
+        return flatmap
 
     def get_reduced_distribution(self, distance_distribution, cut_off):
         reduced_distribution = {}

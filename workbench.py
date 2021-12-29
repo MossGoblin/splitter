@@ -55,7 +55,7 @@ class WorkBench():
             for nbr_row, nbr_element in nbr_indeces:
                 row_index = row_dot + nbr_row
                 element_index = element_dot + nbr_element
-                if row_index > -1 and row_index < len(graph_array[row_dot]) and element_index > -1 and element_index < len(graph_array):
+                if row_index > -1 and row_index < len(graph_array[row_dot]) and element_index > -1 and element_index < len(row):
                     nbrs.append(graph_array[row_index][element_index])
             return list(set(nbrs))
 

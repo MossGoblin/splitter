@@ -248,7 +248,7 @@ class Graph():
         '''
         found = False
         # cut_off = 1 # DBG start from 1 in order to check both distance groups 2 and 3
-        cut_off = 1
+        cut_off = 0
         while not found:
             cut_off = cut_off + 1
             peripheral_group = []
@@ -259,7 +259,13 @@ class Graph():
             # DBG only
             checked_pairs = []
             peripheral_group, found = self.search_reduced_distribution_for_peripherals(distribution_flatmap, peripheral_group, node_number, checked_pairs)
-            wb.report(f'Periferals found: {peripheral_group}')
+            if found:
+                peripherals = []
+                for pair in peripheral_group:
+                    peripherals.extend(pair)
+                    peripherals = list(set(peripherals))
+                wb.report(f'Periferals found: {peripherals}')
+                break
         pass
 
     def search_reduced_distribution_for_peripherals(self, distribution, group, count, checked_pairs):

@@ -25,7 +25,7 @@ def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:
 
 def create_graph_from_graph_file(node_list_fliename: str = None) -> Graph:
     wb = WorkBench()
-    node_dict = wb.read_nodes_from_graph_file(node_list_fliename)
+    node_dict = wb.read_nodes_from_graph_file(node_list_fliename, save_json=True)
     gr = Graph()
     for node_label, node_attributes in node_dict.items():
         label = node_label

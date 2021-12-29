@@ -239,8 +239,14 @@ class Graph():
         # try to find the requisite number in the highest distance category
         # if there is no suitable combination, add the lower category and search in the highest two
         # if needed, repeat by adding another one and so on
+        # TODO make recursive
         distribution_cut_off = 1
         reduced_distribution = self.get_reduced_distribution(distance_distribution, distribution_cut_off)
+        peripherals = self.search_reduced_distribution_for_peripherals(reduced_distribution)
+        pass
+
+    def search_reduced_distribution_for_peripherals(self, reduced_distribution):
+        # HERE
         pass
 
 

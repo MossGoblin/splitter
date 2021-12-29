@@ -1,0 +1,11 @@
+{
+  "A": { "links": ["D", "B"], "value": 1 },
+  "B": { "links": ["A", "C", "D", "F", "E", "G"], "value": 4 },
+  "C": { "links": ["E", "B"], "value": 1 },
+  "D": { "links": ["B", "F", "A"], "value": 1 },
+  "E": { "links": ["B", "C", "I", "G"], "value": 2 },
+  "F": { "links": ["D", "H", "B", "G"], "value": 2 },
+  "G": { "links": ["E", "B", "F", "I", "H"], "value": 2 },
+  "H": { "links": ["F", "G"], "value": 2 },
+  "I": { "links": ["E", "G"], "value": 1 }
+}

@@ -47,7 +47,7 @@ class WorkBench():
             node_dict = json.load(file)
         return node_dict
 
-    def read_nodes_from_graph_file(self, graph_filename: str = None) -> Dict:
+    def read_nodes_from_graph_file(self, graph_filename: str = None, save_json: bool = False) -> Dict:
 
         def get_neighbours(graph_array, row_dot, element_dot):
             nbrs = []
@@ -94,6 +94,11 @@ class WorkBench():
             for row in graph_array:
                 node_count = node_count + row.count(node)
             graph_dict[node]["value"] = node_count
+
+        if save_json:
+            filename = f'graph_{len(graph_array)}_{len(graph_array[0])}.json'
+            with open(filename, 'w') as json_output:
+                json.dump(graph_dict, json_output)
 
         return graph_dict
 

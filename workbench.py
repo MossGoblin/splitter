@@ -2,6 +2,8 @@ from string import ascii_letters, ascii_lowercase, ascii_uppercase
 from typing import Dict, List
 import json
 import copy
+import sympy
+from sympy.ntheory.generate import prime
 
 CONSOLE_DUMP = True
 
@@ -101,6 +103,17 @@ class WorkBench():
                 json.dump(graph_dict, json_output)
 
         return graph_dict
+
+def primes(primes_count=10):
+    # # Return a list of N primes
+    # primes_list = []
+    # for counter in range(0, primes_count):
+    #     primes_list.append(prime(counter + 1))
+    # return primes_list
+    num = 1
+    while True:
+        yield prime(num)
+        num += 1
 
 
 def report(message):

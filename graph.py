@@ -7,7 +7,6 @@ class Node():
     label = ''
     value = 0
     links = []
-    # sig = '[' + label + ']'
 
     def __init__(self, label: int, value: int, links: List):
         if value == None or links == None:
@@ -256,10 +255,8 @@ class Graph():
             distribution_flatmap = self.flatten_reduced_distribution(reduced_distribution)
 
 
-            # DBG only
-            checked_pairs = []
-            recursion_depth = 0
-            peripheral_group, found = self.search_reduced_distribution_for_peripherals(distribution_flatmap, peripheral_group, node_number, checked_pairs, recursion_depth)
+            # peripheral_group, found = self.search_reduced_distribution_for_peripherals(distribution_flatmap, peripheral_group, node_number, checked_pairs)
+            peripheral_group, found = self.sift_for_peripherals(distribution_flatmap, node_number)
             if found:
                 peripherals = []
                 for pair in peripheral_group:
@@ -269,9 +266,7 @@ class Graph():
                 break
         pass
 
-    def search_reduced_distribution_for_peripherals(self, distribution, group, count, checked_pairs, recursion_depth):
-        recursion_depth = recursion_depth + 1
-        wb.report(f'> rec {recursion_depth}')
+    def search_reduced_distribution_for_peripherals(self, distribution, group, count, checked_pairs):
         def node_number_condition(node_counter, count):
             if len(node_counter) < count:
                 # 1st bool - node number matching ?
@@ -330,16 +325,14 @@ class Graph():
                 # if over
                 if nodes_overshot or pairs_overshot:
                     group.pop()
-                    recursion_depth = recursion_depth - 1
-                    return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs, recursion_depth)
+                    return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs)
                 # if under
                 else:
-                    return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs, recursion_depth)
+                    return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs)
         # no more pairs in the distance class
         if len(group) > 0:
             group.pop()
-            recursion_depth = recursion_depth - 1
-            return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs, recursion_depth)
+            return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs)
         
         # distribution exhausted
         return group, False
@@ -363,3 +356,52 @@ class Graph():
                 break
             reduced_distribution[key] = distance_distribution[key]
         return reduced_distribution
+
+    def sift_for_peripherals(self, distribution, count):
+        # 1. Sift out nodes that could not be part of the peripherals
+        wb.report(f'SIFTING for {count} peripherals')
+        wb.report(distribution)
+        # 1.1 build node list
+        node_collection = {}
+        for distance, nodes in distribution:
+            if nodes[0] not in node_collection:
+                node_collection[nodes[0]] = []
+            if nodes[1] not in node_collection:
+                node_collection[nodes[1]] = []
+            node_collection[nodes[0]].append(nodes[1])
+            node_collection[nodes[1]].append(nodes[0])
+
+        # 1.2 Remove all nodes with less than [count-1] links
+        sieved_nodes = {}
+        for node, node_data in node_collection.items():
+            if len(node_collection[node]) >= count - 1:
+                sieved_nodes[node] = []
+                sieved_nodes[node] = node_data
+        if len(sieved_nodes) < count:
+            return [], False
+
+        # 2. Convert sieved_nodes to primes and build composite values
+        primes_map = {}
+        pr_list = wb.primes()
+        for node, node_data in sieved_nodes.items():
+            # TODO get next prime
+            prime = next(pr_list)
+            primes_map[node] = {}
+            primes_map[node]['prime_value'] = prime
+            primes_map[node]['composite_value'] = prime
+        
+        wb.report(primes_map)
+        for node, node_data in sieved_nodes.items():
+            for link in node_data:
+                primes_map[node]['composite_value'] = primes_map[node]['composite_value'] * primes_map[link]['composite_value']
+        
+        wb.report(primes_map)
+
+        for node, node_data in primes_map.items():
+            for candidate in primes_map:
+                if candidate == node:
+                    continue
+                if primes_map[candidate]["composite_value"] % primes_map[node]["composite_value"] == 0:
+                    wb.report(f'{node}({primes_map[node]["composite_value"]}) -- {candidate}({primes_map[candidate]["composite_value"]}) => {primes_map[candidate]["composite_value"] / primes_map[node]["composite_value"]}')
+        # HERE
+        pass

@@ -258,7 +258,8 @@ class Graph():
 
             # DBG only
             checked_pairs = []
-            peripheral_group, found = self.search_reduced_distribution_for_peripherals(distribution_flatmap, peripheral_group, node_number, checked_pairs)
+            recursion_depth = 0
+            peripheral_group, found = self.search_reduced_distribution_for_peripherals(distribution_flatmap, peripheral_group, node_number, checked_pairs, recursion_depth)
             if found:
                 peripherals = []
                 for pair in peripheral_group:
@@ -268,8 +269,9 @@ class Graph():
                 break
         pass
 
-    def search_reduced_distribution_for_peripherals(self, distribution, group, count, checked_pairs):
-
+    def search_reduced_distribution_for_peripherals(self, distribution, group, count, checked_pairs, recursion_depth):
+        recursion_depth = recursion_depth + 1
+        wb.report(f'> rec {recursion_depth}')
         def node_number_condition(node_counter, count):
             if len(node_counter) < count:
                 # 1st bool - node number matching ?
@@ -328,14 +330,16 @@ class Graph():
                 # if over
                 if nodes_overshot or pairs_overshot:
                     group.pop()
-                    return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs)
+                    recursion_depth = recursion_depth - 1
+                    return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs, recursion_depth)
                 # if under
                 else:
-                    return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs)
+                    return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs, recursion_depth)
         # no more pairs in the distance class
         if len(group) > 0:
             group.pop()
-            return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs)
+            recursion_depth = recursion_depth - 1
+            return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs, recursion_depth)
         
         # distribution exhausted
         return group, False

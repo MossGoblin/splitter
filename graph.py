@@ -357,9 +357,15 @@ class Graph():
             reduced_distribution[key] = distance_distribution[key]
         return reduced_distribution
 
-    def sift_for_peripherals(self, distribution, count):
-        # 1. Sift out nodes that could not be part of the peripherals
-        wb.report(f'SIFTING for {count} peripherals')
+    def sift_for_peripherals(self, distribution, target):
+        '''
+        Requirements for the group of peripherals:
+        1. the groups has [target] number of nodes
+        2. all the links between the nodes in the group are within the distribution
+        '''
+
+
+        wb.report(f'SIFTING for {target} peripherals.')
         wb.report(distribution)
         # 1.1 build node list
         node_collection = {}
@@ -371,15 +377,46 @@ class Graph():
             node_collection[nodes[0]].append(nodes[1])
             node_collection[nodes[1]].append(nodes[0])
 
-        # 1.2 Remove all nodes with less than [count-1] links
+        # 1. Sift out nodes that could not be part of the peripherals
+        #   -   all nodes in the group should be connected to each other
+        #   -   all nodes in the group should have target-1 within the group
+        #   -   therefore all nodes in the distribution should have at least target-1 links within the distribution
+        #   -   remove nodes that do not have target-1 links within the distribution
+        # 1.2 Remove all nodes with less than [target-1] links
         sieved_nodes = {}
         for node, node_data in node_collection.items():
-            if len(node_collection[node]) >= count - 1:
+            if len(node_collection[node]) >= target - 1:
                 sieved_nodes[node] = []
                 sieved_nodes[node] = node_data
-        if len(sieved_nodes) < count:
+        if len(sieved_nodes) < target:
             return [], False
 
+
+        # HERE
+        # take the nodes from sieved_nodes one by one:
+        # - go through the links of the node, remove ones that are not present in the sieved_nodes
+        # - if target-1 nodes remain in the links - return the node + links as a group
+        for node, node_links in sieved_nodes.items():
+            candidate_group = []
+            candidate_group.append(node)
+            links_copy = copy.deepcopy(node_links)
+            for link in links_copy:
+                if link in sieved_nodes:
+                    valid_link = True
+                    for linked_node in links_copy:
+                        if linked_node == link or link == node:
+                            continue
+                        if linked_node not in sieved_nodes[link]:
+                            valid_link = False
+                    if valid_link:
+                        candidate_group.append(link)
+                    else:
+                        links_copy.remove(link)
+            if len(candidate_group) >= target:
+                return candidate_group, True
+
+
+        # DROP THE PRIMES
         # 2. Convert sieved_nodes to primes and build composite values
         primes_map = {}
         pr_list = wb.primes()
@@ -394,7 +431,7 @@ class Graph():
         for node, node_data in sieved_nodes.items():
             for link in node_data:
                 if link in primes_map:
-                    primes_map[node]['composite_value'] = primes_map[node]['composite_value'] * primes_map[link]['composite_value']
+                    primes_map[node]['composite_value'] = primes_map[node]['composite_value'] * primes_map[link]['prime_value']
         
         wb.report(primes_map)
 
@@ -403,8 +440,9 @@ class Graph():
                 if candidate == node:
                     continue
                 if primes_map[candidate]["composite_value"] % primes_map[node]["composite_value"] == 0:
-                    wb.report(f'{node}({primes_map[node]["composite_value"]}) -- {candidate}({primes_map[candidate]["composite_value"]}) => {primes_map[candidate]["composite_value"] / primes_map[node]["composite_value"]}')
-        # HERE
+                    wb.report(f'Node {node}({primes_map[node]["composite_value"]}): {candidate}({primes_map[candidate]["composite_value"]}) / {primes_map[candidate]["composite_value"] / primes_map[node]["composite_value"]}')
+
+        # HERE - NGE
         # 3. Iterate over sorted (asc) primed nodes and group by division
         sorted_primes_list = sorted(primes_map, key=lambda pm: primes_map[pm]['composite_value'])
         group_list = {}
@@ -419,9 +457,9 @@ class Graph():
                 else:
                     # iterate the other existing nodes and check which ones divide clearly into the current one
                     # add them to the group list
-                    for grouped_node in group_list:
-                        if primes_map[label]['composite_value'] % grouped_node == 0:
-                            group_list[grouped_node].append(label)
+                    for grouped_node_value, grouped_node_nodes in group_list.items():
+                        if primes_map[label]['composite_value'] % grouped_node_value == 0:
+                            grouped_node_nodes.append(label)
                             placed = True
                     if not placed:
                         # if none of the other nodes divides clearly into the label node, add the label node as new item in the group list
@@ -431,10 +469,9 @@ class Graph():
             else:
                 group_list[primes_map[label]['composite_value']].append(label)
 
-        # FAIL - THE group_list IS NOT FILTERED WELL - LOOK AT SIEVEING ABOVE
         peripherals_group = []
         for group, group_items in group_list.items():
-            if len(group_items) >= count:
+            if len(group_items) >= target:
                 peripherals_group.append(group_items)
         if len(peripherals_group) > 0:
             return peripherals_group, True

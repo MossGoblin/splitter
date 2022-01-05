@@ -250,20 +250,19 @@ class Graph():
         cut_off = 0
         while not found:
             cut_off = cut_off + 1
-            peripheral_group = []
+            peripherals_list = []
             reduced_distribution = self.get_reduced_distribution(distance_distribution, cut_off)
             distribution_flatmap = self.flatten_reduced_distribution(reduced_distribution)
 
 
             # peripheral_group, found = self.search_reduced_distribution_for_peripherals(distribution_flatmap, peripheral_group, node_number, checked_pairs)
-            peripheral_group, found = self.sift_for_peripherals(distribution_flatmap, node_number)
+            peripherals_list, found = self.sift_for_peripherals(distribution_flatmap, node_number)
             if found:
-                # peripherals = []
-                # for pair in peripheral_group:
-                #     peripherals.extend(pair)
-                #     peripherals = list(set(peripherals))
-                wb.report(f'Periferals found: {peripheral_group}')
-                break
+                wb.report(f'Periferals found: {peripherals_list}')
+                for peripherals in peripherals_list:
+                    wb.report(peripherals)                    
+            else:
+                wb.report('No prefipherals found')
         pass
 
     def search_reduced_distribution_for_peripherals(self, distribution, group, count, checked_pairs):
@@ -359,42 +358,17 @@ class Graph():
 
     def sift_for_peripherals(self, distribution, target):
         '''
-        Requirements for the group of peripherals:
+        REQUIREMENTS for the group of peripherals:
         1. the groups has [target] number of nodes
         2. all the links between the nodes in the group are within the distribution
+        PROCEDURE
+        1.  remomve nodes with less than target-1 links
+        2. for each remaining node - iterate linked nodes
+        2.1 for each linked node - check if it has links to each other linked node
+        2.2 if not - remove one of the two - the one with shorter average link distance within the distribution
+        3. if enough linked nodes remain (target-1) - return the node and it's linked nodes as group
         '''
 
-
-        wb.report(f'SIFTING for {target} peripherals.')
-        wb.report(distribution)
-        # 1.1 build node list
-        node_collection = {}
-        for distance, nodes in distribution:
-            if nodes[0] not in node_collection:
-                node_collection[nodes[0]] = []
-            if nodes[1] not in node_collection:
-                node_collection[nodes[1]] = []
-            node_collection[nodes[0]].append(nodes[1])
-            node_collection[nodes[1]].append(nodes[0])
-
-        # 1. Sift out nodes that could not be part of the peripherals
-        #   -   all nodes in the group should be connected to each other
-        #   -   all nodes in the group should have target-1 within the group
-        #   -   therefore all nodes in the distribution should have at least target-1 links within the distribution
-        #   -   remove nodes that do not have target-1 links within the distribution
-        # 1.2 Remove all nodes with less than [target-1] links
-        sieved_nodes = {}
-        for node, node_data in node_collection.items():
-            if len(node_collection[node]) >= target - 1:
-                sieved_nodes[node] = []
-                sieved_nodes[node] = node_data
-        if len(sieved_nodes) < target:
-            return [], False
-
-
-        # HERE
-        # take the nodes from sieved_nodes one by one:
-        # - leave in the links only those nodes that have links in the distribution to each other in the group
         def flatten_distribution(distribution):
             flat_distribution = []
             for pair_data in distribution:
@@ -415,7 +389,6 @@ class Graph():
             return (running_total / counter) if counter > 0 else 0
 
 
-
         def reduce_group(node_links, distribution, flat_distribution):
             group = copy.deepcopy(node_links)
             for node in node_links:
@@ -434,6 +407,26 @@ class Graph():
 
             return group
 
+        wb.report(f'SIFTING for {target} peripherals.')
+        wb.report(distribution)
+        peripherals_list = []
+        node_collection = {}
+        for distance, nodes in distribution:
+            if nodes[0] not in node_collection:
+                node_collection[nodes[0]] = []
+            if nodes[1] not in node_collection:
+                node_collection[nodes[1]] = []
+            node_collection[nodes[0]].append(nodes[1])
+            node_collection[nodes[1]].append(nodes[0])
+
+        sieved_nodes = {}
+        for node, node_data in node_collection.items():
+            if len(node_collection[node]) >= target - 1:
+                sieved_nodes[node] = []
+                sieved_nodes[node] = node_data
+        if len(sieved_nodes) < target:
+            return [], False
+
         flat_distribution = flatten_distribution(distribution)
         for node, node_links in sieved_nodes.items():
             candidate_group = []
@@ -441,6 +434,9 @@ class Graph():
             candidate_group.append(node)
 
             if len(candidate_group) >= target:
-                return candidate_group, True
+                if sorted(candidate_group) not in peripherals_list:
+                    peripherals_list.append(sorted(candidate_group))
 
-        return [], False
+        if len(peripherals_list) == 0:
+            return [], False
+        return peripherals_list, True

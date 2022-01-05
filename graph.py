@@ -258,11 +258,11 @@ class Graph():
             # peripheral_group, found = self.search_reduced_distribution_for_peripherals(distribution_flatmap, peripheral_group, node_number, checked_pairs)
             peripheral_group, found = self.sift_for_peripherals(distribution_flatmap, node_number)
             if found:
-                peripherals = []
-                for pair in peripheral_group:
-                    peripherals.extend(pair)
-                    peripherals = list(set(peripherals))
-                wb.report(f'Periferals found: {peripherals}')
+                # peripherals = []
+                # for pair in peripheral_group:
+                #     peripherals.extend(pair)
+                #     peripherals = list(set(peripherals))
+                wb.report(f'Periferals found: {peripheral_group}')
                 break
         pass
 
@@ -393,7 +393,8 @@ class Graph():
         wb.report(primes_map)
         for node, node_data in sieved_nodes.items():
             for link in node_data:
-                primes_map[node]['composite_value'] = primes_map[node]['composite_value'] * primes_map[link]['composite_value']
+                if link in primes_map:
+                    primes_map[node]['composite_value'] = primes_map[node]['composite_value'] * primes_map[link]['composite_value']
         
         wb.report(primes_map)
 
@@ -404,4 +405,38 @@ class Graph():
                 if primes_map[candidate]["composite_value"] % primes_map[node]["composite_value"] == 0:
                     wb.report(f'{node}({primes_map[node]["composite_value"]}) -- {candidate}({primes_map[candidate]["composite_value"]}) => {primes_map[candidate]["composite_value"] / primes_map[node]["composite_value"]}')
         # HERE
-        pass
+        # 3. Iterate over sorted (asc) primed nodes and group by division
+        sorted_primes_list = sorted(primes_map, key=lambda pm: primes_map[pm]['composite_value'])
+        group_list = {}
+        for label in sorted_primes_list:
+            placed = False
+            if primes_map[label]['composite_value'] not in group_list:
+                # current composite value is not in the list; check for divisibility
+                if len(group_list) == 0:
+                    # if there are no nodes in the group list - add the current node
+                    group_list[primes_map[label]['composite_value']] = []
+                    group_list[primes_map[label]['composite_value']].append(label)
+                else:
+                    # iterate the other existing nodes and check which ones divide clearly into the current one
+                    # add them to the group list
+                    for grouped_node in group_list:
+                        if primes_map[label]['composite_value'] % grouped_node == 0:
+                            group_list[grouped_node].append(label)
+                            placed = True
+                    if not placed:
+                        # if none of the other nodes divides clearly into the label node, add the label node as new item in the group list
+                        group_list[primes_map[label]['composite_value']] = []
+                        group_list[primes_map[label]['composite_value']].append(label)
+
+            else:
+                group_list[primes_map[label]['composite_value']].append(label)
+
+        # FAIL - THE group_list IS NOT FILTERED WELL - LOOK AT SIEVEING ABOVE
+        peripherals_group = []
+        for group, group_items in group_list.items():
+            if len(group_items) >= count:
+                peripherals_group.append(group_items)
+        if len(peripherals_group) > 0:
+            return peripherals_group, True
+        else:
+            return [], False

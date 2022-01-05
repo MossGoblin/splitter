@@ -6,10 +6,10 @@ def main():
     gr.validate()
     print(gr)
     gr.find_distances()
-    new_node = Node("j", 4, ["g", "h", "i"])
-    gr.add_node_to_distance_map(new_node)
+    # new_node = Node("j", 4, ["g", "h", "i"])
+    # gr.add_node_to_distance_map(new_node)
     print(gr.print_distance_map())
-    gr.get_peripheral_nodes(3)
+    gr.get_peripheral_nodes(5)
 
 def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:
     wb = WorkBench()

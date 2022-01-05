@@ -57,7 +57,7 @@ class WorkBench():
             for nbr_row, nbr_element in nbr_indeces:
                 row_index = row_dot + nbr_row
                 element_index = element_dot + nbr_element
-                if row_index > -1 and row_index < len(graph_array[row_dot]) and element_index > -1 and element_index < len(row):
+                if row_index > -1 and row_index < len(graph_array) and element_index > -1 and element_index < len(graph_array[row_dot]):
                     nbrs.append(graph_array[row_index][element_index])
             return list(set(nbrs))
 
@@ -90,7 +90,7 @@ class WorkBench():
                         continue
                     if nbr not in graph_dict[element]["links"]:
                         graph_dict[element]["links"].append(nbr)
-                print(nbrs)
+                print(f'Recorded nbrs of {element}: {graph_dict[element]["links"]}')
         for node in graph_dict:
             node_count = 0
             for row in graph_array:

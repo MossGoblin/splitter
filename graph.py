@@ -394,86 +394,53 @@ class Graph():
 
         # HERE
         # take the nodes from sieved_nodes one by one:
-        # - go through the links of the node, remove ones that are not present in the sieved_nodes
-        # - if target-1 nodes remain in the links - return the node + links as a group
+        # - leave in the links only those nodes that have links in the distribution to each other in the group
+        def flatten_distribution(distribution):
+            flat_distribution = []
+            for pair_data in distribution:
+                flat_distribution.append(sorted(pair_data[1]))
+            return flat_distribution
+
+
+        def get_link_average(node, distribution, node_group):
+            running_total = 0
+            counter = 0
+            for pair_data in distribution:
+                # we are only interested in pair of nodes from the node group
+                if pair_data[1][0] in node_group and pair_data[1][1] in node_group:
+                    # we are only interested in pairs that contain node
+                    if node in pair_data[1]:
+                        counter = counter + 1
+                        running_total = running_total + pair_data[0]
+            return (running_total / counter) if counter > 0 else 0
+
+
+
+        def reduce_group(node_links, distribution, flat_distribution):
+            group = copy.deepcopy(node_links)
+            for node in node_links:
+                for second_node in group:
+                    if node == second_node:
+                        continue
+                    if node not in group:
+                        continue
+                    if not sorted([node, second_node]) in flat_distribution:
+                        node_avg = get_link_average(node, distribution, group)
+                        second_node_avg = get_link_average(second_node, distribution, group)
+                        # Remove the mode with shorter average links
+                        node_to_remove = second_node if second_node_avg < node_avg else node
+                        group.remove(node_to_remove)
+                        break
+
+            return group
+
+        flat_distribution = flatten_distribution(distribution)
         for node, node_links in sieved_nodes.items():
             candidate_group = []
+            candidate_group = reduce_group(node_links, distribution, flat_distribution)
             candidate_group.append(node)
-            links_copy = copy.deepcopy(node_links)
-            for link in links_copy:
-                if link in sieved_nodes:
-                    valid_link = True
-                    for linked_node in links_copy:
-                        if linked_node == link or link == node:
-                            continue
-                        if linked_node not in sieved_nodes[link]:
-                            valid_link = False
-                    if valid_link:
-                        candidate_group.append(link)
-                    else:
-                        links_copy.remove(link)
+
             if len(candidate_group) >= target:
                 return candidate_group, True
 
-
-        # DROP THE PRIMES
-        # 2. Convert sieved_nodes to primes and build composite values
-        primes_map = {}
-        pr_list = wb.primes()
-        for node, node_data in sieved_nodes.items():
-            # TODO get next prime
-            prime = next(pr_list)
-            primes_map[node] = {}
-            primes_map[node]['prime_value'] = prime
-            primes_map[node]['composite_value'] = prime
-        
-        wb.report(primes_map)
-        for node, node_data in sieved_nodes.items():
-            for link in node_data:
-                if link in primes_map:
-                    primes_map[node]['composite_value'] = primes_map[node]['composite_value'] * primes_map[link]['prime_value']
-        
-        wb.report(primes_map)
-
-        for node, node_data in primes_map.items():
-            for candidate in primes_map:
-                if candidate == node:
-                    continue
-                if primes_map[candidate]["composite_value"] % primes_map[node]["composite_value"] == 0:
-                    wb.report(f'Node {node}({primes_map[node]["composite_value"]}): {candidate}({primes_map[candidate]["composite_value"]}) / {primes_map[candidate]["composite_value"] / primes_map[node]["composite_value"]}')
-
-        # HERE - NGE
-        # 3. Iterate over sorted (asc) primed nodes and group by division
-        sorted_primes_list = sorted(primes_map, key=lambda pm: primes_map[pm]['composite_value'])
-        group_list = {}
-        for label in sorted_primes_list:
-            placed = False
-            if primes_map[label]['composite_value'] not in group_list:
-                # current composite value is not in the list; check for divisibility
-                if len(group_list) == 0:
-                    # if there are no nodes in the group list - add the current node
-                    group_list[primes_map[label]['composite_value']] = []
-                    group_list[primes_map[label]['composite_value']].append(label)
-                else:
-                    # iterate the other existing nodes and check which ones divide clearly into the current one
-                    # add them to the group list
-                    for grouped_node_value, grouped_node_nodes in group_list.items():
-                        if primes_map[label]['composite_value'] % grouped_node_value == 0:
-                            grouped_node_nodes.append(label)
-                            placed = True
-                    if not placed:
-                        # if none of the other nodes divides clearly into the label node, add the label node as new item in the group list
-                        group_list[primes_map[label]['composite_value']] = []
-                        group_list[primes_map[label]['composite_value']].append(label)
-
-            else:
-                group_list[primes_map[label]['composite_value']].append(label)
-
-        peripherals_group = []
-        for group, group_items in group_list.items():
-            if len(group_items) >= target:
-                peripherals_group.append(group_items)
-        if len(peripherals_group) > 0:
-            return peripherals_group, True
-        else:
-            return [], False
+        return [], False

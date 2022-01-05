@@ -261,6 +261,8 @@ class Graph():
                 wb.report(f'Periferals found: {peripherals_list}')
                 for peripherals in peripherals_list:
                     wb.report(peripherals)                    
+                self.peripherals_list = peripherals_list
+                return peripherals_list[0]
             else:
                 wb.report('No prefipherals found')
         pass
@@ -440,3 +442,68 @@ class Graph():
         if len(peripherals_list) == 0:
             return [], False
         return peripherals_list, True
+
+    def creep_splits(self, anchors):
+        '''
+        Initiates one split network per anchor
+        Starts acquiring adjacent nodes to each anchor, taking into account the size of the adjacent nodes - larger are added slower
+        '''
+
+        # build split networks and creep map
+        splits = {} # all split networks
+        creep_map = {} # holder for the creep counters
+        creep_prospects = {} # map of the prospects of each split network
+        claimed_nodes = [] # a list of all claimed nodes
+        for anchor in anchors:
+            splits[anchor] = []
+            splits[anchor].append(anchor)
+            anchor_size = self.get_node(anchor).value
+            creep_map[anchor] = anchor_size * -1 + 1
+            creep_prospects[anchor] = []
+            for link in self.get_node(anchor).links:
+                creep_prospects[anchor].append(link)
+            claimed_nodes.append(anchor)
+        
+        tick = 0
+        while len(claimed_nodes) < len(self.nodes):
+            tick = tick + 1
+            wb.report(f'\nTick [ {tick} ]')
+            for anchor in anchors:
+                wb.report(f'Split {anchor} at {creep_map[anchor]}')
+            # add one tick to each creep
+            for anchor in anchors:
+                creep_map[anchor] = creep_map[anchor] + 1
+                # check in each creep prospect if there is a node to be acquired
+                # make an aeditable copy of the creep prospects to work with
+                current_prospects = copy.deepcopy(creep_prospects[anchor])
+                for prospect in creep_prospects[anchor]:
+                    wb.report(f'-   {anchor} checks {prospect}')
+                    if prospect in claimed_nodes:
+                        wb.report(' -   already claimed')
+                        continue
+                    if creep_map[anchor] >= self.get_node(prospect).value:
+                        wb.report(f'{anchor} ADDS {prospect}')
+                        # add the prospect to the split
+                        splits[anchor].append(prospect)
+                        # add the prospect to the list of all claimed nodes
+                        claimed_nodes.append(prospect)
+                        # remove the prospect from the list of prospects for this split
+                        current_prospects.remove(prospect)
+                        # add to the list of split prospects the nbrs of the previous addition
+                        for link in self.get_node(prospect).links:
+                            if link not in claimed_nodes:
+                                if link in current_prospects:
+                                    continue
+                                current_prospects.append(link)
+                                wb.report(f'-   adding {link} to the prospects of {anchor}')
+                        # reset creep value of the split
+                        creep_map[anchor] = 1
+                # set the creep prospects to the edited current_prospects
+                creep_prospects[anchor] = []
+                for new_prospect in current_prospects:
+                    creep_prospects[anchor].append(new_prospect)
+            pass
+        for anchor in anchors:
+            wb.report(splits[anchor])
+        pass
+        

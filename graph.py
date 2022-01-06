@@ -2,6 +2,10 @@ from typing import Dict, List
 import workbench as wb
 import json
 import copy
+import logging
+
+# logging.basicConfig(filename='processing.log', encoding='utf-8', level=logging.debug)
+
 
 class Node():
     label = ''
@@ -74,12 +78,6 @@ class Graph():
         return None
         pass
 
-    def calculate_deviation(self, split_number) -> Dict:
-        pass
-
-    def calculate_total(self):
-        pass
-
     def validate(self):
         valid = True
         for node in self.nodes:
@@ -89,10 +87,10 @@ class Graph():
                 if label in another_node.links:
                     links_check.append(another_node.label)
             if sorted(links_check) != sorted(node.links):
-                wb.report(f'node {node.sig} needs to be rechecked')
+                logging.error(f'node {node.sig} needs to be rechecked')
                 valid = False
         if valid:
-            wb.report('The graph is valid')
+            logging.debug('The graph is valid')
 
     def find_distances(self):
         distance_queue = []
@@ -106,7 +104,6 @@ class Graph():
                     distance_queue.append(self.get_node(nbr))
                     processed_nodes.append(nbr)
             self.add_node_to_distance_map(node_to_add)
-        pass
         self.print_distance_map()
 
     def add_node_to_distance_map(self, node):
@@ -114,29 +111,28 @@ class Graph():
         if not self.verify_cmg(node):
             raise Exception(
                 f'Adding node {node.sig} failed - no nbrs to existing map nodes')
-        wb.report(f'Adding node {node.sig} to distance graph')
+        logging.debug(f'Adding node {node.sig} to distance graph')
         # DECLARE - add the node to the graph
-        wb.report(f'*   Declaring {node.sig}')
+        logging.debug(f'*   Declaring {node.sig}')
         self.distance_map[node] = {}
         # distance to self is always 0
         self.distance_map[node][node.label] = 0
         # add node nbrs to map
-        wb.report(f'*   Adding nbrs of {node.sig}')
+        logging.debug(f'*   Adding nbrs of {node.sig}')
         for nbr in node.links:
-            wb.report(f'    -   Nbr {nbr} added')
+            logging.debug(f'    -   Nbr {nbr} added')
             self.distance_map[node][nbr] = 1
             if self.get_node(nbr) in self.distance_map and node.label not in self.distance_map[self.get_node(nbr)]:
                 self.distance_map[self.get_node(nbr)][node.label] = 1
         # process links to all other nodes
         self.adjust_distances_to_node(node)
         self.adjust_old_distances_through_node(node)
-        wb.report('== == ==\n')
-        pass
+        logging.debug('\n')
 
     def adjust_distances_to_node(self, node):
-        wb.report(f'*   Adding nbrs of {node.sig}')
+        logging.debug(f'*   Adding nbrs of {node.sig}')
         if len(self.distance_map) == 1:
-            wb.report(f'    *   No distances to adjust for {node.sig}')
+            logging.debug(f'    *   No distances to adjust for {node.sig}')
             return
         # find all parents of node
         parents = []
@@ -156,12 +152,14 @@ class Graph():
                 distance = self.distance_map[distant_node][parent.label] + 1
                 if distance < min_distance:
                     min_distance = distance
-            wb.report(f'    *   Distance between {node.sig} and {distant_node.sig} recorded as {min_distance}')
+            logging.debug(
+                f'    *   Distance between {node.sig} and {distant_node.sig} recorded as {min_distance}')
             self.distance_map[node][distant_node.label] = min_distance
             self.distance_map[distant_node][node.label] = min_distance
 
     def adjust_old_distances_through_node(self, node):
-        wb.report(f'    *   Checking distances between old nodes through {node.sig}')
+        logging.debug(
+            f'    *   Checking distances between old nodes through {node.sig}')
         # Iterate pais of nodes (other than node)
         for node_one, node_two in self.distance_map_pairs(node):
             if node_one.label in self.distance_map[node_two] and self.distance_map[node_two][node_one.label] == 1:
@@ -171,8 +169,8 @@ class Graph():
                     self.distance_map[node_two][node.label]
                 self.distance_map[node_two][node_one.label] = self.distance_map[node_one][node.label] + \
                     self.distance_map[node_two][node.label]
-                wb.report(f'      *   Distance between {node_one.sig} and {node_two.sig} adjusted to {self.distance_map[node_one][node_two.label]}')
-        pass
+                logging.debug(
+                    f'      *   Distance between {node_one.sig} and {node_two.sig} adjusted to {self.distance_map[node_one][node_two.label]}')
 
     def distance_map_pairs(self, excluded_nodes):
         # used to avoid duplicates
@@ -203,17 +201,17 @@ class Graph():
         return False
 
     def print_distance_map(self):
-        wb.report('== Distance Map ==')
-        wb.report('===')
+        logging.debug('\n== Distance Map ==')
         for node in self.distance_map:
-            wb.report(f'{node.sig}:')
-            wb.report(f'    {node.label} : {self.distance_map[node][node.label]}')
+            logging.debug(f'{node.sig}:')
+            logging.debug(
+                f'    {node.label} : {self.distance_map[node][node.label]}')
             for link, distance in self.distance_map[node].items():
                 if link == node.label:
                     continue
-                wb.report(f'    {link} : {distance}')
-            wb.report('')
-        wb.report('===')
+                logging.debug(f'    {link} : {distance}')
+            logging.debug('')
+        logging.debug('\n')
 
     def get_peripheral_nodes(self, node_number):
         '''
@@ -228,17 +226,18 @@ class Graph():
                 distance = self.distance_map[node][distant_node_distance]
                 if distance not in distance_distribution:
                     distance_distribution[distance] = []
-                    distance_distribution[distance].append(sorted([node.label, distant_node_distance]))
+                    distance_distribution[distance].append(
+                        sorted([node.label, distant_node_distance]))
                 elif sorted([node.label, distant_node_distance]) not in distance_distribution[distance]:
-                    distance_distribution[distance].append(sorted([node.label, distant_node_distance]))
-        wb.report(f'Distance distrubution built')
-        wb.report(json.dumps(distance_distribution))
+                    distance_distribution[distance].append(
+                        sorted([node.label, distant_node_distance]))
+        logging.info(f'Distance distrubution built')
+        logging.debug(json.dumps(distance_distribution))
 
         # select the peripherals
         # try to find the requisite number in the highest distance category
         # if there is no suitable combination, add the lower category and search in the highest two
         # if needed, repeat by adding another one and so on
-        # TODO recursiion!
         '''
         Conditions for peripherals in the current distribution:
         In the peripheral group there are
@@ -251,21 +250,22 @@ class Graph():
         while not found:
             cut_off = cut_off + 1
             peripherals_list = []
-            reduced_distribution = self.get_reduced_distribution(distance_distribution, cut_off)
-            distribution_flatmap = self.flatten_reduced_distribution(reduced_distribution)
+            reduced_distribution = self.get_reduced_distribution(
+                distance_distribution, cut_off)
+            distribution_flatmap = self.flatten_reduced_distribution(
+                reduced_distribution)
 
-
-            # peripheral_group, found = self.search_reduced_distribution_for_peripherals(distribution_flatmap, peripheral_group, node_number, checked_pairs)
-            peripherals_list, found = self.sift_for_peripherals(distribution_flatmap, node_number)
+            logging.debug(f'SIFTING for {node_number} peripherals at cut off {cut_off}')
+            peripherals_list, found = self.sift_for_peripherals(
+                distribution_flatmap, node_number)
             if found:
-                wb.report(f'Periferals found: {peripherals_list}')
+                logging.info(f'Periferals found')
                 for peripherals in peripherals_list:
-                    wb.report(peripherals)                    
+                    logging.debug('{peripherals}')
                 self.peripherals_list = peripherals_list
                 return peripherals_list[0]
             else:
-                wb.report('No prefipherals found')
-        pass
+                logging.debug('No prefipherals found')
 
     def search_reduced_distribution_for_peripherals(self, distribution, group, count, checked_pairs):
         def node_number_condition(node_counter, count):
@@ -311,7 +311,8 @@ class Graph():
                 node_counter.extend(pair)
                 node_counter = list(set(node_counter))
             # calculate check conditions
-            nodes_match, nodes_overshot = node_number_condition(node_counter, count)
+            nodes_match, nodes_overshot = node_number_condition(
+                node_counter, count)
             pairs_match, pairs_overshot = pair_number_condition(group, count)
             # DBG var
             can_continue = nodes_match and not nodes_overshot and pairs_match and not pairs_overshot
@@ -334,7 +335,7 @@ class Graph():
         if len(group) > 0:
             group.pop()
             return self.search_reduced_distribution_for_peripherals(distribution, group, count, checked_pairs)
-        
+
         # distribution exhausted
         return group, False
 
@@ -349,7 +350,8 @@ class Graph():
 
     def get_reduced_distribution(self, distance_distribution, cut_off):
         reduced_distribution = {}
-        sorted_distribution_keys = sorted(distance_distribution.keys(), reverse=True)
+        sorted_distribution_keys = sorted(
+            distance_distribution.keys(), reverse=True)
         selected_key_categories = []
         for key in sorted_distribution_keys:
             selected_key_categories.append(key)
@@ -377,7 +379,6 @@ class Graph():
                 flat_distribution.append(sorted(pair_data[1]))
             return flat_distribution
 
-
         def get_link_average(node, distribution, node_group):
             running_total = 0
             counter = 0
@@ -390,7 +391,6 @@ class Graph():
                         running_total = running_total + pair_data[0]
             return (running_total / counter) if counter > 0 else 0
 
-
         def reduce_group(node_links, distribution, flat_distribution):
             group = copy.deepcopy(node_links)
             for node in node_links:
@@ -401,7 +401,8 @@ class Graph():
                         continue
                     if not sorted([node, second_node]) in flat_distribution:
                         node_avg = get_link_average(node, distribution, group)
-                        second_node_avg = get_link_average(second_node, distribution, group)
+                        second_node_avg = get_link_average(
+                            second_node, distribution, group)
                         # Remove the mode with shorter average links
                         node_to_remove = second_node if second_node_avg < node_avg else node
                         group.remove(node_to_remove)
@@ -409,8 +410,6 @@ class Graph():
 
             return group
 
-        wb.report(f'SIFTING for {target} peripherals.')
-        wb.report(distribution)
         peripherals_list = []
         node_collection = {}
         for distance, nodes in distribution:
@@ -432,7 +431,8 @@ class Graph():
         flat_distribution = flatten_distribution(distribution)
         for node, node_links in sieved_nodes.items():
             candidate_group = []
-            candidate_group = reduce_group(node_links, distribution, flat_distribution)
+            candidate_group = reduce_group(
+                node_links, distribution, flat_distribution)
             candidate_group.append(node)
 
             if len(candidate_group) >= target:
@@ -450,10 +450,10 @@ class Graph():
         '''
 
         # build split networks and creep map
-        splits = {} # all split networks
-        creep_map = {} # holder for the creep counters
-        creep_prospects = {} # map of the prospects of each split network
-        claimed_nodes = [] # a list of all claimed nodes
+        splits = {}  # all split networks
+        creep_map = {}  # holder for the creep counters
+        creep_prospects = {}  # map of the prospects of each split network
+        claimed_nodes = []  # a list of all claimed nodes
         for anchor in anchors:
             splits[anchor] = []
             splits[anchor].append(anchor)
@@ -463,13 +463,13 @@ class Graph():
             for link in self.get_node(anchor).links:
                 creep_prospects[anchor].append(link)
             claimed_nodes.append(anchor)
-        
+
         tick = 0
         while len(claimed_nodes) < len(self.nodes):
             tick = tick + 1
-            wb.report(f'\nTick [ {tick} ]')
+            logging.debug(f'\nTick [ {tick} ]')
             for anchor in anchors:
-                wb.report(f'Split {anchor} at {creep_map[anchor]}')
+                logging.debug(f'Split {anchor} at {creep_map[anchor]}')
             # add one tick to each creep
             for anchor in anchors:
                 creep_map[anchor] = creep_map[anchor] + 1
@@ -477,12 +477,12 @@ class Graph():
                 # make an aeditable copy of the creep prospects to work with
                 current_prospects = copy.deepcopy(creep_prospects[anchor])
                 for prospect in creep_prospects[anchor]:
-                    wb.report(f'-   {anchor} checks {prospect}')
+                    logging.debug(f'-   {anchor} checks {prospect}')
                     if prospect in claimed_nodes:
-                        wb.report(' -   already claimed')
+                        logging.debug(' -   already claimed')
                         continue
                     if creep_map[anchor] >= self.get_node(prospect).value:
-                        wb.report(f'{anchor} ADDS {prospect}')
+                        logging.debug(f'{anchor} ADDS {prospect}')
                         # add the prospect to the split
                         splits[anchor].append(prospect)
                         # add the prospect to the list of all claimed nodes
@@ -495,15 +495,13 @@ class Graph():
                                 if link in current_prospects:
                                     continue
                                 current_prospects.append(link)
-                                wb.report(f'-   adding {link} to the prospects of {anchor}')
+                                logging.debug(
+                                    f'-   adding {link} to the prospects of {anchor}')
                         # reset creep value of the split
                         creep_map[anchor] = 1
                 # set the creep prospects to the edited current_prospects
                 creep_prospects[anchor] = []
                 for new_prospect in current_prospects:
                     creep_prospects[anchor].append(new_prospect)
-            pass
         for anchor in anchors:
-            wb.report(splits[anchor])
-        pass
-        
+            logging.debug(f'{splits[anchor][0]} > {splits[anchor]}')

@@ -5,8 +5,6 @@ import copy
 import sympy
 from sympy.ntheory.generate import prime
 
-CONSOLE_DUMP = True
-
 
 class WorkBench():
     label_list = {}
@@ -90,7 +88,6 @@ class WorkBench():
                         continue
                     if nbr not in graph_dict[element]["links"]:
                         graph_dict[element]["links"].append(nbr)
-                print(f'Recorded nbrs of {element}: {graph_dict[element]["links"]}')
         for node in graph_dict:
             node_count = 0
             for row in graph_array:
@@ -104,6 +101,7 @@ class WorkBench():
 
         return graph_dict
 
+
 def primes(primes_count=10):
     # # Return a list of N primes
     # primes_list = []
@@ -114,8 +112,3 @@ def primes(primes_count=10):
     while True:
         yield prime(num)
         num += 1
-
-
-def report(message):
-    if CONSOLE_DUMP:
-        print(message)

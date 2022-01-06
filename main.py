@@ -1,15 +1,21 @@
 from graph import Node, Graph
 from workbench import WorkBench
+import logging
+
 
 def main():
+    logging.info('START')
+    logging.info('Reading network from .graph file')
     gr = create_graph_from_graph_file()
     gr.validate()
-    print(gr)
+    # print(gr)
+    logging.info('Creating distance map')
     gr.find_distances()
     # new_node = Node("j", 4, ["g", "h", "i"])
     # gr.add_node_to_distance_map(new_node)
-    print(gr.print_distance_map())
+    logging.info('Selecting peripheral nodes')
     peripherals = gr.get_peripheral_nodes(3)
+    logging.info('Starting split network creep')
     gr.creep_splits(peripherals)
 
 
@@ -38,4 +44,5 @@ def create_graph_from_graph_file(node_list_fliename: str = None) -> Graph:
     return gr
 
 if __name__ == '__main__':
+    logging.basicConfig(filename='processing.log', format='[%(levelname)-5s] %(message)s', filemode='w', encoding='utf-8', level=logging.DEBUG)
     main()

@@ -245,7 +245,6 @@ class Graph():
             *   exactly node_number * (node_number - 1) couples
         '''
         found = False
-        # cut_off = 1 # DBG start from 1 in order to check both distance groups 2 and 3
         cut_off = 0
         while not found:
             cut_off = cut_off + 1
@@ -314,10 +313,6 @@ class Graph():
             nodes_match, nodes_overshot = node_number_condition(
                 node_counter, count)
             pairs_match, pairs_overshot = pair_number_condition(group, count)
-            # DBG var
-            can_continue = nodes_match and not nodes_overshot and pairs_match and not pairs_overshot
-            # DBG var
-            overshot = nodes_overshot or pairs_overshot
             # check for completion
             if nodes_match and not nodes_overshot and pairs_match and not pairs_overshot:
                 return group, True
@@ -466,12 +461,25 @@ class Graph():
 
         tick = 0
         while len(claimed_nodes) < len(self.nodes):
+            # add one tick to each creep
             tick = tick + 1
             logging.debug(f'\nTick [ {tick} ]')
             for anchor in anchors:
                 logging.debug(f'Split {anchor} at {creep_map[anchor]}')
-            # add one tick to each creep
-            for anchor in anchors:
+
+            # Iterate anchors based on accumulated network value - the smallest network at the moment gets to be checked for new additions first
+            # prepare list of collected accumulated values
+            split_values = {}
+            for split in splits:
+                split_values[split] = 0
+                for node in split:
+                    split_values[split] = split_values[split] + self.get_node(node).value
+
+            # prepare ordered list for iterating
+            ordered_splits = sorted(split_values.items(), key=lambda network: network[1])
+
+            for anchor_data in ordered_splits:
+                anchor = anchor_data[0]
                 prospects_updated = False
                 creep_map[anchor] = creep_map[anchor] + 1
                 # check in each creep prospect if there is a node to be acquired

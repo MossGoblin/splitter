@@ -1,1 +1,0 @@
-{"e": {"links": ["a", "b"], "value": 2}, "a": {"links": ["b", "e", "c"], "value": 1}, "b": {"links": ["e", "a", "c"], "value": 1}, "c": {"links": ["d", "a", "b"], "value": 2}, "d": {"links": ["c"], "value": 2}}

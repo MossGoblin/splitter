@@ -1,1 +1,0 @@
-{"a": {"links": ["g", "e"], "value": 1}, "e": {"links": ["d", "a", "c", "g"], "value": 2}, "d": {"links": ["e", "c"], "value": 2}, "g": {"links": ["e", "a", "c", "f"], "value": 2}, "c": {"links": ["g", "f", "e", "d", "h"], "value": 2}, "f": {"links": ["g", "c", "h"], "value": 2}, "h": {"links": ["c", "f"], "value": 1}}

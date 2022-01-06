@@ -472,6 +472,7 @@ class Graph():
                 logging.debug(f'Split {anchor} at {creep_map[anchor]}')
             # add one tick to each creep
             for anchor in anchors:
+                prospects_updated = False
                 creep_map[anchor] = creep_map[anchor] + 1
                 # check in each creep prospect if there is a node to be acquired
                 # make an aeditable copy of the creep prospects to work with
@@ -499,9 +500,11 @@ class Graph():
                                     f'-   adding {link} to the prospects of {anchor}')
                         # reset creep value of the split
                         creep_map[anchor] = 1
+                        prospects_updated = True
                 # set the creep prospects to the edited current_prospects
-                creep_prospects[anchor] = []
-                for new_prospect in current_prospects:
-                    creep_prospects[anchor].append(new_prospect)
+                if prospects_updated:
+                    creep_prospects[anchor] = []
+                    for new_prospect in current_prospects:
+                        creep_prospects[anchor].append(new_prospect)
         for anchor in anchors:
             logging.debug(f'{splits[anchor][0]} > {splits[anchor]}')

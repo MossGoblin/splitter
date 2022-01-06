@@ -95,7 +95,7 @@ class WorkBench():
             graph_dict[node]["value"] = node_count
 
         if save_json:
-            filename = f'graph_{len(graph_array)}_{len(graph_array[0])}.json'
+            filename = f'json_data/graph_{len(graph_array)}_{len(graph_array[0])}.json'
             with open(filename, 'w') as json_output:
                 json.dump(graph_dict, json_output)
 

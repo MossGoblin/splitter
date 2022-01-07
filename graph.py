@@ -56,6 +56,10 @@ class Graph():
     node_map = {}  # an enchanced map of nodes, separated by level
     map_total = 0  # the total weight of all the level 0 nodes
     distance_map = {}  # an enchanced map of nodes, separated by level
+    peripherals_list = [] # a list of all anchor groups
+    anchors = [] # a list of anchors selected from peripherals_list
+    splits = [] # a list of all split networks, build around anchors
+    split_totals = {} # a list of the total values of each split
 
     def __init__(self):
         pass
@@ -231,7 +235,7 @@ class Graph():
                 elif sorted([node.label, distant_node_distance]) not in distance_distribution[distance]:
                     distance_distribution[distance].append(
                         sorted([node.label, distant_node_distance]))
-        logging.info(f'Distance distrubution built')
+        logging.info(f'.. Distance distrubution built')
         logging.debug(json.dumps(distance_distribution))
 
         # select the peripherals
@@ -258,11 +262,13 @@ class Graph():
             peripherals_list, found = self.sift_for_peripherals(
                 distribution_flatmap, node_number)
             if found:
-                logging.info(f'Periferals found')
+                logging.info(f'.. Periferals found')
                 for peripherals in peripherals_list:
                     logging.debug('{peripherals}')
                 self.peripherals_list = peripherals_list
-                return peripherals_list[0]
+                # TODO select the best group of peripherals
+                self.anchors = peripherals_list[0]
+                return self.anchors
             else:
                 logging.debug('No prefipherals found')
 
@@ -438,11 +444,13 @@ class Graph():
             return [], False
         return peripherals_list, True
 
-    def creep_splits(self, anchors):
+    def creep_splits(self, anchors=None):
         '''
         Initiates one split network per anchor
         Starts acquiring adjacent nodes to each anchor, taking into account the size of the adjacent nodes - larger are added slower
         '''
+        if not anchors:
+            anchors = self.anchors
 
         # build split networks and creep map
         splits = {}  # all split networks
@@ -515,11 +523,53 @@ class Graph():
                     for new_prospect in current_prospects:
                         creep_prospects[anchor].append(new_prospect)
         
+        self.splits = splits
+
         totals = {}
         for anchor in anchors:
             totals[anchor] = 0
             for node in splits[anchor]:
                 totals[anchor] = totals[anchor] + self.get_node(node).value
-
+                self.split_totals[anchor] = totals[anchor]
+                
         for anchor in anchors:
             logging.debug(f'{splits[anchor][0]} > {totals[anchor]} > {splits[anchor]}')
+
+    def negotiate_borders(self):
+        logging.info('Creating border map')
+        # HERE
+        # create a map of border nodes
+        # all nodes have been assigned by the creep
+        # for each pair of splits there are two sets of border nodes:
+        # - nodes that are part of split one and ones that are part of split two
+        # the border map has a part for each split and has it's border nodes for each borsering split
+        border_map = {}
+        for anchor in self.anchors:
+            border_map[anchor] = {}
+            # find all nodes in this split that border on nodes in the other splits
+            for own_node in self.splits[anchor]:
+                nbr_splits = self.get_nbr_splits(anchor, own_node)
+                if len(nbr_splits) > 0:
+                    for nbr_split in nbr_splits:
+                        if not nbr_split in border_map[anchor]:
+                            border_map[anchor][nbr_split] = []
+                        border_map[anchor][nbr_split].append(own_node)
+        for split_anchor, border_data in border_map.items():
+            logging.debug(f'Border nodes for {split_anchor}: {border_data}')
+        print(border_map)
+        pass
+
+    def get_nbr_splits(self, anchor, node):
+        def get_split(node):
+            for split, split_data in self.splits.items():
+                if node in split_data:
+                    return split[0]
+
+        nbr_splits = []
+        node_nbrs = self.get_node(node).links
+        for nbr in node_nbrs:
+            parent_split = get_split(nbr)
+            nbr_splits.append(parent_split)
+        nbr_splits = list(set(nbr_splits))
+        nbr_splits.remove(anchor)
+        return nbr_splits

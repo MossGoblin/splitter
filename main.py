@@ -13,10 +13,10 @@ def main():
     gr.find_distances()
     # new_node = Node("j", 4, ["g", "h", "i"])
     # gr.add_node_to_distance_map(new_node)
-    logging.info('Selecting peripheral nodes')
-    peripherals = gr.get_peripheral_nodes(3)
+    gr.get_peripheral_nodes(3)
     logging.info('Starting split network creep')
-    gr.creep_splits(peripherals)
+    gr.creep_splits()
+    gr.negotiate_borders()
 
 
 def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:

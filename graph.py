@@ -514,5 +514,12 @@ class Graph():
                     creep_prospects[anchor] = []
                     for new_prospect in current_prospects:
                         creep_prospects[anchor].append(new_prospect)
+        
+        totals = {}
         for anchor in anchors:
-            logging.debug(f'{splits[anchor][0]} > {splits[anchor]}')
+            totals[anchor] = 0
+            for node in splits[anchor]:
+                totals[anchor] = totals[anchor] + self.get_node(node).value
+
+        for anchor in anchors:
+            logging.debug(f'{splits[anchor][0]} > {totals[anchor]} > {splits[anchor]}')

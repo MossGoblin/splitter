@@ -2,1495 +2,1337 @@
 [INFO ] Reading network from .graph file
 [DEBUG] The graph is valid
 [INFO ] Creating distance map
-[DEBUG] Adding node [a] to distance graph
-[DEBUG] *   Declaring [a]
-[DEBUG] *   Adding nbrs of [a]
-[DEBUG]     -   Nbr b added
-[DEBUG]     -   Nbr l added
-[DEBUG]     -   Nbr k added
-[DEBUG] *   Adding nbrs of [a]
-[DEBUG]     *   No distances to adjust for [a]
-[DEBUG]     *   Checking distances between old nodes through [a]
+[DEBUG] Adding node [A] to distance graph
+[DEBUG] *   Declaring [A]
+[DEBUG] *   Adding nbrs of [A]
+[DEBUG]     -   Nbr F added
+[DEBUG]     -   Nbr B added
+[DEBUG] *   Adding nbrs of [A]
+[DEBUG]     *   No distances to adjust for [A]
+[DEBUG]     *   Checking distances between old nodes through [A]
 [DEBUG] 
 
-[DEBUG] Adding node [k] to distance graph
-[DEBUG] *   Declaring [k]
-[DEBUG] *   Adding nbrs of [k]
-[DEBUG]     -   Nbr b added
-[DEBUG]     -   Nbr a added
-[DEBUG]     -   Nbr c added
-[DEBUG]     -   Nbr d added
-[DEBUG]     -   Nbr l added
-[DEBUG]     -   Nbr n added
-[DEBUG]     -   Nbr o added
-[DEBUG] *   Adding nbrs of [k]
-[DEBUG]     *   Checking distances between old nodes through [k]
+[DEBUG] Adding node [B] to distance graph
+[DEBUG] *   Declaring [B]
+[DEBUG] *   Adding nbrs of [B]
+[DEBUG]     -   Nbr C added
+[DEBUG]     -   Nbr A added
+[DEBUG]     -   Nbr G added
+[DEBUG] *   Adding nbrs of [B]
+[DEBUG]     *   Checking distances between old nodes through [B]
 [DEBUG] 
 
-[DEBUG] Adding node [o] to distance graph
-[DEBUG] *   Declaring [o]
-[DEBUG] *   Adding nbrs of [o]
-[DEBUG]     -   Nbr k added
-[DEBUG]     -   Nbr n added
-[DEBUG]     -   Nbr d added
-[DEBUG]     -   Nbr q added
-[DEBUG]     -   Nbr p added
-[DEBUG] *   Adding nbrs of [o]
-[DEBUG]     *   Distance between [o] and [a] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [o]
+[DEBUG] Adding node [G] to distance graph
+[DEBUG] *   Declaring [G]
+[DEBUG] *   Adding nbrs of [G]
+[DEBUG]     -   Nbr F added
+[DEBUG]     -   Nbr L added
+[DEBUG]     -   Nbr B added
+[DEBUG]     -   Nbr H added
+[DEBUG] *   Adding nbrs of [G]
+[DEBUG]     *   Distance between [G] and [A] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [G]
 [DEBUG] 
 
-[DEBUG] Adding node [p] to distance graph
-[DEBUG] *   Declaring [p]
-[DEBUG] *   Adding nbrs of [p]
-[DEBUG]     -   Nbr q added
-[DEBUG]     -   Nbr o added
-[DEBUG]     -   Nbr d added
-[DEBUG]     -   Nbr j added
-[DEBUG]     -   Nbr h added
-[DEBUG] *   Adding nbrs of [p]
-[DEBUG]     *   Distance between [p] and [a] recorded as 3
-[DEBUG]     *   Distance between [p] and [k] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [p]
+[DEBUG] Adding node [H] to distance graph
+[DEBUG] *   Declaring [H]
+[DEBUG] *   Adding nbrs of [H]
+[DEBUG]     -   Nbr C added
+[DEBUG]     -   Nbr M added
+[DEBUG]     -   Nbr I added
+[DEBUG]     -   Nbr G added
+[DEBUG] *   Adding nbrs of [H]
+[DEBUG]     *   Distance between [H] and [A] recorded as 3
+[DEBUG]     *   Distance between [H] and [B] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [H]
 [DEBUG] 
 
-[DEBUG] Adding node [h] to distance graph
-[DEBUG] *   Declaring [h]
-[DEBUG] *   Adding nbrs of [h]
-[DEBUG]     -   Nbr f added
-[DEBUG]     -   Nbr d added
-[DEBUG]     -   Nbr g added
-[DEBUG]     -   Nbr i added
-[DEBUG]     -   Nbr j added
-[DEBUG]     -   Nbr p added
-[DEBUG] *   Adding nbrs of [h]
-[DEBUG]     *   Distance between [h] and [a] recorded as 4
-[DEBUG]     *   Distance between [h] and [k] recorded as 3
-[DEBUG]     *   Distance between [h] and [o] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [h]
+[DEBUG] Adding node [I] to distance graph
+[DEBUG] *   Declaring [I]
+[DEBUG] *   Adding nbrs of [I]
+[DEBUG]     -   Nbr D added
+[DEBUG]     -   Nbr H added
+[DEBUG]     -   Nbr J added
+[DEBUG]     -   Nbr N added
+[DEBUG] *   Adding nbrs of [I]
+[DEBUG]     *   Distance between [I] and [A] recorded as 4
+[DEBUG]     *   Distance between [I] and [B] recorded as 3
+[DEBUG]     *   Distance between [I] and [G] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [I]
 [DEBUG] 
 
-[DEBUG] Adding node [i] to distance graph
-[DEBUG] *   Declaring [i]
-[DEBUG] *   Adding nbrs of [i]
-[DEBUG]     -   Nbr h added
-[DEBUG]     -   Nbr g added
-[DEBUG]     -   Nbr j added
-[DEBUG] *   Adding nbrs of [i]
-[DEBUG]     *   Distance between [i] and [a] recorded as 5
-[DEBUG]     *   Distance between [i] and [k] recorded as 4
-[DEBUG]     *   Distance between [i] and [o] recorded as 3
-[DEBUG]     *   Distance between [i] and [p] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [i]
+[DEBUG] Adding node [N] to distance graph
+[DEBUG] *   Declaring [N]
+[DEBUG] *   Adding nbrs of [N]
+[DEBUG]     -   Nbr S added
+[DEBUG]     -   Nbr O added
+[DEBUG]     -   Nbr I added
+[DEBUG]     -   Nbr M added
+[DEBUG] *   Adding nbrs of [N]
+[DEBUG]     *   Distance between [N] and [A] recorded as 5
+[DEBUG]     *   Distance between [N] and [B] recorded as 4
+[DEBUG]     *   Distance between [N] and [G] recorded as 3
+[DEBUG]     *   Distance between [N] and [H] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [N]
 [DEBUG] 
 
-[DEBUG] Adding node [g] to distance graph
-[DEBUG] *   Declaring [g]
-[DEBUG] *   Adding nbrs of [g]
-[DEBUG]     -   Nbr e added
-[DEBUG]     -   Nbr f added
-[DEBUG]     -   Nbr h added
-[DEBUG]     -   Nbr i added
-[DEBUG] *   Adding nbrs of [g]
-[DEBUG]     *   Distance between [g] and [a] recorded as 5
-[DEBUG]     *   Distance between [g] and [k] recorded as 4
-[DEBUG]     *   Distance between [g] and [o] recorded as 3
-[DEBUG]     *   Distance between [g] and [p] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [g]
+[DEBUG] Adding node [O] to distance graph
+[DEBUG] *   Declaring [O]
+[DEBUG] *   Adding nbrs of [O]
+[DEBUG]     -   Nbr N added
+[DEBUG]     -   Nbr J added
+[DEBUG]     -   Nbr T added
+[DEBUG] *   Adding nbrs of [O]
+[DEBUG]     *   Distance between [O] and [A] recorded as 6
+[DEBUG]     *   Distance between [O] and [B] recorded as 5
+[DEBUG]     *   Distance between [O] and [G] recorded as 4
+[DEBUG]     *   Distance between [O] and [H] recorded as 3
+[DEBUG]     *   Distance between [O] and [I] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [O]
 [DEBUG] 
 
-[DEBUG] Adding node [e] to distance graph
-[DEBUG] *   Declaring [e]
-[DEBUG] *   Adding nbrs of [e]
-[DEBUG]     -   Nbr f added
-[DEBUG]     -   Nbr d added
-[DEBUG]     -   Nbr g added
-[DEBUG] *   Adding nbrs of [e]
-[DEBUG]     *   Distance between [e] and [a] recorded as 6
-[DEBUG]     *   Distance between [e] and [k] recorded as 5
-[DEBUG]     *   Distance between [e] and [o] recorded as 4
-[DEBUG]     *   Distance between [e] and [p] recorded as 3
-[DEBUG]     *   Distance between [e] and [h] recorded as 2
-[DEBUG]     *   Distance between [e] and [i] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [e]
+[DEBUG] Adding node [T] to distance graph
+[DEBUG] *   Declaring [T]
+[DEBUG] *   Adding nbrs of [T]
+[DEBUG]     -   Nbr Y added
+[DEBUG]     -   Nbr S added
+[DEBUG]     -   Nbr O added
+[DEBUG] *   Adding nbrs of [T]
+[DEBUG]     *   Distance between [T] and [A] recorded as 7
+[DEBUG]     *   Distance between [T] and [B] recorded as 6
+[DEBUG]     *   Distance between [T] and [G] recorded as 5
+[DEBUG]     *   Distance between [T] and [H] recorded as 4
+[DEBUG]     *   Distance between [T] and [I] recorded as 3
+[DEBUG]     *   Distance between [T] and [N] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [T]
 [DEBUG] 
 
-[DEBUG] Adding node [f] to distance graph
-[DEBUG] *   Declaring [f]
-[DEBUG] *   Adding nbrs of [f]
-[DEBUG]     -   Nbr e added
-[DEBUG]     -   Nbr h added
-[DEBUG]     -   Nbr d added
-[DEBUG]     -   Nbr g added
-[DEBUG] *   Adding nbrs of [f]
-[DEBUG]     *   Distance between [f] and [a] recorded as 5
-[DEBUG]     *   Distance between [f] and [k] recorded as 4
-[DEBUG]     *   Distance between [f] and [o] recorded as 3
-[DEBUG]     *   Distance between [f] and [p] recorded as 2
-[DEBUG]     *   Distance between [f] and [i] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [f]
+[DEBUG] Adding node [Y] to distance graph
+[DEBUG] *   Declaring [Y]
+[DEBUG] *   Adding nbrs of [Y]
+[DEBUG]     -   Nbr X added
+[DEBUG]     -   Nbr T added
+[DEBUG] *   Adding nbrs of [Y]
+[DEBUG]     *   Distance between [Y] and [A] recorded as 8
+[DEBUG]     *   Distance between [Y] and [B] recorded as 7
+[DEBUG]     *   Distance between [Y] and [G] recorded as 6
+[DEBUG]     *   Distance between [Y] and [H] recorded as 5
+[DEBUG]     *   Distance between [Y] and [I] recorded as 4
+[DEBUG]     *   Distance between [Y] and [N] recorded as 3
+[DEBUG]     *   Distance between [Y] and [O] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [Y]
 [DEBUG] 
 
-[DEBUG] Adding node [j] to distance graph
-[DEBUG] *   Declaring [j]
-[DEBUG] *   Adding nbrs of [j]
-[DEBUG]     -   Nbr q added
-[DEBUG]     -   Nbr p added
-[DEBUG]     -   Nbr h added
-[DEBUG]     -   Nbr i added
-[DEBUG]     -   Nbr w added
-[DEBUG] *   Adding nbrs of [j]
-[DEBUG]     *   Distance between [j] and [a] recorded as 4
-[DEBUG]     *   Distance between [j] and [k] recorded as 3
-[DEBUG]     *   Distance between [j] and [o] recorded as 2
-[DEBUG]     *   Distance between [j] and [g] recorded as 2
-[DEBUG]     *   Distance between [j] and [e] recorded as 3
-[DEBUG]     *   Distance between [j] and [f] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [j]
+[DEBUG] Adding node [X] to distance graph
+[DEBUG] *   Declaring [X]
+[DEBUG] *   Adding nbrs of [X]
+[DEBUG]     -   Nbr Y added
+[DEBUG]     -   Nbr S added
+[DEBUG]     -   Nbr W added
+[DEBUG] *   Adding nbrs of [X]
+[DEBUG]     *   Distance between [X] and [A] recorded as 9
+[DEBUG]     *   Distance between [X] and [B] recorded as 8
+[DEBUG]     *   Distance between [X] and [G] recorded as 7
+[DEBUG]     *   Distance between [X] and [H] recorded as 6
+[DEBUG]     *   Distance between [X] and [I] recorded as 5
+[DEBUG]     *   Distance between [X] and [N] recorded as 4
+[DEBUG]     *   Distance between [X] and [O] recorded as 3
+[DEBUG]     *   Distance between [X] and [T] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [X]
 [DEBUG] 
 
-[DEBUG] Adding node [w] to distance graph
-[DEBUG] *   Declaring [w]
-[DEBUG] *   Adding nbrs of [w]
-[DEBUG]     -   Nbr q added
-[DEBUG]     -   Nbr j added
-[DEBUG]     -   Nbr v added
-[DEBUG]     -   Nbr z added
-[DEBUG] *   Adding nbrs of [w]
-[DEBUG]     *   Distance between [w] and [a] recorded as 5
-[DEBUG]     *   Distance between [w] and [k] recorded as 4
-[DEBUG]     *   Distance between [w] and [o] recorded as 3
-[DEBUG]     *   Distance between [w] and [p] recorded as 2
-[DEBUG]     *   Distance between [w] and [h] recorded as 2
-[DEBUG]     *   Distance between [w] and [i] recorded as 2
-[DEBUG]     *   Distance between [w] and [g] recorded as 3
-[DEBUG]     *   Distance between [w] and [e] recorded as 4
-[DEBUG]     *   Distance between [w] and [f] recorded as 3
-[DEBUG]     *   Checking distances between old nodes through [w]
+[DEBUG] Adding node [W] to distance graph
+[DEBUG] *   Declaring [W]
+[DEBUG] *   Adding nbrs of [W]
+[DEBUG]     -   Nbr X added
+[DEBUG]     -   Nbr V added
+[DEBUG]     -   Nbr R added
+[DEBUG] *   Adding nbrs of [W]
+[DEBUG]     *   Distance between [W] and [A] recorded as 10
+[DEBUG]     *   Distance between [W] and [B] recorded as 9
+[DEBUG]     *   Distance between [W] and [G] recorded as 8
+[DEBUG]     *   Distance between [W] and [H] recorded as 7
+[DEBUG]     *   Distance between [W] and [I] recorded as 6
+[DEBUG]     *   Distance between [W] and [N] recorded as 5
+[DEBUG]     *   Distance between [W] and [O] recorded as 4
+[DEBUG]     *   Distance between [W] and [T] recorded as 3
+[DEBUG]     *   Distance between [W] and [Y] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [W]
 [DEBUG] 
 
-[DEBUG] Adding node [z] to distance graph
-[DEBUG] *   Declaring [z]
-[DEBUG] *   Adding nbrs of [z]
-[DEBUG]     -   Nbr w added
-[DEBUG]     -   Nbr v added
-[DEBUG]     -   Nbr y added
-[DEBUG] *   Adding nbrs of [z]
-[DEBUG]     *   Distance between [z] and [a] recorded as 6
-[DEBUG]     *   Distance between [z] and [k] recorded as 5
-[DEBUG]     *   Distance between [z] and [o] recorded as 4
-[DEBUG]     *   Distance between [z] and [p] recorded as 3
-[DEBUG]     *   Distance between [z] and [h] recorded as 3
-[DEBUG]     *   Distance between [z] and [i] recorded as 3
-[DEBUG]     *   Distance between [z] and [g] recorded as 4
-[DEBUG]     *   Distance between [z] and [e] recorded as 5
-[DEBUG]     *   Distance between [z] and [f] recorded as 4
-[DEBUG]     *   Distance between [z] and [j] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [z]
+[DEBUG] Adding node [R] to distance graph
+[DEBUG] *   Declaring [R]
+[DEBUG] *   Adding nbrs of [R]
+[DEBUG]     -   Nbr S added
+[DEBUG]     -   Nbr M added
+[DEBUG]     -   Nbr Q added
+[DEBUG]     -   Nbr W added
+[DEBUG] *   Adding nbrs of [R]
+[DEBUG]     *   Distance between [R] and [A] recorded as 11
+[DEBUG]     *   Distance between [R] and [B] recorded as 10
+[DEBUG]     *   Distance between [R] and [G] recorded as 9
+[DEBUG]     *   Distance between [R] and [H] recorded as 8
+[DEBUG]     *   Distance between [R] and [I] recorded as 7
+[DEBUG]     *   Distance between [R] and [N] recorded as 6
+[DEBUG]     *   Distance between [R] and [O] recorded as 5
+[DEBUG]     *   Distance between [R] and [T] recorded as 4
+[DEBUG]     *   Distance between [R] and [Y] recorded as 3
+[DEBUG]     *   Distance between [R] and [X] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [R]
 [DEBUG] 
 
-[DEBUG] Adding node [y] to distance graph
-[DEBUG] *   Declaring [y]
-[DEBUG] *   Adding nbrs of [y]
-[DEBUG]     -   Nbr v added
-[DEBUG]     -   Nbr x added
-[DEBUG]     -   Nbr z added
-[DEBUG] *   Adding nbrs of [y]
-[DEBUG]     *   Distance between [y] and [a] recorded as 7
-[DEBUG]     *   Distance between [y] and [k] recorded as 6
-[DEBUG]     *   Distance between [y] and [o] recorded as 5
-[DEBUG]     *   Distance between [y] and [p] recorded as 4
-[DEBUG]     *   Distance between [y] and [h] recorded as 4
-[DEBUG]     *   Distance between [y] and [i] recorded as 4
-[DEBUG]     *   Distance between [y] and [g] recorded as 5
-[DEBUG]     *   Distance between [y] and [e] recorded as 6
-[DEBUG]     *   Distance between [y] and [f] recorded as 5
-[DEBUG]     *   Distance between [y] and [j] recorded as 3
-[DEBUG]     *   Distance between [y] and [w] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [y]
+[DEBUG] Adding node [Q] to distance graph
+[DEBUG] *   Declaring [Q]
+[DEBUG] *   Adding nbrs of [Q]
+[DEBUG]     -   Nbr R added
+[DEBUG]     -   Nbr P added
+[DEBUG]     -   Nbr V added
+[DEBUG]     -   Nbr L added
+[DEBUG] *   Adding nbrs of [Q]
+[DEBUG]     *   Distance between [Q] and [A] recorded as 12
+[DEBUG]     *   Distance between [Q] and [B] recorded as 11
+[DEBUG]     *   Distance between [Q] and [G] recorded as 10
+[DEBUG]     *   Distance between [Q] and [H] recorded as 9
+[DEBUG]     *   Distance between [Q] and [I] recorded as 8
+[DEBUG]     *   Distance between [Q] and [N] recorded as 7
+[DEBUG]     *   Distance between [Q] and [O] recorded as 6
+[DEBUG]     *   Distance between [Q] and [T] recorded as 5
+[DEBUG]     *   Distance between [Q] and [Y] recorded as 4
+[DEBUG]     *   Distance between [Q] and [X] recorded as 3
+[DEBUG]     *   Distance between [Q] and [W] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [Q]
 [DEBUG] 
 
-[DEBUG] Adding node [x] to distance graph
-[DEBUG] *   Declaring [x]
-[DEBUG] *   Adding nbrs of [x]
-[DEBUG]     -   Nbr v added
-[DEBUG]     -   Nbr s added
-[DEBUG]     -   Nbr y added
-[DEBUG] *   Adding nbrs of [x]
-[DEBUG]     *   Distance between [x] and [a] recorded as 8
-[DEBUG]     *   Distance between [x] and [k] recorded as 7
-[DEBUG]     *   Distance between [x] and [o] recorded as 6
-[DEBUG]     *   Distance between [x] and [p] recorded as 5
-[DEBUG]     *   Distance between [x] and [h] recorded as 5
-[DEBUG]     *   Distance between [x] and [i] recorded as 5
-[DEBUG]     *   Distance between [x] and [g] recorded as 6
-[DEBUG]     *   Distance between [x] and [e] recorded as 7
-[DEBUG]     *   Distance between [x] and [f] recorded as 6
-[DEBUG]     *   Distance between [x] and [j] recorded as 4
-[DEBUG]     *   Distance between [x] and [w] recorded as 3
-[DEBUG]     *   Distance between [x] and [z] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [x]
+[DEBUG] Adding node [P] to distance graph
+[DEBUG] *   Declaring [P]
+[DEBUG] *   Adding nbrs of [P]
+[DEBUG]     -   Nbr K added
+[DEBUG]     -   Nbr U added
+[DEBUG]     -   Nbr Q added
+[DEBUG] *   Adding nbrs of [P]
+[DEBUG]     *   Distance between [P] and [A] recorded as 13
+[DEBUG]     *   Distance between [P] and [B] recorded as 12
+[DEBUG]     *   Distance between [P] and [G] recorded as 11
+[DEBUG]     *   Distance between [P] and [H] recorded as 10
+[DEBUG]     *   Distance between [P] and [I] recorded as 9
+[DEBUG]     *   Distance between [P] and [N] recorded as 8
+[DEBUG]     *   Distance between [P] and [O] recorded as 7
+[DEBUG]     *   Distance between [P] and [T] recorded as 6
+[DEBUG]     *   Distance between [P] and [Y] recorded as 5
+[DEBUG]     *   Distance between [P] and [X] recorded as 4
+[DEBUG]     *   Distance between [P] and [W] recorded as 3
+[DEBUG]     *   Distance between [P] and [R] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [P]
 [DEBUG] 
 
-[DEBUG] Adding node [s] to distance graph
-[DEBUG] *   Declaring [s]
-[DEBUG] *   Adding nbrs of [s]
-[DEBUG]     -   Nbr q added
-[DEBUG]     -   Nbr m added
-[DEBUG]     -   Nbr r added
-[DEBUG]     -   Nbr v added
-[DEBUG]     -   Nbr t added
-[DEBUG]     -   Nbr x added
-[DEBUG] *   Adding nbrs of [s]
-[DEBUG]     *   Distance between [s] and [a] recorded as 9
-[DEBUG]     *   Distance between [s] and [k] recorded as 8
-[DEBUG]     *   Distance between [s] and [o] recorded as 7
-[DEBUG]     *   Distance between [s] and [p] recorded as 6
-[DEBUG]     *   Distance between [s] and [h] recorded as 6
-[DEBUG]     *   Distance between [s] and [i] recorded as 6
-[DEBUG]     *   Distance between [s] and [g] recorded as 7
-[DEBUG]     *   Distance between [s] and [e] recorded as 8
-[DEBUG]     *   Distance between [s] and [f] recorded as 7
-[DEBUG]     *   Distance between [s] and [j] recorded as 5
-[DEBUG]     *   Distance between [s] and [w] recorded as 4
-[DEBUG]     *   Distance between [s] and [z] recorded as 3
-[DEBUG]     *   Distance between [s] and [y] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [s]
+[DEBUG] Adding node [U] to distance graph
+[DEBUG] *   Declaring [U]
+[DEBUG] *   Adding nbrs of [U]
+[DEBUG]     -   Nbr P added
+[DEBUG]     -   Nbr V added
+[DEBUG] *   Adding nbrs of [U]
+[DEBUG]     *   Distance between [U] and [A] recorded as 14
+[DEBUG]     *   Distance between [U] and [B] recorded as 13
+[DEBUG]     *   Distance between [U] and [G] recorded as 12
+[DEBUG]     *   Distance between [U] and [H] recorded as 11
+[DEBUG]     *   Distance between [U] and [I] recorded as 10
+[DEBUG]     *   Distance between [U] and [N] recorded as 9
+[DEBUG]     *   Distance between [U] and [O] recorded as 8
+[DEBUG]     *   Distance between [U] and [T] recorded as 7
+[DEBUG]     *   Distance between [U] and [Y] recorded as 6
+[DEBUG]     *   Distance between [U] and [X] recorded as 5
+[DEBUG]     *   Distance between [U] and [W] recorded as 4
+[DEBUG]     *   Distance between [U] and [R] recorded as 3
+[DEBUG]     *   Distance between [U] and [Q] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [U]
 [DEBUG] 
 
-[DEBUG] Adding node [t] to distance graph
-[DEBUG] *   Declaring [t]
-[DEBUG] *   Adding nbrs of [t]
-[DEBUG]     -   Nbr u added
-[DEBUG]     -   Nbr r added
-[DEBUG]     -   Nbr s added
-[DEBUG] *   Adding nbrs of [t]
-[DEBUG]     *   Distance between [t] and [a] recorded as 10
-[DEBUG]     *   Distance between [t] and [k] recorded as 9
-[DEBUG]     *   Distance between [t] and [o] recorded as 8
-[DEBUG]     *   Distance between [t] and [p] recorded as 7
-[DEBUG]     *   Distance between [t] and [h] recorded as 7
-[DEBUG]     *   Distance between [t] and [i] recorded as 7
-[DEBUG]     *   Distance between [t] and [g] recorded as 8
-[DEBUG]     *   Distance between [t] and [e] recorded as 9
-[DEBUG]     *   Distance between [t] and [f] recorded as 8
-[DEBUG]     *   Distance between [t] and [j] recorded as 6
-[DEBUG]     *   Distance between [t] and [w] recorded as 5
-[DEBUG]     *   Distance between [t] and [z] recorded as 4
-[DEBUG]     *   Distance between [t] and [y] recorded as 3
-[DEBUG]     *   Distance between [t] and [x] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [t]
+[DEBUG] Adding node [K] to distance graph
+[DEBUG] *   Declaring [K]
+[DEBUG] *   Adding nbrs of [K]
+[DEBUG]     -   Nbr F added
+[DEBUG]     -   Nbr P added
+[DEBUG]     -   Nbr L added
+[DEBUG] *   Adding nbrs of [K]
+[DEBUG]     *   Distance between [K] and [A] recorded as 14
+[DEBUG]     *   Distance between [K] and [B] recorded as 13
+[DEBUG]     *   Distance between [K] and [G] recorded as 12
+[DEBUG]     *   Distance between [K] and [H] recorded as 11
+[DEBUG]     *   Distance between [K] and [I] recorded as 10
+[DEBUG]     *   Distance between [K] and [N] recorded as 9
+[DEBUG]     *   Distance between [K] and [O] recorded as 8
+[DEBUG]     *   Distance between [K] and [T] recorded as 7
+[DEBUG]     *   Distance between [K] and [Y] recorded as 6
+[DEBUG]     *   Distance between [K] and [X] recorded as 5
+[DEBUG]     *   Distance between [K] and [W] recorded as 4
+[DEBUG]     *   Distance between [K] and [R] recorded as 3
+[DEBUG]     *   Distance between [K] and [Q] recorded as 2
+[DEBUG]     *   Distance between [K] and [U] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [K]
 [DEBUG] 
 
-[DEBUG] Adding node [u] to distance graph
-[DEBUG] *   Declaring [u]
-[DEBUG] *   Adding nbrs of [u]
-[DEBUG]     -   Nbr r added
-[DEBUG]     -   Nbr t added
-[DEBUG] *   Adding nbrs of [u]
-[DEBUG]     *   Distance between [u] and [a] recorded as 11
-[DEBUG]     *   Distance between [u] and [k] recorded as 10
-[DEBUG]     *   Distance between [u] and [o] recorded as 9
-[DEBUG]     *   Distance between [u] and [p] recorded as 8
-[DEBUG]     *   Distance between [u] and [h] recorded as 8
-[DEBUG]     *   Distance between [u] and [i] recorded as 8
-[DEBUG]     *   Distance between [u] and [g] recorded as 9
-[DEBUG]     *   Distance between [u] and [e] recorded as 10
-[DEBUG]     *   Distance between [u] and [f] recorded as 9
-[DEBUG]     *   Distance between [u] and [j] recorded as 7
-[DEBUG]     *   Distance between [u] and [w] recorded as 6
-[DEBUG]     *   Distance between [u] and [z] recorded as 5
-[DEBUG]     *   Distance between [u] and [y] recorded as 4
-[DEBUG]     *   Distance between [u] and [x] recorded as 3
-[DEBUG]     *   Distance between [u] and [s] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [u]
+[DEBUG] Adding node [V] to distance graph
+[DEBUG] *   Declaring [V]
+[DEBUG] *   Adding nbrs of [V]
+[DEBUG]     -   Nbr U added
+[DEBUG]     -   Nbr W added
+[DEBUG]     -   Nbr Q added
+[DEBUG] *   Adding nbrs of [V]
+[DEBUG]     *   Distance between [V] and [A] recorded as 11
+[DEBUG]     *   Distance between [V] and [B] recorded as 10
+[DEBUG]     *   Distance between [V] and [G] recorded as 9
+[DEBUG]     *   Distance between [V] and [H] recorded as 8
+[DEBUG]     *   Distance between [V] and [I] recorded as 7
+[DEBUG]     *   Distance between [V] and [N] recorded as 6
+[DEBUG]     *   Distance between [V] and [O] recorded as 5
+[DEBUG]     *   Distance between [V] and [T] recorded as 4
+[DEBUG]     *   Distance between [V] and [Y] recorded as 3
+[DEBUG]     *   Distance between [V] and [X] recorded as 2
+[DEBUG]     *   Distance between [V] and [R] recorded as 2
+[DEBUG]     *   Distance between [V] and [P] recorded as 2
+[DEBUG]     *   Distance between [V] and [K] recorded as 3
+[DEBUG]     *   Checking distances between old nodes through [V]
+[DEBUG]       *   Distance between [A] and [U] adjusted to 12
+[DEBUG]       *   Distance between [B] and [U] adjusted to 11
+[DEBUG]       *   Distance between [G] and [U] adjusted to 10
+[DEBUG]       *   Distance between [H] and [U] adjusted to 9
+[DEBUG]       *   Distance between [I] and [U] adjusted to 8
+[DEBUG]       *   Distance between [N] and [U] adjusted to 7
+[DEBUG]       *   Distance between [O] and [U] adjusted to 6
+[DEBUG]       *   Distance between [T] and [U] adjusted to 5
+[DEBUG]       *   Distance between [Y] and [U] adjusted to 4
+[DEBUG]       *   Distance between [X] and [U] adjusted to 3
+[DEBUG]       *   Distance between [W] and [U] adjusted to 2
 [DEBUG] 
 
-[DEBUG] Adding node [r] to distance graph
-[DEBUG] *   Declaring [r]
-[DEBUG] *   Adding nbrs of [r]
-[DEBUG]     -   Nbr m added
-[DEBUG]     -   Nbr s added
-[DEBUG]     -   Nbr u added
-[DEBUG]     -   Nbr t added
-[DEBUG] *   Adding nbrs of [r]
-[DEBUG]     *   Distance between [r] and [a] recorded as 10
-[DEBUG]     *   Distance between [r] and [k] recorded as 9
-[DEBUG]     *   Distance between [r] and [o] recorded as 8
-[DEBUG]     *   Distance between [r] and [p] recorded as 7
-[DEBUG]     *   Distance between [r] and [h] recorded as 7
-[DEBUG]     *   Distance between [r] and [i] recorded as 7
-[DEBUG]     *   Distance between [r] and [g] recorded as 8
-[DEBUG]     *   Distance between [r] and [e] recorded as 9
-[DEBUG]     *   Distance between [r] and [f] recorded as 8
-[DEBUG]     *   Distance between [r] and [j] recorded as 6
-[DEBUG]     *   Distance between [r] and [w] recorded as 5
-[DEBUG]     *   Distance between [r] and [z] recorded as 4
-[DEBUG]     *   Distance between [r] and [y] recorded as 3
-[DEBUG]     *   Distance between [r] and [x] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [r]
+[DEBUG] Adding node [S] to distance graph
+[DEBUG] *   Declaring [S]
+[DEBUG] *   Adding nbrs of [S]
+[DEBUG]     -   Nbr R added
+[DEBUG]     -   Nbr X added
+[DEBUG]     -   Nbr T added
+[DEBUG]     -   Nbr N added
+[DEBUG] *   Adding nbrs of [S]
+[DEBUG]     *   Distance between [S] and [A] recorded as 6
+[DEBUG]     *   Distance between [S] and [B] recorded as 5
+[DEBUG]     *   Distance between [S] and [G] recorded as 4
+[DEBUG]     *   Distance between [S] and [H] recorded as 3
+[DEBUG]     *   Distance between [S] and [I] recorded as 2
+[DEBUG]     *   Distance between [S] and [O] recorded as 2
+[DEBUG]     *   Distance between [S] and [Y] recorded as 2
+[DEBUG]     *   Distance between [S] and [W] recorded as 2
+[DEBUG]     *   Distance between [S] and [Q] recorded as 2
+[DEBUG]     *   Distance between [S] and [P] recorded as 3
+[DEBUG]     *   Distance between [S] and [U] recorded as 4
+[DEBUG]     *   Distance between [S] and [K] recorded as 4
+[DEBUG]     *   Distance between [S] and [V] recorded as 3
+[DEBUG]     *   Checking distances between old nodes through [S]
+[DEBUG]       *   Distance between [A] and [X] adjusted to 7
+[DEBUG]       *   Distance between [A] and [W] adjusted to 8
+[DEBUG]       *   Distance between [A] and [R] adjusted to 7
+[DEBUG]       *   Distance between [A] and [Q] adjusted to 8
+[DEBUG]       *   Distance between [A] and [P] adjusted to 9
+[DEBUG]       *   Distance between [A] and [U] adjusted to 10
+[DEBUG]       *   Distance between [A] and [K] adjusted to 10
+[DEBUG]       *   Distance between [A] and [V] adjusted to 9
+[DEBUG]       *   Distance between [B] and [X] adjusted to 6
+[DEBUG]       *   Distance between [B] and [W] adjusted to 7
+[DEBUG]       *   Distance between [B] and [R] adjusted to 6
+[DEBUG]       *   Distance between [B] and [Q] adjusted to 7
+[DEBUG]       *   Distance between [B] and [P] adjusted to 8
+[DEBUG]       *   Distance between [B] and [U] adjusted to 9
+[DEBUG]       *   Distance between [B] and [K] adjusted to 9
+[DEBUG]       *   Distance between [B] and [V] adjusted to 8
+[DEBUG]       *   Distance between [G] and [X] adjusted to 5
+[DEBUG]       *   Distance between [G] and [W] adjusted to 6
+[DEBUG]       *   Distance between [G] and [R] adjusted to 5
+[DEBUG]       *   Distance between [G] and [Q] adjusted to 6
+[DEBUG]       *   Distance between [G] and [P] adjusted to 7
+[DEBUG]       *   Distance between [G] and [U] adjusted to 8
+[DEBUG]       *   Distance between [G] and [K] adjusted to 8
+[DEBUG]       *   Distance between [G] and [V] adjusted to 7
+[DEBUG]       *   Distance between [H] and [X] adjusted to 4
+[DEBUG]       *   Distance between [H] and [W] adjusted to 5
+[DEBUG]       *   Distance between [H] and [R] adjusted to 4
+[DEBUG]       *   Distance between [H] and [Q] adjusted to 5
+[DEBUG]       *   Distance between [H] and [P] adjusted to 6
+[DEBUG]       *   Distance between [H] and [U] adjusted to 7
+[DEBUG]       *   Distance between [H] and [K] adjusted to 7
+[DEBUG]       *   Distance between [H] and [V] adjusted to 6
+[DEBUG]       *   Distance between [I] and [X] adjusted to 3
+[DEBUG]       *   Distance between [I] and [W] adjusted to 4
+[DEBUG]       *   Distance between [I] and [R] adjusted to 3
+[DEBUG]       *   Distance between [I] and [Q] adjusted to 4
+[DEBUG]       *   Distance between [I] and [P] adjusted to 5
+[DEBUG]       *   Distance between [I] and [U] adjusted to 6
+[DEBUG]       *   Distance between [I] and [K] adjusted to 6
+[DEBUG]       *   Distance between [I] and [V] adjusted to 5
+[DEBUG]       *   Distance between [N] and [X] adjusted to 2
+[DEBUG]       *   Distance between [N] and [W] adjusted to 3
+[DEBUG]       *   Distance between [N] and [R] adjusted to 2
+[DEBUG]       *   Distance between [N] and [Q] adjusted to 3
+[DEBUG]       *   Distance between [N] and [P] adjusted to 4
+[DEBUG]       *   Distance between [N] and [U] adjusted to 5
+[DEBUG]       *   Distance between [N] and [K] adjusted to 5
+[DEBUG]       *   Distance between [N] and [V] adjusted to 4
+[DEBUG]       *   Distance between [O] and [R] adjusted to 3
+[DEBUG]       *   Distance between [O] and [Q] adjusted to 4
+[DEBUG]       *   Distance between [O] and [P] adjusted to 5
+[DEBUG]       *   Distance between [O] and [K] adjusted to 6
+[DEBUG]       *   Distance between [T] and [R] adjusted to 2
+[DEBUG]       *   Distance between [T] and [Q] adjusted to 3
+[DEBUG]       *   Distance between [T] and [P] adjusted to 4
+[DEBUG]       *   Distance between [T] and [K] adjusted to 5
 [DEBUG] 
 
-[DEBUG] Adding node [m] to distance graph
-[DEBUG] *   Declaring [m]
-[DEBUG] *   Adding nbrs of [m]
-[DEBUG]     -   Nbr l added
-[DEBUG]     -   Nbr n added
-[DEBUG]     -   Nbr q added
-[DEBUG]     -   Nbr r added
-[DEBUG]     -   Nbr s added
-[DEBUG] *   Adding nbrs of [m]
-[DEBUG]     *   Distance between [m] and [a] recorded as 10
-[DEBUG]     *   Distance between [m] and [k] recorded as 9
-[DEBUG]     *   Distance between [m] and [o] recorded as 8
-[DEBUG]     *   Distance between [m] and [p] recorded as 7
-[DEBUG]     *   Distance between [m] and [h] recorded as 7
-[DEBUG]     *   Distance between [m] and [i] recorded as 7
-[DEBUG]     *   Distance between [m] and [g] recorded as 8
-[DEBUG]     *   Distance between [m] and [e] recorded as 9
-[DEBUG]     *   Distance between [m] and [f] recorded as 8
-[DEBUG]     *   Distance between [m] and [j] recorded as 6
-[DEBUG]     *   Distance between [m] and [w] recorded as 5
-[DEBUG]     *   Distance between [m] and [z] recorded as 4
-[DEBUG]     *   Distance between [m] and [y] recorded as 3
-[DEBUG]     *   Distance between [m] and [x] recorded as 2
-[DEBUG]     *   Distance between [m] and [t] recorded as 2
-[DEBUG]     *   Distance between [m] and [u] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [m]
+[DEBUG] Adding node [J] to distance graph
+[DEBUG] *   Declaring [J]
+[DEBUG] *   Adding nbrs of [J]
+[DEBUG]     -   Nbr E added
+[DEBUG]     -   Nbr O added
+[DEBUG]     -   Nbr I added
+[DEBUG] *   Adding nbrs of [J]
+[DEBUG]     *   Distance between [J] and [A] recorded as 5
+[DEBUG]     *   Distance between [J] and [B] recorded as 4
+[DEBUG]     *   Distance between [J] and [G] recorded as 3
+[DEBUG]     *   Distance between [J] and [H] recorded as 2
+[DEBUG]     *   Distance between [J] and [N] recorded as 2
+[DEBUG]     *   Distance between [J] and [T] recorded as 2
+[DEBUG]     *   Distance between [J] and [Y] recorded as 3
+[DEBUG]     *   Distance between [J] and [X] recorded as 4
+[DEBUG]     *   Distance between [J] and [W] recorded as 5
+[DEBUG]     *   Distance between [J] and [R] recorded as 4
+[DEBUG]     *   Distance between [J] and [Q] recorded as 5
+[DEBUG]     *   Distance between [J] and [P] recorded as 6
+[DEBUG]     *   Distance between [J] and [U] recorded as 7
+[DEBUG]     *   Distance between [J] and [K] recorded as 7
+[DEBUG]     *   Distance between [J] and [V] recorded as 6
+[DEBUG]     *   Distance between [J] and [S] recorded as 3
+[DEBUG]     *   Checking distances between old nodes through [J]
 [DEBUG] 
 
-[DEBUG] Adding node [v] to distance graph
-[DEBUG] *   Declaring [v]
-[DEBUG] *   Adding nbrs of [v]
-[DEBUG]     -   Nbr q added
-[DEBUG]     -   Nbr s added
-[DEBUG]     -   Nbr z added
-[DEBUG]     -   Nbr w added
-[DEBUG]     -   Nbr x added
-[DEBUG]     -   Nbr y added
-[DEBUG] *   Adding nbrs of [v]
-[DEBUG]     *   Distance between [v] and [a] recorded as 6
-[DEBUG]     *   Distance between [v] and [k] recorded as 5
-[DEBUG]     *   Distance between [v] and [o] recorded as 4
-[DEBUG]     *   Distance between [v] and [p] recorded as 3
-[DEBUG]     *   Distance between [v] and [h] recorded as 3
-[DEBUG]     *   Distance between [v] and [i] recorded as 3
-[DEBUG]     *   Distance between [v] and [g] recorded as 4
-[DEBUG]     *   Distance between [v] and [e] recorded as 5
-[DEBUG]     *   Distance between [v] and [f] recorded as 4
-[DEBUG]     *   Distance between [v] and [j] recorded as 2
-[DEBUG]     *   Distance between [v] and [t] recorded as 2
-[DEBUG]     *   Distance between [v] and [u] recorded as 3
-[DEBUG]     *   Distance between [v] and [r] recorded as 2
-[DEBUG]     *   Distance between [v] and [m] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [v]
-[DEBUG]       *   Distance between [a] and [x] adjusted to 7
-[DEBUG]       *   Distance between [a] and [s] adjusted to 7
-[DEBUG]       *   Distance between [a] and [t] adjusted to 8
-[DEBUG]       *   Distance between [a] and [u] adjusted to 9
-[DEBUG]       *   Distance between [a] and [r] adjusted to 8
-[DEBUG]       *   Distance between [a] and [m] adjusted to 8
-[DEBUG]       *   Distance between [k] and [x] adjusted to 6
-[DEBUG]       *   Distance between [k] and [s] adjusted to 6
-[DEBUG]       *   Distance between [k] and [t] adjusted to 7
-[DEBUG]       *   Distance between [k] and [u] adjusted to 8
-[DEBUG]       *   Distance between [k] and [r] adjusted to 7
-[DEBUG]       *   Distance between [k] and [m] adjusted to 7
-[DEBUG]       *   Distance between [o] and [x] adjusted to 5
-[DEBUG]       *   Distance between [o] and [s] adjusted to 5
-[DEBUG]       *   Distance between [o] and [t] adjusted to 6
-[DEBUG]       *   Distance between [o] and [u] adjusted to 7
-[DEBUG]       *   Distance between [o] and [r] adjusted to 6
-[DEBUG]       *   Distance between [o] and [m] adjusted to 6
-[DEBUG]       *   Distance between [p] and [x] adjusted to 4
-[DEBUG]       *   Distance between [p] and [s] adjusted to 4
-[DEBUG]       *   Distance between [p] and [t] adjusted to 5
-[DEBUG]       *   Distance between [p] and [u] adjusted to 6
-[DEBUG]       *   Distance between [p] and [r] adjusted to 5
-[DEBUG]       *   Distance between [p] and [m] adjusted to 5
-[DEBUG]       *   Distance between [h] and [x] adjusted to 4
-[DEBUG]       *   Distance between [h] and [s] adjusted to 4
-[DEBUG]       *   Distance between [h] and [t] adjusted to 5
-[DEBUG]       *   Distance between [h] and [u] adjusted to 6
-[DEBUG]       *   Distance between [h] and [r] adjusted to 5
-[DEBUG]       *   Distance between [h] and [m] adjusted to 5
-[DEBUG]       *   Distance between [i] and [x] adjusted to 4
-[DEBUG]       *   Distance between [i] and [s] adjusted to 4
-[DEBUG]       *   Distance between [i] and [t] adjusted to 5
-[DEBUG]       *   Distance between [i] and [u] adjusted to 6
-[DEBUG]       *   Distance between [i] and [r] adjusted to 5
-[DEBUG]       *   Distance between [i] and [m] adjusted to 5
-[DEBUG]       *   Distance between [g] and [x] adjusted to 5
-[DEBUG]       *   Distance between [g] and [s] adjusted to 5
-[DEBUG]       *   Distance between [g] and [t] adjusted to 6
-[DEBUG]       *   Distance between [g] and [u] adjusted to 7
-[DEBUG]       *   Distance between [g] and [r] adjusted to 6
-[DEBUG]       *   Distance between [g] and [m] adjusted to 6
-[DEBUG]       *   Distance between [e] and [x] adjusted to 6
-[DEBUG]       *   Distance between [e] and [s] adjusted to 6
-[DEBUG]       *   Distance between [e] and [t] adjusted to 7
-[DEBUG]       *   Distance between [e] and [u] adjusted to 8
-[DEBUG]       *   Distance between [e] and [r] adjusted to 7
-[DEBUG]       *   Distance between [e] and [m] adjusted to 7
-[DEBUG]       *   Distance between [f] and [x] adjusted to 5
-[DEBUG]       *   Distance between [f] and [s] adjusted to 5
-[DEBUG]       *   Distance between [f] and [t] adjusted to 6
-[DEBUG]       *   Distance between [f] and [u] adjusted to 7
-[DEBUG]       *   Distance between [f] and [r] adjusted to 6
-[DEBUG]       *   Distance between [f] and [m] adjusted to 6
-[DEBUG]       *   Distance between [j] and [x] adjusted to 3
-[DEBUG]       *   Distance between [j] and [s] adjusted to 3
-[DEBUG]       *   Distance between [j] and [t] adjusted to 4
-[DEBUG]       *   Distance between [j] and [u] adjusted to 5
-[DEBUG]       *   Distance between [j] and [r] adjusted to 4
-[DEBUG]       *   Distance between [j] and [m] adjusted to 4
-[DEBUG]       *   Distance between [w] and [x] adjusted to 2
-[DEBUG]       *   Distance between [w] and [s] adjusted to 2
-[DEBUG]       *   Distance between [w] and [t] adjusted to 3
-[DEBUG]       *   Distance between [w] and [u] adjusted to 4
-[DEBUG]       *   Distance between [w] and [r] adjusted to 3
-[DEBUG]       *   Distance between [w] and [m] adjusted to 3
-[DEBUG]       *   Distance between [z] and [s] adjusted to 2
-[DEBUG]       *   Distance between [z] and [t] adjusted to 3
-[DEBUG]       *   Distance between [z] and [u] adjusted to 4
-[DEBUG]       *   Distance between [z] and [r] adjusted to 3
-[DEBUG]       *   Distance between [z] and [m] adjusted to 3
+[DEBUG] Adding node [E] to distance graph
+[DEBUG] *   Declaring [E]
+[DEBUG] *   Adding nbrs of [E]
+[DEBUG]     -   Nbr D added
+[DEBUG]     -   Nbr J added
+[DEBUG] *   Adding nbrs of [E]
+[DEBUG]     *   Distance between [E] and [A] recorded as 6
+[DEBUG]     *   Distance between [E] and [B] recorded as 5
+[DEBUG]     *   Distance between [E] and [G] recorded as 4
+[DEBUG]     *   Distance between [E] and [H] recorded as 3
+[DEBUG]     *   Distance between [E] and [I] recorded as 2
+[DEBUG]     *   Distance between [E] and [N] recorded as 3
+[DEBUG]     *   Distance between [E] and [O] recorded as 2
+[DEBUG]     *   Distance between [E] and [T] recorded as 3
+[DEBUG]     *   Distance between [E] and [Y] recorded as 4
+[DEBUG]     *   Distance between [E] and [X] recorded as 5
+[DEBUG]     *   Distance between [E] and [W] recorded as 6
+[DEBUG]     *   Distance between [E] and [R] recorded as 5
+[DEBUG]     *   Distance between [E] and [Q] recorded as 6
+[DEBUG]     *   Distance between [E] and [P] recorded as 7
+[DEBUG]     *   Distance between [E] and [U] recorded as 8
+[DEBUG]     *   Distance between [E] and [K] recorded as 8
+[DEBUG]     *   Distance between [E] and [V] recorded as 7
+[DEBUG]     *   Distance between [E] and [S] recorded as 4
+[DEBUG]     *   Checking distances between old nodes through [E]
 [DEBUG] 
 
-[DEBUG] Adding node [q] to distance graph
-[DEBUG] *   Declaring [q]
-[DEBUG] *   Adding nbrs of [q]
-[DEBUG]     -   Nbr o added
-[DEBUG]     -   Nbr m added
-[DEBUG]     -   Nbr j added
-[DEBUG]     -   Nbr p added
-[DEBUG]     -   Nbr s added
-[DEBUG]     -   Nbr w added
-[DEBUG]     -   Nbr v added
-[DEBUG] *   Adding nbrs of [q]
-[DEBUG]     *   Distance between [q] and [a] recorded as 3
-[DEBUG]     *   Distance between [q] and [k] recorded as 2
-[DEBUG]     *   Distance between [q] and [h] recorded as 2
-[DEBUG]     *   Distance between [q] and [i] recorded as 2
-[DEBUG]     *   Distance between [q] and [g] recorded as 3
-[DEBUG]     *   Distance between [q] and [e] recorded as 4
-[DEBUG]     *   Distance between [q] and [f] recorded as 3
-[DEBUG]     *   Distance between [q] and [z] recorded as 2
-[DEBUG]     *   Distance between [q] and [y] recorded as 2
-[DEBUG]     *   Distance between [q] and [x] recorded as 2
-[DEBUG]     *   Distance between [q] and [t] recorded as 2
-[DEBUG]     *   Distance between [q] and [u] recorded as 3
-[DEBUG]     *   Distance between [q] and [r] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [q]
-[DEBUG]       *   Distance between [a] and [w] adjusted to 4
-[DEBUG]       *   Distance between [a] and [z] adjusted to 5
-[DEBUG]       *   Distance between [a] and [y] adjusted to 5
-[DEBUG]       *   Distance between [a] and [x] adjusted to 5
-[DEBUG]       *   Distance between [a] and [s] adjusted to 4
-[DEBUG]       *   Distance between [a] and [t] adjusted to 5
-[DEBUG]       *   Distance between [a] and [u] adjusted to 6
-[DEBUG]       *   Distance between [a] and [r] adjusted to 5
-[DEBUG]       *   Distance between [a] and [m] adjusted to 4
-[DEBUG]       *   Distance between [a] and [v] adjusted to 4
-[DEBUG]       *   Distance between [k] and [w] adjusted to 3
-[DEBUG]       *   Distance between [k] and [z] adjusted to 4
-[DEBUG]       *   Distance between [k] and [y] adjusted to 4
-[DEBUG]       *   Distance between [k] and [x] adjusted to 4
-[DEBUG]       *   Distance between [k] and [s] adjusted to 3
-[DEBUG]       *   Distance between [k] and [t] adjusted to 4
-[DEBUG]       *   Distance between [k] and [u] adjusted to 5
-[DEBUG]       *   Distance between [k] and [r] adjusted to 4
-[DEBUG]       *   Distance between [k] and [m] adjusted to 3
-[DEBUG]       *   Distance between [k] and [v] adjusted to 3
-[DEBUG]       *   Distance between [o] and [w] adjusted to 2
-[DEBUG]       *   Distance between [o] and [z] adjusted to 3
-[DEBUG]       *   Distance between [o] and [y] adjusted to 3
-[DEBUG]       *   Distance between [o] and [x] adjusted to 3
-[DEBUG]       *   Distance between [o] and [s] adjusted to 2
-[DEBUG]       *   Distance between [o] and [t] adjusted to 3
-[DEBUG]       *   Distance between [o] and [u] adjusted to 4
-[DEBUG]       *   Distance between [o] and [r] adjusted to 3
-[DEBUG]       *   Distance between [o] and [m] adjusted to 2
-[DEBUG]       *   Distance between [o] and [v] adjusted to 2
-[DEBUG]       *   Distance between [p] and [y] adjusted to 3
-[DEBUG]       *   Distance between [p] and [x] adjusted to 3
-[DEBUG]       *   Distance between [p] and [s] adjusted to 2
-[DEBUG]       *   Distance between [p] and [t] adjusted to 3
-[DEBUG]       *   Distance between [p] and [u] adjusted to 4
-[DEBUG]       *   Distance between [p] and [r] adjusted to 3
-[DEBUG]       *   Distance between [p] and [m] adjusted to 2
-[DEBUG]       *   Distance between [p] and [v] adjusted to 2
-[DEBUG]       *   Distance between [h] and [s] adjusted to 3
-[DEBUG]       *   Distance between [h] and [t] adjusted to 4
-[DEBUG]       *   Distance between [h] and [u] adjusted to 5
-[DEBUG]       *   Distance between [h] and [r] adjusted to 4
-[DEBUG]       *   Distance between [h] and [m] adjusted to 3
-[DEBUG]       *   Distance between [i] and [s] adjusted to 3
-[DEBUG]       *   Distance between [i] and [t] adjusted to 4
-[DEBUG]       *   Distance between [i] and [u] adjusted to 5
-[DEBUG]       *   Distance between [i] and [r] adjusted to 4
-[DEBUG]       *   Distance between [i] and [m] adjusted to 3
-[DEBUG]       *   Distance between [g] and [s] adjusted to 4
-[DEBUG]       *   Distance between [g] and [t] adjusted to 5
-[DEBUG]       *   Distance between [g] and [u] adjusted to 6
-[DEBUG]       *   Distance between [g] and [r] adjusted to 5
-[DEBUG]       *   Distance between [g] and [m] adjusted to 4
-[DEBUG]       *   Distance between [e] and [s] adjusted to 5
-[DEBUG]       *   Distance between [e] and [t] adjusted to 6
-[DEBUG]       *   Distance between [e] and [u] adjusted to 7
-[DEBUG]       *   Distance between [e] and [r] adjusted to 6
-[DEBUG]       *   Distance between [e] and [m] adjusted to 5
-[DEBUG]       *   Distance between [f] and [s] adjusted to 4
-[DEBUG]       *   Distance between [f] and [t] adjusted to 5
-[DEBUG]       *   Distance between [f] and [u] adjusted to 6
-[DEBUG]       *   Distance between [f] and [r] adjusted to 5
-[DEBUG]       *   Distance between [f] and [m] adjusted to 4
-[DEBUG]       *   Distance between [j] and [s] adjusted to 2
-[DEBUG]       *   Distance between [j] and [t] adjusted to 3
-[DEBUG]       *   Distance between [j] and [u] adjusted to 4
-[DEBUG]       *   Distance between [j] and [r] adjusted to 3
-[DEBUG]       *   Distance between [j] and [m] adjusted to 2
-[DEBUG]       *   Distance between [w] and [m] adjusted to 2
+[DEBUG] Adding node [D] to distance graph
+[DEBUG] *   Declaring [D]
+[DEBUG] *   Adding nbrs of [D]
+[DEBUG]     -   Nbr E added
+[DEBUG]     -   Nbr C added
+[DEBUG]     -   Nbr I added
+[DEBUG] *   Adding nbrs of [D]
+[DEBUG]     *   Distance between [D] and [A] recorded as 5
+[DEBUG]     *   Distance between [D] and [B] recorded as 4
+[DEBUG]     *   Distance between [D] and [G] recorded as 3
+[DEBUG]     *   Distance between [D] and [H] recorded as 2
+[DEBUG]     *   Distance between [D] and [N] recorded as 2
+[DEBUG]     *   Distance between [D] and [O] recorded as 3
+[DEBUG]     *   Distance between [D] and [T] recorded as 4
+[DEBUG]     *   Distance between [D] and [Y] recorded as 5
+[DEBUG]     *   Distance between [D] and [X] recorded as 4
+[DEBUG]     *   Distance between [D] and [W] recorded as 5
+[DEBUG]     *   Distance between [D] and [R] recorded as 4
+[DEBUG]     *   Distance between [D] and [Q] recorded as 5
+[DEBUG]     *   Distance between [D] and [P] recorded as 6
+[DEBUG]     *   Distance between [D] and [U] recorded as 7
+[DEBUG]     *   Distance between [D] and [K] recorded as 7
+[DEBUG]     *   Distance between [D] and [V] recorded as 6
+[DEBUG]     *   Distance between [D] and [S] recorded as 3
+[DEBUG]     *   Distance between [D] and [J] recorded as 2
+[DEBUG]     *   Checking distances between old nodes through [D]
 [DEBUG] 
 
-[DEBUG] Adding node [n] to distance graph
-[DEBUG] *   Declaring [n]
-[DEBUG] *   Adding nbrs of [n]
-[DEBUG]     -   Nbr l added
-[DEBUG]     -   Nbr k added
-[DEBUG]     -   Nbr o added
-[DEBUG]     -   Nbr m added
-[DEBUG] *   Adding nbrs of [n]
-[DEBUG]     *   Distance between [n] and [a] recorded as 2
-[DEBUG]     *   Distance between [n] and [p] recorded as 2
-[DEBUG]     *   Distance between [n] and [h] recorded as 3
-[DEBUG]     *   Distance between [n] and [i] recorded as 4
-[DEBUG]     *   Distance between [n] and [g] recorded as 4
-[DEBUG]     *   Distance between [n] and [e] recorded as 5
-[DEBUG]     *   Distance between [n] and [f] recorded as 4
-[DEBUG]     *   Distance between [n] and [j] recorded as 3
-[DEBUG]     *   Distance between [n] and [w] recorded as 3
-[DEBUG]     *   Distance between [n] and [z] recorded as 4
-[DEBUG]     *   Distance between [n] and [y] recorded as 4
-[DEBUG]     *   Distance between [n] and [x] recorded as 3
-[DEBUG]     *   Distance between [n] and [s] recorded as 2
-[DEBUG]     *   Distance between [n] and [t] recorded as 3
-[DEBUG]     *   Distance between [n] and [u] recorded as 3
-[DEBUG]     *   Distance between [n] and [r] recorded as 2
-[DEBUG]     *   Distance between [n] and [v] recorded as 3
-[DEBUG]     *   Distance between [n] and [q] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [n]
-[DEBUG]       *   Distance between [a] and [u] adjusted to 5
-[DEBUG]       *   Distance between [a] and [r] adjusted to 4
-[DEBUG]       *   Distance between [a] and [m] adjusted to 3
-[DEBUG]       *   Distance between [k] and [u] adjusted to 4
-[DEBUG]       *   Distance between [k] and [r] adjusted to 3
-[DEBUG]       *   Distance between [k] and [m] adjusted to 2
+[DEBUG] Adding node [M] to distance graph
+[DEBUG] *   Declaring [M]
+[DEBUG] *   Adding nbrs of [M]
+[DEBUG]     -   Nbr R added
+[DEBUG]     -   Nbr L added
+[DEBUG]     -   Nbr N added
+[DEBUG]     -   Nbr H added
+[DEBUG] *   Adding nbrs of [M]
+[DEBUG]     *   Distance between [M] and [A] recorded as 4
+[DEBUG]     *   Distance between [M] and [B] recorded as 3
+[DEBUG]     *   Distance between [M] and [G] recorded as 2
+[DEBUG]     *   Distance between [M] and [I] recorded as 2
+[DEBUG]     *   Distance between [M] and [O] recorded as 2
+[DEBUG]     *   Distance between [M] and [T] recorded as 3
+[DEBUG]     *   Distance between [M] and [Y] recorded as 4
+[DEBUG]     *   Distance between [M] and [X] recorded as 3
+[DEBUG]     *   Distance between [M] and [W] recorded as 2
+[DEBUG]     *   Distance between [M] and [Q] recorded as 2
+[DEBUG]     *   Distance between [M] and [P] recorded as 3
+[DEBUG]     *   Distance between [M] and [U] recorded as 4
+[DEBUG]     *   Distance between [M] and [K] recorded as 4
+[DEBUG]     *   Distance between [M] and [V] recorded as 3
+[DEBUG]     *   Distance between [M] and [S] recorded as 2
+[DEBUG]     *   Distance between [M] and [J] recorded as 3
+[DEBUG]     *   Distance between [M] and [E] recorded as 4
+[DEBUG]     *   Distance between [M] and [D] recorded as 3
+[DEBUG]     *   Checking distances between old nodes through [M]
+[DEBUG]       *   Distance between [A] and [W] adjusted to 6
+[DEBUG]       *   Distance between [A] and [R] adjusted to 5
+[DEBUG]       *   Distance between [A] and [Q] adjusted to 6
+[DEBUG]       *   Distance between [A] and [P] adjusted to 7
+[DEBUG]       *   Distance between [A] and [U] adjusted to 8
+[DEBUG]       *   Distance between [A] and [K] adjusted to 8
+[DEBUG]       *   Distance between [A] and [V] adjusted to 7
+[DEBUG]       *   Distance between [B] and [W] adjusted to 5
+[DEBUG]       *   Distance between [B] and [R] adjusted to 4
+[DEBUG]       *   Distance between [B] and [Q] adjusted to 5
+[DEBUG]       *   Distance between [B] and [P] adjusted to 6
+[DEBUG]       *   Distance between [B] and [U] adjusted to 7
+[DEBUG]       *   Distance between [B] and [K] adjusted to 7
+[DEBUG]       *   Distance between [B] and [V] adjusted to 6
+[DEBUG]       *   Distance between [G] and [W] adjusted to 4
+[DEBUG]       *   Distance between [G] and [R] adjusted to 3
+[DEBUG]       *   Distance between [G] and [Q] adjusted to 4
+[DEBUG]       *   Distance between [G] and [P] adjusted to 5
+[DEBUG]       *   Distance between [G] and [U] adjusted to 6
+[DEBUG]       *   Distance between [G] and [K] adjusted to 6
+[DEBUG]       *   Distance between [G] and [V] adjusted to 5
+[DEBUG]       *   Distance between [H] and [W] adjusted to 3
+[DEBUG]       *   Distance between [H] and [R] adjusted to 2
+[DEBUG]       *   Distance between [H] and [Q] adjusted to 3
+[DEBUG]       *   Distance between [H] and [P] adjusted to 4
+[DEBUG]       *   Distance between [H] and [U] adjusted to 5
+[DEBUG]       *   Distance between [H] and [K] adjusted to 5
+[DEBUG]       *   Distance between [H] and [V] adjusted to 4
 [DEBUG] 
 
-[DEBUG] Adding node [d] to distance graph
-[DEBUG] *   Declaring [d]
-[DEBUG] *   Adding nbrs of [d]
-[DEBUG]     -   Nbr c added
-[DEBUG]     -   Nbr e added
-[DEBUG]     -   Nbr k added
-[DEBUG]     -   Nbr f added
-[DEBUG]     -   Nbr h added
-[DEBUG]     -   Nbr o added
-[DEBUG]     -   Nbr p added
-[DEBUG] *   Adding nbrs of [d]
-[DEBUG]     *   Distance between [d] and [a] recorded as 2
-[DEBUG]     *   Distance between [d] and [i] recorded as 2
-[DEBUG]     *   Distance between [d] and [g] recorded as 2
-[DEBUG]     *   Distance between [d] and [j] recorded as 2
-[DEBUG]     *   Distance between [d] and [w] recorded as 3
-[DEBUG]     *   Distance between [d] and [z] recorded as 4
-[DEBUG]     *   Distance between [d] and [y] recorded as 4
-[DEBUG]     *   Distance between [d] and [x] recorded as 4
-[DEBUG]     *   Distance between [d] and [s] recorded as 3
-[DEBUG]     *   Distance between [d] and [t] recorded as 4
-[DEBUG]     *   Distance between [d] and [u] recorded as 5
-[DEBUG]     *   Distance between [d] and [r] recorded as 4
-[DEBUG]     *   Distance between [d] and [m] recorded as 3
-[DEBUG]     *   Distance between [d] and [v] recorded as 3
-[DEBUG]     *   Distance between [d] and [q] recorded as 2
-[DEBUG]     *   Distance between [d] and [n] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [d]
-[DEBUG]       *   Distance between [a] and [h] adjusted to 3
-[DEBUG]       *   Distance between [a] and [i] adjusted to 4
-[DEBUG]       *   Distance between [a] and [g] adjusted to 4
-[DEBUG]       *   Distance between [a] and [e] adjusted to 3
-[DEBUG]       *   Distance between [a] and [f] adjusted to 3
-[DEBUG]       *   Distance between [k] and [h] adjusted to 2
-[DEBUG]       *   Distance between [k] and [i] adjusted to 3
-[DEBUG]       *   Distance between [k] and [g] adjusted to 3
-[DEBUG]       *   Distance between [k] and [e] adjusted to 2
-[DEBUG]       *   Distance between [k] and [f] adjusted to 2
-[DEBUG]       *   Distance between [o] and [e] adjusted to 2
-[DEBUG]       *   Distance between [o] and [f] adjusted to 2
-[DEBUG]       *   Distance between [p] and [e] adjusted to 2
-[DEBUG]       *   Distance between [e] and [y] adjusted to 5
-[DEBUG]       *   Distance between [e] and [x] adjusted to 5
-[DEBUG]       *   Distance between [e] and [s] adjusted to 4
-[DEBUG]       *   Distance between [e] and [t] adjusted to 5
-[DEBUG]       *   Distance between [e] and [u] adjusted to 6
-[DEBUG]       *   Distance between [e] and [r] adjusted to 5
-[DEBUG]       *   Distance between [e] and [m] adjusted to 4
-[DEBUG]       *   Distance between [e] and [v] adjusted to 4
-[DEBUG]       *   Distance between [e] and [q] adjusted to 3
-[DEBUG]       *   Distance between [e] and [n] adjusted to 3
-[DEBUG]       *   Distance between [f] and [n] adjusted to 3
+[DEBUG] Adding node [L] to distance graph
+[DEBUG] *   Declaring [L]
+[DEBUG] *   Adding nbrs of [L]
+[DEBUG]     -   Nbr G added
+[DEBUG]     -   Nbr M added
+[DEBUG]     -   Nbr Q added
+[DEBUG]     -   Nbr K added
+[DEBUG] *   Adding nbrs of [L]
+[DEBUG]     *   Distance between [L] and [A] recorded as 3
+[DEBUG]     *   Distance between [L] and [B] recorded as 2
+[DEBUG]     *   Distance between [L] and [H] recorded as 2
+[DEBUG]     *   Distance between [L] and [I] recorded as 3
+[DEBUG]     *   Distance between [L] and [N] recorded as 2
+[DEBUG]     *   Distance between [L] and [O] recorded as 3
+[DEBUG]     *   Distance between [L] and [T] recorded as 4
+[DEBUG]     *   Distance between [L] and [Y] recorded as 5
+[DEBUG]     *   Distance between [L] and [X] recorded as 4
+[DEBUG]     *   Distance between [L] and [W] recorded as 3
+[DEBUG]     *   Distance between [L] and [R] recorded as 2
+[DEBUG]     *   Distance between [L] and [P] recorded as 2
+[DEBUG]     *   Distance between [L] and [U] recorded as 3
+[DEBUG]     *   Distance between [L] and [V] recorded as 2
+[DEBUG]     *   Distance between [L] and [S] recorded as 3
+[DEBUG]     *   Distance between [L] and [J] recorded as 4
+[DEBUG]     *   Distance between [L] and [E] recorded as 5
+[DEBUG]     *   Distance between [L] and [D] recorded as 4
+[DEBUG]     *   Checking distances between old nodes through [L]
+[DEBUG]       *   Distance between [A] and [Q] adjusted to 4
+[DEBUG]       *   Distance between [A] and [P] adjusted to 5
+[DEBUG]       *   Distance between [A] and [U] adjusted to 6
+[DEBUG]       *   Distance between [A] and [K] adjusted to 4
+[DEBUG]       *   Distance between [A] and [V] adjusted to 5
+[DEBUG]       *   Distance between [B] and [Q] adjusted to 3
+[DEBUG]       *   Distance between [B] and [P] adjusted to 4
+[DEBUG]       *   Distance between [B] and [U] adjusted to 5
+[DEBUG]       *   Distance between [B] and [K] adjusted to 3
+[DEBUG]       *   Distance between [B] and [V] adjusted to 4
+[DEBUG]       *   Distance between [G] and [Q] adjusted to 2
+[DEBUG]       *   Distance between [G] and [P] adjusted to 3
+[DEBUG]       *   Distance between [G] and [U] adjusted to 4
+[DEBUG]       *   Distance between [G] and [K] adjusted to 2
+[DEBUG]       *   Distance between [G] and [V] adjusted to 3
+[DEBUG]       *   Distance between [H] and [K] adjusted to 3
+[DEBUG]       *   Distance between [I] and [K] adjusted to 4
+[DEBUG]       *   Distance between [N] and [K] adjusted to 3
+[DEBUG]       *   Distance between [O] and [K] adjusted to 4
+[DEBUG]       *   Distance between [K] and [J] adjusted to 5
+[DEBUG]       *   Distance between [K] and [E] adjusted to 6
+[DEBUG]       *   Distance between [K] and [D] adjusted to 5
+[DEBUG]       *   Distance between [K] and [M] adjusted to 2
 [DEBUG] 
 
-[DEBUG] Adding node [c] to distance graph
-[DEBUG] *   Declaring [c]
-[DEBUG] *   Adding nbrs of [c]
-[DEBUG]     -   Nbr k added
-[DEBUG]     -   Nbr b added
-[DEBUG]     -   Nbr d added
-[DEBUG] *   Adding nbrs of [c]
-[DEBUG]     *   Distance between [c] and [a] recorded as 2
-[DEBUG]     *   Distance between [c] and [o] recorded as 2
-[DEBUG]     *   Distance between [c] and [p] recorded as 2
-[DEBUG]     *   Distance between [c] and [h] recorded as 2
-[DEBUG]     *   Distance between [c] and [i] recorded as 3
-[DEBUG]     *   Distance between [c] and [g] recorded as 3
-[DEBUG]     *   Distance between [c] and [e] recorded as 2
-[DEBUG]     *   Distance between [c] and [f] recorded as 2
-[DEBUG]     *   Distance between [c] and [j] recorded as 3
-[DEBUG]     *   Distance between [c] and [w] recorded as 4
-[DEBUG]     *   Distance between [c] and [z] recorded as 5
-[DEBUG]     *   Distance between [c] and [y] recorded as 5
-[DEBUG]     *   Distance between [c] and [x] recorded as 5
-[DEBUG]     *   Distance between [c] and [s] recorded as 4
-[DEBUG]     *   Distance between [c] and [t] recorded as 5
-[DEBUG]     *   Distance between [c] and [u] recorded as 5
-[DEBUG]     *   Distance between [c] and [r] recorded as 4
-[DEBUG]     *   Distance between [c] and [m] recorded as 3
-[DEBUG]     *   Distance between [c] and [v] recorded as 4
-[DEBUG]     *   Distance between [c] and [q] recorded as 3
-[DEBUG]     *   Distance between [c] and [n] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [c]
+[DEBUG] Adding node [C] to distance graph
+[DEBUG] *   Declaring [C]
+[DEBUG] *   Adding nbrs of [C]
+[DEBUG]     -   Nbr D added
+[DEBUG]     -   Nbr B added
+[DEBUG]     -   Nbr H added
+[DEBUG] *   Adding nbrs of [C]
+[DEBUG]     *   Distance between [C] and [A] recorded as 2
+[DEBUG]     *   Distance between [C] and [G] recorded as 2
+[DEBUG]     *   Distance between [C] and [I] recorded as 2
+[DEBUG]     *   Distance between [C] and [N] recorded as 3
+[DEBUG]     *   Distance between [C] and [O] recorded as 4
+[DEBUG]     *   Distance between [C] and [T] recorded as 5
+[DEBUG]     *   Distance between [C] and [Y] recorded as 6
+[DEBUG]     *   Distance between [C] and [X] recorded as 5
+[DEBUG]     *   Distance between [C] and [W] recorded as 4
+[DEBUG]     *   Distance between [C] and [R] recorded as 3
+[DEBUG]     *   Distance between [C] and [Q] recorded as 4
+[DEBUG]     *   Distance between [C] and [P] recorded as 5
+[DEBUG]     *   Distance between [C] and [U] recorded as 6
+[DEBUG]     *   Distance between [C] and [K] recorded as 4
+[DEBUG]     *   Distance between [C] and [V] recorded as 5
+[DEBUG]     *   Distance between [C] and [S] recorded as 4
+[DEBUG]     *   Distance between [C] and [J] recorded as 3
+[DEBUG]     *   Distance between [C] and [E] recorded as 2
+[DEBUG]     *   Distance between [C] and [M] recorded as 2
+[DEBUG]     *   Distance between [C] and [L] recorded as 3
+[DEBUG]     *   Checking distances between old nodes through [C]
+[DEBUG]       *   Distance between [A] and [E] adjusted to 4
+[DEBUG]       *   Distance between [A] and [D] adjusted to 3
+[DEBUG]       *   Distance between [B] and [E] adjusted to 3
+[DEBUG]       *   Distance between [B] and [D] adjusted to 2
 [DEBUG] 
 
-[DEBUG] Adding node [l] to distance graph
-[DEBUG] *   Declaring [l]
-[DEBUG] *   Adding nbrs of [l]
-[DEBUG]     -   Nbr a added
-[DEBUG]     -   Nbr k added
-[DEBUG]     -   Nbr n added
-[DEBUG]     -   Nbr m added
-[DEBUG] *   Adding nbrs of [l]
-[DEBUG]     *   Distance between [l] and [o] recorded as 2
-[DEBUG]     *   Distance between [l] and [p] recorded as 3
-[DEBUG]     *   Distance between [l] and [h] recorded as 3
-[DEBUG]     *   Distance between [l] and [i] recorded as 4
-[DEBUG]     *   Distance between [l] and [g] recorded as 4
-[DEBUG]     *   Distance between [l] and [e] recorded as 3
-[DEBUG]     *   Distance between [l] and [f] recorded as 3
-[DEBUG]     *   Distance between [l] and [j] recorded as 3
-[DEBUG]     *   Distance between [l] and [w] recorded as 3
-[DEBUG]     *   Distance between [l] and [z] recorded as 4
-[DEBUG]     *   Distance between [l] and [y] recorded as 4
-[DEBUG]     *   Distance between [l] and [x] recorded as 3
-[DEBUG]     *   Distance between [l] and [s] recorded as 2
-[DEBUG]     *   Distance between [l] and [t] recorded as 3
-[DEBUG]     *   Distance between [l] and [u] recorded as 3
-[DEBUG]     *   Distance between [l] and [r] recorded as 2
-[DEBUG]     *   Distance between [l] and [v] recorded as 3
-[DEBUG]     *   Distance between [l] and [q] recorded as 2
-[DEBUG]     *   Distance between [l] and [d] recorded as 2
-[DEBUG]     *   Distance between [l] and [c] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [l]
-[DEBUG]       *   Distance between [a] and [x] adjusted to 4
-[DEBUG]       *   Distance between [a] and [s] adjusted to 3
-[DEBUG]       *   Distance between [a] and [t] adjusted to 4
-[DEBUG]       *   Distance between [a] and [u] adjusted to 4
-[DEBUG]       *   Distance between [a] and [r] adjusted to 3
-[DEBUG]       *   Distance between [a] and [m] adjusted to 2
-[DEBUG] 
-
-[DEBUG] Adding node [b] to distance graph
-[DEBUG] *   Declaring [b]
-[DEBUG] *   Adding nbrs of [b]
-[DEBUG]     -   Nbr k added
-[DEBUG]     -   Nbr a added
-[DEBUG]     -   Nbr c added
-[DEBUG] *   Adding nbrs of [b]
-[DEBUG]     *   Distance between [b] and [o] recorded as 2
-[DEBUG]     *   Distance between [b] and [p] recorded as 3
-[DEBUG]     *   Distance between [b] and [h] recorded as 3
-[DEBUG]     *   Distance between [b] and [i] recorded as 4
-[DEBUG]     *   Distance between [b] and [g] recorded as 4
-[DEBUG]     *   Distance between [b] and [e] recorded as 3
-[DEBUG]     *   Distance between [b] and [f] recorded as 3
-[DEBUG]     *   Distance between [b] and [j] recorded as 4
-[DEBUG]     *   Distance between [b] and [w] recorded as 4
-[DEBUG]     *   Distance between [b] and [z] recorded as 5
-[DEBUG]     *   Distance between [b] and [y] recorded as 5
-[DEBUG]     *   Distance between [b] and [x] recorded as 5
-[DEBUG]     *   Distance between [b] and [s] recorded as 4
-[DEBUG]     *   Distance between [b] and [t] recorded as 5
-[DEBUG]     *   Distance between [b] and [u] recorded as 5
-[DEBUG]     *   Distance between [b] and [r] recorded as 4
-[DEBUG]     *   Distance between [b] and [m] recorded as 3
-[DEBUG]     *   Distance between [b] and [v] recorded as 4
-[DEBUG]     *   Distance between [b] and [q] recorded as 3
-[DEBUG]     *   Distance between [b] and [n] recorded as 2
-[DEBUG]     *   Distance between [b] and [d] recorded as 2
-[DEBUG]     *   Distance between [b] and [l] recorded as 2
-[DEBUG]     *   Checking distances between old nodes through [b]
+[DEBUG] Adding node [F] to distance graph
+[DEBUG] *   Declaring [F]
+[DEBUG] *   Adding nbrs of [F]
+[DEBUG]     -   Nbr G added
+[DEBUG]     -   Nbr A added
+[DEBUG]     -   Nbr K added
+[DEBUG] *   Adding nbrs of [F]
+[DEBUG]     *   Distance between [F] and [B] recorded as 2
+[DEBUG]     *   Distance between [F] and [H] recorded as 2
+[DEBUG]     *   Distance between [F] and [I] recorded as 3
+[DEBUG]     *   Distance between [F] and [N] recorded as 4
+[DEBUG]     *   Distance between [F] and [O] recorded as 5
+[DEBUG]     *   Distance between [F] and [T] recorded as 6
+[DEBUG]     *   Distance between [F] and [Y] recorded as 7
+[DEBUG]     *   Distance between [F] and [X] recorded as 6
+[DEBUG]     *   Distance between [F] and [W] recorded as 5
+[DEBUG]     *   Distance between [F] and [R] recorded as 4
+[DEBUG]     *   Distance between [F] and [Q] recorded as 3
+[DEBUG]     *   Distance between [F] and [P] recorded as 2
+[DEBUG]     *   Distance between [F] and [U] recorded as 3
+[DEBUG]     *   Distance between [F] and [V] recorded as 4
+[DEBUG]     *   Distance between [F] and [S] recorded as 5
+[DEBUG]     *   Distance between [F] and [J] recorded as 4
+[DEBUG]     *   Distance between [F] and [E] recorded as 5
+[DEBUG]     *   Distance between [F] and [D] recorded as 4
+[DEBUG]     *   Distance between [F] and [M] recorded as 3
+[DEBUG]     *   Distance between [F] and [L] recorded as 2
+[DEBUG]     *   Distance between [F] and [C] recorded as 3
+[DEBUG]     *   Checking distances between old nodes through [F]
+[DEBUG]       *   Distance between [A] and [P] adjusted to 3
+[DEBUG]       *   Distance between [A] and [U] adjusted to 4
+[DEBUG]       *   Distance between [A] and [K] adjusted to 2
 [DEBUG] 
 
 [DEBUG] 
 == Distance Map ==
-[DEBUG] [a]:
-[DEBUG]     a : 0
-[DEBUG]     b : 1
-[DEBUG]     l : 1
-[DEBUG]     k : 1
-[DEBUG]     o : 2
-[DEBUG]     p : 3
-[DEBUG]     h : 3
-[DEBUG]     i : 4
-[DEBUG]     g : 4
-[DEBUG]     e : 3
-[DEBUG]     f : 3
-[DEBUG]     j : 4
-[DEBUG]     w : 4
-[DEBUG]     z : 5
-[DEBUG]     y : 5
-[DEBUG]     x : 4
-[DEBUG]     s : 3
-[DEBUG]     t : 4
-[DEBUG]     u : 4
-[DEBUG]     r : 3
-[DEBUG]     m : 2
-[DEBUG]     v : 4
-[DEBUG]     q : 3
-[DEBUG]     n : 2
-[DEBUG]     d : 2
-[DEBUG]     c : 2
+[DEBUG] [A]:
+[DEBUG]     A : 0
+[DEBUG]     F : 1
+[DEBUG]     B : 1
+[DEBUG]     G : 2
+[DEBUG]     H : 3
+[DEBUG]     I : 4
+[DEBUG]     N : 5
+[DEBUG]     O : 6
+[DEBUG]     T : 7
+[DEBUG]     Y : 8
+[DEBUG]     X : 7
+[DEBUG]     W : 6
+[DEBUG]     R : 5
+[DEBUG]     Q : 4
+[DEBUG]     P : 3
+[DEBUG]     U : 4
+[DEBUG]     K : 2
+[DEBUG]     V : 5
+[DEBUG]     S : 6
+[DEBUG]     J : 5
+[DEBUG]     E : 4
+[DEBUG]     D : 3
+[DEBUG]     M : 4
+[DEBUG]     L : 3
+[DEBUG]     C : 2
 [DEBUG] 
-[DEBUG] [k]:
-[DEBUG]     k : 0
-[DEBUG]     b : 1
-[DEBUG]     a : 1
-[DEBUG]     c : 1
-[DEBUG]     d : 1
-[DEBUG]     l : 1
-[DEBUG]     n : 1
-[DEBUG]     o : 1
-[DEBUG]     p : 2
-[DEBUG]     h : 2
-[DEBUG]     i : 3
-[DEBUG]     g : 3
-[DEBUG]     e : 2
-[DEBUG]     f : 2
-[DEBUG]     j : 3
-[DEBUG]     w : 3
-[DEBUG]     z : 4
-[DEBUG]     y : 4
-[DEBUG]     x : 4
-[DEBUG]     s : 3
-[DEBUG]     t : 4
-[DEBUG]     u : 4
-[DEBUG]     r : 3
-[DEBUG]     m : 2
-[DEBUG]     v : 3
-[DEBUG]     q : 2
+[DEBUG] [B]:
+[DEBUG]     B : 0
+[DEBUG]     C : 1
+[DEBUG]     A : 1
+[DEBUG]     G : 1
+[DEBUG]     H : 2
+[DEBUG]     I : 3
+[DEBUG]     N : 4
+[DEBUG]     O : 5
+[DEBUG]     T : 6
+[DEBUG]     Y : 7
+[DEBUG]     X : 6
+[DEBUG]     W : 5
+[DEBUG]     R : 4
+[DEBUG]     Q : 3
+[DEBUG]     P : 4
+[DEBUG]     U : 5
+[DEBUG]     K : 3
+[DEBUG]     V : 4
+[DEBUG]     S : 5
+[DEBUG]     J : 4
+[DEBUG]     E : 3
+[DEBUG]     D : 2
+[DEBUG]     M : 3
+[DEBUG]     L : 2
+[DEBUG]     F : 2
 [DEBUG] 
-[DEBUG] [o]:
-[DEBUG]     o : 0
-[DEBUG]     k : 1
-[DEBUG]     n : 1
-[DEBUG]     d : 1
-[DEBUG]     q : 1
-[DEBUG]     p : 1
-[DEBUG]     a : 2
-[DEBUG]     h : 2
-[DEBUG]     i : 3
-[DEBUG]     g : 3
-[DEBUG]     e : 2
-[DEBUG]     f : 2
-[DEBUG]     j : 2
-[DEBUG]     w : 2
-[DEBUG]     z : 3
-[DEBUG]     y : 3
-[DEBUG]     x : 3
-[DEBUG]     s : 2
-[DEBUG]     t : 3
-[DEBUG]     u : 4
-[DEBUG]     r : 3
-[DEBUG]     m : 2
-[DEBUG]     v : 2
-[DEBUG]     c : 2
-[DEBUG]     l : 2
-[DEBUG]     b : 2
+[DEBUG] [G]:
+[DEBUG]     G : 0
+[DEBUG]     F : 1
+[DEBUG]     L : 1
+[DEBUG]     B : 1
+[DEBUG]     H : 1
+[DEBUG]     A : 2
+[DEBUG]     I : 2
+[DEBUG]     N : 3
+[DEBUG]     O : 4
+[DEBUG]     T : 5
+[DEBUG]     Y : 6
+[DEBUG]     X : 5
+[DEBUG]     W : 4
+[DEBUG]     R : 3
+[DEBUG]     Q : 2
+[DEBUG]     P : 3
+[DEBUG]     U : 4
+[DEBUG]     K : 2
+[DEBUG]     V : 3
+[DEBUG]     S : 4
+[DEBUG]     J : 3
+[DEBUG]     E : 4
+[DEBUG]     D : 3
+[DEBUG]     M : 2
+[DEBUG]     C : 2
 [DEBUG] 
-[DEBUG] [p]:
-[DEBUG]     p : 0
-[DEBUG]     q : 1
-[DEBUG]     o : 1
-[DEBUG]     d : 1
-[DEBUG]     j : 1
-[DEBUG]     h : 1
-[DEBUG]     a : 3
-[DEBUG]     k : 2
-[DEBUG]     i : 2
-[DEBUG]     g : 2
-[DEBUG]     e : 2
-[DEBUG]     f : 2
-[DEBUG]     w : 2
-[DEBUG]     z : 3
-[DEBUG]     y : 3
-[DEBUG]     x : 3
-[DEBUG]     s : 2
-[DEBUG]     t : 3
-[DEBUG]     u : 4
-[DEBUG]     r : 3
-[DEBUG]     m : 2
-[DEBUG]     v : 2
-[DEBUG]     n : 2
-[DEBUG]     c : 2
-[DEBUG]     l : 3
-[DEBUG]     b : 3
+[DEBUG] [H]:
+[DEBUG]     H : 0
+[DEBUG]     C : 1
+[DEBUG]     M : 1
+[DEBUG]     I : 1
+[DEBUG]     G : 1
+[DEBUG]     A : 3
+[DEBUG]     B : 2
+[DEBUG]     N : 2
+[DEBUG]     O : 3
+[DEBUG]     T : 4
+[DEBUG]     Y : 5
+[DEBUG]     X : 4
+[DEBUG]     W : 3
+[DEBUG]     R : 2
+[DEBUG]     Q : 3
+[DEBUG]     P : 4
+[DEBUG]     U : 5
+[DEBUG]     K : 3
+[DEBUG]     V : 4
+[DEBUG]     S : 3
+[DEBUG]     J : 2
+[DEBUG]     E : 3
+[DEBUG]     D : 2
+[DEBUG]     L : 2
+[DEBUG]     F : 2
 [DEBUG] 
-[DEBUG] [h]:
-[DEBUG]     h : 0
-[DEBUG]     f : 1
-[DEBUG]     d : 1
-[DEBUG]     g : 1
-[DEBUG]     i : 1
-[DEBUG]     j : 1
-[DEBUG]     p : 1
-[DEBUG]     a : 3
-[DEBUG]     k : 2
-[DEBUG]     o : 2
-[DEBUG]     e : 2
-[DEBUG]     w : 2
-[DEBUG]     z : 3
-[DEBUG]     y : 4
-[DEBUG]     x : 4
-[DEBUG]     s : 3
-[DEBUG]     t : 4
-[DEBUG]     u : 5
-[DEBUG]     r : 4
-[DEBUG]     m : 3
-[DEBUG]     v : 3
-[DEBUG]     q : 2
-[DEBUG]     n : 3
-[DEBUG]     c : 2
-[DEBUG]     l : 3
-[DEBUG]     b : 3
+[DEBUG] [I]:
+[DEBUG]     I : 0
+[DEBUG]     D : 1
+[DEBUG]     H : 1
+[DEBUG]     J : 1
+[DEBUG]     N : 1
+[DEBUG]     A : 4
+[DEBUG]     B : 3
+[DEBUG]     G : 2
+[DEBUG]     O : 2
+[DEBUG]     T : 3
+[DEBUG]     Y : 4
+[DEBUG]     X : 3
+[DEBUG]     W : 4
+[DEBUG]     R : 3
+[DEBUG]     Q : 4
+[DEBUG]     P : 5
+[DEBUG]     U : 6
+[DEBUG]     K : 4
+[DEBUG]     V : 5
+[DEBUG]     S : 2
+[DEBUG]     E : 2
+[DEBUG]     M : 2
+[DEBUG]     L : 3
+[DEBUG]     C : 2
+[DEBUG]     F : 3
 [DEBUG] 
-[DEBUG] [i]:
-[DEBUG]     i : 0
-[DEBUG]     h : 1
-[DEBUG]     g : 1
-[DEBUG]     j : 1
-[DEBUG]     a : 4
-[DEBUG]     k : 3
-[DEBUG]     o : 3
-[DEBUG]     p : 2
-[DEBUG]     e : 2
-[DEBUG]     f : 2
-[DEBUG]     w : 2
-[DEBUG]     z : 3
-[DEBUG]     y : 4
-[DEBUG]     x : 4
-[DEBUG]     s : 3
-[DEBUG]     t : 4
-[DEBUG]     u : 5
-[DEBUG]     r : 4
-[DEBUG]     m : 3
-[DEBUG]     v : 3
-[DEBUG]     q : 2
-[DEBUG]     n : 4
-[DEBUG]     d : 2
-[DEBUG]     c : 3
-[DEBUG]     l : 4
-[DEBUG]     b : 4
+[DEBUG] [N]:
+[DEBUG]     N : 0
+[DEBUG]     S : 1
+[DEBUG]     O : 1
+[DEBUG]     I : 1
+[DEBUG]     M : 1
+[DEBUG]     A : 5
+[DEBUG]     B : 4
+[DEBUG]     G : 3
+[DEBUG]     H : 2
+[DEBUG]     T : 2
+[DEBUG]     Y : 3
+[DEBUG]     X : 2
+[DEBUG]     W : 3
+[DEBUG]     R : 2
+[DEBUG]     Q : 3
+[DEBUG]     P : 4
+[DEBUG]     U : 5
+[DEBUG]     K : 3
+[DEBUG]     V : 4
+[DEBUG]     J : 2
+[DEBUG]     E : 3
+[DEBUG]     D : 2
+[DEBUG]     L : 2
+[DEBUG]     C : 3
+[DEBUG]     F : 4
 [DEBUG] 
-[DEBUG] [g]:
-[DEBUG]     g : 0
-[DEBUG]     e : 1
-[DEBUG]     f : 1
-[DEBUG]     h : 1
-[DEBUG]     i : 1
-[DEBUG]     a : 4
-[DEBUG]     k : 3
-[DEBUG]     o : 3
-[DEBUG]     p : 2
-[DEBUG]     j : 2
-[DEBUG]     w : 3
-[DEBUG]     z : 4
-[DEBUG]     y : 5
-[DEBUG]     x : 5
-[DEBUG]     s : 4
-[DEBUG]     t : 5
-[DEBUG]     u : 6
-[DEBUG]     r : 5
-[DEBUG]     m : 4
-[DEBUG]     v : 4
-[DEBUG]     q : 3
-[DEBUG]     n : 4
-[DEBUG]     d : 2
-[DEBUG]     c : 3
-[DEBUG]     l : 4
-[DEBUG]     b : 4
+[DEBUG] [O]:
+[DEBUG]     O : 0
+[DEBUG]     N : 1
+[DEBUG]     J : 1
+[DEBUG]     T : 1
+[DEBUG]     A : 6
+[DEBUG]     B : 5
+[DEBUG]     G : 4
+[DEBUG]     H : 3
+[DEBUG]     I : 2
+[DEBUG]     Y : 2
+[DEBUG]     X : 3
+[DEBUG]     W : 4
+[DEBUG]     R : 3
+[DEBUG]     Q : 4
+[DEBUG]     P : 5
+[DEBUG]     U : 6
+[DEBUG]     K : 4
+[DEBUG]     V : 5
+[DEBUG]     S : 2
+[DEBUG]     E : 2
+[DEBUG]     D : 3
+[DEBUG]     M : 2
+[DEBUG]     L : 3
+[DEBUG]     C : 4
+[DEBUG]     F : 5
 [DEBUG] 
-[DEBUG] [e]:
-[DEBUG]     e : 0
-[DEBUG]     f : 1
-[DEBUG]     d : 1
-[DEBUG]     g : 1
-[DEBUG]     a : 3
-[DEBUG]     k : 2
-[DEBUG]     o : 2
-[DEBUG]     p : 2
-[DEBUG]     h : 2
-[DEBUG]     i : 2
-[DEBUG]     j : 3
-[DEBUG]     w : 4
-[DEBUG]     z : 5
-[DEBUG]     y : 5
-[DEBUG]     x : 5
-[DEBUG]     s : 4
-[DEBUG]     t : 5
-[DEBUG]     u : 6
-[DEBUG]     r : 5
-[DEBUG]     m : 4
-[DEBUG]     v : 4
-[DEBUG]     q : 3
-[DEBUG]     n : 3
-[DEBUG]     c : 2
-[DEBUG]     l : 3
-[DEBUG]     b : 3
+[DEBUG] [T]:
+[DEBUG]     T : 0
+[DEBUG]     Y : 1
+[DEBUG]     S : 1
+[DEBUG]     O : 1
+[DEBUG]     A : 7
+[DEBUG]     B : 6
+[DEBUG]     G : 5
+[DEBUG]     H : 4
+[DEBUG]     I : 3
+[DEBUG]     N : 2
+[DEBUG]     X : 2
+[DEBUG]     W : 3
+[DEBUG]     R : 2
+[DEBUG]     Q : 3
+[DEBUG]     P : 4
+[DEBUG]     U : 5
+[DEBUG]     K : 5
+[DEBUG]     V : 4
+[DEBUG]     J : 2
+[DEBUG]     E : 3
+[DEBUG]     D : 4
+[DEBUG]     M : 3
+[DEBUG]     L : 4
+[DEBUG]     C : 5
+[DEBUG]     F : 6
 [DEBUG] 
-[DEBUG] [f]:
-[DEBUG]     f : 0
-[DEBUG]     e : 1
-[DEBUG]     h : 1
-[DEBUG]     d : 1
-[DEBUG]     g : 1
-[DEBUG]     a : 3
-[DEBUG]     k : 2
-[DEBUG]     o : 2
-[DEBUG]     p : 2
-[DEBUG]     i : 2
-[DEBUG]     j : 2
-[DEBUG]     w : 3
-[DEBUG]     z : 4
-[DEBUG]     y : 5
-[DEBUG]     x : 5
-[DEBUG]     s : 4
-[DEBUG]     t : 5
-[DEBUG]     u : 6
-[DEBUG]     r : 5
-[DEBUG]     m : 4
-[DEBUG]     v : 4
-[DEBUG]     q : 3
-[DEBUG]     n : 3
-[DEBUG]     c : 2
-[DEBUG]     l : 3
-[DEBUG]     b : 3
+[DEBUG] [Y]:
+[DEBUG]     Y : 0
+[DEBUG]     X : 1
+[DEBUG]     T : 1
+[DEBUG]     A : 8
+[DEBUG]     B : 7
+[DEBUG]     G : 6
+[DEBUG]     H : 5
+[DEBUG]     I : 4
+[DEBUG]     N : 3
+[DEBUG]     O : 2
+[DEBUG]     W : 2
+[DEBUG]     R : 3
+[DEBUG]     Q : 4
+[DEBUG]     P : 5
+[DEBUG]     U : 4
+[DEBUG]     K : 6
+[DEBUG]     V : 3
+[DEBUG]     S : 2
+[DEBUG]     J : 3
+[DEBUG]     E : 4
+[DEBUG]     D : 5
+[DEBUG]     M : 4
+[DEBUG]     L : 5
+[DEBUG]     C : 6
+[DEBUG]     F : 7
 [DEBUG] 
-[DEBUG] [j]:
-[DEBUG]     j : 0
-[DEBUG]     q : 1
-[DEBUG]     p : 1
-[DEBUG]     h : 1
-[DEBUG]     i : 1
-[DEBUG]     w : 1
-[DEBUG]     a : 4
-[DEBUG]     k : 3
-[DEBUG]     o : 2
-[DEBUG]     g : 2
-[DEBUG]     e : 3
-[DEBUG]     f : 2
-[DEBUG]     z : 2
-[DEBUG]     y : 3
-[DEBUG]     x : 3
-[DEBUG]     s : 2
-[DEBUG]     t : 3
-[DEBUG]     u : 4
-[DEBUG]     r : 3
-[DEBUG]     m : 2
-[DEBUG]     v : 2
-[DEBUG]     n : 3
-[DEBUG]     d : 2
-[DEBUG]     c : 3
-[DEBUG]     l : 3
-[DEBUG]     b : 4
+[DEBUG] [X]:
+[DEBUG]     X : 0
+[DEBUG]     Y : 1
+[DEBUG]     S : 1
+[DEBUG]     W : 1
+[DEBUG]     A : 7
+[DEBUG]     B : 6
+[DEBUG]     G : 5
+[DEBUG]     H : 4
+[DEBUG]     I : 3
+[DEBUG]     N : 2
+[DEBUG]     O : 3
+[DEBUG]     T : 2
+[DEBUG]     R : 2
+[DEBUG]     Q : 3
+[DEBUG]     P : 4
+[DEBUG]     U : 3
+[DEBUG]     K : 5
+[DEBUG]     V : 2
+[DEBUG]     J : 4
+[DEBUG]     E : 5
+[DEBUG]     D : 4
+[DEBUG]     M : 3
+[DEBUG]     L : 4
+[DEBUG]     C : 5
+[DEBUG]     F : 6
 [DEBUG] 
-[DEBUG] [w]:
-[DEBUG]     w : 0
-[DEBUG]     q : 1
-[DEBUG]     j : 1
-[DEBUG]     v : 1
-[DEBUG]     z : 1
-[DEBUG]     a : 4
-[DEBUG]     k : 3
-[DEBUG]     o : 2
-[DEBUG]     p : 2
-[DEBUG]     h : 2
-[DEBUG]     i : 2
-[DEBUG]     g : 3
-[DEBUG]     e : 4
-[DEBUG]     f : 3
-[DEBUG]     y : 2
-[DEBUG]     x : 2
-[DEBUG]     s : 2
-[DEBUG]     t : 3
-[DEBUG]     u : 4
-[DEBUG]     r : 3
-[DEBUG]     m : 2
-[DEBUG]     n : 3
-[DEBUG]     d : 3
-[DEBUG]     c : 4
-[DEBUG]     l : 3
-[DEBUG]     b : 4
+[DEBUG] [W]:
+[DEBUG]     W : 0
+[DEBUG]     X : 1
+[DEBUG]     V : 1
+[DEBUG]     R : 1
+[DEBUG]     A : 6
+[DEBUG]     B : 5
+[DEBUG]     G : 4
+[DEBUG]     H : 3
+[DEBUG]     I : 4
+[DEBUG]     N : 3
+[DEBUG]     O : 4
+[DEBUG]     T : 3
+[DEBUG]     Y : 2
+[DEBUG]     Q : 2
+[DEBUG]     P : 3
+[DEBUG]     U : 2
+[DEBUG]     K : 4
+[DEBUG]     S : 2
+[DEBUG]     J : 5
+[DEBUG]     E : 6
+[DEBUG]     D : 5
+[DEBUG]     M : 2
+[DEBUG]     L : 3
+[DEBUG]     C : 4
+[DEBUG]     F : 5
 [DEBUG] 
-[DEBUG] [z]:
-[DEBUG]     z : 0
-[DEBUG]     w : 1
-[DEBUG]     v : 1
-[DEBUG]     y : 1
-[DEBUG]     a : 5
-[DEBUG]     k : 4
-[DEBUG]     o : 3
-[DEBUG]     p : 3
-[DEBUG]     h : 3
-[DEBUG]     i : 3
-[DEBUG]     g : 4
-[DEBUG]     e : 5
-[DEBUG]     f : 4
-[DEBUG]     j : 2
-[DEBUG]     x : 2
-[DEBUG]     s : 2
-[DEBUG]     t : 3
-[DEBUG]     u : 4
-[DEBUG]     r : 3
-[DEBUG]     m : 3
-[DEBUG]     q : 2
-[DEBUG]     n : 4
-[DEBUG]     d : 4
-[DEBUG]     c : 5
-[DEBUG]     l : 4
-[DEBUG]     b : 5
+[DEBUG] [R]:
+[DEBUG]     R : 0
+[DEBUG]     S : 1
+[DEBUG]     M : 1
+[DEBUG]     Q : 1
+[DEBUG]     W : 1
+[DEBUG]     A : 5
+[DEBUG]     B : 4
+[DEBUG]     G : 3
+[DEBUG]     H : 2
+[DEBUG]     I : 3
+[DEBUG]     N : 2
+[DEBUG]     O : 3
+[DEBUG]     T : 2
+[DEBUG]     Y : 3
+[DEBUG]     X : 2
+[DEBUG]     P : 2
+[DEBUG]     U : 3
+[DEBUG]     K : 3
+[DEBUG]     V : 2
+[DEBUG]     J : 4
+[DEBUG]     E : 5
+[DEBUG]     D : 4
+[DEBUG]     L : 2
+[DEBUG]     C : 3
+[DEBUG]     F : 4
 [DEBUG] 
-[DEBUG] [y]:
-[DEBUG]     y : 0
-[DEBUG]     v : 1
-[DEBUG]     x : 1
-[DEBUG]     z : 1
-[DEBUG]     a : 5
-[DEBUG]     k : 4
-[DEBUG]     o : 3
-[DEBUG]     p : 3
-[DEBUG]     h : 4
-[DEBUG]     i : 4
-[DEBUG]     g : 5
-[DEBUG]     e : 5
-[DEBUG]     f : 5
-[DEBUG]     j : 3
-[DEBUG]     w : 2
-[DEBUG]     s : 2
-[DEBUG]     t : 3
-[DEBUG]     u : 4
-[DEBUG]     r : 3
-[DEBUG]     m : 3
-[DEBUG]     q : 2
-[DEBUG]     n : 4
-[DEBUG]     d : 4
-[DEBUG]     c : 5
-[DEBUG]     l : 4
-[DEBUG]     b : 5
+[DEBUG] [Q]:
+[DEBUG]     Q : 0
+[DEBUG]     R : 1
+[DEBUG]     P : 1
+[DEBUG]     V : 1
+[DEBUG]     L : 1
+[DEBUG]     A : 4
+[DEBUG]     B : 3
+[DEBUG]     G : 2
+[DEBUG]     H : 3
+[DEBUG]     I : 4
+[DEBUG]     N : 3
+[DEBUG]     O : 4
+[DEBUG]     T : 3
+[DEBUG]     Y : 4
+[DEBUG]     X : 3
+[DEBUG]     W : 2
+[DEBUG]     U : 2
+[DEBUG]     K : 2
+[DEBUG]     S : 2
+[DEBUG]     J : 5
+[DEBUG]     E : 6
+[DEBUG]     D : 5
+[DEBUG]     M : 2
+[DEBUG]     C : 4
+[DEBUG]     F : 3
 [DEBUG] 
-[DEBUG] [x]:
-[DEBUG]     x : 0
-[DEBUG]     v : 1
-[DEBUG]     s : 1
-[DEBUG]     y : 1
-[DEBUG]     a : 4
-[DEBUG]     k : 4
-[DEBUG]     o : 3
-[DEBUG]     p : 3
-[DEBUG]     h : 4
-[DEBUG]     i : 4
-[DEBUG]     g : 5
-[DEBUG]     e : 5
-[DEBUG]     f : 5
-[DEBUG]     j : 3
-[DEBUG]     w : 2
-[DEBUG]     z : 2
-[DEBUG]     t : 2
-[DEBUG]     u : 3
-[DEBUG]     r : 2
-[DEBUG]     m : 2
-[DEBUG]     q : 2
-[DEBUG]     n : 3
-[DEBUG]     d : 4
-[DEBUG]     c : 5
-[DEBUG]     l : 3
-[DEBUG]     b : 5
+[DEBUG] [P]:
+[DEBUG]     P : 0
+[DEBUG]     K : 1
+[DEBUG]     U : 1
+[DEBUG]     Q : 1
+[DEBUG]     A : 3
+[DEBUG]     B : 4
+[DEBUG]     G : 3
+[DEBUG]     H : 4
+[DEBUG]     I : 5
+[DEBUG]     N : 4
+[DEBUG]     O : 5
+[DEBUG]     T : 4
+[DEBUG]     Y : 5
+[DEBUG]     X : 4
+[DEBUG]     W : 3
+[DEBUG]     R : 2
+[DEBUG]     V : 2
+[DEBUG]     S : 3
+[DEBUG]     J : 6
+[DEBUG]     E : 7
+[DEBUG]     D : 6
+[DEBUG]     M : 3
+[DEBUG]     L : 2
+[DEBUG]     C : 5
+[DEBUG]     F : 2
 [DEBUG] 
-[DEBUG] [s]:
-[DEBUG]     s : 0
-[DEBUG]     q : 1
-[DEBUG]     m : 1
-[DEBUG]     r : 1
-[DEBUG]     v : 1
-[DEBUG]     t : 1
-[DEBUG]     x : 1
-[DEBUG]     a : 3
-[DEBUG]     k : 3
-[DEBUG]     o : 2
-[DEBUG]     p : 2
-[DEBUG]     h : 3
-[DEBUG]     i : 3
-[DEBUG]     g : 4
-[DEBUG]     e : 4
-[DEBUG]     f : 4
-[DEBUG]     j : 2
-[DEBUG]     w : 2
-[DEBUG]     z : 2
-[DEBUG]     y : 2
-[DEBUG]     u : 2
-[DEBUG]     n : 2
-[DEBUG]     d : 3
-[DEBUG]     c : 4
-[DEBUG]     l : 2
-[DEBUG]     b : 4
+[DEBUG] [U]:
+[DEBUG]     U : 0
+[DEBUG]     P : 1
+[DEBUG]     V : 1
+[DEBUG]     A : 4
+[DEBUG]     B : 5
+[DEBUG]     G : 4
+[DEBUG]     H : 5
+[DEBUG]     I : 6
+[DEBUG]     N : 5
+[DEBUG]     O : 6
+[DEBUG]     T : 5
+[DEBUG]     Y : 4
+[DEBUG]     X : 3
+[DEBUG]     W : 2
+[DEBUG]     R : 3
+[DEBUG]     Q : 2
+[DEBUG]     K : 2
+[DEBUG]     S : 4
+[DEBUG]     J : 7
+[DEBUG]     E : 8
+[DEBUG]     D : 7
+[DEBUG]     M : 4
+[DEBUG]     L : 3
+[DEBUG]     C : 6
+[DEBUG]     F : 3
 [DEBUG] 
-[DEBUG] [t]:
-[DEBUG]     t : 0
-[DEBUG]     u : 1
-[DEBUG]     r : 1
-[DEBUG]     s : 1
-[DEBUG]     a : 4
-[DEBUG]     k : 4
-[DEBUG]     o : 3
-[DEBUG]     p : 3
-[DEBUG]     h : 4
-[DEBUG]     i : 4
-[DEBUG]     g : 5
-[DEBUG]     e : 5
-[DEBUG]     f : 5
-[DEBUG]     j : 3
-[DEBUG]     w : 3
-[DEBUG]     z : 3
-[DEBUG]     y : 3
-[DEBUG]     x : 2
-[DEBUG]     m : 2
-[DEBUG]     v : 2
-[DEBUG]     q : 2
-[DEBUG]     n : 3
-[DEBUG]     d : 4
-[DEBUG]     c : 5
-[DEBUG]     l : 3
-[DEBUG]     b : 5
+[DEBUG] [K]:
+[DEBUG]     K : 0
+[DEBUG]     F : 1
+[DEBUG]     P : 1
+[DEBUG]     L : 1
+[DEBUG]     A : 2
+[DEBUG]     B : 3
+[DEBUG]     G : 2
+[DEBUG]     H : 3
+[DEBUG]     I : 4
+[DEBUG]     N : 3
+[DEBUG]     O : 4
+[DEBUG]     T : 5
+[DEBUG]     Y : 6
+[DEBUG]     X : 5
+[DEBUG]     W : 4
+[DEBUG]     R : 3
+[DEBUG]     Q : 2
+[DEBUG]     U : 2
+[DEBUG]     V : 3
+[DEBUG]     S : 4
+[DEBUG]     J : 5
+[DEBUG]     E : 6
+[DEBUG]     D : 5
+[DEBUG]     M : 2
+[DEBUG]     C : 4
 [DEBUG] 
-[DEBUG] [u]:
-[DEBUG]     u : 0
-[DEBUG]     r : 1
-[DEBUG]     t : 1
-[DEBUG]     a : 4
-[DEBUG]     k : 4
-[DEBUG]     o : 4
-[DEBUG]     p : 4
-[DEBUG]     h : 5
-[DEBUG]     i : 5
-[DEBUG]     g : 6
-[DEBUG]     e : 6
-[DEBUG]     f : 6
-[DEBUG]     j : 4
-[DEBUG]     w : 4
-[DEBUG]     z : 4
-[DEBUG]     y : 4
-[DEBUG]     x : 3
-[DEBUG]     s : 2
-[DEBUG]     m : 2
-[DEBUG]     v : 3
-[DEBUG]     q : 3
-[DEBUG]     n : 3
-[DEBUG]     d : 5
-[DEBUG]     c : 5
-[DEBUG]     l : 3
-[DEBUG]     b : 5
+[DEBUG] [V]:
+[DEBUG]     V : 0
+[DEBUG]     U : 1
+[DEBUG]     W : 1
+[DEBUG]     Q : 1
+[DEBUG]     A : 5
+[DEBUG]     B : 4
+[DEBUG]     G : 3
+[DEBUG]     H : 4
+[DEBUG]     I : 5
+[DEBUG]     N : 4
+[DEBUG]     O : 5
+[DEBUG]     T : 4
+[DEBUG]     Y : 3
+[DEBUG]     X : 2
+[DEBUG]     R : 2
+[DEBUG]     P : 2
+[DEBUG]     K : 3
+[DEBUG]     S : 3
+[DEBUG]     J : 6
+[DEBUG]     E : 7
+[DEBUG]     D : 6
+[DEBUG]     M : 3
+[DEBUG]     L : 2
+[DEBUG]     C : 5
+[DEBUG]     F : 4
 [DEBUG] 
-[DEBUG] [r]:
-[DEBUG]     r : 0
-[DEBUG]     m : 1
-[DEBUG]     s : 1
-[DEBUG]     u : 1
-[DEBUG]     t : 1
-[DEBUG]     a : 3
-[DEBUG]     k : 3
-[DEBUG]     o : 3
-[DEBUG]     p : 3
-[DEBUG]     h : 4
-[DEBUG]     i : 4
-[DEBUG]     g : 5
-[DEBUG]     e : 5
-[DEBUG]     f : 5
-[DEBUG]     j : 3
-[DEBUG]     w : 3
-[DEBUG]     z : 3
-[DEBUG]     y : 3
-[DEBUG]     x : 2
-[DEBUG]     v : 2
-[DEBUG]     q : 2
-[DEBUG]     n : 2
-[DEBUG]     d : 4
-[DEBUG]     c : 4
-[DEBUG]     l : 2
-[DEBUG]     b : 4
+[DEBUG] [S]:
+[DEBUG]     S : 0
+[DEBUG]     R : 1
+[DEBUG]     X : 1
+[DEBUG]     T : 1
+[DEBUG]     N : 1
+[DEBUG]     A : 6
+[DEBUG]     B : 5
+[DEBUG]     G : 4
+[DEBUG]     H : 3
+[DEBUG]     I : 2
+[DEBUG]     O : 2
+[DEBUG]     Y : 2
+[DEBUG]     W : 2
+[DEBUG]     Q : 2
+[DEBUG]     P : 3
+[DEBUG]     U : 4
+[DEBUG]     K : 4
+[DEBUG]     V : 3
+[DEBUG]     J : 3
+[DEBUG]     E : 4
+[DEBUG]     D : 3
+[DEBUG]     M : 2
+[DEBUG]     L : 3
+[DEBUG]     C : 4
+[DEBUG]     F : 5
 [DEBUG] 
-[DEBUG] [m]:
-[DEBUG]     m : 0
-[DEBUG]     l : 1
-[DEBUG]     n : 1
-[DEBUG]     q : 1
-[DEBUG]     r : 1
-[DEBUG]     s : 1
-[DEBUG]     a : 2
-[DEBUG]     k : 2
-[DEBUG]     o : 2
-[DEBUG]     p : 2
-[DEBUG]     h : 3
-[DEBUG]     i : 3
-[DEBUG]     g : 4
-[DEBUG]     e : 4
-[DEBUG]     f : 4
-[DEBUG]     j : 2
-[DEBUG]     w : 2
-[DEBUG]     z : 3
-[DEBUG]     y : 3
-[DEBUG]     x : 2
-[DEBUG]     t : 2
-[DEBUG]     u : 2
-[DEBUG]     v : 2
-[DEBUG]     d : 3
-[DEBUG]     c : 3
-[DEBUG]     b : 3
+[DEBUG] [J]:
+[DEBUG]     J : 0
+[DEBUG]     E : 1
+[DEBUG]     O : 1
+[DEBUG]     I : 1
+[DEBUG]     A : 5
+[DEBUG]     B : 4
+[DEBUG]     G : 3
+[DEBUG]     H : 2
+[DEBUG]     N : 2
+[DEBUG]     T : 2
+[DEBUG]     Y : 3
+[DEBUG]     X : 4
+[DEBUG]     W : 5
+[DEBUG]     R : 4
+[DEBUG]     Q : 5
+[DEBUG]     P : 6
+[DEBUG]     U : 7
+[DEBUG]     K : 5
+[DEBUG]     V : 6
+[DEBUG]     S : 3
+[DEBUG]     D : 2
+[DEBUG]     M : 3
+[DEBUG]     L : 4
+[DEBUG]     C : 3
+[DEBUG]     F : 4
 [DEBUG] 
-[DEBUG] [v]:
-[DEBUG]     v : 0
-[DEBUG]     q : 1
-[DEBUG]     s : 1
-[DEBUG]     z : 1
-[DEBUG]     w : 1
-[DEBUG]     x : 1
-[DEBUG]     y : 1
-[DEBUG]     a : 4
-[DEBUG]     k : 3
-[DEBUG]     o : 2
-[DEBUG]     p : 2
-[DEBUG]     h : 3
-[DEBUG]     i : 3
-[DEBUG]     g : 4
-[DEBUG]     e : 4
-[DEBUG]     f : 4
-[DEBUG]     j : 2
-[DEBUG]     t : 2
-[DEBUG]     u : 3
-[DEBUG]     r : 2
-[DEBUG]     m : 2
-[DEBUG]     n : 3
-[DEBUG]     d : 3
-[DEBUG]     c : 4
-[DEBUG]     l : 3
-[DEBUG]     b : 4
+[DEBUG] [E]:
+[DEBUG]     E : 0
+[DEBUG]     D : 1
+[DEBUG]     J : 1
+[DEBUG]     A : 4
+[DEBUG]     B : 3
+[DEBUG]     G : 4
+[DEBUG]     H : 3
+[DEBUG]     I : 2
+[DEBUG]     N : 3
+[DEBUG]     O : 2
+[DEBUG]     T : 3
+[DEBUG]     Y : 4
+[DEBUG]     X : 5
+[DEBUG]     W : 6
+[DEBUG]     R : 5
+[DEBUG]     Q : 6
+[DEBUG]     P : 7
+[DEBUG]     U : 8
+[DEBUG]     K : 6
+[DEBUG]     V : 7
+[DEBUG]     S : 4
+[DEBUG]     M : 4
+[DEBUG]     L : 5
+[DEBUG]     C : 2
+[DEBUG]     F : 5
 [DEBUG] 
-[DEBUG] [q]:
-[DEBUG]     q : 0
-[DEBUG]     o : 1
-[DEBUG]     m : 1
-[DEBUG]     j : 1
-[DEBUG]     p : 1
-[DEBUG]     s : 1
-[DEBUG]     w : 1
-[DEBUG]     v : 1
-[DEBUG]     a : 3
-[DEBUG]     k : 2
-[DEBUG]     h : 2
-[DEBUG]     i : 2
-[DEBUG]     g : 3
-[DEBUG]     e : 3
-[DEBUG]     f : 3
-[DEBUG]     z : 2
-[DEBUG]     y : 2
-[DEBUG]     x : 2
-[DEBUG]     t : 2
-[DEBUG]     u : 3
-[DEBUG]     r : 2
-[DEBUG]     n : 2
-[DEBUG]     d : 2
-[DEBUG]     c : 3
-[DEBUG]     l : 2
-[DEBUG]     b : 3
+[DEBUG] [D]:
+[DEBUG]     D : 0
+[DEBUG]     E : 1
+[DEBUG]     C : 1
+[DEBUG]     I : 1
+[DEBUG]     A : 3
+[DEBUG]     B : 2
+[DEBUG]     G : 3
+[DEBUG]     H : 2
+[DEBUG]     N : 2
+[DEBUG]     O : 3
+[DEBUG]     T : 4
+[DEBUG]     Y : 5
+[DEBUG]     X : 4
+[DEBUG]     W : 5
+[DEBUG]     R : 4
+[DEBUG]     Q : 5
+[DEBUG]     P : 6
+[DEBUG]     U : 7
+[DEBUG]     K : 5
+[DEBUG]     V : 6
+[DEBUG]     S : 3
+[DEBUG]     J : 2
+[DEBUG]     M : 3
+[DEBUG]     L : 4
+[DEBUG]     F : 4
 [DEBUG] 
-[DEBUG] [n]:
-[DEBUG]     n : 0
-[DEBUG]     l : 1
-[DEBUG]     k : 1
-[DEBUG]     o : 1
-[DEBUG]     m : 1
-[DEBUG]     a : 2
-[DEBUG]     p : 2
-[DEBUG]     h : 3
-[DEBUG]     i : 4
-[DEBUG]     g : 4
-[DEBUG]     e : 3
-[DEBUG]     f : 3
-[DEBUG]     j : 3
-[DEBUG]     w : 3
-[DEBUG]     z : 4
-[DEBUG]     y : 4
-[DEBUG]     x : 3
-[DEBUG]     s : 2
-[DEBUG]     t : 3
-[DEBUG]     u : 3
-[DEBUG]     r : 2
-[DEBUG]     v : 3
-[DEBUG]     q : 2
-[DEBUG]     d : 2
-[DEBUG]     c : 2
-[DEBUG]     b : 2
+[DEBUG] [M]:
+[DEBUG]     M : 0
+[DEBUG]     R : 1
+[DEBUG]     L : 1
+[DEBUG]     N : 1
+[DEBUG]     H : 1
+[DEBUG]     A : 4
+[DEBUG]     B : 3
+[DEBUG]     G : 2
+[DEBUG]     I : 2
+[DEBUG]     O : 2
+[DEBUG]     T : 3
+[DEBUG]     Y : 4
+[DEBUG]     X : 3
+[DEBUG]     W : 2
+[DEBUG]     Q : 2
+[DEBUG]     P : 3
+[DEBUG]     U : 4
+[DEBUG]     K : 2
+[DEBUG]     V : 3
+[DEBUG]     S : 2
+[DEBUG]     J : 3
+[DEBUG]     E : 4
+[DEBUG]     D : 3
+[DEBUG]     C : 2
+[DEBUG]     F : 3
 [DEBUG] 
-[DEBUG] [d]:
-[DEBUG]     d : 0
-[DEBUG]     c : 1
-[DEBUG]     e : 1
-[DEBUG]     k : 1
-[DEBUG]     f : 1
-[DEBUG]     h : 1
-[DEBUG]     o : 1
-[DEBUG]     p : 1
-[DEBUG]     a : 2
-[DEBUG]     i : 2
-[DEBUG]     g : 2
-[DEBUG]     j : 2
-[DEBUG]     w : 3
-[DEBUG]     z : 4
-[DEBUG]     y : 4
-[DEBUG]     x : 4
-[DEBUG]     s : 3
-[DEBUG]     t : 4
-[DEBUG]     u : 5
-[DEBUG]     r : 4
-[DEBUG]     m : 3
-[DEBUG]     v : 3
-[DEBUG]     q : 2
-[DEBUG]     n : 2
-[DEBUG]     l : 2
-[DEBUG]     b : 2
+[DEBUG] [L]:
+[DEBUG]     L : 0
+[DEBUG]     G : 1
+[DEBUG]     M : 1
+[DEBUG]     Q : 1
+[DEBUG]     K : 1
+[DEBUG]     A : 3
+[DEBUG]     B : 2
+[DEBUG]     H : 2
+[DEBUG]     I : 3
+[DEBUG]     N : 2
+[DEBUG]     O : 3
+[DEBUG]     T : 4
+[DEBUG]     Y : 5
+[DEBUG]     X : 4
+[DEBUG]     W : 3
+[DEBUG]     R : 2
+[DEBUG]     P : 2
+[DEBUG]     U : 3
+[DEBUG]     V : 2
+[DEBUG]     S : 3
+[DEBUG]     J : 4
+[DEBUG]     E : 5
+[DEBUG]     D : 4
+[DEBUG]     C : 3
+[DEBUG]     F : 2
 [DEBUG] 
-[DEBUG] [c]:
-[DEBUG]     c : 0
-[DEBUG]     k : 1
-[DEBUG]     b : 1
-[DEBUG]     d : 1
-[DEBUG]     a : 2
-[DEBUG]     o : 2
-[DEBUG]     p : 2
-[DEBUG]     h : 2
-[DEBUG]     i : 3
-[DEBUG]     g : 3
-[DEBUG]     e : 2
-[DEBUG]     f : 2
-[DEBUG]     j : 3
-[DEBUG]     w : 4
-[DEBUG]     z : 5
-[DEBUG]     y : 5
-[DEBUG]     x : 5
-[DEBUG]     s : 4
-[DEBUG]     t : 5
-[DEBUG]     u : 5
-[DEBUG]     r : 4
-[DEBUG]     m : 3
-[DEBUG]     v : 4
-[DEBUG]     q : 3
-[DEBUG]     n : 2
-[DEBUG]     l : 2
+[DEBUG] [C]:
+[DEBUG]     C : 0
+[DEBUG]     D : 1
+[DEBUG]     B : 1
+[DEBUG]     H : 1
+[DEBUG]     A : 2
+[DEBUG]     G : 2
+[DEBUG]     I : 2
+[DEBUG]     N : 3
+[DEBUG]     O : 4
+[DEBUG]     T : 5
+[DEBUG]     Y : 6
+[DEBUG]     X : 5
+[DEBUG]     W : 4
+[DEBUG]     R : 3
+[DEBUG]     Q : 4
+[DEBUG]     P : 5
+[DEBUG]     U : 6
+[DEBUG]     K : 4
+[DEBUG]     V : 5
+[DEBUG]     S : 4
+[DEBUG]     J : 3
+[DEBUG]     E : 2
+[DEBUG]     M : 2
+[DEBUG]     L : 3
+[DEBUG]     F : 3
 [DEBUG] 
-[DEBUG] [l]:
-[DEBUG]     l : 0
-[DEBUG]     a : 1
-[DEBUG]     k : 1
-[DEBUG]     n : 1
-[DEBUG]     m : 1
-[DEBUG]     o : 2
-[DEBUG]     p : 3
-[DEBUG]     h : 3
-[DEBUG]     i : 4
-[DEBUG]     g : 4
-[DEBUG]     e : 3
-[DEBUG]     f : 3
-[DEBUG]     j : 3
-[DEBUG]     w : 3
-[DEBUG]     z : 4
-[DEBUG]     y : 4
-[DEBUG]     x : 3
-[DEBUG]     s : 2
-[DEBUG]     t : 3
-[DEBUG]     u : 3
-[DEBUG]     r : 2
-[DEBUG]     v : 3
-[DEBUG]     q : 2
-[DEBUG]     d : 2
-[DEBUG]     c : 2
-[DEBUG]     b : 2
-[DEBUG] 
-[DEBUG] [b]:
-[DEBUG]     b : 0
-[DEBUG]     k : 1
-[DEBUG]     a : 1
-[DEBUG]     c : 1
-[DEBUG]     o : 2
-[DEBUG]     p : 3
-[DEBUG]     h : 3
-[DEBUG]     i : 4
-[DEBUG]     g : 4
-[DEBUG]     e : 3
-[DEBUG]     f : 3
-[DEBUG]     j : 4
-[DEBUG]     w : 4
-[DEBUG]     z : 5
-[DEBUG]     y : 5
-[DEBUG]     x : 5
-[DEBUG]     s : 4
-[DEBUG]     t : 5
-[DEBUG]     u : 5
-[DEBUG]     r : 4
-[DEBUG]     m : 3
-[DEBUG]     v : 4
-[DEBUG]     q : 3
-[DEBUG]     n : 2
-[DEBUG]     d : 2
-[DEBUG]     l : 2
+[DEBUG] [F]:
+[DEBUG]     F : 0
+[DEBUG]     G : 1
+[DEBUG]     A : 1
+[DEBUG]     K : 1
+[DEBUG]     B : 2
+[DEBUG]     H : 2
+[DEBUG]     I : 3
+[DEBUG]     N : 4
+[DEBUG]     O : 5
+[DEBUG]     T : 6
+[DEBUG]     Y : 7
+[DEBUG]     X : 6
+[DEBUG]     W : 5
+[DEBUG]     R : 4
+[DEBUG]     Q : 3
+[DEBUG]     P : 2
+[DEBUG]     U : 3
+[DEBUG]     V : 4
+[DEBUG]     S : 5
+[DEBUG]     J : 4
+[DEBUG]     E : 5
+[DEBUG]     D : 4
+[DEBUG]     M : 3
+[DEBUG]     L : 2
+[DEBUG]     C : 3
 [DEBUG] 
 [DEBUG] 
 
 [INFO ] Selecting peripheral nodes
 [INFO ] Distance distrubution built
-[DEBUG] {"0": [["a", "a"], ["k", "k"], ["o", "o"], ["p", "p"], ["h", "h"], ["i", "i"], ["g", "g"], ["e", "e"], ["f", "f"], ["j", "j"], ["w", "w"], ["z", "z"], ["y", "y"], ["x", "x"], ["s", "s"], ["t", "t"], ["u", "u"], ["r", "r"], ["m", "m"], ["v", "v"], ["q", "q"], ["n", "n"], ["d", "d"], ["c", "c"], ["l", "l"], ["b", "b"]], "1": [["a", "b"], ["a", "l"], ["a", "k"], ["b", "k"], ["c", "k"], ["d", "k"], ["k", "l"], ["k", "n"], ["k", "o"], ["n", "o"], ["d", "o"], ["o", "q"], ["o", "p"], ["p", "q"], ["d", "p"], ["j", "p"], ["h", "p"], ["f", "h"], ["d", "h"], ["g", "h"], ["h", "i"], ["h", "j"], ["g", "i"], ["i", "j"], ["e", "g"], ["f", "g"], ["e", "f"], ["d", "e"], ["d", "f"], ["j", "q"], ["j", "w"], ["q", "w"], ["v", "w"], ["w", "z"], ["v", "z"], ["y", "z"], ["v", "y"], ["x", "y"], ["v", "x"], ["s", "x"], ["q", "s"], ["m", "s"], ["r", "s"], ["s", "v"], ["s", "t"], ["t", "u"], ["r", "t"], ["r", "u"], ["m", "r"], ["l", "m"], ["m", "n"], ["m", "q"], ["q", "v"], ["l", "n"], ["c", "d"], ["b", "c"]], "2": [["a", "o"], ["a", "m"], ["a", "n"], ["a", "d"], ["a", "c"], ["k", "p"], ["h", "k"], ["e", "k"], ["f", "k"], ["k", "m"], ["k", "q"], ["h", "o"], ["e", "o"], ["f", "o"], ["j", "o"], ["o", "w"], ["o", "s"], ["m", "o"], ["o", "v"], ["c", "o"], ["l", "o"], ["b", "o"], ["i", "p"], ["g", "p"], ["e", "p"], ["f", "p"], ["p", "w"], ["p", "s"], ["m", "p"], ["p", "v"], ["n", "p"], ["c", "p"], ["e", "h"], ["h", "w"], ["h", "q"], ["c", "h"], ["e", "i"], ["f", "i"], ["i", "w"], ["i", "q"], ["d", "i"], ["g", "j"], ["d", "g"], ["c", "e"], ["f", "j"], ["c", "f"], ["j", "z"], ["j", "s"], ["j", "m"], ["j", "v"], ["d", "j"], ["w", "y"], ["w", "x"], ["s", "w"], ["m", "w"], ["x", "z"], ["s", "z"], ["q", "z"], ["s", "y"], ["q", "y"], ["t", "x"], ["r", "x"], ["m", "x"], ["q", "x"], ["s", "u"], ["n", "s"], ["l", "s"], ["m", "t"], ["t", "v"], ["q", "t"], ["m", "u"], ["r", "v"], ["q", "r"], ["n", "r"], ["l", "r"], ["m", "v"], ["n", "q"], ["d", "q"], ["l", "q"], ["d", "n"], ["c", "n"], ["b", "n"], ["d", "l"], ["b", "d"], ["c", "l"], ["b", "l"]], "3": [["a", "p"], ["a", "h"], ["a", "e"], ["a", "f"], ["a", "s"], ["a", "r"], ["a", "q"], ["i", "k"], ["g", "k"], ["j", "k"], ["k", "w"], ["k", "s"], ["k", "r"], ["k", "v"], ["i", "o"], ["g", "o"], ["o", "z"], ["o", "y"], ["o", "x"], ["o", "t"], ["o", "r"], ["p", "z"], ["p", "y"], ["p", "x"], ["p", "t"], ["p", "r"], ["l", "p"], ["b", "p"], ["h", "z"], ["h", "s"], ["h", "m"], ["h", "v"], ["h", "n"], ["h", "l"], ["b", "h"], ["i", "z"], ["i", "s"], ["i", "m"], ["i", "v"], ["c", "i"], ["g", "w"], ["g", "q"], ["c", "g"], ["e", "j"], ["e", "q"], ["e", "n"], ["e", "l"], ["b", "e"], ["f", "w"], ["f", "q"], ["f", "n"], ["f", "l"], ["b", "f"], ["j", "y"], ["j", "x"], ["j", "t"], ["j", "r"], ["j", "n"], ["c", "j"], ["j", "l"], ["t", "w"], ["r", "w"], ["n", "w"], ["d", "w"], ["l", "w"], ["t", "z"], ["r", "z"], ["m", "z"], ["t", "y"], ["r", "y"], ["m", "y"], ["u", "x"], ["n", "x"], ["l", "x"], ["d", "s"], ["n", "t"], ["l", "t"], ["u", "v"], ["q", "u"], ["n", "u"], ["l", "u"], ["d", "m"], ["c", "m"], ["b", "m"], ["n", "v"], ["d", "v"], ["l", "v"], ["c", "q"], ["b", "q"]], "4": [["a", "i"], ["a", "g"], ["a", "j"], ["a", "w"], ["a", "x"], ["a", "t"], ["a", "u"], ["a", "v"], ["k", "z"], ["k", "y"], ["k", "x"], ["k", "t"], ["k", "u"], ["o", "u"], ["p", "u"], ["h", "y"], ["h", "x"], ["h", "t"], ["h", "r"], ["i", "y"], ["i", "x"], ["i", "t"], ["i", "r"], ["i", "n"], ["i", "l"], ["b", "i"], ["g", "z"], ["g", "s"], ["g", "m"], ["g", "v"], ["g", "n"], ["g", "l"], ["b", "g"], ["e", "w"], ["e", "s"], ["e", "m"], ["e", "v"], ["f", "z"], ["f", "s"], ["f", "m"], ["f", "v"], ["j", "u"], ["b", "j"], ["u", "w"], ["c", "w"], ["b", "w"], ["u", "z"], ["n", "z"], ["d", "z"], ["l", "z"], ["u", "y"], ["n", "y"], ["d", "y"], ["l", "y"], ["d", "x"], ["c", "s"], ["b", "s"], ["d", "t"], ["d", "r"], ["c", "r"], ["b", "r"], ["c", "v"], ["b", "v"]], "5": [["a", "z"], ["a", "y"], ["h", "u"], ["i", "u"], ["g", "y"], ["g", "x"], ["g", "t"], ["g", "r"], ["e", "z"], ["e", "y"], ["e", "x"], ["e", "t"], ["e", "r"], ["f", "y"], ["f", "x"], ["f", "t"], ["f", "r"], ["c", "z"], ["b", "z"], ["c", "y"], ["b", "y"], ["c", "x"], ["b", "x"], ["c", "t"], ["b", "t"], ["d", "u"], ["c", "u"], ["b", "u"]], "6": [["g", "u"], ["e", "u"], ["f", "u"]]}
+[DEBUG] {"0": [["A", "A"], ["B", "B"], ["G", "G"], ["H", "H"], ["I", "I"], ["N", "N"], ["O", "O"], ["T", "T"], ["Y", "Y"], ["X", "X"], ["W", "W"], ["R", "R"], ["Q", "Q"], ["P", "P"], ["U", "U"], ["K", "K"], ["V", "V"], ["S", "S"], ["J", "J"], ["E", "E"], ["D", "D"], ["M", "M"], ["L", "L"], ["C", "C"], ["F", "F"]], "1": [["A", "F"], ["A", "B"], ["B", "C"], ["B", "G"], ["F", "G"], ["G", "L"], ["G", "H"], ["C", "H"], ["H", "M"], ["H", "I"], ["D", "I"], ["I", "J"], ["I", "N"], ["N", "S"], ["N", "O"], ["M", "N"], ["J", "O"], ["O", "T"], ["T", "Y"], ["S", "T"], ["X", "Y"], ["S", "X"], ["W", "X"], ["V", "W"], ["R", "W"], ["R", "S"], ["M", "R"], ["Q", "R"], ["P", "Q"], ["Q", "V"], ["L", "Q"], ["K", "P"], ["P", "U"], ["U", "V"], ["F", "K"], ["K", "L"], ["E", "J"], ["D", "E"], ["C", "D"], ["L", "M"]], "2": [["A", "G"], ["A", "K"], ["A", "C"], ["B", "H"], ["B", "D"], ["B", "L"], ["B", "F"], ["G", "I"], ["G", "Q"], ["G", "K"], ["G", "M"], ["C", "G"], ["H", "N"], ["H", "R"], ["H", "J"], ["D", "H"], ["H", "L"], ["F", "H"], ["I", "O"], ["I", "S"], ["E", "I"], ["I", "M"], ["C", "I"], ["N", "T"], ["N", "X"], ["N", "R"], ["J", "N"], ["D", "N"], ["L", "N"], ["O", "Y"], ["O", "S"], ["E", "O"], ["M", "O"], ["T", "X"], ["R", "T"], ["J", "T"], ["W", "Y"], ["S", "Y"], ["R", "X"], ["V", "X"], ["Q", "W"], ["U", "W"], ["S", "W"], ["M", "W"], ["P", "R"], ["R", "V"], ["L", "R"], ["Q", "U"], ["K", "Q"], ["Q", "S"], ["M", "Q"], ["P", "V"], ["L", "P"], ["F", "P"], ["K", "U"], ["K", "M"], ["L", "V"], ["M", "S"], ["D", "J"], ["C", "E"], ["C", "M"], ["F", "L"]], "3": [["A", "H"], ["A", "P"], ["A", "D"], ["A", "L"], ["B", "I"], ["B", "Q"], ["B", "K"], ["B", "E"], ["B", "M"], ["G", "N"], ["G", "R"], ["G", "P"], ["G", "V"], ["G", "J"], ["D", "G"], ["H", "O"], ["H", "W"], ["H", "Q"], ["H", "K"], ["H", "S"], ["E", "H"], ["I", "T"], ["I", "X"], ["I", "R"], ["I", "L"], ["F", "I"], ["N", "Y"], ["N", "W"], ["N", "Q"], ["K", "N"], ["E", "N"], ["C", "N"], ["O", "X"], ["O", "R"], ["D", "O"], ["L", "O"], ["T", "W"], ["Q", "T"], ["E", "T"], ["M", "T"], ["R", "Y"], ["V", "Y"], ["J", "Y"], ["Q", "X"], ["U", "X"], ["M", "X"], ["P", "W"], ["L", "W"], ["R", "U"], ["K", "R"], ["C", "R"], ["F", "Q"], ["P", "S"], ["M", "P"], ["L", "U"], ["F", "U"], ["K", "V"], ["S", "V"], ["M", "V"], ["J", "S"], ["D", "S"], ["L", "S"], ["J", "M"], ["C", "J"], ["D", "M"], ["F", "M"], ["C", "L"], ["C", "F"]], "4": [["A", "I"], ["A", "Q"], ["A", "U"], ["A", "E"], ["A", "M"], ["B", "N"], ["B", "R"], ["B", "P"], ["B", "V"], ["B", "J"], ["G", "O"], ["G", "W"], ["G", "U"], ["G", "S"], ["E", "G"], ["H", "T"], ["H", "X"], ["H", "P"], ["H", "V"], ["I", "Y"], ["I", "W"], ["I", "Q"], ["I", "K"], ["N", "P"], ["N", "V"], ["F", "N"], ["O", "W"], ["O", "Q"], ["K", "O"], ["C", "O"], ["P", "T"], ["T", "V"], ["D", "T"], ["L", "T"], ["Q", "Y"], ["U", "Y"], ["E", "Y"], ["M", "Y"], ["P", "X"], ["J", "X"], ["D", "X"], ["L", "X"], ["K", "W"], ["C", "W"], ["J", "R"], ["D", "R"], ["F", "R"], ["C", "Q"], ["S", "U"], ["M", "U"], ["K", "S"], ["C", "K"], ["F", "V"], ["E", "S"], ["C", "S"], ["J", "L"], ["F", "J"], ["E", "M"], ["D", "L"], ["D", "F"]], "5": [["A", "N"], ["A", "R"], ["A", "V"], ["A", "J"], ["B", "O"], ["B", "W"], ["B", "U"], ["B", "S"], ["G", "T"], ["G", "X"], ["H", "Y"], ["H", "U"], ["I", "P"], ["I", "V"], ["N", "U"], ["O", "P"], ["O", "V"], ["F", "O"], ["T", "U"], ["K", "T"], ["C", "T"], ["P", "Y"], ["D", "Y"], ["L", "Y"], ["K", "X"], ["E", "X"], ["C", "X"], ["J", "W"], ["D", "W"], ["F", "W"], ["E", "R"], ["J", "Q"], ["D", "Q"], ["C", "P"], ["J", "K"], ["D", "K"], ["C", "V"], ["F", "S"], ["E", "L"], ["E", "F"]], "6": [["A", "O"], ["A", "W"], ["A", "S"], ["B", "T"], ["B", "X"], ["G", "Y"], ["I", "U"], ["O", "U"], ["F", "T"], ["K", "Y"], ["C", "Y"], ["F", "X"], ["E", "W"], ["E", "Q"], ["J", "P"], ["D", "P"], ["C", "U"], ["E", "K"], ["J", "V"], ["D", "V"]], "7": [["A", "T"], ["A", "X"], ["B", "Y"], ["F", "Y"], ["E", "P"], ["J", "U"], ["D", "U"], ["E", "V"]], "8": [["A", "Y"], ["E", "U"]]}
 [DEBUG] SIFTING for 3 peripherals at cut off 1
 [DEBUG] No prefipherals found
 [DEBUG] SIFTING for 3 peripherals at cut off 2
 [DEBUG] No prefipherals found
 [DEBUG] SIFTING for 3 peripherals at cut off 3
+[DEBUG] No prefipherals found
+[DEBUG] SIFTING for 3 peripherals at cut off 4
 [INFO ] Periferals found
-[DEBUG] {peripherals}
-[DEBUG] {peripherals}
-[DEBUG] {peripherals}
-[DEBUG] {peripherals}
-[DEBUG] {peripherals}
-[DEBUG] {peripherals}
-[DEBUG] {peripherals}
-[DEBUG] {peripherals}
 [DEBUG] {peripherals}
 [DEBUG] {peripherals}
 [DEBUG] {peripherals}
@@ -1506,814 +1348,98 @@
 [INFO ] Starting split network creep
 [DEBUG] 
 Tick [ 1 ]
-[DEBUG] Split b at -1
-[DEBUG] Split g at -2
-[DEBUG] Split t at -5
-[DEBUG] -   b checks k
-[DEBUG] -   b checks a
-[DEBUG] -   b checks c
-[DEBUG] -   g checks e
-[DEBUG] -   g checks f
-[DEBUG] -   g checks h
-[DEBUG] -   g checks i
-[DEBUG] -   t checks u
-[DEBUG] -   t checks r
-[DEBUG] -   t checks s
+[DEBUG] Split A at 0
+[DEBUG] Split J at 0
+[DEBUG] Split V at 0
+[DEBUG] -   A checks F
+[DEBUG] A ADDS F
+[DEBUG] -   adding G to the prospects of A
+[DEBUG] -   adding K to the prospects of A
+[DEBUG] -   A checks B
+[DEBUG] A ADDS B
+[DEBUG] -   adding C to the prospects of A
+[DEBUG] -   J checks E
+[DEBUG] J ADDS E
+[DEBUG] -   adding D to the prospects of J
+[DEBUG] -   J checks O
+[DEBUG] J ADDS O
+[DEBUG] -   adding N to the prospects of J
+[DEBUG] -   adding T to the prospects of J
+[DEBUG] -   J checks I
+[DEBUG] J ADDS I
+[DEBUG] -   adding H to the prospects of J
+[DEBUG] -   V checks U
+[DEBUG] V ADDS U
+[DEBUG] -   adding P to the prospects of V
+[DEBUG] -   V checks W
+[DEBUG] V ADDS W
+[DEBUG] -   adding X to the prospects of V
+[DEBUG] -   adding R to the prospects of V
+[DEBUG] -   V checks Q
+[DEBUG] V ADDS Q
+[DEBUG] -   adding L to the prospects of V
 [DEBUG] 
 Tick [ 2 ]
-[DEBUG] Split b at 0
-[DEBUG] Split g at -1
-[DEBUG] Split t at -4
-[DEBUG] -   b checks k
-[DEBUG] -   b checks a
-[DEBUG] -   b checks c
-[DEBUG] -   g checks e
-[DEBUG] -   g checks f
-[DEBUG] -   g checks h
-[DEBUG] -   g checks i
-[DEBUG] -   t checks u
-[DEBUG] -   t checks r
-[DEBUG] -   t checks s
+[DEBUG] Split A at 1
+[DEBUG] Split J at 1
+[DEBUG] Split V at 1
+[DEBUG] -   A checks G
+[DEBUG] A ADDS G
+[DEBUG] -   adding L to the prospects of A
+[DEBUG] -   adding H to the prospects of A
+[DEBUG] -   A checks K
+[DEBUG] A ADDS K
+[DEBUG] -   adding P to the prospects of A
+[DEBUG] -   A checks C
+[DEBUG] A ADDS C
+[DEBUG] -   adding D to the prospects of A
+[DEBUG] -   J checks D
+[DEBUG] J ADDS D
+[DEBUG] -   J checks N
+[DEBUG] J ADDS N
+[DEBUG] -   adding S to the prospects of J
+[DEBUG] -   adding M to the prospects of J
+[DEBUG] -   J checks T
+[DEBUG] J ADDS T
+[DEBUG] -   adding Y to the prospects of J
+[DEBUG] -   J checks H
+[DEBUG] J ADDS H
+[DEBUG] -   V checks P
+[DEBUG] V ADDS P
+[DEBUG] -   V checks X
+[DEBUG] V ADDS X
+[DEBUG] -   adding Y to the prospects of V
+[DEBUG] -   adding S to the prospects of V
+[DEBUG] -   V checks R
+[DEBUG] V ADDS R
+[DEBUG] -   adding M to the prospects of V
+[DEBUG] -   V checks L
+[DEBUG] V ADDS L
 [DEBUG] 
 Tick [ 3 ]
-[DEBUG] Split b at 1
-[DEBUG] Split g at 0
-[DEBUG] Split t at -3
-[DEBUG] -   b checks k
-[DEBUG] -   b checks a
-[DEBUG] -   b checks c
-[DEBUG] b ADDS c
-[DEBUG] -   adding d to the prospects of b
-[DEBUG] -   g checks e
-[DEBUG] g ADDS e
-[DEBUG] -   adding d to the prospects of g
-[DEBUG] -   g checks f
-[DEBUG] g ADDS f
-[DEBUG] -   g checks h
-[DEBUG] -   g checks i
-[DEBUG] -   t checks u
-[DEBUG] -   t checks r
-[DEBUG] -   t checks s
-[DEBUG] 
-Tick [ 4 ]
-[DEBUG] Split b at 1
-[DEBUG] Split g at 1
-[DEBUG] Split t at -2
-[DEBUG] -   b checks k
-[DEBUG] -   b checks a
-[DEBUG] -   b checks d
-[DEBUG] -   g checks h
-[DEBUG] -   g checks i
-[DEBUG] g ADDS i
-[DEBUG] -   adding j to the prospects of g
-[DEBUG] -   g checks d
-[DEBUG] -   t checks u
-[DEBUG] -   t checks r
-[DEBUG] -   t checks s
-[DEBUG] 
-Tick [ 5 ]
-[DEBUG] Split b at 2
-[DEBUG] Split g at 1
-[DEBUG] Split t at -1
-[DEBUG] -   b checks k
-[DEBUG] -   b checks a
-[DEBUG] -   b checks d
-[DEBUG] -   g checks h
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   t checks u
-[DEBUG] -   t checks r
-[DEBUG] -   t checks s
-[DEBUG] 
-Tick [ 6 ]
-[DEBUG] Split b at 3
-[DEBUG] Split g at 2
-[DEBUG] Split t at 0
-[DEBUG] -   b checks k
-[DEBUG] -   b checks a
-[DEBUG] b ADDS a
-[DEBUG] -   adding l to the prospects of b
-[DEBUG] -   b checks d
-[DEBUG] -   g checks h
-[DEBUG] g ADDS h
-[DEBUG] -   adding p to the prospects of g
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   t checks u
-[DEBUG] -   t checks r
-[DEBUG] -   t checks s
-[DEBUG] 
-Tick [ 7 ]
-[DEBUG] Split b at 1
-[DEBUG] Split g at 1
-[DEBUG] Split t at 1
-[DEBUG] -   b checks k
-[DEBUG] -   b checks d
-[DEBUG] -   b checks l
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   g checks p
-[DEBUG] g ADDS p
-[DEBUG] -   adding q to the prospects of g
-[DEBUG] -   adding o to the prospects of g
-[DEBUG] -   t checks u
-[DEBUG] -   t checks r
-[DEBUG] -   t checks s
-[DEBUG] 
-Tick [ 8 ]
-[DEBUG] Split b at 2
-[DEBUG] Split g at 1
-[DEBUG] Split t at 2
-[DEBUG] -   b checks k
-[DEBUG] -   b checks d
-[DEBUG] -   b checks l
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   g checks q
-[DEBUG] -   g checks o
-[DEBUG] -   t checks u
-[DEBUG] t ADDS u
-[DEBUG] -   t checks r
-[DEBUG] -   t checks s
-[DEBUG] 
-Tick [ 9 ]
-[DEBUG] Split b at 3
-[DEBUG] Split g at 2
-[DEBUG] Split t at 1
-[DEBUG] -   b checks k
-[DEBUG] -   b checks d
-[DEBUG] -   b checks l
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   g checks q
-[DEBUG] -   g checks o
-[DEBUG] -   t checks r
-[DEBUG] -   t checks s
-[DEBUG] 
-Tick [ 10 ]
-[DEBUG] Split b at 4
-[DEBUG] Split g at 3
-[DEBUG] Split t at 2
-[DEBUG] -   b checks k
-[DEBUG] -   b checks d
-[DEBUG] -   b checks l
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   g checks q
-[DEBUG] -   g checks o
-[DEBUG] g ADDS o
-[DEBUG] -   adding k to the prospects of g
-[DEBUG] -   adding n to the prospects of g
-[DEBUG] -   t checks r
-[DEBUG] -   t checks s
-[DEBUG] 
-Tick [ 11 ]
-[DEBUG] Split b at 5
-[DEBUG] Split g at 1
-[DEBUG] Split t at 3
-[DEBUG] -   b checks k
-[DEBUG] -   b checks d
-[DEBUG] -   b checks l
-[DEBUG] b ADDS l
-[DEBUG] -   adding n to the prospects of b
-[DEBUG] -   adding m to the prospects of b
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG] -   g checks n
-[DEBUG] -   t checks r
-[DEBUG] -   t checks s
-[DEBUG] 
-Tick [ 12 ]
-[DEBUG] Split b at 1
-[DEBUG] Split g at 2
-[DEBUG] Split t at 4
-[DEBUG] -   b checks k
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG] -   g checks n
-[DEBUG] -   t checks r
-[DEBUG] -   t checks s
-[DEBUG] t ADDS s
-[DEBUG] -   adding q to the prospects of t
-[DEBUG] -   adding m to the prospects of t
-[DEBUG] -   adding v to the prospects of t
-[DEBUG] -   adding x to the prospects of t
-[DEBUG] 
-Tick [ 13 ]
-[DEBUG] Split b at 2
-[DEBUG] Split g at 3
-[DEBUG] Split t at 1
-[DEBUG] -   b checks k
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG] -   g checks n
-[DEBUG] g ADDS n
-[DEBUG] -   adding m to the prospects of g
-[DEBUG] -   t checks r
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks x
-[DEBUG] t ADDS x
-[DEBUG] -   adding y to the prospects of t
-[DEBUG] 
-Tick [ 14 ]
-[DEBUG] Split b at 3
-[DEBUG] Split g at 1
-[DEBUG] Split t at 1
-[DEBUG] -   b checks k
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
+[DEBUG] Split A at 1
+[DEBUG] Split J at 1
+[DEBUG] Split V at 1
+[DEBUG] -   A checks L
 [DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG] -   g checks m
-[DEBUG] -   t checks r
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks y
-[DEBUG] 
-Tick [ 15 ]
-[DEBUG] Split b at 4
-[DEBUG] Split g at 2
-[DEBUG] Split t at 2
-[DEBUG] -   b checks k
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
+[DEBUG] -   A checks H
 [DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG] -   g checks m
-[DEBUG] -   t checks r
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks y
-[DEBUG] t ADDS y
-[DEBUG] -   adding z to the prospects of t
-[DEBUG] 
-Tick [ 16 ]
-[DEBUG] Split b at 5
-[DEBUG] Split g at 3
-[DEBUG] Split t at 1
-[DEBUG] -   b checks k
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
+[DEBUG] -   A checks P
 [DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG] -   g checks m
-[DEBUG] -   t checks r
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks z
-[DEBUG] 
-Tick [ 17 ]
-[DEBUG] Split b at 6
-[DEBUG] Split g at 4
-[DEBUG] Split t at 2
-[DEBUG] -   b checks k
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
+[DEBUG] -   A checks D
 [DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG] -   g checks m
-[DEBUG] -   t checks r
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks z
-[DEBUG] 
-Tick [ 18 ]
-[DEBUG] Split b at 7
-[DEBUG] Split g at 5
-[DEBUG] Split t at 3
-[DEBUG] -   b checks k
-[DEBUG] b ADDS k
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
+[DEBUG] -   J checks S
+[DEBUG] J ADDS S
+[DEBUG] -   J checks M
+[DEBUG] J ADDS M
+[DEBUG] -   J checks Y
+[DEBUG] J ADDS Y
+[DEBUG] -   V checks Y
 [DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks j
-[DEBUG] g ADDS j
-[DEBUG] -   adding w to the prospects of g
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
+[DEBUG] -   V checks S
 [DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] -   t checks r
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks z
-[DEBUG] 
-Tick [ 19 ]
-[DEBUG] Split b at 1
-[DEBUG] Split g at 1
-[DEBUG] Split t at 4
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
+[DEBUG] -   V checks M
 [DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] -   g checks w
-[DEBUG] -   t checks r
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks z
-[DEBUG] 
-Tick [ 20 ]
-[DEBUG] Split b at 2
-[DEBUG] Split g at 2
-[DEBUG] Split t at 5
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] -   g checks w
-[DEBUG] -   t checks r
-[DEBUG] t ADDS r
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks z
-[DEBUG] 
-Tick [ 21 ]
-[DEBUG] Split b at 3
-[DEBUG] Split g at 3
-[DEBUG] Split t at 1
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] -   g checks w
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks z
-[DEBUG] 
-Tick [ 22 ]
-[DEBUG] Split b at 4
-[DEBUG] Split g at 4
-[DEBUG] Split t at 2
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] -   g checks w
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks z
-[DEBUG] 
-Tick [ 23 ]
-[DEBUG] Split b at 5
-[DEBUG] Split g at 5
-[DEBUG] Split t at 3
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] -   g checks w
-[DEBUG] g ADDS w
-[DEBUG] -   adding v to the prospects of g
-[DEBUG] -   adding z to the prospects of g
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks z
-[DEBUG] 
-Tick [ 24 ]
-[DEBUG] Split b at 6
-[DEBUG] Split g at 1
-[DEBUG] Split t at 4
-[DEBUG] -   b checks d
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] -   g checks v
-[DEBUG] -   g checks z
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks z
-[DEBUG] 
-Tick [ 25 ]
-[DEBUG] Split b at 7
-[DEBUG] Split g at 2
-[DEBUG] Split t at 5
-[DEBUG] -   b checks d
-[DEBUG] b ADDS d
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] -   g checks v
-[DEBUG] -   g checks z
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] -   t checks z
-[DEBUG] t ADDS z
-[DEBUG] 
-Tick [ 26 ]
-[DEBUG] Split b at 1
-[DEBUG] Split g at 3
-[DEBUG] Split t at 1
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] -   g checks v
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] 
-Tick [ 27 ]
-[DEBUG] Split b at 2
-[DEBUG] Split g at 4
-[DEBUG] Split t at 2
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] -   g checks v
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] 
-Tick [ 28 ]
-[DEBUG] Split b at 3
-[DEBUG] Split g at 5
-[DEBUG] Split t at 3
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] -   g checks v
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] 
-Tick [ 29 ]
-[DEBUG] Split b at 4
-[DEBUG] Split g at 6
-[DEBUG] Split t at 4
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] -   g checks v
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG] -   t checks v
-[DEBUG] 
-Tick [ 30 ]
-[DEBUG] Split b at 5
-[DEBUG] Split g at 7
-[DEBUG] Split t at 5
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks m
-[DEBUG] g ADDS m
-[DEBUG] -   g checks v
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks v
-[DEBUG] 
-Tick [ 31 ]
-[DEBUG] Split b at 6
-[DEBUG] Split g at 1
-[DEBUG] Split t at 6
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks v
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks v
-[DEBUG] 
-Tick [ 32 ]
-[DEBUG] Split b at 7
-[DEBUG] Split g at 2
-[DEBUG] Split t at 7
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks v
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks v
-[DEBUG] t ADDS v
-[DEBUG] 
-Tick [ 33 ]
-[DEBUG] Split b at 8
-[DEBUG] Split g at 3
-[DEBUG] Split t at 1
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks v
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG]  -   already claimed
-[DEBUG] 
-Tick [ 34 ]
-[DEBUG] Split b at 9
-[DEBUG] Split g at 4
-[DEBUG] Split t at 2
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks v
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG]  -   already claimed
-[DEBUG] 
-Tick [ 35 ]
-[DEBUG] Split b at 10
-[DEBUG] Split g at 5
-[DEBUG] Split t at 3
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks v
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG]  -   already claimed
-[DEBUG] 
-Tick [ 36 ]
-[DEBUG] Split b at 11
-[DEBUG] Split g at 6
-[DEBUG] Split t at 4
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks v
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG]  -   already claimed
-[DEBUG] 
-Tick [ 37 ]
-[DEBUG] Split b at 12
-[DEBUG] Split g at 7
-[DEBUG] Split t at 5
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks v
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG]  -   already claimed
-[DEBUG] 
-Tick [ 38 ]
-[DEBUG] Split b at 13
-[DEBUG] Split g at 8
-[DEBUG] Split t at 6
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks v
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG]  -   already claimed
-[DEBUG] 
-Tick [ 39 ]
-[DEBUG] Split b at 14
-[DEBUG] Split g at 9
-[DEBUG] Split t at 7
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks v
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG]  -   already claimed
-[DEBUG] 
-Tick [ 40 ]
-[DEBUG] Split b at 15
-[DEBUG] Split g at 10
-[DEBUG] Split t at 8
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks v
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG] -   t checks m
-[DEBUG]  -   already claimed
-[DEBUG] 
-Tick [ 41 ]
-[DEBUG] Split b at 16
-[DEBUG] Split g at 11
-[DEBUG] Split t at 9
-[DEBUG] -   b checks n
-[DEBUG]  -   already claimed
-[DEBUG] -   b checks m
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks d
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks q
-[DEBUG] g ADDS q
-[DEBUG] -   g checks k
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks v
-[DEBUG]  -   already claimed
-[DEBUG] -   g checks z
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks q
-[DEBUG]  -   already claimed
-[DEBUG] -   t checks m
-[DEBUG]  -   already claimed
-[DEBUG] b > ['b', 'c', 'a', 'l', 'k', 'd']
-[DEBUG] g > ['g', 'e', 'f', 'i', 'h', 'p', 'o', 'n', 'j', 'w', 'm', 'q']
-[DEBUG] t > ['t', 'u', 's', 'x', 'y', 'r', 'z', 'v']
+[DEBUG] A > 6 > ['A', 'F', 'B', 'G', 'K', 'C']
+[DEBUG] J > 11 > ['J', 'E', 'O', 'I', 'D', 'N', 'T', 'H', 'S', 'M', 'Y']
+[DEBUG] V > 8 > ['V', 'U', 'W', 'Q', 'P', 'X', 'R', 'L']

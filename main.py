@@ -7,7 +7,7 @@ def main():
     logging.info('START')
     logging.info('Reading network from .graph file')
     gr = create_graph_from_graph_file()
-    gr.validate()
+    gr.validate(rectangular=True)
     # print(gr)
     logging.info('Creating distance map')
     gr.find_distances()

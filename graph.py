@@ -161,12 +161,14 @@ class Graph():
                 distance = self.distance_map[distant_node][parent.label] + 1
                 if distance < min_distance:
                     min_distance = distance
-            logging.debug(f'    *   Distance between {node.sig} and {distant_node.sig} recorded as {min_distance}')
+            logging.debug(
+                f'    *   Distance between {node.sig} and {distant_node.sig} recorded as {min_distance}')
             self.distance_map[node][distant_node.label] = min_distance
             self.distance_map[distant_node][node.label] = min_distance
 
     def adjust_old_distances_through_node(self, node):
-        logging.debug(f'    *   Checking distances between old nodes through {node.sig}')
+        logging.debug(
+            f'    *   Checking distances between old nodes through {node.sig}')
         # Iterate pais of nodes (other than node)
         for node_one, node_two in self.distance_map_pairs(node):
             if node_one.label in self.distance_map[node_two] and self.distance_map[node_two][node_one.label] == 1:
@@ -176,7 +178,8 @@ class Graph():
                     self.distance_map[node_two][node.label]
                 self.distance_map[node_two][node_one.label] = self.distance_map[node_one][node.label] + \
                     self.distance_map[node_two][node.label]
-                logging.debug(f'      *   Distance between {node_one.sig} and {node_two.sig} adjusted to {self.distance_map[node_one][node_two.label]}')
+                logging.debug(
+                    f'      *   Distance between {node_one.sig} and {node_two.sig} adjusted to {self.distance_map[node_one][node_two.label]}')
 
     def distance_map_pairs(self, excluded_nodes):
         # used to avoid duplicates
@@ -543,8 +546,17 @@ class Graph():
                 f'{splits[anchor][0]} > {totals[anchor]} > {splits[anchor]}')
 
     def negotiate_borders(self):
+        self.create_border_map()
+
+        # calculate target values
+        self.split_average = self.total_value / self.split_count
+        self.average_deviation = (self.total_value % self.split_count) / 3
+
+        logging.info('Start negotiations')
+        self.run_negoriation()
+
+    def create_border_map(self):
         logging.info('Creating border map')
-        # HERE
         # create a map of border nodes
         # all nodes have been assigned by the creep
         # for each pair of splits there are two sets of border nodes:
@@ -564,25 +576,20 @@ class Graph():
         self.border_map = border_map
         for split_anchor, border_data in border_map.items():
             logging.debug(f'Border nodes for {split_anchor}: {border_data}')
-        # calculate target values
-        self.split_average = self.total_value / self.split_count
-        self.average_deviation = (self.total_value % self.split_count) / 3
-
-        logging.info('Start negotiations')
-        self.run_negoriation()
         return
 
     def print_splits(self):
         for split, split_data in self.splits.items():
-            logging.info(f'{split} ({self.get_split_total(split_data)}) :: {split_data}')
-    
+            logging.info(
+                f'{split} ({self.get_split_total(split_data)}) :: {split_data}')
 
     def run_negoriation(self):
         def get_updatable_nodes(receiver_split, donor_split, difference):
             # find node in the boardmap of the splits that have a value as close to the abs of difference
             # moving a node would change the difference by 2*node
             candidate_node = None
-            difference_to_clear = math.floor(abs(difference) / 2) # trying to find an update that will get this value as close to 0 as possible
+            # trying to find an update that will get this value as close to 0 as possible
+            difference_to_clear = math.floor(abs(difference) / 2)
             best_intermediate_update = difference_to_clear
             for node_label in self.border_map[donor_split][receiver_split]:
                 # check if the node value is lower than the difference that we are trying to reduce
@@ -597,45 +604,58 @@ class Graph():
 
             return candidate_node
 
+        split_pairs = []
+        # build a list of split anchor pairs to be iterated through
+        for split_one, split_one_data in self.splits.items():
+            for split_two, split_two_data in self.splits.items():
+                if split_one == split_two:
+                    continue
+                if split_one not in self.border_map[split_two]:
+                    continue
+                split_pairs.append(sorted([split_one, split_two]))
 
         adjustments_completed = False
         while not adjustments_completed:
             logging.debug('= new negotiations round')
             adjustments_completed = True
             adjusted_pairs = []
-            # for split_one, split_two in self.iterate_split_pairs(self.splits):
-            for split_one, split_one_data in self.splits.items():
-                for split_two, split_two_data in self.splits.items():
-                    if split_one == split_two:
-                        continue
-                    if sorted([split_one, split_two]) in adjusted_pairs:
-                        continue
-                    if split_one not in self.border_map[split_two]:
-                        continue
-                    # check the balance between both splits
-                    split_one_total = self.get_split_total(split_one_data)
-                    split_two_total = self.get_split_total(split_two_data)
-                    difference = split_one_total - split_two_total
-                    if abs(difference) < 2:
-                        # the smallest difference that can be adjusted is 2 (with an update of a node with value 1)
-                        continue
-                    if difference < 0:
-                        donor_split = split_two
-                        receiver_split = split_one
-                    else:
-                        donor_split = split_one
-                        receiver_split = split_two
-                    logging.debug(f'-    {receiver_split} to receive from {donor_split} to cover diff {abs(difference)}')
-                    updatable = get_updatable_nodes(receiver_split, donor_split, difference)
-                    if updatable:
-                        logging.debug(f'    -   {updatable} moved from {donor_split} to {receiver_split}')
-                        adjusted_pairs.append(sorted([donor_split, receiver_split]))
-                        self.splits[receiver_split].append(updatable)
-                        self.splits[donor_split].remove(updatable)
-                        adjustments_completed = False
-                    else:
-                        logging.debug(f'    -   No suitable adjustments')
-
+            for split_pair in split_pairs:
+                split_one = split_pair[0]
+                split_two = split_pair[1]
+                split_one_data = self.splits[split_one]
+                split_two_data = self.splits[split_two]
+                if sorted([split_one, split_two]) in adjusted_pairs:
+                    continue
+                # check the balance between both splits
+                split_one_total = self.get_split_total(split_one_data)
+                split_two_total = self.get_split_total(split_two_data)
+                difference = split_one_total - split_two_total
+                if abs(difference) < 2:
+                    # the smallest difference that can be adjusted is 2 (with an update of a node with value 1)
+                    continue
+                if difference < 0:
+                    donor_split = split_two
+                    receiver_split = split_one
+                else:
+                    donor_split = split_one
+                    receiver_split = split_two
+                logging.debug(
+                    f'-    {receiver_split} to receive from {donor_split} to cover diff {abs(difference)}')
+                updatable = get_updatable_nodes(
+                    receiver_split, donor_split, difference)
+                if updatable:
+                    logging.debug(
+                        f'    -   {updatable} moved from {donor_split} to {receiver_split}')
+                    adjusted_pairs.append(
+                        sorted([donor_split, receiver_split]))
+                    # update splits
+                    self.splits[receiver_split].append(updatable)
+                    self.splits[donor_split].remove(updatable)
+                    # update border map
+                    self.create_border_map()
+                    adjustments_completed = False
+                else:
+                    logging.debug(f'    -   No suitable adjustments')
 
     def get_split_total(self, split):
         split_total = 0

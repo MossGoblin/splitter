@@ -18,8 +18,8 @@
 [DEBUG]     -   Nbr a added
 [DEBUG]     -   Nbr c added
 [DEBUG]     -   Nbr d added
-[DEBUG]     -   Nbr n added
 [DEBUG]     -   Nbr l added
+[DEBUG]     -   Nbr n added
 [DEBUG]     -   Nbr o added
 [DEBUG] *   Adding nbrs of [k]
 [DEBUG]     *   Checking distances between old nodes through [k]
@@ -37,9 +37,9 @@
 [DEBUG] Adding node [p] to distance graph
 [DEBUG] *   Declaring [p]
 [DEBUG] *   Adding nbrs of [p]
-[DEBUG]     -   Nbr o added
 [DEBUG]     -   Nbr q added
 [DEBUG]     -   Nbr d added
+[DEBUG]     -   Nbr o added
 [DEBUG]     -   Nbr h added
 [DEBUG]     -   Nbr i added
 [DEBUG] *   Adding nbrs of [p]
@@ -51,8 +51,8 @@
 [DEBUG] *   Adding nbrs of [i]
 [DEBUG]     -   Nbr g added
 [DEBUG]     -   Nbr h added
-[DEBUG]     -   Nbr p added
 [DEBUG]     -   Nbr q added
+[DEBUG]     -   Nbr p added
 [DEBUG]     -   Nbr w added
 [DEBUG] *   Adding nbrs of [i]
 [DEBUG]     *   Distance between [i] and [a] recorded as 4
@@ -62,8 +62,8 @@
 [DEBUG] Adding node [w] to distance graph
 [DEBUG] *   Declaring [w]
 [DEBUG] *   Adding nbrs of [w]
-[DEBUG]     -   Nbr i added
 [DEBUG]     -   Nbr q added
+[DEBUG]     -   Nbr i added
 [DEBUG]     -   Nbr v added
 [DEBUG]     -   Nbr z added
 [DEBUG] *   Adding nbrs of [w]
@@ -75,8 +75,8 @@
 [DEBUG] Adding node [z] to distance graph
 [DEBUG] *   Declaring [z]
 [DEBUG] *   Adding nbrs of [z]
-[DEBUG]     -   Nbr w added
 [DEBUG]     -   Nbr v added
+[DEBUG]     -   Nbr w added
 [DEBUG] *   Adding nbrs of [z]
 [DEBUG]     *   Distance between [z] and [a] recorded as 6
 [DEBUG]     *   Distance between [z] and [k] recorded as 5
@@ -87,10 +87,10 @@
 [DEBUG] Adding node [v] to distance graph
 [DEBUG] *   Declaring [v]
 [DEBUG] *   Adding nbrs of [v]
-[DEBUG]     -   Nbr s added
 [DEBUG]     -   Nbr q added
-[DEBUG]     -   Nbr w added
+[DEBUG]     -   Nbr s added
 [DEBUG]     -   Nbr z added
+[DEBUG]     -   Nbr w added
 [DEBUG]     -   Nbr x added
 [DEBUG] *   Adding nbrs of [v]
 [DEBUG]     *   Distance between [v] and [a] recorded as 6
@@ -102,8 +102,8 @@
 [DEBUG] Adding node [x] to distance graph
 [DEBUG] *   Declaring [x]
 [DEBUG] *   Adding nbrs of [x]
-[DEBUG]     -   Nbr s added
 [DEBUG]     -   Nbr v added
+[DEBUG]     -   Nbr s added
 [DEBUG] *   Adding nbrs of [x]
 [DEBUG]     *   Distance between [x] and [a] recorded as 7
 [DEBUG]     *   Distance between [x] and [k] recorded as 6
@@ -116,8 +116,8 @@
 [DEBUG] Adding node [s] to distance graph
 [DEBUG] *   Declaring [s]
 [DEBUG] *   Adding nbrs of [s]
-[DEBUG]     -   Nbr q added
 [DEBUG]     -   Nbr r added
+[DEBUG]     -   Nbr q added
 [DEBUG]     -   Nbr m added
 [DEBUG]     -   Nbr t added
 [DEBUG]     -   Nbr v added
@@ -134,8 +134,8 @@
 [DEBUG] Adding node [t] to distance graph
 [DEBUG] *   Declaring [t]
 [DEBUG] *   Adding nbrs of [t]
-[DEBUG]     -   Nbr r added
 [DEBUG]     -   Nbr u added
+[DEBUG]     -   Nbr r added
 [DEBUG]     -   Nbr s added
 [DEBUG] *   Adding nbrs of [t]
 [DEBUG]     *   Distance between [t] and [a] recorded as 8
@@ -230,10 +230,10 @@
 [DEBUG] Adding node [f] to distance graph
 [DEBUG] *   Declaring [f]
 [DEBUG] *   Adding nbrs of [f]
-[DEBUG]     -   Nbr e added
 [DEBUG]     -   Nbr g added
 [DEBUG]     -   Nbr h added
 [DEBUG]     -   Nbr d added
+[DEBUG]     -   Nbr e added
 [DEBUG] *   Adding nbrs of [f]
 [DEBUG]     *   Distance between [f] and [a] recorded as 6
 [DEBUG]     *   Distance between [f] and [k] recorded as 5
@@ -253,8 +253,8 @@
 [DEBUG] Adding node [e] to distance graph
 [DEBUG] *   Declaring [e]
 [DEBUG] *   Adding nbrs of [e]
-[DEBUG]     -   Nbr f added
 [DEBUG]     -   Nbr g added
+[DEBUG]     -   Nbr f added
 [DEBUG]     -   Nbr d added
 [DEBUG] *   Adding nbrs of [e]
 [DEBUG]     *   Distance between [e] and [a] recorded as 6
@@ -275,8 +275,8 @@
 [DEBUG] Adding node [h] to distance graph
 [DEBUG] *   Declaring [h]
 [DEBUG] *   Adding nbrs of [h]
-[DEBUG]     -   Nbr f added
 [DEBUG]     -   Nbr g added
+[DEBUG]     -   Nbr f added
 [DEBUG]     -   Nbr d added
 [DEBUG]     -   Nbr i added
 [DEBUG]     -   Nbr p added
@@ -302,10 +302,10 @@
 [DEBUG] Adding node [q] to distance graph
 [DEBUG] *   Declaring [q]
 [DEBUG] *   Adding nbrs of [q]
-[DEBUG]     -   Nbr o added
 [DEBUG]     -   Nbr m added
-[DEBUG]     -   Nbr i added
+[DEBUG]     -   Nbr o added
 [DEBUG]     -   Nbr p added
+[DEBUG]     -   Nbr i added
 [DEBUG]     -   Nbr s added
 [DEBUG]     -   Nbr w added
 [DEBUG]     -   Nbr v added
@@ -385,8 +385,8 @@
 [DEBUG] Adding node [n] to distance graph
 [DEBUG] *   Declaring [n]
 [DEBUG] *   Adding nbrs of [n]
-[DEBUG]     -   Nbr k added
 [DEBUG]     -   Nbr l added
+[DEBUG]     -   Nbr k added
 [DEBUG]     -   Nbr o added
 [DEBUG]     -   Nbr m added
 [DEBUG] *   Adding nbrs of [n]
@@ -421,8 +421,8 @@
 [DEBUG]     -   Nbr k added
 [DEBUG]     -   Nbr f added
 [DEBUG]     -   Nbr h added
-[DEBUG]     -   Nbr o added
 [DEBUG]     -   Nbr p added
+[DEBUG]     -   Nbr o added
 [DEBUG] *   Adding nbrs of [d]
 [DEBUG]     *   Distance between [d] and [a] recorded as 2
 [DEBUG]     *   Distance between [d] and [i] recorded as 2
@@ -574,8 +574,8 @@
 [DEBUG]     a : 1
 [DEBUG]     c : 1
 [DEBUG]     d : 1
-[DEBUG]     n : 1
 [DEBUG]     l : 1
+[DEBUG]     n : 1
 [DEBUG]     o : 1
 [DEBUG]     p : 2
 [DEBUG]     i : 3
@@ -622,9 +622,9 @@
 [DEBUG] 
 [DEBUG] [p]:
 [DEBUG]     p : 0
-[DEBUG]     o : 1
 [DEBUG]     q : 1
 [DEBUG]     d : 1
+[DEBUG]     o : 1
 [DEBUG]     h : 1
 [DEBUG]     i : 1
 [DEBUG]     a : 3
@@ -650,8 +650,8 @@
 [DEBUG]     i : 0
 [DEBUG]     g : 1
 [DEBUG]     h : 1
-[DEBUG]     p : 1
 [DEBUG]     q : 1
+[DEBUG]     p : 1
 [DEBUG]     w : 1
 [DEBUG]     a : 4
 [DEBUG]     k : 3
@@ -674,8 +674,8 @@
 [DEBUG] 
 [DEBUG] [w]:
 [DEBUG]     w : 0
-[DEBUG]     i : 1
 [DEBUG]     q : 1
+[DEBUG]     i : 1
 [DEBUG]     v : 1
 [DEBUG]     z : 1
 [DEBUG]     a : 4
@@ -700,8 +700,8 @@
 [DEBUG] 
 [DEBUG] [z]:
 [DEBUG]     z : 0
-[DEBUG]     w : 1
 [DEBUG]     v : 1
+[DEBUG]     w : 1
 [DEBUG]     a : 5
 [DEBUG]     k : 4
 [DEBUG]     o : 3
@@ -726,10 +726,10 @@
 [DEBUG] 
 [DEBUG] [v]:
 [DEBUG]     v : 0
-[DEBUG]     s : 1
 [DEBUG]     q : 1
-[DEBUG]     w : 1
+[DEBUG]     s : 1
 [DEBUG]     z : 1
+[DEBUG]     w : 1
 [DEBUG]     x : 1
 [DEBUG]     a : 4
 [DEBUG]     k : 3
@@ -752,8 +752,8 @@
 [DEBUG] 
 [DEBUG] [x]:
 [DEBUG]     x : 0
-[DEBUG]     s : 1
 [DEBUG]     v : 1
+[DEBUG]     s : 1
 [DEBUG]     a : 4
 [DEBUG]     k : 4
 [DEBUG]     o : 3
@@ -778,8 +778,8 @@
 [DEBUG] 
 [DEBUG] [s]:
 [DEBUG]     s : 0
-[DEBUG]     q : 1
 [DEBUG]     r : 1
+[DEBUG]     q : 1
 [DEBUG]     m : 1
 [DEBUG]     t : 1
 [DEBUG]     v : 1
@@ -804,8 +804,8 @@
 [DEBUG] 
 [DEBUG] [t]:
 [DEBUG]     t : 0
-[DEBUG]     r : 1
 [DEBUG]     u : 1
+[DEBUG]     r : 1
 [DEBUG]     s : 1
 [DEBUG]     a : 4
 [DEBUG]     k : 4
@@ -934,10 +934,10 @@
 [DEBUG] 
 [DEBUG] [f]:
 [DEBUG]     f : 0
-[DEBUG]     e : 1
 [DEBUG]     g : 1
 [DEBUG]     h : 1
 [DEBUG]     d : 1
+[DEBUG]     e : 1
 [DEBUG]     a : 3
 [DEBUG]     k : 2
 [DEBUG]     o : 2
@@ -960,8 +960,8 @@
 [DEBUG] 
 [DEBUG] [e]:
 [DEBUG]     e : 0
-[DEBUG]     f : 1
 [DEBUG]     g : 1
+[DEBUG]     f : 1
 [DEBUG]     d : 1
 [DEBUG]     a : 3
 [DEBUG]     k : 2
@@ -986,8 +986,8 @@
 [DEBUG] 
 [DEBUG] [h]:
 [DEBUG]     h : 0
-[DEBUG]     f : 1
 [DEBUG]     g : 1
+[DEBUG]     f : 1
 [DEBUG]     d : 1
 [DEBUG]     i : 1
 [DEBUG]     p : 1
@@ -1012,10 +1012,10 @@
 [DEBUG] 
 [DEBUG] [q]:
 [DEBUG]     q : 0
-[DEBUG]     o : 1
 [DEBUG]     m : 1
-[DEBUG]     i : 1
+[DEBUG]     o : 1
 [DEBUG]     p : 1
+[DEBUG]     i : 1
 [DEBUG]     s : 1
 [DEBUG]     w : 1
 [DEBUG]     v : 1
@@ -1038,8 +1038,8 @@
 [DEBUG] 
 [DEBUG] [n]:
 [DEBUG]     n : 0
-[DEBUG]     k : 1
 [DEBUG]     l : 1
+[DEBUG]     k : 1
 [DEBUG]     o : 1
 [DEBUG]     m : 1
 [DEBUG]     a : 2
@@ -1069,8 +1069,8 @@
 [DEBUG]     k : 1
 [DEBUG]     f : 1
 [DEBUG]     h : 1
-[DEBUG]     o : 1
 [DEBUG]     p : 1
+[DEBUG]     o : 1
 [DEBUG]     a : 2
 [DEBUG]     i : 2
 [DEBUG]     w : 3
@@ -1167,7 +1167,7 @@
 [DEBUG]     l : 2
 [DEBUG] 
 [INFO ] .. Distance distrubution built
-[DEBUG] {"0": [["a", "a"], ["k", "k"], ["o", "o"], ["p", "p"], ["i", "i"], ["w", "w"], ["z", "z"], ["v", "v"], ["x", "x"], ["s", "s"], ["t", "t"], ["u", "u"], ["m", "m"], ["r", "r"], ["g", "g"], ["f", "f"], ["e", "e"], ["h", "h"], ["q", "q"], ["n", "n"], ["d", "d"], ["c", "c"], ["l", "l"], ["b", "b"]], "1": [["a", "b"], ["a", "l"], ["a", "k"], ["b", "k"], ["c", "k"], ["d", "k"], ["k", "n"], ["k", "l"], ["k", "o"], ["n", "o"], ["d", "o"], ["o", "q"], ["o", "p"], ["p", "q"], ["d", "p"], ["h", "p"], ["i", "p"], ["g", "i"], ["h", "i"], ["i", "q"], ["i", "w"], ["q", "w"], ["v", "w"], ["w", "z"], ["v", "z"], ["s", "v"], ["q", "v"], ["v", "x"], ["s", "x"], ["q", "s"], ["r", "s"], ["m", "s"], ["s", "t"], ["r", "t"], ["t", "u"], ["r", "u"], ["l", "m"], ["m", "n"], ["m", "q"], ["m", "r"], ["e", "g"], ["f", "g"], ["g", "h"], ["e", "f"], ["f", "h"], ["d", "f"], ["d", "e"], ["d", "h"], ["l", "n"], ["c", "d"], ["b", "c"]], "2": [["a", "o"], ["a", "m"], ["a", "n"], ["a", "d"], ["a", "c"], ["k", "p"], ["k", "m"], ["f", "k"], ["e", "k"], ["h", "k"], ["k", "q"], ["i", "o"], ["o", "w"], ["o", "v"], ["o", "s"], ["m", "o"], ["f", "o"], ["e", "o"], ["h", "o"], ["c", "o"], ["l", "o"], ["b", "o"], ["p", "w"], ["p", "v"], ["p", "s"], ["m", "p"], ["g", "p"], ["f", "p"], ["e", "p"], ["n", "p"], ["c", "p"], ["i", "z"], ["i", "v"], ["i", "s"], ["i", "m"], ["f", "i"], ["e", "i"], ["d", "i"], ["w", "x"], ["s", "w"], ["m", "w"], ["g", "w"], ["h", "w"], ["x", "z"], ["s", "z"], ["q", "z"], ["t", "v"], ["m", "v"], ["r", "v"], ["t", "x"], ["m", "x"], ["r", "x"], ["q", "x"], ["s", "u"], ["n", "s"], ["l", "s"], ["m", "t"], ["q", "t"], ["m", "u"], ["q", "r"], ["n", "r"], ["l", "r"], ["g", "q"], ["d", "g"], ["c", "f"], ["e", "h"], ["c", "e"], ["h", "q"], ["c", "h"], ["n", "q"], ["d", "q"], ["l", "q"], ["d", "n"], ["c", "n"], ["b", "n"], ["d", "l"], ["b", "d"], ["c", "l"], ["b", "l"]], "3": [["a", "p"], ["a", "s"], ["a", "r"], ["a", "f"], ["a", "e"], ["a", "h"], ["a", "q"], ["i", "k"], ["k", "w"], ["k", "v"], ["k", "s"], ["k", "r"], ["g", "k"], ["o", "z"], ["o", "x"], ["o", "t"], ["o", "r"], ["g", "o"], ["p", "z"], ["p", "x"], ["p", "t"], ["p", "r"], ["l", "p"], ["b", "p"], ["i", "x"], ["i", "t"], ["i", "r"], ["i", "n"], ["c", "i"], ["i", "l"], ["t", "w"], ["r", "w"], ["f", "w"], ["e", "w"], ["n", "w"], ["d", "w"], ["l", "w"], ["t", "z"], ["m", "z"], ["r", "z"], ["g", "z"], ["h", "z"], ["u", "v"], ["g", "v"], ["h", "v"], ["n", "v"], ["d", "v"], ["l", "v"], ["u", "x"], ["n", "x"], ["l", "x"], ["g", "s"], ["h", "s"], ["d", "s"], ["n", "t"], ["l", "t"], ["q", "u"], ["n", "u"], ["l", "u"], ["g", "m"], ["h", "m"], ["d", "m"], ["c", "m"], ["b", "m"], ["c", "g"], ["f", "q"], ["f", "n"], ["f", "l"], ["b", "f"], ["e", "q"], ["e", "n"], ["e", "l"], ["b", "e"], ["h", "n"], ["h", "l"], ["b", "h"], ["c", "q"], ["b", "q"]], "4": [["a", "i"], ["a", "w"], ["a", "v"], ["a", "x"], ["a", "t"], ["a", "u"], ["a", "g"], ["k", "z"], ["k", "x"], ["k", "t"], ["k", "u"], ["o", "u"], ["p", "u"], ["i", "u"], ["b", "i"], ["u", "w"], ["c", "w"], ["b", "w"], ["u", "z"], ["f", "z"], ["e", "z"], ["n", "z"], ["d", "z"], ["l", "z"], ["f", "v"], ["e", "v"], ["c", "v"], ["b", "v"], ["g", "x"], ["h", "x"], ["d", "x"], ["f", "s"], ["e", "s"], ["c", "s"], ["b", "s"], ["g", "t"], ["h", "t"], ["d", "t"], ["f", "m"], ["e", "m"], ["g", "r"], ["h", "r"], ["d", "r"], ["c", "r"], ["b", "r"], ["g", "n"], ["g", "l"], ["b", "g"]], "5": [["a", "z"], ["c", "z"], ["b", "z"], ["f", "x"], ["e", "x"], ["c", "x"], ["b", "x"], ["f", "t"], ["e", "t"], ["c", "t"], ["b", "t"], ["g", "u"], ["h", "u"], ["d", "u"], ["c", "u"], ["b", "u"], ["f", "r"], ["e", "r"]], "6": [["f", "u"], ["e", "u"]]}
+[DEBUG] {"0": [["a", "a"], ["k", "k"], ["o", "o"], ["p", "p"], ["i", "i"], ["w", "w"], ["z", "z"], ["v", "v"], ["x", "x"], ["s", "s"], ["t", "t"], ["u", "u"], ["m", "m"], ["r", "r"], ["g", "g"], ["f", "f"], ["e", "e"], ["h", "h"], ["q", "q"], ["n", "n"], ["d", "d"], ["c", "c"], ["l", "l"], ["b", "b"]], "1": [["a", "b"], ["a", "l"], ["a", "k"], ["b", "k"], ["c", "k"], ["d", "k"], ["k", "l"], ["k", "n"], ["k", "o"], ["n", "o"], ["d", "o"], ["o", "q"], ["o", "p"], ["p", "q"], ["d", "p"], ["h", "p"], ["i", "p"], ["g", "i"], ["h", "i"], ["i", "q"], ["i", "w"], ["q", "w"], ["v", "w"], ["w", "z"], ["v", "z"], ["q", "v"], ["s", "v"], ["v", "x"], ["s", "x"], ["r", "s"], ["q", "s"], ["m", "s"], ["s", "t"], ["t", "u"], ["r", "t"], ["r", "u"], ["l", "m"], ["m", "n"], ["m", "q"], ["m", "r"], ["e", "g"], ["f", "g"], ["g", "h"], ["f", "h"], ["d", "f"], ["e", "f"], ["d", "e"], ["d", "h"], ["l", "n"], ["c", "d"], ["b", "c"]], "2": [["a", "o"], ["a", "m"], ["a", "n"], ["a", "d"], ["a", "c"], ["k", "p"], ["k", "m"], ["f", "k"], ["e", "k"], ["h", "k"], ["k", "q"], ["i", "o"], ["o", "w"], ["o", "v"], ["o", "s"], ["m", "o"], ["f", "o"], ["e", "o"], ["h", "o"], ["c", "o"], ["l", "o"], ["b", "o"], ["p", "w"], ["p", "v"], ["p", "s"], ["m", "p"], ["g", "p"], ["f", "p"], ["e", "p"], ["n", "p"], ["c", "p"], ["i", "z"], ["i", "v"], ["i", "s"], ["i", "m"], ["f", "i"], ["e", "i"], ["d", "i"], ["w", "x"], ["s", "w"], ["m", "w"], ["g", "w"], ["h", "w"], ["x", "z"], ["s", "z"], ["q", "z"], ["t", "v"], ["m", "v"], ["r", "v"], ["t", "x"], ["m", "x"], ["r", "x"], ["q", "x"], ["s", "u"], ["n", "s"], ["l", "s"], ["m", "t"], ["q", "t"], ["m", "u"], ["q", "r"], ["n", "r"], ["l", "r"], ["g", "q"], ["d", "g"], ["c", "f"], ["e", "h"], ["c", "e"], ["h", "q"], ["c", "h"], ["n", "q"], ["d", "q"], ["l", "q"], ["d", "n"], ["c", "n"], ["b", "n"], ["d", "l"], ["b", "d"], ["c", "l"], ["b", "l"]], "3": [["a", "p"], ["a", "s"], ["a", "r"], ["a", "f"], ["a", "e"], ["a", "h"], ["a", "q"], ["i", "k"], ["k", "w"], ["k", "v"], ["k", "s"], ["k", "r"], ["g", "k"], ["o", "z"], ["o", "x"], ["o", "t"], ["o", "r"], ["g", "o"], ["p", "z"], ["p", "x"], ["p", "t"], ["p", "r"], ["l", "p"], ["b", "p"], ["i", "x"], ["i", "t"], ["i", "r"], ["i", "n"], ["c", "i"], ["i", "l"], ["t", "w"], ["r", "w"], ["f", "w"], ["e", "w"], ["n", "w"], ["d", "w"], ["l", "w"], ["t", "z"], ["m", "z"], ["r", "z"], ["g", "z"], ["h", "z"], ["u", "v"], ["g", "v"], ["h", "v"], ["n", "v"], ["d", "v"], ["l", "v"], ["u", "x"], ["n", "x"], ["l", "x"], ["g", "s"], ["h", "s"], ["d", "s"], ["n", "t"], ["l", "t"], ["q", "u"], ["n", "u"], ["l", "u"], ["g", "m"], ["h", "m"], ["d", "m"], ["c", "m"], ["b", "m"], ["c", "g"], ["f", "q"], ["f", "n"], ["f", "l"], ["b", "f"], ["e", "q"], ["e", "n"], ["e", "l"], ["b", "e"], ["h", "n"], ["h", "l"], ["b", "h"], ["c", "q"], ["b", "q"]], "4": [["a", "i"], ["a", "w"], ["a", "v"], ["a", "x"], ["a", "t"], ["a", "u"], ["a", "g"], ["k", "z"], ["k", "x"], ["k", "t"], ["k", "u"], ["o", "u"], ["p", "u"], ["i", "u"], ["b", "i"], ["u", "w"], ["c", "w"], ["b", "w"], ["u", "z"], ["f", "z"], ["e", "z"], ["n", "z"], ["d", "z"], ["l", "z"], ["f", "v"], ["e", "v"], ["c", "v"], ["b", "v"], ["g", "x"], ["h", "x"], ["d", "x"], ["f", "s"], ["e", "s"], ["c", "s"], ["b", "s"], ["g", "t"], ["h", "t"], ["d", "t"], ["f", "m"], ["e", "m"], ["g", "r"], ["h", "r"], ["d", "r"], ["c", "r"], ["b", "r"], ["g", "n"], ["g", "l"], ["b", "g"]], "5": [["a", "z"], ["c", "z"], ["b", "z"], ["f", "x"], ["e", "x"], ["c", "x"], ["b", "x"], ["f", "t"], ["e", "t"], ["c", "t"], ["b", "t"], ["g", "u"], ["h", "u"], ["d", "u"], ["c", "u"], ["b", "u"], ["f", "r"], ["e", "r"]], "6": [["f", "u"], ["e", "u"]]}
 [DEBUG] SIFTING for 3 peripherals at cut off 1
 [DEBUG] No prefipherals found
 [DEBUG] SIFTING for 3 peripherals at cut off 2
@@ -1192,15 +1192,15 @@
 [DEBUG] Split f at 0
 [DEBUG] Split u at -2
 [DEBUG] Split z at -5
-[DEBUG] -   f checks e
-[DEBUG] f ADDS e
 [DEBUG] -   f checks g
 [DEBUG] -   f checks h
 [DEBUG] -   f checks d
+[DEBUG] -   f checks e
+[DEBUG] f ADDS e
 [DEBUG] -   u checks t
 [DEBUG] -   u checks r
-[DEBUG] -   z checks w
 [DEBUG] -   z checks v
+[DEBUG] -   z checks w
 [DEBUG] Tick [ 2 ]
 [DEBUG] Split f at 1
 [DEBUG] Split u at -1
@@ -1210,8 +1210,8 @@
 [DEBUG] -   f checks d
 [DEBUG] -   u checks t
 [DEBUG] -   u checks r
-[DEBUG] -   z checks w
 [DEBUG] -   z checks v
+[DEBUG] -   z checks w
 [DEBUG] Tick [ 3 ]
 [DEBUG] Split f at 2
 [DEBUG] Split u at 0
@@ -1223,8 +1223,8 @@
 [DEBUG] -   f checks d
 [DEBUG] -   u checks t
 [DEBUG] -   u checks r
-[DEBUG] -   z checks w
 [DEBUG] -   z checks v
+[DEBUG] -   z checks w
 [DEBUG] Tick [ 4 ]
 [DEBUG] Split f at 1
 [DEBUG] Split u at 1
@@ -1234,8 +1234,8 @@
 [DEBUG] -   f checks i
 [DEBUG] -   u checks t
 [DEBUG] -   u checks r
-[DEBUG] -   z checks w
 [DEBUG] -   z checks v
+[DEBUG] -   z checks w
 [DEBUG] Tick [ 5 ]
 [DEBUG] Split f at 2
 [DEBUG] Split u at 2
@@ -1247,8 +1247,8 @@
 [DEBUG] -   f checks i
 [DEBUG] -   u checks t
 [DEBUG] -   u checks r
-[DEBUG] -   z checks w
 [DEBUG] -   z checks v
+[DEBUG] -   z checks w
 [DEBUG] Tick [ 6 ]
 [DEBUG] Split f at 1
 [DEBUG] Split u at 3
@@ -1257,53 +1257,53 @@
 [DEBUG] -   f checks i
 [DEBUG] -   f checks p
 [DEBUG] f ADDS p
-[DEBUG] -   adding o to the prospects of f
 [DEBUG] -   adding q to the prospects of f
+[DEBUG] -   adding o to the prospects of f
 [DEBUG] -   u checks t
 [DEBUG] -   u checks r
-[DEBUG] -   z checks w
 [DEBUG] -   z checks v
+[DEBUG] -   z checks w
 [DEBUG] Tick [ 7 ]
 [DEBUG] Split f at 1
 [DEBUG] Split u at 4
 [DEBUG] Split z at 1
 [DEBUG] -   f checks d
 [DEBUG] -   f checks i
-[DEBUG] -   f checks o
 [DEBUG] -   f checks q
+[DEBUG] -   f checks o
 [DEBUG] -   u checks t
 [DEBUG] -   u checks r
-[DEBUG] -   z checks w
 [DEBUG] -   z checks v
+[DEBUG] -   z checks w
 [DEBUG] Tick [ 8 ]
 [DEBUG] Split f at 2
 [DEBUG] Split u at 5
 [DEBUG] Split z at 2
 [DEBUG] -   f checks d
 [DEBUG] -   f checks i
-[DEBUG] -   f checks o
 [DEBUG] -   f checks q
+[DEBUG] -   f checks o
 [DEBUG] -   u checks t
 [DEBUG] u ADDS t
 [DEBUG] -   adding s to the prospects of u
 [DEBUG] -   u checks r
-[DEBUG] -   z checks w
 [DEBUG] -   z checks v
+[DEBUG] -   z checks w
 [DEBUG] Tick [ 9 ]
 [DEBUG] Split f at 3
 [DEBUG] Split u at 1
 [DEBUG] Split z at 3
 [DEBUG] -   f checks d
 [DEBUG] -   f checks i
+[DEBUG] -   f checks q
 [DEBUG] -   f checks o
 [DEBUG] f ADDS o
 [DEBUG] -   adding k to the prospects of f
 [DEBUG] -   adding n to the prospects of f
-[DEBUG] -   f checks q
 [DEBUG] -   u checks r
 [DEBUG] -   u checks s
-[DEBUG] -   z checks w
 [DEBUG] -   z checks v
+[DEBUG] -   z checks w
 [DEBUG] Tick [ 10 ]
 [DEBUG] Split f at 1
 [DEBUG] Split u at 2
@@ -1315,8 +1315,8 @@
 [DEBUG] -   f checks n
 [DEBUG] -   u checks r
 [DEBUG] -   u checks s
-[DEBUG] -   z checks w
 [DEBUG] -   z checks v
+[DEBUG] -   z checks w
 [DEBUG] Tick [ 11 ]
 [DEBUG] Split f at 2
 [DEBUG] Split u at 3
@@ -1328,11 +1328,11 @@
 [DEBUG] -   f checks n
 [DEBUG] -   u checks r
 [DEBUG] -   u checks s
+[DEBUG] -   z checks v
 [DEBUG] -   z checks w
 [DEBUG] z ADDS w
-[DEBUG] -   adding i to the prospects of z
 [DEBUG] -   adding q to the prospects of z
-[DEBUG] -   z checks v
+[DEBUG] -   adding i to the prospects of z
 [DEBUG] Tick [ 12 ]
 [DEBUG] Split f at 3
 [DEBUG] Split u at 4
@@ -1353,8 +1353,8 @@
 [DEBUG] -   adding v to the prospects of u
 [DEBUG] -   adding x to the prospects of u
 [DEBUG] -   z checks v
-[DEBUG] -   z checks i
 [DEBUG] -   z checks q
+[DEBUG] -   z checks i
 [DEBUG] Tick [ 13 ]
 [DEBUG] Split f at 1
 [DEBUG] Split u at 1
@@ -1372,8 +1372,8 @@
 [DEBUG] -   u checks x
 [DEBUG] u ADDS x
 [DEBUG] -   z checks v
-[DEBUG] -   z checks i
 [DEBUG] -   z checks q
+[DEBUG] -   z checks i
 [DEBUG] Tick [ 14 ]
 [DEBUG] Split f at 2
 [DEBUG] Split u at 1
@@ -1389,8 +1389,8 @@
 [DEBUG] -   u checks m
 [DEBUG] -   u checks v
 [DEBUG] -   z checks v
-[DEBUG] -   z checks i
 [DEBUG] -   z checks q
+[DEBUG] -   z checks i
 [DEBUG] Tick [ 15 ]
 [DEBUG] Split f at 3
 [DEBUG] Split u at 2
@@ -1406,8 +1406,8 @@
 [DEBUG] -   u checks m
 [DEBUG] -   u checks v
 [DEBUG] -   z checks v
-[DEBUG] -   z checks i
 [DEBUG] -   z checks q
+[DEBUG] -   z checks i
 [DEBUG] Tick [ 16 ]
 [DEBUG] Split f at 4
 [DEBUG] Split u at 3
@@ -1423,8 +1423,8 @@
 [DEBUG] -   u checks m
 [DEBUG] -   u checks v
 [DEBUG] -   z checks v
-[DEBUG] -   z checks i
 [DEBUG] -   z checks q
+[DEBUG] -   z checks i
 [DEBUG] Tick [ 17 ]
 [DEBUG] Split f at 5
 [DEBUG] Split u at 4
@@ -1442,8 +1442,8 @@
 [DEBUG] -   u checks m
 [DEBUG] -   u checks v
 [DEBUG] -   z checks v
-[DEBUG] -   z checks i
 [DEBUG] -   z checks q
+[DEBUG] -   z checks i
 [DEBUG] Tick [ 18 ]
 [DEBUG] Split f at 1
 [DEBUG] Split u at 5
@@ -1460,9 +1460,9 @@
 [DEBUG] -   u checks m
 [DEBUG] -   u checks v
 [DEBUG] -   z checks v
+[DEBUG] -   z checks q
 [DEBUG] -   z checks i
 [DEBUG] z ADDS i
-[DEBUG] -   z checks q
 [DEBUG] Tick [ 19 ]
 [DEBUG] Split f at 2
 [DEBUG] Split u at 1
@@ -1752,5 +1752,39 @@
 [DEBUG] = new negotiations round
 [DEBUG] -    u to receive from f to cover diff 7
 [DEBUG]     -   p moved from f to u
+[INFO ] Creating border map
+[DEBUG] Border nodes for f: {'z': ['g', 'h'], 'u': ['h', 'o', 'n', 'l', 'd']}
+[DEBUG] Border nodes for u: {'z': ['s', 'x', 'q', 'p'], 'f': ['m', 'q', 'p']}
+[DEBUG] Border nodes for z: {'u': ['w', 'i', 'v'], 'f': ['i']}
 [DEBUG] -    z to receive from f to cover diff 15
 [DEBUG]     -   g moved from f to z
+[INFO ] Creating border map
+[DEBUG] Border nodes for f: {'z': ['f', 'e', 'h'], 'u': ['h', 'o', 'n', 'l', 'd']}
+[DEBUG] Border nodes for u: {'z': ['s', 'x', 'q', 'p'], 'f': ['m', 'q', 'p']}
+[DEBUG] Border nodes for z: {'u': ['w', 'i', 'v'], 'f': ['i', 'g']}
+[DEBUG] -    z to receive from u to cover diff 9
+[DEBUG]     -   p moved from u to z
+[INFO ] Creating border map
+[DEBUG] Border nodes for f: {'z': ['f', 'e', 'h', 'o', 'd'], 'u': ['o', 'n', 'l']}
+[DEBUG] Border nodes for u: {'z': ['s', 'x', 'q'], 'f': ['m', 'q']}
+[DEBUG] Border nodes for z: {'u': ['w', 'i', 'v', 'p'], 'f': ['i', 'g', 'p']}
+[DEBUG] = new negotiations round
+[DEBUG] -    u to receive from f to cover diff 2
+[DEBUG]     -   No suitable adjustments
+[DEBUG] -    z to receive from f to cover diff 7
+[DEBUG]     -   h moved from f to z
+[INFO ] Creating border map
+[DEBUG] Border nodes for f: {'z': ['f', 'e', 'o', 'd'], 'u': ['o', 'n', 'l']}
+[DEBUG] Border nodes for u: {'z': ['s', 'x', 'q'], 'f': ['m', 'q']}
+[DEBUG] Border nodes for z: {'u': ['w', 'i', 'v', 'p'], 'f': ['g', 'p', 'h']}
+[DEBUG] -    z to receive from u to cover diff 2
+[DEBUG]     -   x moved from u to z
+[INFO ] Creating border map
+[DEBUG] Border nodes for f: {'z': ['f', 'e', 'o', 'd'], 'u': ['o', 'n', 'l']}
+[DEBUG] Border nodes for u: {'z': ['s', 'q'], 'f': ['m', 'q']}
+[DEBUG] Border nodes for z: {'u': ['w', 'i', 'v', 'p', 'x'], 'f': ['g', 'p', 'h']}
+[DEBUG] = new negotiations round
+[INFO ] Negotiations complete
+[INFO ] f (40) :: ['f', 'e', 'o', 'n', 'l', 'a', 'b', 'c', 'd', 'k']
+[INFO ] u (40) :: ['u', 't', 's', 'r', 'm', 'q']
+[INFO ] z (40) :: ['z', 'w', 'i', 'v', 'g', 'p', 'h', 'x']

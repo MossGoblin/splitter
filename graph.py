@@ -547,6 +547,8 @@ class Graph():
 
     def negotiate_borders(self):
         self.create_border_map()
+        for split_anchor, border_data in self.border_map.items():
+            logging.debug(f'Border nodes for {split_anchor}: {border_data}')
 
         # calculate target values
         self.split_average = self.total_value / self.split_count
@@ -574,9 +576,6 @@ class Graph():
                             border_map[anchor][nbr_split] = []
                         border_map[anchor][nbr_split].append(own_node)
         self.border_map = border_map
-        for split_anchor, border_data in border_map.items():
-            logging.debug(f'Border nodes for {split_anchor}: {border_data}')
-        return
 
     def print_splits(self):
         for split, split_data in self.splits.items():

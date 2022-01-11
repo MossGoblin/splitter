@@ -2,6 +2,7 @@ from graph import Node, Graph
 from workbench import WorkBench
 import logging
 
+SPLIT_COUNT = 5
 
 def main():
     logging.info('START')
@@ -12,7 +13,7 @@ def main():
     gr.find_distances()
     # new_node = Node("j", 4, ["g", "h", "i"])
     # gr.add_node_to_distance_map(new_node)
-    gr.get_peripheral_nodes(3)
+    gr.get_peripheral_nodes(SPLIT_COUNT)
     logging.info('Starting split network creep')
     gr.creep_splits()
     gr.negotiate_borders()

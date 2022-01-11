@@ -99,7 +99,7 @@ class WorkBench():
             with open(filename, 'w') as json_output:
                 json.dump(graph_dict, json_output)
 
-        return graph_dict
+        return graph_array, graph_dict
 
 
 def primes(primes_count=10):

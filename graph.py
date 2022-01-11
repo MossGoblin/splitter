@@ -56,6 +56,8 @@ class Node():
 
 class Graph():
     nodes = []  # a list of all 0 level nodes
+    node_array = [] # an array, read from the input
+    split_array = [] # an array, displaying the splits
     node_map = {}  # an enchanced map of nodes, separated by level
     map_total = 0  # the total weight of all the level 0 nodes
     distance_map = {}  # an enchanced map of nodes, separated by level
@@ -424,10 +426,10 @@ class Graph():
                 for counter in range(number_of_nodes_to_remove):
                     evaluated_nodes = {}
                     for node in reduced_group:
-                        evaluated_nodes[node] = get_link_average(node, distribution, reduced_group)
+                        evaluated_nodes[node] = get_link_average(
+                            node, distribution, reduced_group)
                     node_to_remove = sorted(evaluated_nodes)[0]
                     reduced_group.remove(node_to_remove)
-
 
             return reduced_group
 
@@ -559,6 +561,7 @@ class Graph():
                 f'{splits[anchor][0]} > {totals[anchor]} > {splits[anchor]}')
 
     def negotiate_borders(self):
+        logging.info('Creating border map')
         self.create_border_map()
         for split_anchor, border_data in self.border_map.items():
             logging.debug(f'Border nodes for {split_anchor}: {border_data}')
@@ -569,9 +572,10 @@ class Graph():
 
         logging.info('Start negotiations')
         self.run_negoriation()
+        logging.info('.. Negotiations complete')
+
 
     def create_border_map(self):
-        logging.info('Creating border map')
         # create a map of border nodes
         # all nodes have been assigned by the creep
         # for each pair of splits there are two sets of border nodes:
@@ -696,3 +700,25 @@ class Graph():
         if anchor in nbr_splits:
             nbr_splits.remove(anchor)
         return nbr_splits
+
+    def compose_split_graph(self):
+        def get_split(node):
+            for split, split_nodes in self.splits.items():
+                if node in split_nodes:
+                    return split
+
+        self.split_array = copy.deepcopy(self.node_array)
+        for row_index, row in enumerate(self.node_array):
+            for node_index, node in enumerate(row):
+                self.split_array[row_index][node_index] = get_split(node)
+        logging.info(f'Split array prepared')
+        split_array_string = '\n'
+        with open('result.graph', 'w') as result_file:
+            for row in self.split_array:
+                for node in row:
+                    result_file.write(node)
+                    split_array_string = split_array_string + node
+                result_file.write('\n')
+                split_array_string = split_array_string + '\n'
+        logging.info(split_array_string)
+

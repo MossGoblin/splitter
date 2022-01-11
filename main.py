@@ -2,7 +2,7 @@ from graph import Node, Graph
 from workbench import WorkBench
 import logging
 
-SPLIT_COUNT = 6
+SPLIT_COUNT = 4
 
 def main():
     logging.info('START')
@@ -17,8 +17,9 @@ def main():
     logging.info('Starting split network creep')
     gr.creep_splits()
     gr.negotiate_borders()
-    logging.info('Negotiations complete')
     gr.print_splits()
+    logging.info('Composing split array')
+    gr.compose_split_graph()
 
 
 
@@ -36,7 +37,7 @@ def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:
 
 def create_graph_from_graph_file(node_list_fliename: str = None) -> Graph:
     wb = WorkBench()
-    node_dict = wb.read_nodes_from_graph_file(node_list_fliename, save_json=True)
+    node_array, node_dict = wb.read_nodes_from_graph_file(node_list_fliename, save_json=True)
     gr = Graph()
     for node_label, node_attributes in node_dict.items():
         label = node_label
@@ -44,8 +45,9 @@ def create_graph_from_graph_file(node_list_fliename: str = None) -> Graph:
         links = node_attributes['links']
         node = Node(label=label, value=value, links=links)
         gr.add_node(node, 0)
+    gr.node_array = node_array
     return gr
 
 if __name__ == '__main__':
-    logging.basicConfig(filename='processing.log', format='[%(levelname)-5s] %(message)s', filemode='w', encoding='utf-8', level=logging.DEBUG)
+    logging.basicConfig(filename='processing.log', format='[%(levelname)-5s] %(message)s', filemode='w', encoding='utf-8', level=logging.INFO)
     main()

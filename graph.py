@@ -399,7 +399,7 @@ class Graph():
                         running_total = running_total + pair_data[0]
             return (running_total / counter) if counter > 0 else 0
 
-        def reduce_group(node_links, distribution, flat_distribution):
+        def reduce_group(node_links, distribution, flat_distribution, target):
             group = copy.deepcopy(node_links)
             for node in node_links:
                 for second_node in group:
@@ -416,7 +416,20 @@ class Graph():
                         group.remove(node_to_remove)
                         break
 
-            return group
+            # the group has to end up having exactly target-1 nodes
+            number_of_nodes_to_remove = len(group) - (target - 1)
+            reduced_group = copy.deepcopy(group)
+
+            if number_of_nodes_to_remove > 0:
+                for counter in range(number_of_nodes_to_remove):
+                    evaluated_nodes = {}
+                    for node in reduced_group:
+                        evaluated_nodes[node] = get_link_average(node, distribution, reduced_group)
+                    node_to_remove = sorted(evaluated_nodes)[0]
+                    reduced_group.remove(node_to_remove)
+
+
+            return reduced_group
 
         peripherals_list = []
         node_collection = {}
@@ -440,7 +453,7 @@ class Graph():
         for node, node_links in sieved_nodes.items():
             candidate_group = []
             candidate_group = reduce_group(
-                node_links, distribution, flat_distribution)
+                node_links, distribution, flat_distribution, target)
             candidate_group.append(node)
 
             if len(candidate_group) >= target:

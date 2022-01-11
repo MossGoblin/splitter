@@ -2,7 +2,7 @@ from graph import Node, Graph
 from workbench import WorkBench
 import logging
 
-SPLIT_COUNT = 5
+SPLIT_COUNT = 6
 
 def main():
     logging.info('START')

@@ -564,7 +564,6 @@ class Graph():
         self.border_map = border_map
         for split_anchor, border_data in border_map.items():
             logging.debug(f'Border nodes for {split_anchor}: {border_data}')
-        print(border_map)
         # calculate target values
         self.split_average = self.total_value / self.split_count
         self.average_deviation = (self.total_value % self.split_count) / 3
@@ -601,6 +600,7 @@ class Graph():
 
         adjustments_completed = False
         while not adjustments_completed:
+            logging.debug('= new negotiations round')
             adjustments_completed = True
             adjusted_pairs = []
             # for split_one, split_two in self.iterate_split_pairs(self.splits):
@@ -609,6 +609,8 @@ class Graph():
                     if split_one == split_two:
                         continue
                     if sorted([split_one, split_two]) in adjusted_pairs:
+                        continue
+                    if split_one not in self.border_map[split_two]:
                         continue
                     # check the balance between both splits
                     split_one_total = self.get_split_total(split_one_data)
@@ -623,17 +625,16 @@ class Graph():
                     else:
                         donor_split = split_one
                         receiver_split = split_two
-
-                    logging.debug(f'{receiver_split} to receive from {donor_split} to cover diff {abs(difference)}')
+                    logging.debug(f'-    {receiver_split} to receive from {donor_split} to cover diff {abs(difference)}')
                     updatable = get_updatable_nodes(receiver_split, donor_split, difference)
                     if updatable:
-                        logging.debug(f'{updatable} moved from {donor_split} to {receiver_split}')
+                        logging.debug(f'    -   {updatable} moved from {donor_split} to {receiver_split}')
                         adjusted_pairs.append(sorted([donor_split, receiver_split]))
                         self.splits[receiver_split].append(updatable)
                         self.splits[donor_split].remove(updatable)
                         adjustments_completed = False
                     else:
-                        logging.debug(f'No suitable adjustments')
+                        logging.debug(f'    -   No suitable adjustments')
 
 
     def get_split_total(self, split):
@@ -660,5 +661,6 @@ class Graph():
             parent_split = get_split(nbr)
             nbr_splits.append(parent_split)
         nbr_splits = list(set(nbr_splits))
-        nbr_splits.remove(anchor)
+        if anchor in nbr_splits:
+            nbr_splits.remove(anchor)
         return nbr_splits

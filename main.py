@@ -8,7 +8,6 @@ def main():
     logging.info('Reading network from .graph file')
     gr = create_graph_from_graph_file()
     gr.validate(rectangular=True)
-    # print(gr)
     logging.info('Creating distance map')
     gr.find_distances()
     # new_node = Node("j", 4, ["g", "h", "i"])

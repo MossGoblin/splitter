@@ -17,6 +17,9 @@ def main():
     logging.info('Starting split network creep')
     gr.creep_splits()
     gr.negotiate_borders()
+    logging.info('Negotiations complete')
+    gr.print_splits()
+
 
 
 def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:

@@ -570,71 +570,70 @@ class Graph():
         self.average_deviation = (self.total_value % self.split_count) / 3
 
         logging.info('Start negotiations')
-        balanced = False
-        while not balanced:
-            self.run_negoriation()
-        pass
+        self.run_negoriation()
+        return
+
+    def print_splits(self):
+        for split, split_data in self.splits.items():
+            logging.info(f'{split} ({self.get_split_total(split_data)}) :: {split_data}')
     
-    def iterate_split_pairs(self, iterable):
-        for item_1, item_1_data in iterable.items():
-            for item_2, item_2_data in iterable.items():
-                if item_1 == item_2:
-                    continue
-                yield ((item_1, item_1_data), (item_2, item_2_data))
 
     def run_negoriation(self):
-        def get_updatable_nodes(donor_split, receiver_split, difference, updated_nodes):
+        def get_updatable_nodes(receiver_split, donor_split, difference):
             # find node in the boardmap of the splits that have a value as close to the abs of difference
             # moving a node would change the difference by 2*node
             candidate_node = None
-            # starting wih the current difference, the goal is to find one node that when moved will recude the difference the most
-            test_difference = abs(difference)
-            for node in self.border_map[donor_split][receiver_split]:
-                if node in updated_nodes:
+            difference_to_clear = math.floor(abs(difference) / 2) # trying to find an update that will get this value as close to 0 as possible
+            best_intermediate_update = difference_to_clear
+            for node_label in self.border_map[donor_split][receiver_split]:
+                # check if the node value is lower than the difference that we are trying to reduce
+                node_value = self.get_node(node_label).value
+                if node_value > difference_to_clear:
                     continue
-                node_value = self.get_node(node).value
-                node_difference = abs(difference) - node_value
-                if node_difference < test_difference:
-                    candidate_node = node
-                    test_difference = abs(difference) - node_difference
+                # check if using this node will be improvement over the previously chosen node
+                possible_difference = difference_to_clear - node_value
+                if possible_difference < best_intermediate_update:
+                    best_intermediate_update = possible_difference
+                    candidate_node = node_label
+
             return candidate_node
 
 
         adjustments_completed = False
-        updated_nodes = []
         while not adjustments_completed:
             adjustments_completed = True
-            for split_one, split_two in self.iterate_split_pairs(self.splits):
-                print(f'{split_one} :: {split_two}')
-                # check the balance between both splits
-                split_one_total = self.get_split_total(split_one[1])
-                split_two_total = self.get_split_total(split_two[1])
-                difference = split_one_total - split_two_total
-                if difference == 0:
-                    continue
-                if difference < 0:
-                    donor_split = split_two[0]
-                    receiver_split = split_one[0]
-                else:
-                    donor_split = split_one[0]
-                    receiver_split = split_two[0]
-                updatable = get_updatable_nodes(donor_split, receiver_split, difference, updated_nodes)
-                if updatable:
-                    print(f'{split_one[0]} {"<-" if difference < 0 else ""} {updatable} {"->" if difference > 0 else ""} {split_two[0]}')
-                    self.splits[receiver_split].append(updatable)
-                    self.splits[donor_split].remove(updatable)
-                    updated_nodes.append(updatable)
-                    adjustments_completed = False
+            adjusted_pairs = []
+            # for split_one, split_two in self.iterate_split_pairs(self.splits):
+            for split_one, split_one_data in self.splits.items():
+                for split_two, split_two_data in self.splits.items():
+                    if split_one == split_two:
+                        continue
+                    if sorted([split_one, split_two]) in adjusted_pairs:
+                        continue
+                    # check the balance between both splits
+                    split_one_total = self.get_split_total(split_one_data)
+                    split_two_total = self.get_split_total(split_two_data)
+                    difference = split_one_total - split_two_total
+                    if abs(difference) < 2:
+                        # the smallest difference that can be adjusted is 2 (with an update of a node with value 1)
+                        continue
+                    if difference < 0:
+                        donor_split = split_two
+                        receiver_split = split_one
+                    else:
+                        donor_split = split_one
+                        receiver_split = split_two
 
-            # TODO CORRECT THIS
-            split_differences = []
-            for split, split_nodes in self.splits.items():
-                split_difference = self.get_graph_total() / self.split_count - self.get_split_total(split_nodes)
-                split_differences.append(split_difference)
-            average_split_difference = sum(split_differences) / self.split_count
-            if average_split_difference <= self.average_deviation:
-                adjustments_completed = True
-        pass
+                    logging.debug(f'{receiver_split} to receive from {donor_split} to cover diff {abs(difference)}')
+                    updatable = get_updatable_nodes(receiver_split, donor_split, difference)
+                    if updatable:
+                        logging.debug(f'{updatable} moved from {donor_split} to {receiver_split}')
+                        adjusted_pairs.append(sorted([donor_split, receiver_split]))
+                        self.splits[receiver_split].append(updatable)
+                        self.splits[donor_split].remove(updatable)
+                        adjustments_completed = False
+                    else:
+                        logging.debug(f'No suitable adjustments')
 
 
     def get_split_total(self, split):

@@ -2,7 +2,7 @@ from graph import Node, Graph
 from workbench import WorkBench
 import logging
 
-SPLIT_COUNT = 4
+SPLIT_COUNT = 3
 
 def main():
     logging.info('START')
@@ -49,5 +49,5 @@ def create_graph_from_graph_file(node_list_fliename: str = None) -> Graph:
     return gr
 
 if __name__ == '__main__':
-    logging.basicConfig(filename='processing.log', format='[%(levelname)-5s] %(message)s', filemode='w', encoding='utf-8', level=logging.INFO)
+    logging.basicConfig(filename='processing.log', format='[%(levelname)-5s] %(message)s', filemode='w', encoding='utf-8', level=logging.DEBUG)
     main()

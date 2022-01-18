@@ -6,6 +6,7 @@ import json
 import copy
 import logging
 import math
+from string import ascii_letters, ascii_lowercase, ascii_uppercase
 
 # logging.basicConfig(filename='processing.log', encoding='utf-8', level=logging.debug)
 
@@ -721,4 +722,26 @@ class Graph():
                 result_file.write('\n')
                 split_array_string = split_array_string + '\n'
         logging.info(split_array_string)
+        self.build_csv_output_file()
+    
+    def build_csv_output_file(self):
+        symbol_list = list([x for x in range(1, 10)])
+        if self.split_count > 10 and self.split_count < 61:
+            symbol_list.extend(list([x for x in ascii_letters]))
+        # map nodes to symbols
+        symbol_map = {}
+        counter = 0
+        for row in self.split_array:
+            for node in row:
+                if node in symbol_map:
+                    continue
+                symbol_map[node] = None
+                symbol_map[node] = symbol_list[counter]
+                counter = counter + 1
+        with open('result.csv', 'w') as result_csv:
+            for row in self.split_array:
+                for node in row:
+                    result_csv.write(str(symbol_map[node]) + ',')
+                result_csv.write('\n')
+        print(symbol_map)
 

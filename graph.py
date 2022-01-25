@@ -65,7 +65,7 @@ class Graph():
     split_count = 0  # the total number of target splits
     peripherals_list = []  # a list of all anchor groups
     anchors = []  # a list of anchors selected from peripherals_list
-    splits = []  # a list of all split networks, build around anchors
+    splits = {}  # a dictionary of all split networks, build around anchors
     split_totals = {}  # a list of the total values of each split
 
     def __init__(self):
@@ -601,14 +601,14 @@ class Graph():
                 f'{split} ({self.get_split_total(split_data)}) :: {split_data}')
 
     def run_negoriation(self):
-        def get_updatable_nodes(receiver_split, donor_split, difference):
+        def get_updatable_nodes(receiver_split_index, donor_split_index, difference):
             # find node in the boardmap of the splits that have a value as close to the abs of difference
             # moving a node would change the difference by 2*node
             candidate_node = None
             # trying to find an update that will get this value as close to 0 as possible
             difference_to_clear = math.floor(abs(difference) / 2)
             best_intermediate_update = difference_to_clear
-            for node_label in self.border_map[donor_split][receiver_split]:
+            for node_label in self.border_map[donor_split_index][receiver_split_index]:
                 # check if the node value is lower than the difference that we are trying to reduce
                 node_value = self.get_node(node_label).value
                 if node_value > difference_to_clear:
@@ -617,7 +617,8 @@ class Graph():
                 possible_difference = difference_to_clear - node_value
                 if possible_difference < best_intermediate_update:
                     best_intermediate_update = possible_difference
-                    candidate_node = node_label
+                    if self.check_if_node_removal_breaks(donor_split_index, node_label):
+                        candidate_node = node_label
 
             return candidate_node
 
@@ -743,5 +744,37 @@ class Graph():
                 for node in row:
                     result_csv.write(str(symbol_map[node]) + ',')
                 result_csv.write('\n')
-        print(symbol_map)
+        # print(symbol_map)
+
+    def check_if_node_removal_breaks(self, split_index, candidate):
+        # Check if removing a node from a split will break it into two graphs
+        # Get all nbrs of the node INTO the split
+        # If the removal does not break the split, all the nbrs should be able to reach each other WITHIN the split
+        node_split_nbrs = self.get_node_split_nbrs(candidate, split_index)
+        return
+    
+    def get_node_split_nbrs(self, node_label, split_index):
+        # get the split, corresponding to the split index
+        for split_anchor, split_data in self.splits.items():
+            if split_anchor == split_index:
+                split = split_data
+                break
+        # get the nbrs of the candidate node within the split
+        nbrs = []
+        node = self.get_node(node_label)
+        for nbr in node.links:
+            print(nbr)
+            nbrs.append(nbr)
+        # remove the candidate node from the split
+        split.remove(node_label)
+        for nbr in nbrs:
+            if self.confirm_path_from_node(split, nbrs, nbr):
+                print(f'{nbr} is connected')
+        # check 
+        return
+
+    def confirm_path_from_node(self, graph, group, node):
+        for target in group:
+            # HERE
+            print(target)
 

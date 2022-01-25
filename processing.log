@@ -14,8 +14,8 @@
 [DEBUG] Adding node [m] to distance graph
 [DEBUG] *   Declaring [m]
 [DEBUG] *   Adding nbrs of [m]
-[DEBUG]     -   Nbr v added
 [DEBUG]     -   Nbr 1 added
+[DEBUG]     -   Nbr v added
 [DEBUG]     -   Nbr n added
 [DEBUG]     -   Nbr 6 added
 [DEBUG] *   Adding nbrs of [m]
@@ -35,11 +35,11 @@
 [DEBUG] Adding node [3] to distance graph
 [DEBUG] *   Declaring [3]
 [DEBUG] *   Adding nbrs of [3]
+[DEBUG]     -   Nbr z added
 [DEBUG]     -   Nbr v added
 [DEBUG]     -   Nbr 6 added
-[DEBUG]     -   Nbr z added
-[DEBUG]     -   Nbr t added
 [DEBUG]     -   Nbr 7 added
+[DEBUG]     -   Nbr t added
 [DEBUG]     -   Nbr u added
 [DEBUG]     -   Nbr e added
 [DEBUG]     -   Nbr r added
@@ -51,8 +51,8 @@
 [DEBUG] *   Declaring [r]
 [DEBUG] *   Adding nbrs of [r]
 [DEBUG]     -   Nbr e added
-[DEBUG]     -   Nbr q added
 [DEBUG]     -   Nbr 3 added
+[DEBUG]     -   Nbr q added
 [DEBUG]     -   Nbr w added
 [DEBUG] *   Adding nbrs of [r]
 [DEBUG]     *   Distance between [r] and [1] recorded as 4
@@ -89,9 +89,9 @@
 [DEBUG] Adding node [o] to distance graph
 [DEBUG] *   Declaring [o]
 [DEBUG] *   Adding nbrs of [o]
-[DEBUG]     -   Nbr i added
 [DEBUG]     -   Nbr 9 added
 [DEBUG]     -   Nbr p added
+[DEBUG]     -   Nbr i added
 [DEBUG]     -   Nbr 0 added
 [DEBUG] *   Adding nbrs of [o]
 [DEBUG]     *   Distance between [o] and [1] recorded as 7
@@ -104,8 +104,8 @@
 [DEBUG] Adding node [0] to distance graph
 [DEBUG] *   Declaring [0]
 [DEBUG] *   Adding nbrs of [0]
-[DEBUG]     -   Nbr o added
 [DEBUG]     -   Nbr p added
+[DEBUG]     -   Nbr o added
 [DEBUG] *   Adding nbrs of [0]
 [DEBUG]     *   Distance between [0] and [1] recorded as 8
 [DEBUG]     *   Distance between [0] and [m] recorded as 7
@@ -118,9 +118,9 @@
 [DEBUG] Adding node [p] to distance graph
 [DEBUG] *   Declaring [p]
 [DEBUG] *   Adding nbrs of [p]
+[DEBUG]     -   Nbr o added
 [DEBUG]     -   Nbr i added
 [DEBUG]     -   Nbr 0 added
-[DEBUG]     -   Nbr o added
 [DEBUG] *   Adding nbrs of [p]
 [DEBUG]     *   Distance between [p] and [1] recorded as 8
 [DEBUG]     *   Distance between [p] and [m] recorded as 7
@@ -133,8 +133,8 @@
 [DEBUG] Adding node [i] to distance graph
 [DEBUG] *   Declaring [i]
 [DEBUG] *   Adding nbrs of [i]
-[DEBUG]     -   Nbr u added
 [DEBUG]     -   Nbr 9 added
+[DEBUG]     -   Nbr u added
 [DEBUG]     -   Nbr e added
 [DEBUG]     -   Nbr a added
 [DEBUG]     -   Nbr o added
@@ -151,8 +151,8 @@
 [DEBUG] Adding node [a] to distance graph
 [DEBUG] *   Declaring [a]
 [DEBUG] *   Adding nbrs of [a]
-[DEBUG]     -   Nbr 7 added
 [DEBUG]     -   Nbr u added
+[DEBUG]     -   Nbr 7 added
 [DEBUG]     -   Nbr i added
 [DEBUG]     -   Nbr s added
 [DEBUG]     -   Nbr d added
@@ -192,9 +192,9 @@
 [DEBUG] Adding node [l] to distance graph
 [DEBUG] *   Declaring [l]
 [DEBUG] *   Adding nbrs of [l]
+[DEBUG]     -   Nbr d added
 [DEBUG]     -   Nbr f added
 [DEBUG]     -   Nbr s added
-[DEBUG]     -   Nbr d added
 [DEBUG]     -   Nbr 4 added
 [DEBUG] *   Adding nbrs of [l]
 [DEBUG]     *   Distance between [l] and [1] recorded as 10
@@ -215,8 +215,8 @@
 [DEBUG] *   Adding nbrs of [f]
 [DEBUG]     -   Nbr g added
 [DEBUG]     -   Nbr k added
-[DEBUG]     -   Nbr s added
 [DEBUG]     -   Nbr l added
+[DEBUG]     -   Nbr s added
 [DEBUG]     -   Nbr 4 added
 [DEBUG] *   Adding nbrs of [f]
 [DEBUG]     *   Distance between [f] and [1] recorded as 10
@@ -236,9 +236,9 @@
 [DEBUG] *   Declaring [k]
 [DEBUG] *   Adding nbrs of [k]
 [DEBUG]     -   Nbr f added
-[DEBUG]     -   Nbr s added
 [DEBUG]     -   Nbr g added
 [DEBUG]     -   Nbr 2 added
+[DEBUG]     -   Nbr s added
 [DEBUG] *   Adding nbrs of [k]
 [DEBUG]     *   Distance between [k] and [1] recorded as 11
 [DEBUG]     *   Distance between [k] and [m] recorded as 10
@@ -260,8 +260,8 @@
 [DEBUG] *   Adding nbrs of [2]
 [DEBUG]     -   Nbr 8 added
 [DEBUG]     -   Nbr j added
-[DEBUG]     -   Nbr h added
 [DEBUG]     -   Nbr k added
+[DEBUG]     -   Nbr h added
 [DEBUG]     -   Nbr x added
 [DEBUG]     -   Nbr s added
 [DEBUG]     -   Nbr c added
@@ -286,9 +286,9 @@
 [DEBUG] *   Declaring [c]
 [DEBUG] *   Adding nbrs of [c]
 [DEBUG]     -   Nbr s added
-[DEBUG]     -   Nbr 2 added
-[DEBUG]     -   Nbr z added
 [DEBUG]     -   Nbr x added
+[DEBUG]     -   Nbr z added
+[DEBUG]     -   Nbr 2 added
 [DEBUG] *   Adding nbrs of [c]
 [DEBUG]     *   Distance between [c] and [1] recorded as 13
 [DEBUG]     *   Distance between [c] and [m] recorded as 12
@@ -311,9 +311,9 @@
 [DEBUG] *   Declaring [x]
 [DEBUG] *   Adding nbrs of [x]
 [DEBUG]     -   Nbr 8 added
-[DEBUG]     -   Nbr c added
-[DEBUG]     -   Nbr 2 added
 [DEBUG]     -   Nbr z added
+[DEBUG]     -   Nbr 2 added
+[DEBUG]     -   Nbr c added
 [DEBUG] *   Adding nbrs of [x]
 [DEBUG]     *   Distance between [x] and [1] recorded as 13
 [DEBUG]     *   Distance between [x] and [m] recorded as 12
@@ -362,8 +362,8 @@
 [DEBUG] Adding node [5] to distance graph
 [DEBUG] *   Declaring [5]
 [DEBUG] *   Adding nbrs of [5]
-[DEBUG]     -   Nbr h added
 [DEBUG]     -   Nbr g added
+[DEBUG]     -   Nbr h added
 [DEBUG] *   Adding nbrs of [5]
 [DEBUG]     *   Distance between [5] and [1] recorded as 14
 [DEBUG]     *   Distance between [5] and [m] recorded as 13
@@ -388,8 +388,8 @@
 [DEBUG] Adding node [j] to distance graph
 [DEBUG] *   Declaring [j]
 [DEBUG] *   Adding nbrs of [j]
-[DEBUG]     -   Nbr h added
 [DEBUG]     -   Nbr 8 added
+[DEBUG]     -   Nbr h added
 [DEBUG]     -   Nbr 2 added
 [DEBUG] *   Adding nbrs of [j]
 [DEBUG]     *   Distance between [j] and [1] recorded as 13
@@ -445,9 +445,9 @@
 [DEBUG] Adding node [g] to distance graph
 [DEBUG] *   Declaring [g]
 [DEBUG] *   Adding nbrs of [g]
+[DEBUG]     -   Nbr k added
 [DEBUG]     -   Nbr h added
 [DEBUG]     -   Nbr 5 added
-[DEBUG]     -   Nbr k added
 [DEBUG]     -   Nbr f added
 [DEBUG] *   Adding nbrs of [g]
 [DEBUG]     *   Distance between [g] and [1] recorded as 11
@@ -504,9 +504,9 @@
 [DEBUG] Adding node [d] to distance graph
 [DEBUG] *   Declaring [d]
 [DEBUG] *   Adding nbrs of [d]
-[DEBUG]     -   Nbr 4 added
 [DEBUG]     -   Nbr s added
 [DEBUG]     -   Nbr l added
+[DEBUG]     -   Nbr 4 added
 [DEBUG]     -   Nbr a added
 [DEBUG] *   Adding nbrs of [d]
 [DEBUG]     *   Distance between [d] and [1] recorded as 9
@@ -535,10 +535,10 @@
 [DEBUG] *   Declaring [s]
 [DEBUG] *   Adding nbrs of [s]
 [DEBUG]     -   Nbr f added
-[DEBUG]     -   Nbr 2 added
 [DEBUG]     -   Nbr k added
-[DEBUG]     -   Nbr c added
+[DEBUG]     -   Nbr 2 added
 [DEBUG]     -   Nbr l added
+[DEBUG]     -   Nbr c added
 [DEBUG]     -   Nbr z added
 [DEBUG]     -   Nbr d added
 [DEBUG]     -   Nbr a added
@@ -832,9 +832,9 @@
 [DEBUG]     -   Nbr 3 added
 [DEBUG]     -   Nbr a added
 [DEBUG]     -   Nbr i added
+[DEBUG]     -   Nbr t added
 [DEBUG]     -   Nbr y added
 [DEBUG]     -   Nbr q added
-[DEBUG]     -   Nbr t added
 [DEBUG] *   Adding nbrs of [u]
 [DEBUG]     *   Distance between [u] and [1] recorded as 4
 [DEBUG]     *   Distance between [u] and [m] recorded as 3
@@ -943,8 +943,8 @@
 [DEBUG]     -   Nbr u added
 [DEBUG]     -   Nbr z added
 [DEBUG]     -   Nbr 3 added
-[DEBUG]     -   Nbr a added
 [DEBUG]     -   Nbr s added
+[DEBUG]     -   Nbr a added
 [DEBUG] *   Adding nbrs of [7]
 [DEBUG]     *   Distance between [7] and [1] recorded as 4
 [DEBUG]     *   Distance between [7] and [m] recorded as 3
@@ -1107,8 +1107,8 @@
 [DEBUG] *   Declaring [t]
 [DEBUG] *   Adding nbrs of [t]
 [DEBUG]     -   Nbr y added
-[DEBUG]     -   Nbr 6 added
 [DEBUG]     -   Nbr 3 added
+[DEBUG]     -   Nbr 6 added
 [DEBUG]     -   Nbr u added
 [DEBUG]     -   Nbr q added
 [DEBUG] *   Adding nbrs of [t]
@@ -1186,8 +1186,8 @@
 [DEBUG]     -   Nbr 8 added
 [DEBUG]     -   Nbr b added
 [DEBUG]     -   Nbr m added
-[DEBUG]     -   Nbr 6 added
 [DEBUG]     -   Nbr 3 added
+[DEBUG]     -   Nbr 6 added
 [DEBUG] *   Adding nbrs of [v]
 [DEBUG]     *   Distance between [v] and [1] recorded as 2
 [DEBUG]     *   Distance between [v] and [r] recorded as 2
@@ -1377,8 +1377,8 @@
 [DEBUG] 
 [DEBUG] [m]:
 [DEBUG]     m : 0
-[DEBUG]     v : 1
 [DEBUG]     1 : 1
+[DEBUG]     v : 1
 [DEBUG]     n : 1
 [DEBUG]     6 : 1
 [DEBUG]     3 : 2
@@ -1453,11 +1453,11 @@
 [DEBUG] 
 [DEBUG] [3]:
 [DEBUG]     3 : 0
+[DEBUG]     z : 1
 [DEBUG]     v : 1
 [DEBUG]     6 : 1
-[DEBUG]     z : 1
-[DEBUG]     t : 1
 [DEBUG]     7 : 1
+[DEBUG]     t : 1
 [DEBUG]     u : 1
 [DEBUG]     e : 1
 [DEBUG]     r : 1
@@ -1492,8 +1492,8 @@
 [DEBUG] [r]:
 [DEBUG]     r : 0
 [DEBUG]     e : 1
-[DEBUG]     q : 1
 [DEBUG]     3 : 1
+[DEBUG]     q : 1
 [DEBUG]     w : 1
 [DEBUG]     1 : 4
 [DEBUG]     m : 3
@@ -1605,9 +1605,9 @@
 [DEBUG] 
 [DEBUG] [o]:
 [DEBUG]     o : 0
-[DEBUG]     i : 1
 [DEBUG]     9 : 1
 [DEBUG]     p : 1
+[DEBUG]     i : 1
 [DEBUG]     0 : 1
 [DEBUG]     1 : 6
 [DEBUG]     m : 5
@@ -1643,8 +1643,8 @@
 [DEBUG] 
 [DEBUG] [0]:
 [DEBUG]     0 : 0
-[DEBUG]     o : 1
 [DEBUG]     p : 1
+[DEBUG]     o : 1
 [DEBUG]     1 : 7
 [DEBUG]     m : 6
 [DEBUG]     6 : 5
@@ -1681,9 +1681,9 @@
 [DEBUG] 
 [DEBUG] [p]:
 [DEBUG]     p : 0
+[DEBUG]     o : 1
 [DEBUG]     i : 1
 [DEBUG]     0 : 1
-[DEBUG]     o : 1
 [DEBUG]     1 : 6
 [DEBUG]     m : 5
 [DEBUG]     6 : 4
@@ -1719,8 +1719,8 @@
 [DEBUG] 
 [DEBUG] [i]:
 [DEBUG]     i : 0
-[DEBUG]     u : 1
 [DEBUG]     9 : 1
+[DEBUG]     u : 1
 [DEBUG]     e : 1
 [DEBUG]     a : 1
 [DEBUG]     o : 1
@@ -1757,8 +1757,8 @@
 [DEBUG] 
 [DEBUG] [a]:
 [DEBUG]     a : 0
-[DEBUG]     7 : 1
 [DEBUG]     u : 1
+[DEBUG]     7 : 1
 [DEBUG]     i : 1
 [DEBUG]     s : 1
 [DEBUG]     d : 1
@@ -1833,9 +1833,9 @@
 [DEBUG] 
 [DEBUG] [l]:
 [DEBUG]     l : 0
+[DEBUG]     d : 1
 [DEBUG]     f : 1
 [DEBUG]     s : 1
-[DEBUG]     d : 1
 [DEBUG]     4 : 1
 [DEBUG]     1 : 5
 [DEBUG]     m : 5
@@ -1873,8 +1873,8 @@
 [DEBUG]     f : 0
 [DEBUG]     g : 1
 [DEBUG]     k : 1
-[DEBUG]     s : 1
 [DEBUG]     l : 1
+[DEBUG]     s : 1
 [DEBUG]     4 : 1
 [DEBUG]     1 : 5
 [DEBUG]     m : 5
@@ -1910,9 +1910,9 @@
 [DEBUG] [k]:
 [DEBUG]     k : 0
 [DEBUG]     f : 1
-[DEBUG]     s : 1
 [DEBUG]     g : 1
 [DEBUG]     2 : 1
+[DEBUG]     s : 1
 [DEBUG]     1 : 4
 [DEBUG]     m : 4
 [DEBUG]     6 : 4
@@ -1949,8 +1949,8 @@
 [DEBUG]     2 : 0
 [DEBUG]     8 : 1
 [DEBUG]     j : 1
-[DEBUG]     h : 1
 [DEBUG]     k : 1
+[DEBUG]     h : 1
 [DEBUG]     x : 1
 [DEBUG]     s : 1
 [DEBUG]     c : 1
@@ -1986,9 +1986,9 @@
 [DEBUG] [c]:
 [DEBUG]     c : 0
 [DEBUG]     s : 1
-[DEBUG]     2 : 1
-[DEBUG]     z : 1
 [DEBUG]     x : 1
+[DEBUG]     z : 1
+[DEBUG]     2 : 1
 [DEBUG]     1 : 4
 [DEBUG]     m : 4
 [DEBUG]     6 : 3
@@ -2024,9 +2024,9 @@
 [DEBUG] [x]:
 [DEBUG]     x : 0
 [DEBUG]     8 : 1
-[DEBUG]     c : 1
-[DEBUG]     2 : 1
 [DEBUG]     z : 1
+[DEBUG]     2 : 1
+[DEBUG]     c : 1
 [DEBUG]     1 : 3
 [DEBUG]     m : 3
 [DEBUG]     6 : 3
@@ -2099,8 +2099,8 @@
 [DEBUG] 
 [DEBUG] [5]:
 [DEBUG]     5 : 0
-[DEBUG]     h : 1
 [DEBUG]     g : 1
+[DEBUG]     h : 1
 [DEBUG]     1 : 5
 [DEBUG]     m : 5
 [DEBUG]     6 : 5
@@ -2137,8 +2137,8 @@
 [DEBUG] 
 [DEBUG] [j]:
 [DEBUG]     j : 0
-[DEBUG]     h : 1
 [DEBUG]     8 : 1
+[DEBUG]     h : 1
 [DEBUG]     2 : 1
 [DEBUG]     1 : 3
 [DEBUG]     m : 3
@@ -2213,9 +2213,9 @@
 [DEBUG] 
 [DEBUG] [g]:
 [DEBUG]     g : 0
+[DEBUG]     k : 1
 [DEBUG]     h : 1
 [DEBUG]     5 : 1
-[DEBUG]     k : 1
 [DEBUG]     f : 1
 [DEBUG]     1 : 5
 [DEBUG]     m : 5
@@ -2251,9 +2251,9 @@
 [DEBUG] 
 [DEBUG] [d]:
 [DEBUG]     d : 0
-[DEBUG]     4 : 1
 [DEBUG]     s : 1
 [DEBUG]     l : 1
+[DEBUG]     4 : 1
 [DEBUG]     a : 1
 [DEBUG]     1 : 5
 [DEBUG]     m : 5
@@ -2290,10 +2290,10 @@
 [DEBUG] [s]:
 [DEBUG]     s : 0
 [DEBUG]     f : 1
-[DEBUG]     2 : 1
 [DEBUG]     k : 1
-[DEBUG]     c : 1
+[DEBUG]     2 : 1
 [DEBUG]     l : 1
+[DEBUG]     c : 1
 [DEBUG]     z : 1
 [DEBUG]     d : 1
 [DEBUG]     a : 1
@@ -2408,9 +2408,9 @@
 [DEBUG]     3 : 1
 [DEBUG]     a : 1
 [DEBUG]     i : 1
+[DEBUG]     t : 1
 [DEBUG]     y : 1
 [DEBUG]     q : 1
-[DEBUG]     t : 1
 [DEBUG]     1 : 4
 [DEBUG]     m : 3
 [DEBUG]     6 : 2
@@ -2444,8 +2444,8 @@
 [DEBUG]     u : 1
 [DEBUG]     z : 1
 [DEBUG]     3 : 1
-[DEBUG]     a : 1
 [DEBUG]     s : 1
+[DEBUG]     a : 1
 [DEBUG]     1 : 4
 [DEBUG]     m : 3
 [DEBUG]     6 : 2
@@ -2518,8 +2518,8 @@
 [DEBUG] [t]:
 [DEBUG]     t : 0
 [DEBUG]     y : 1
-[DEBUG]     6 : 1
 [DEBUG]     3 : 1
+[DEBUG]     6 : 1
 [DEBUG]     u : 1
 [DEBUG]     q : 1
 [DEBUG]     1 : 3
@@ -2596,8 +2596,8 @@
 [DEBUG]     8 : 1
 [DEBUG]     b : 1
 [DEBUG]     m : 1
-[DEBUG]     6 : 1
 [DEBUG]     3 : 1
+[DEBUG]     6 : 1
 [DEBUG]     1 : 2
 [DEBUG]     r : 2
 [DEBUG]     w : 3
@@ -2706,7 +2706,7 @@
 [DEBUG]     n : 2
 [DEBUG] 
 [INFO ] .. Distance distrubution built
-[DEBUG] {"0": [["1", "1"], ["m", "m"], ["6", "6"], ["3", "3"], ["r", "r"], ["w", "w"], ["9", "9"], ["o", "o"], ["0", "0"], ["p", "p"], ["i", "i"], ["a", "a"], ["4", "4"], ["l", "l"], ["f", "f"], ["k", "k"], ["2", "2"], ["c", "c"], ["x", "x"], ["h", "h"], ["5", "5"], ["j", "j"], ["8", "8"], ["g", "g"], ["d", "d"], ["s", "s"], ["q", "q"], ["e", "e"], ["u", "u"], ["7", "7"], ["z", "z"], ["t", "t"], ["y", "y"], ["v", "v"], ["n", "n"], ["b", "b"]], "1": [["1", "b"], ["1", "n"], ["1", "m"], ["m", "v"], ["m", "n"], ["6", "m"], ["6", "n"], ["6", "v"], ["6", "y"], ["6", "t"], ["3", "6"], ["3", "v"], ["3", "z"], ["3", "t"], ["3", "7"], ["3", "u"], ["3", "e"], ["3", "r"], ["e", "r"], ["q", "r"], ["r", "w"], ["q", "w"], ["e", "w"], ["9", "w"], ["9", "i"], ["9", "e"], ["9", "o"], ["i", "o"], ["o", "p"], ["0", "o"], ["0", "p"], ["i", "p"], ["i", "u"], ["e", "i"], ["a", "i"], ["7", "a"], ["a", "u"], ["a", "s"], ["a", "d"], ["4", "a"], ["4", "f"], ["4", "l"], ["4", "d"], ["f", "l"], ["l", "s"], ["d", "l"], ["f", "g"], ["f", "k"], ["f", "s"], ["k", "s"], ["g", "k"], ["2", "k"], ["2", "8"], ["2", "j"], ["2", "h"], ["2", "x"], ["2", "s"], ["2", "c"], ["c", "s"], ["c", "z"], ["c", "x"], ["8", "x"], ["x", "z"], ["h", "j"], ["5", "h"], ["g", "h"], ["5", "g"], ["8", "j"], ["8", "b"], ["8", "v"], ["8", "z"], ["d", "s"], ["s", "z"], ["7", "s"], ["q", "u"], ["q", "t"], ["e", "u"], ["7", "u"], ["u", "y"], ["t", "u"], ["7", "z"], ["t", "y"], ["b", "v"]], "2": [["1", "6"], ["1", "8"], ["1", "v"], ["3", "m"], ["8", "m"], ["m", "t"], ["m", "y"], ["b", "m"], ["6", "r"], ["6", "8"], ["6", "q"], ["6", "e"], ["6", "u"], ["6", "7"], ["6", "z"], ["6", "b"], ["3", "w"], ["3", "9"], ["3", "i"], ["3", "a"], ["3", "c"], ["3", "x"], ["3", "8"], ["3", "s"], ["3", "q"], ["3", "y"], ["3", "n"], ["3", "b"], ["9", "r"], ["i", "r"], ["r", "u"], ["7", "r"], ["r", "z"], ["r", "t"], ["r", "v"], ["o", "w"], ["i", "w"], ["u", "w"], ["t", "w"], ["0", "9"], ["9", "p"], ["9", "a"], ["9", "q"], ["9", "u"], ["a", "o"], ["e", "o"], ["o", "u"], ["0", "i"], ["a", "p"], ["e", "p"], ["p", "u"], ["4", "i"], ["d", "i"], ["i", "s"], ["i", "q"], ["7", "i"], ["i", "t"], ["i", "y"], ["a", "l"], ["a", "f"], ["a", "k"], ["2", "a"], ["a", "c"], ["a", "q"], ["a", "e"], ["a", "z"], ["a", "t"], ["a", "y"], ["4", "k"], ["4", "g"], ["4", "s"], ["4", "u"], ["4", "7"], ["k", "l"], ["2", "l"], ["c", "l"], ["g", "l"], ["7", "l"], ["l", "z"], ["2", "f"], ["c", "f"], ["f", "h"], ["5", "f"], ["d", "f"], ["7", "f"], ["f", "z"], ["c", "k"], ["k", "x"], ["h", "k"], ["5", "k"], ["j", "k"], ["8", "k"], ["d", "k"], ["7", "k"], ["k", "z"], ["2", "5"], ["2", "g"], ["2", "d"], ["2", "7"], ["2", "z"], ["2", "v"], ["2", "b"], ["c", "h"], ["c", "j"], ["8", "c"], ["c", "d"], ["7", "c"], ["h", "x"], ["j", "x"], ["s", "x"], ["7", "x"], ["v", "x"], ["b", "x"], ["8", "h"], ["h", "s"], ["5", "j"], ["g", "j"], ["j", "s"], ["j", "z"], ["j", "v"], ["b", "j"], ["8", "s"], ["7", "8"], ["g", "s"], ["d", "u"], ["7", "d"], ["d", "z"], ["s", "u"], ["e", "q"], ["7", "q"], ["q", "y"], ["7", "e"], ["e", "z"], ["e", "t"], ["e", "y"], ["e", "v"], ["u", "z"], ["u", "v"], ["7", "t"], ["7", "y"], ["7", "v"], ["t", "z"], ["v", "z"], ["b", "z"], ["t", "v"], ["n", "t"], ["v", "y"], ["n", "y"], ["n", "v"], ["b", "n"]], "3": [["1", "3"], ["1", "2"], ["1", "x"], ["1", "j"], ["1", "z"], ["1", "t"], ["1", "y"], ["m", "r"], ["2", "m"], ["m", "x"], ["j", "m"], ["m", "q"], ["e", "m"], ["m", "u"], ["7", "m"], ["m", "z"], ["6", "w"], ["6", "9"], ["6", "i"], ["6", "a"], ["2", "6"], ["6", "c"], ["6", "x"], ["6", "j"], ["6", "s"], ["3", "o"], ["3", "p"], ["3", "4"], ["3", "l"], ["3", "f"], ["3", "k"], ["2", "3"], ["3", "j"], ["3", "d"], ["o", "r"], ["p", "r"], ["a", "r"], ["c", "r"], ["r", "x"], ["8", "r"], ["r", "s"], ["r", "y"], ["n", "r"], ["b", "r"], ["0", "w"], ["p", "w"], ["a", "w"], ["7", "w"], ["w", "z"], ["w", "y"], ["v", "w"], ["4", "9"], ["9", "d"], ["9", "s"], ["7", "9"], ["9", "z"], ["9", "t"], ["9", "y"], ["9", "v"], ["4", "o"], ["d", "o"], ["o", "s"], ["o", "q"], ["7", "o"], ["o", "t"], ["o", "y"], ["0", "a"], ["0", "e"], ["0", "u"], ["4", "p"], ["d", "p"], ["p", "s"], ["p", "q"], ["7", "p"], ["p", "t"], ["p", "y"], ["i", "l"], ["f", "i"], ["i", "k"], ["2", "i"], ["c", "i"], ["i", "z"], ["i", "v"], ["a", "x"], ["a", "h"], ["a", "j"], ["8", "a"], ["a", "g"], ["a", "v"], ["2", "4"], ["4", "c"], ["4", "h"], ["4", "5"], ["4", "q"], ["4", "e"], ["4", "z"], ["4", "t"], ["4", "y"], ["l", "x"], ["h", "l"], ["5", "l"], ["j", "l"], ["8", "l"], ["l", "u"], ["f", "x"], ["f", "j"], ["8", "f"], ["f", "u"], ["k", "u"], ["k", "v"], ["b", "k"], ["2", "u"], ["5", "c"], ["c", "g"], ["c", "e"], ["c", "u"], ["c", "t"], ["c", "v"], ["b", "c"], ["5", "x"], ["g", "x"], ["d", "x"], ["e", "x"], ["u", "x"], ["t", "x"], ["d", "h"], ["7", "h"], ["h", "z"], ["h", "v"], ["b", "h"], ["5", "8"], ["5", "s"], ["d", "j"], ["7", "j"], ["8", "g"], ["8", "d"], ["8", "e"], ["8", "u"], ["8", "t"], ["8", "y"], ["8", "n"], ["d", "g"], ["7", "g"], ["g", "z"], ["d", "q"], ["d", "e"], ["d", "t"], ["d", "y"], ["q", "s"], ["e", "s"], ["s", "t"], ["s", "y"], ["s", "v"], ["b", "s"], ["q", "z"], ["q", "v"], ["n", "q"], ["e", "n"], ["b", "e"], ["n", "u"], ["b", "u"], ["7", "n"], ["7", "b"], ["y", "z"], ["n", "z"], ["b", "t"], ["b", "y"]], "4": [["1", "r"], ["1", "k"], ["1", "c"], ["1", "h"], ["1", "s"], ["1", "q"], ["1", "e"], ["1", "u"], ["1", "7"], ["m", "w"], ["9", "m"], ["i", "m"], ["a", "m"], ["k", "m"], ["c", "m"], ["h", "m"], ["m", "s"], ["6", "o"], ["6", "p"], ["4", "6"], ["6", "l"], ["6", "f"], ["6", "k"], ["6", "h"], ["6", "d"], ["0", "3"], ["3", "h"], ["3", "g"], ["0", "r"], ["4", "r"], ["l", "r"], ["f", "r"], ["k", "r"], ["2", "r"], ["j", "r"], ["d", "r"], ["4", "w"], ["c", "w"], ["w", "x"], ["8", "w"], ["d", "w"], ["s", "w"], ["n", "w"], ["b", "w"], ["9", "l"], ["9", "f"], ["9", "k"], ["2", "9"], ["9", "c"], ["9", "x"], ["8", "9"], ["9", "n"], ["9", "b"], ["l", "o"], ["f", "o"], ["k", "o"], ["2", "o"], ["c", "o"], ["o", "z"], ["o", "v"], ["0", "4"], ["0", "d"], ["0", "s"], ["0", "q"], ["0", "7"], ["0", "t"], ["0", "y"], ["l", "p"], ["f", "p"], ["k", "p"], ["2", "p"], ["c", "p"], ["p", "z"], ["p", "v"], ["i", "x"], ["h", "i"], ["i", "j"], ["8", "i"], ["g", "i"], ["i", "n"], ["b", "i"], ["5", "a"], ["a", "n"], ["a", "b"], ["4", "x"], ["4", "j"], ["4", "8"], ["4", "v"], ["l", "q"], ["e", "l"], ["l", "t"], ["l", "y"], ["l", "v"], ["b", "l"], ["f", "q"], ["e", "f"], ["f", "t"], ["f", "y"], ["f", "v"], ["b", "f"], ["k", "q"], ["e", "k"], ["k", "t"], ["k", "y"], ["2", "q"], ["2", "e"], ["2", "t"], ["2", "y"], ["2", "n"], ["c", "q"], ["c", "y"], ["c", "n"], ["q", "x"], ["x", "y"], ["n", "x"], ["h", "u"], ["5", "d"], ["5", "7"], ["5", "z"], ["5", "v"], ["5", "b"], ["e", "j"], ["j", "u"], ["j", "t"], ["j", "y"], ["j", "n"], ["8", "q"], ["g", "u"], ["g", "v"], ["b", "g"], ["d", "v"], ["b", "d"], ["n", "s"], ["b", "q"]], "5": [["1", "w"], ["1", "9"], ["1", "i"], ["1", "a"], ["1", "l"], ["1", "f"], ["1", "5"], ["1", "g"], ["1", "d"], ["m", "o"], ["m", "p"], ["4", "m"], ["l", "m"], ["f", "m"], ["5", "m"], ["g", "m"], ["d", "m"], ["0", "6"], ["5", "6"], ["6", "g"], ["3", "5"], ["h", "r"], ["g", "r"], ["l", "w"], ["f", "w"], ["k", "w"], ["2", "w"], ["j", "w"], ["9", "h"], ["9", "j"], ["9", "g"], ["o", "x"], ["h", "o"], ["j", "o"], ["8", "o"], ["g", "o"], ["n", "o"], ["b", "o"], ["0", "l"], ["0", "f"], ["0", "k"], ["0", "2"], ["0", "c"], ["0", "z"], ["0", "v"], ["p", "x"], ["h", "p"], ["j", "p"], ["8", "p"], ["g", "p"], ["n", "p"], ["b", "p"], ["5", "i"], ["4", "n"], ["4", "b"], ["l", "n"], ["f", "n"], ["k", "n"], ["h", "q"], ["e", "h"], ["h", "t"], ["h", "y"], ["h", "n"], ["5", "u"], ["j", "q"], ["g", "q"], ["e", "g"], ["g", "t"], ["g", "y"], ["d", "n"]], "6": [["1", "o"], ["1", "p"], ["1", "4"], ["0", "m"], ["5", "r"], ["h", "w"], ["g", "w"], ["5", "9"], ["5", "o"], ["0", "x"], ["0", "h"], ["0", "j"], ["0", "8"], ["0", "g"], ["0", "n"], ["0", "b"], ["5", "p"], ["5", "q"], ["5", "e"], ["5", "t"], ["5", "y"], ["5", "n"], ["g", "n"]], "7": [["0", "1"], ["5", "w"], ["0", "5"]]}
+[DEBUG] {"0": [["1", "1"], ["m", "m"], ["6", "6"], ["3", "3"], ["r", "r"], ["w", "w"], ["9", "9"], ["o", "o"], ["0", "0"], ["p", "p"], ["i", "i"], ["a", "a"], ["4", "4"], ["l", "l"], ["f", "f"], ["k", "k"], ["2", "2"], ["c", "c"], ["x", "x"], ["h", "h"], ["5", "5"], ["j", "j"], ["8", "8"], ["g", "g"], ["d", "d"], ["s", "s"], ["q", "q"], ["e", "e"], ["u", "u"], ["7", "7"], ["z", "z"], ["t", "t"], ["y", "y"], ["v", "v"], ["n", "n"], ["b", "b"]], "1": [["1", "b"], ["1", "n"], ["1", "m"], ["m", "v"], ["m", "n"], ["6", "m"], ["6", "n"], ["6", "v"], ["6", "y"], ["6", "t"], ["3", "6"], ["3", "z"], ["3", "v"], ["3", "7"], ["3", "t"], ["3", "u"], ["3", "e"], ["3", "r"], ["e", "r"], ["q", "r"], ["r", "w"], ["q", "w"], ["e", "w"], ["9", "w"], ["9", "i"], ["9", "e"], ["9", "o"], ["o", "p"], ["i", "o"], ["0", "o"], ["0", "p"], ["i", "p"], ["i", "u"], ["e", "i"], ["a", "i"], ["a", "u"], ["7", "a"], ["a", "s"], ["a", "d"], ["4", "a"], ["4", "f"], ["4", "l"], ["4", "d"], ["d", "l"], ["f", "l"], ["l", "s"], ["f", "g"], ["f", "k"], ["f", "s"], ["g", "k"], ["2", "k"], ["k", "s"], ["2", "8"], ["2", "j"], ["2", "h"], ["2", "x"], ["2", "s"], ["2", "c"], ["c", "s"], ["c", "x"], ["c", "z"], ["8", "x"], ["x", "z"], ["h", "j"], ["5", "h"], ["g", "h"], ["5", "g"], ["8", "j"], ["8", "b"], ["8", "v"], ["8", "z"], ["d", "s"], ["s", "z"], ["7", "s"], ["q", "u"], ["q", "t"], ["e", "u"], ["7", "u"], ["t", "u"], ["u", "y"], ["7", "z"], ["t", "y"], ["b", "v"]], "2": [["1", "6"], ["1", "8"], ["1", "v"], ["3", "m"], ["8", "m"], ["m", "t"], ["m", "y"], ["b", "m"], ["6", "r"], ["6", "8"], ["6", "q"], ["6", "e"], ["6", "u"], ["6", "7"], ["6", "z"], ["6", "b"], ["3", "w"], ["3", "9"], ["3", "i"], ["3", "a"], ["3", "c"], ["3", "x"], ["3", "8"], ["3", "s"], ["3", "q"], ["3", "y"], ["3", "n"], ["3", "b"], ["9", "r"], ["i", "r"], ["r", "u"], ["7", "r"], ["r", "z"], ["r", "t"], ["r", "v"], ["o", "w"], ["i", "w"], ["u", "w"], ["t", "w"], ["0", "9"], ["9", "p"], ["9", "a"], ["9", "q"], ["9", "u"], ["a", "o"], ["e", "o"], ["o", "u"], ["0", "i"], ["a", "p"], ["e", "p"], ["p", "u"], ["4", "i"], ["d", "i"], ["i", "s"], ["i", "q"], ["7", "i"], ["i", "t"], ["i", "y"], ["a", "l"], ["a", "f"], ["a", "k"], ["2", "a"], ["a", "c"], ["a", "q"], ["a", "e"], ["a", "z"], ["a", "t"], ["a", "y"], ["4", "k"], ["4", "g"], ["4", "s"], ["4", "u"], ["4", "7"], ["k", "l"], ["2", "l"], ["c", "l"], ["g", "l"], ["7", "l"], ["l", "z"], ["2", "f"], ["c", "f"], ["f", "h"], ["5", "f"], ["d", "f"], ["7", "f"], ["f", "z"], ["c", "k"], ["k", "x"], ["h", "k"], ["5", "k"], ["j", "k"], ["8", "k"], ["d", "k"], ["7", "k"], ["k", "z"], ["2", "5"], ["2", "g"], ["2", "d"], ["2", "7"], ["2", "z"], ["2", "v"], ["2", "b"], ["c", "h"], ["c", "j"], ["8", "c"], ["c", "d"], ["7", "c"], ["h", "x"], ["j", "x"], ["s", "x"], ["7", "x"], ["v", "x"], ["b", "x"], ["8", "h"], ["h", "s"], ["5", "j"], ["g", "j"], ["j", "s"], ["j", "z"], ["j", "v"], ["b", "j"], ["8", "s"], ["7", "8"], ["g", "s"], ["d", "u"], ["7", "d"], ["d", "z"], ["s", "u"], ["e", "q"], ["7", "q"], ["q", "y"], ["7", "e"], ["e", "z"], ["e", "t"], ["e", "y"], ["e", "v"], ["u", "z"], ["u", "v"], ["7", "t"], ["7", "y"], ["7", "v"], ["t", "z"], ["v", "z"], ["b", "z"], ["t", "v"], ["n", "t"], ["v", "y"], ["n", "y"], ["n", "v"], ["b", "n"]], "3": [["1", "3"], ["1", "2"], ["1", "x"], ["1", "j"], ["1", "z"], ["1", "t"], ["1", "y"], ["m", "r"], ["2", "m"], ["m", "x"], ["j", "m"], ["m", "q"], ["e", "m"], ["m", "u"], ["7", "m"], ["m", "z"], ["6", "w"], ["6", "9"], ["6", "i"], ["6", "a"], ["2", "6"], ["6", "c"], ["6", "x"], ["6", "j"], ["6", "s"], ["3", "o"], ["3", "p"], ["3", "4"], ["3", "l"], ["3", "f"], ["3", "k"], ["2", "3"], ["3", "j"], ["3", "d"], ["o", "r"], ["p", "r"], ["a", "r"], ["c", "r"], ["r", "x"], ["8", "r"], ["r", "s"], ["r", "y"], ["n", "r"], ["b", "r"], ["0", "w"], ["p", "w"], ["a", "w"], ["7", "w"], ["w", "z"], ["w", "y"], ["v", "w"], ["4", "9"], ["9", "d"], ["9", "s"], ["7", "9"], ["9", "z"], ["9", "t"], ["9", "y"], ["9", "v"], ["4", "o"], ["d", "o"], ["o", "s"], ["o", "q"], ["7", "o"], ["o", "t"], ["o", "y"], ["0", "a"], ["0", "e"], ["0", "u"], ["4", "p"], ["d", "p"], ["p", "s"], ["p", "q"], ["7", "p"], ["p", "t"], ["p", "y"], ["i", "l"], ["f", "i"], ["i", "k"], ["2", "i"], ["c", "i"], ["i", "z"], ["i", "v"], ["a", "x"], ["a", "h"], ["a", "j"], ["8", "a"], ["a", "g"], ["a", "v"], ["2", "4"], ["4", "c"], ["4", "h"], ["4", "5"], ["4", "q"], ["4", "e"], ["4", "z"], ["4", "t"], ["4", "y"], ["l", "x"], ["h", "l"], ["5", "l"], ["j", "l"], ["8", "l"], ["l", "u"], ["f", "x"], ["f", "j"], ["8", "f"], ["f", "u"], ["k", "u"], ["k", "v"], ["b", "k"], ["2", "u"], ["5", "c"], ["c", "g"], ["c", "e"], ["c", "u"], ["c", "t"], ["c", "v"], ["b", "c"], ["5", "x"], ["g", "x"], ["d", "x"], ["e", "x"], ["u", "x"], ["t", "x"], ["d", "h"], ["7", "h"], ["h", "z"], ["h", "v"], ["b", "h"], ["5", "8"], ["5", "s"], ["d", "j"], ["7", "j"], ["8", "g"], ["8", "d"], ["8", "e"], ["8", "u"], ["8", "t"], ["8", "y"], ["8", "n"], ["d", "g"], ["7", "g"], ["g", "z"], ["d", "q"], ["d", "e"], ["d", "t"], ["d", "y"], ["q", "s"], ["e", "s"], ["s", "t"], ["s", "y"], ["s", "v"], ["b", "s"], ["q", "z"], ["q", "v"], ["n", "q"], ["e", "n"], ["b", "e"], ["n", "u"], ["b", "u"], ["7", "n"], ["7", "b"], ["y", "z"], ["n", "z"], ["b", "t"], ["b", "y"]], "4": [["1", "r"], ["1", "k"], ["1", "c"], ["1", "h"], ["1", "s"], ["1", "q"], ["1", "e"], ["1", "u"], ["1", "7"], ["m", "w"], ["9", "m"], ["i", "m"], ["a", "m"], ["k", "m"], ["c", "m"], ["h", "m"], ["m", "s"], ["6", "o"], ["6", "p"], ["4", "6"], ["6", "l"], ["6", "f"], ["6", "k"], ["6", "h"], ["6", "d"], ["0", "3"], ["3", "h"], ["3", "g"], ["0", "r"], ["4", "r"], ["l", "r"], ["f", "r"], ["k", "r"], ["2", "r"], ["j", "r"], ["d", "r"], ["4", "w"], ["c", "w"], ["w", "x"], ["8", "w"], ["d", "w"], ["s", "w"], ["n", "w"], ["b", "w"], ["9", "l"], ["9", "f"], ["9", "k"], ["2", "9"], ["9", "c"], ["9", "x"], ["8", "9"], ["9", "n"], ["9", "b"], ["l", "o"], ["f", "o"], ["k", "o"], ["2", "o"], ["c", "o"], ["o", "z"], ["o", "v"], ["0", "4"], ["0", "d"], ["0", "s"], ["0", "q"], ["0", "7"], ["0", "t"], ["0", "y"], ["l", "p"], ["f", "p"], ["k", "p"], ["2", "p"], ["c", "p"], ["p", "z"], ["p", "v"], ["i", "x"], ["h", "i"], ["i", "j"], ["8", "i"], ["g", "i"], ["i", "n"], ["b", "i"], ["5", "a"], ["a", "n"], ["a", "b"], ["4", "x"], ["4", "j"], ["4", "8"], ["4", "v"], ["l", "q"], ["e", "l"], ["l", "t"], ["l", "y"], ["l", "v"], ["b", "l"], ["f", "q"], ["e", "f"], ["f", "t"], ["f", "y"], ["f", "v"], ["b", "f"], ["k", "q"], ["e", "k"], ["k", "t"], ["k", "y"], ["2", "q"], ["2", "e"], ["2", "t"], ["2", "y"], ["2", "n"], ["c", "q"], ["c", "y"], ["c", "n"], ["q", "x"], ["x", "y"], ["n", "x"], ["h", "u"], ["5", "d"], ["5", "7"], ["5", "z"], ["5", "v"], ["5", "b"], ["e", "j"], ["j", "u"], ["j", "t"], ["j", "y"], ["j", "n"], ["8", "q"], ["g", "u"], ["g", "v"], ["b", "g"], ["d", "v"], ["b", "d"], ["n", "s"], ["b", "q"]], "5": [["1", "w"], ["1", "9"], ["1", "i"], ["1", "a"], ["1", "l"], ["1", "f"], ["1", "5"], ["1", "g"], ["1", "d"], ["m", "o"], ["m", "p"], ["4", "m"], ["l", "m"], ["f", "m"], ["5", "m"], ["g", "m"], ["d", "m"], ["0", "6"], ["5", "6"], ["6", "g"], ["3", "5"], ["h", "r"], ["g", "r"], ["l", "w"], ["f", "w"], ["k", "w"], ["2", "w"], ["j", "w"], ["9", "h"], ["9", "j"], ["9", "g"], ["o", "x"], ["h", "o"], ["j", "o"], ["8", "o"], ["g", "o"], ["n", "o"], ["b", "o"], ["0", "l"], ["0", "f"], ["0", "k"], ["0", "2"], ["0", "c"], ["0", "z"], ["0", "v"], ["p", "x"], ["h", "p"], ["j", "p"], ["8", "p"], ["g", "p"], ["n", "p"], ["b", "p"], ["5", "i"], ["4", "n"], ["4", "b"], ["l", "n"], ["f", "n"], ["k", "n"], ["h", "q"], ["e", "h"], ["h", "t"], ["h", "y"], ["h", "n"], ["5", "u"], ["j", "q"], ["g", "q"], ["e", "g"], ["g", "t"], ["g", "y"], ["d", "n"]], "6": [["1", "o"], ["1", "p"], ["1", "4"], ["0", "m"], ["5", "r"], ["h", "w"], ["g", "w"], ["5", "9"], ["5", "o"], ["0", "x"], ["0", "h"], ["0", "j"], ["0", "8"], ["0", "g"], ["0", "n"], ["0", "b"], ["5", "p"], ["5", "q"], ["5", "e"], ["5", "t"], ["5", "y"], ["5", "n"], ["g", "n"]], "7": [["0", "1"], ["5", "w"], ["0", "5"]]}
 [DEBUG] SIFTING for 3 peripherals at cut off 1
 [DEBUG] No prefipherals found
 [DEBUG] SIFTING for 3 peripherals at cut off 2
@@ -2721,10 +2721,10 @@
 [DEBUG] -   n checks 1
 [DEBUG] -   n checks m
 [DEBUG] -   n checks 6
-[DEBUG] -   5 checks h
 [DEBUG] -   5 checks g
-[DEBUG] -   0 checks o
+[DEBUG] -   5 checks h
 [DEBUG] -   0 checks p
+[DEBUG] -   0 checks o
 [DEBUG] Tick [ 2 ]
 [DEBUG] Split 0 at -2
 [DEBUG] Split 5 at -1
@@ -2732,10 +2732,10 @@
 [DEBUG] -   n checks 1
 [DEBUG] -   n checks m
 [DEBUG] -   n checks 6
-[DEBUG] -   5 checks h
 [DEBUG] -   5 checks g
-[DEBUG] -   0 checks o
+[DEBUG] -   5 checks h
 [DEBUG] -   0 checks p
+[DEBUG] -   0 checks o
 [DEBUG] Tick [ 3 ]
 [DEBUG] Split 0 at -1
 [DEBUG] Split 5 at 0
@@ -2745,10 +2745,10 @@
 [DEBUG] n ADDS m
 [DEBUG] -   adding v to the prospects of n
 [DEBUG] -   n checks 6
-[DEBUG] -   5 checks h
 [DEBUG] -   5 checks g
-[DEBUG] -   0 checks o
+[DEBUG] -   5 checks h
 [DEBUG] -   0 checks p
+[DEBUG] -   0 checks o
 [DEBUG] Tick [ 4 ]
 [DEBUG] Split 0 at 0
 [DEBUG] Split 5 at 1
@@ -2756,13 +2756,13 @@
 [DEBUG] -   n checks 1
 [DEBUG] -   n checks 6
 [DEBUG] -   n checks v
+[DEBUG] -   5 checks g
 [DEBUG] -   5 checks h
 [DEBUG] 5 ADDS h
 [DEBUG] -   adding j to the prospects of 5
 [DEBUG] -   adding 2 to the prospects of 5
-[DEBUG] -   5 checks g
-[DEBUG] -   0 checks o
 [DEBUG] -   0 checks p
+[DEBUG] -   0 checks o
 [DEBUG] Tick [ 5 ]
 [DEBUG] Split 0 at 1
 [DEBUG] Split 5 at 1
@@ -2779,10 +2779,10 @@
 [DEBUG] 5 ADDS j
 [DEBUG] -   adding 8 to the prospects of 5
 [DEBUG] -   5 checks 2
-[DEBUG] -   0 checks o
 [DEBUG] -   0 checks p
 [DEBUG] 0 ADDS p
 [DEBUG] -   adding i to the prospects of 0
+[DEBUG] -   0 checks o
 [DEBUG] Tick [ 6 ]
 [DEBUG] Split 0 at 1
 [DEBUG] Split 5 at 1
@@ -2937,8 +2937,8 @@
 [DEBUG] 0 ADDS u
 [DEBUG] -   adding 7 to the prospects of 0
 [DEBUG] -   adding 3 to the prospects of 0
-[DEBUG] -   adding q to the prospects of 0
 [DEBUG] -   adding t to the prospects of 0
+[DEBUG] -   adding q to the prospects of 0
 [DEBUG] -   0 checks e
 [DEBUG] -   0 checks a
 [DEBUG] Tick [ 15 ]
@@ -2964,9 +2964,9 @@
 [DEBUG] -   0 checks a
 [DEBUG] -   0 checks 7
 [DEBUG] -   0 checks 3
-[DEBUG] -   0 checks q
 [DEBUG] -   0 checks t
 [DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG] Tick [ 16 ]
 [DEBUG] Split 0 at 2
 [DEBUG] Split 5 at 1
@@ -2988,9 +2988,9 @@
 [DEBUG] -   0 checks a
 [DEBUG] -   0 checks 7
 [DEBUG] -   0 checks 3
-[DEBUG] -   0 checks q
 [DEBUG] -   0 checks t
 [DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG] Tick [ 17 ]
 [DEBUG] Split 0 at 3
 [DEBUG] Split 5 at 1
@@ -3015,9 +3015,9 @@
 [DEBUG] -   adding 4 to the prospects of 0
 [DEBUG] -   0 checks 7
 [DEBUG] -   0 checks 3
-[DEBUG] -   0 checks q
 [DEBUG] -   0 checks t
 [DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG] Tick [ 18 ]
 [DEBUG] Split 0 at 1
 [DEBUG] Split 5 at 1
@@ -3043,9 +3043,9 @@
 [DEBUG] -   0 checks 7
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
 [DEBUG] -   0 checks t
 [DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG] -   0 checks s
 [DEBUG] -   0 checks 4
 [DEBUG] Tick [ 19 ]
@@ -3074,9 +3074,9 @@
 [DEBUG] -   0 checks 7
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
 [DEBUG] -   0 checks t
 [DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG] -   0 checks s
 [DEBUG] -   0 checks 4
 [DEBUG]  -   already claimed
@@ -3104,9 +3104,9 @@
 [DEBUG] -   adding z to the prospects of 0
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
 [DEBUG] -   0 checks t
 [DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG] -   0 checks s
 [DEBUG] -   0 checks 4
 [DEBUG]  -   already claimed
@@ -3132,9 +3132,9 @@
 [DEBUG] -   0 checks e
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
 [DEBUG] -   0 checks t
 [DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG] -   0 checks s
 [DEBUG] -   0 checks 4
 [DEBUG]  -   already claimed
@@ -3163,9 +3163,9 @@
 [DEBUG] -   0 checks e
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
-[DEBUG]  -   already claimed
 [DEBUG] -   0 checks t
+[DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG]  -   already claimed
 [DEBUG] -   0 checks s
 [DEBUG]  -   already claimed
@@ -3192,9 +3192,9 @@
 [DEBUG] -   0 checks e
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
-[DEBUG]  -   already claimed
 [DEBUG] -   0 checks t
+[DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG]  -   already claimed
 [DEBUG] -   0 checks s
 [DEBUG]  -   already claimed
@@ -3225,9 +3225,9 @@
 [DEBUG] -   0 checks e
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
-[DEBUG]  -   already claimed
 [DEBUG] -   0 checks t
+[DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG]  -   already claimed
 [DEBUG] -   0 checks s
 [DEBUG]  -   already claimed
@@ -3256,9 +3256,9 @@
 [DEBUG] -   0 checks e
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
-[DEBUG]  -   already claimed
 [DEBUG] -   0 checks t
+[DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG]  -   already claimed
 [DEBUG] -   0 checks s
 [DEBUG]  -   already claimed
@@ -3289,9 +3289,9 @@
 [DEBUG] -   0 checks e
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
-[DEBUG]  -   already claimed
 [DEBUG] -   0 checks t
+[DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG]  -   already claimed
 [DEBUG] -   0 checks s
 [DEBUG]  -   already claimed
@@ -3320,9 +3320,9 @@
 [DEBUG] -   0 checks e
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
-[DEBUG]  -   already claimed
 [DEBUG] -   0 checks t
+[DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG]  -   already claimed
 [DEBUG] -   0 checks s
 [DEBUG]  -   already claimed
@@ -3352,9 +3352,9 @@
 [DEBUG] -   0 checks e
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
-[DEBUG]  -   already claimed
 [DEBUG] -   0 checks t
+[DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG]  -   already claimed
 [DEBUG] -   0 checks s
 [DEBUG]  -   already claimed
@@ -3383,9 +3383,9 @@
 [DEBUG] -   0 checks e
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
-[DEBUG]  -   already claimed
 [DEBUG] -   0 checks t
+[DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG]  -   already claimed
 [DEBUG] -   0 checks s
 [DEBUG]  -   already claimed
@@ -3414,9 +3414,9 @@
 [DEBUG] -   0 checks e
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
-[DEBUG]  -   already claimed
 [DEBUG] -   0 checks t
+[DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG]  -   already claimed
 [DEBUG] -   0 checks s
 [DEBUG]  -   already claimed
@@ -3448,9 +3448,9 @@
 [DEBUG]  -   already claimed
 [DEBUG] -   0 checks 3
 [DEBUG]  -   already claimed
-[DEBUG] -   0 checks q
-[DEBUG]  -   already claimed
 [DEBUG] -   0 checks t
+[DEBUG]  -   already claimed
+[DEBUG] -   0 checks q
 [DEBUG]  -   already claimed
 [DEBUG] -   0 checks s
 [DEBUG]  -   already claimed
@@ -3468,35 +3468,3 @@
 [INFO ] Start negotiations
 [DEBUG] = new negotiations round
 [DEBUG] -    0 to receive from 5 to cover diff 5
-[DEBUG]     -   d moved from 5 to 0
-[DEBUG] -    0 to receive from n to cover diff 5
-[DEBUG]     -   y moved from n to 0
-[DEBUG] -    5 to receive from n to cover diff 2
-[DEBUG]     -   No suitable adjustments
-[DEBUG] -    5 to receive from n to cover diff 2
-[DEBUG]     -   No suitable adjustments
-[DEBUG] = new negotiations round
-[DEBUG] -    5 to receive from n to cover diff 2
-[DEBUG]     -   No suitable adjustments
-[DEBUG] -    5 to receive from n to cover diff 2
-[DEBUG]     -   No suitable adjustments
-[INFO ] .. Negotiations complete
-[INFO ] 0 (40) :: ['0', 'p', 'o', 'i', 'u', 'a', '7', 'z', '9', 'd', 'y']
-[INFO ] 5 (39) :: ['5', 'h', 'j', 'g', 'k', '2', 'x', 'c', 'f', 'l', '4', 's', '8']
-[INFO ] n (41) :: ['n', 'm', 'v', 'b', '1', '6', 't', '3', 'r', 'q', 'w', 'e']
-[INFO ] Composing split array
-[INFO ] Split array prepared
-[INFO ] 
-nnn5555555
-nnn5555555
-nnn5555555
-nnn5555555
-nnn5555555
-nnn0000505
-0nn0000505
-0nn0000000
-0nnnn00000
-nnnnn00000
-nnnnn00000
-nnnnn00000
-

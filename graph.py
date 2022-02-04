@@ -763,10 +763,32 @@ class Graph():
         nbrs = []
         node = self.get_node(node_label)
         for nbr in node.links:
-            print(nbr)
+            # print(nbr)
             nbrs.append(nbr)
         # remove the candidate node from the split
-        split.remove(node_label)
+        reduced_split = copy.deepcopy(split)
+        reduced_split.remove(node_label)
+
+'''
+NOPE
+        reduced_split_distance_map = {}
+        for processed_node, processed_node_data in self.distance_map.items():
+            if processed_node.label in reduced_split:
+                reduced_split_distance_map[processed_node] = {}
+                # reduce processed_node_data
+                reduced_processed_node_data = {}
+                for link_label, link_distance in processed_node_data.items():
+                    if link_label in reduced_split:
+                        reduced_processed_node_data[link_label] = {}
+                        reduced_processed_node_data[link_label] = link_distance
+                reduced_split_distance_map[processed_node] = reduced_processed_node_data
+'''        
+        # HERE
+        # create a copy of the graph, containing ONLY links connecting nodes from the split
+        # pick the first noe in the rediced split (without the candidate node)
+        # make a list of all nodes from the graph copy it has links to
+        # check if all nbrs are in that list
+        
         for nbr in nbrs:
             if self.confirm_path_from_node(split, nbrs, nbr):
                 print(f'{nbr} is connected')
@@ -775,6 +797,5 @@ class Graph():
 
     def confirm_path_from_node(self, graph, group, node):
         for target in group:
-            # HERE
             print(target)
 

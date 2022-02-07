@@ -278,7 +278,7 @@ class Graph():
                     logging.debug(f'{peripherals}')
                 self.peripherals_list = peripherals_list
                 # TODO select the best group of peripherals
-                self.anchors = peripherals_list[0]
+                self.anchors = peripherals_list[-1]
                 return self.anchors
             else:
                 logging.debug('No prefipherals found')
@@ -476,6 +476,7 @@ class Graph():
         if not anchors:
             anchors = self.anchors
 
+        logging.info(f'Split anchors selected: {anchors}')
         # build split networks and creep map
         splits = {}  # all split networks
         creep_map = {}  # holder for the creep counters
@@ -496,6 +497,8 @@ class Graph():
             # add one tick to each creep
             tick = tick + 1
             logging.debug(f'Tick [ {tick} ]')
+            for split, split_data in splits.items():
+                logging.debug(f'[{split[0]}]: {split_data}')
             for anchor in anchors:
                 logging.debug(f'Split {anchor} at {creep_map[anchor]}')
 
@@ -522,7 +525,7 @@ class Graph():
                 for prospect in creep_prospects[anchor]:
                     logging.debug(f'-   {anchor} checks {prospect}')
                     if prospect in claimed_nodes:
-                        logging.debug(' -   already claimed')
+                        logging.debug('   -   already claimed')
                         continue
                     if creep_map[anchor] >= self.get_node(prospect).value:
                         logging.debug(f'{anchor} ADDS {prospect}')
@@ -772,15 +775,16 @@ class Graph():
             node = self.get_node(node_label)
             reduced_split_node_list.append(node)
         # Crate connections network for the reduced split graph, starting with one of the nbrs
+        # Get all the split nodes, connected to one of the nbrs
         start_node = nbrs[0]
-        connected_nodes = self.calculate_split_connections_network(start_node, reduced_split_node_list)
+        connected_nodes = self.get_split_connected_nodes(start_node, reduced_split_node_list)
         # If all nbrs are in the connections network, then the reduced split graph is not broken
         for nbr in nbrs:
             if not self.get_node(nbr) in connected_nodes:
                 return False
         return True
 
-    def calculate_split_connections_network(self, start_node, split_node_list):
+    def get_split_connected_nodes(self, start_node, split_node_list):
         # fail check
         if self.get_node(start_node) not in split_node_list:
             raise Exception(f'Split graph brakage fail: node {start_node} is not in the split')

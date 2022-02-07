@@ -5,4 +5,11 @@
         *   negotiations not performing well on 3_basic.graph - e or c could be grouped with d
         *   nergotiations failing for 6_basic - Z ends up in incorrect split
     -   exception when processing 6_basic for 5 splits - Intermittent bug, receiver S not a neighbour of Z (recheck nbrs)
-    -   negotiations can lead to split discontinuity - example 7_basic for 4
+    
+    -   DONE negotiations can lead to split discontinuity - example 7_basic for 4 and 3
+        -   discontinuity FIXED
+
+*   TODO:
+        *   needs optimization; discontinuity check limits the effect of negotiation
+        *   ITERATE anchors for best solution
+    

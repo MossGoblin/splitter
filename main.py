@@ -11,8 +11,6 @@ def main():
     gr.validate(rectangular=True)
     logging.info('Creating distance map')
     gr.find_distances()
-    # new_node = Node("j", 4, ["g", "h", "i"])
-    # gr.add_node_to_distance_map(new_node)
     gr.get_peripheral_nodes(SPLIT_COUNT)
     logging.info('Starting split network creep')
     gr.creep_splits()
@@ -49,5 +47,5 @@ def create_graph_from_graph_file(node_list_fliename: str = None) -> Graph:
     return gr
 
 if __name__ == '__main__':
-    logging.basicConfig(filename='processing.log', format='[%(levelname)-5s] %(message)s', filemode='w', encoding='utf-8', level=logging.DEBUG)
+    logging.basicConfig(filename='processing.log', format='[%(levelname)-5s] %(message)s', filemode='w', encoding='utf-8', level=logging.INFO)
     main()

@@ -746,56 +746,29 @@ class Graph():
                 result_csv.write('\n')
         # print(symbol_map)
 
-    def check_if_node_removal_breaks(self, split_index, candidate):
+    def check_if_node_removal_breaks(self, split_index, node_label):
         # Check if removing a node from a split will break it into two graphs
-        # Get all nbrs of the node INTO the split
-        # If the removal does not break the split, all the nbrs should be able to reach each other WITHIN the split
-        node_split_nbrs = self.get_node_split_nbrs(candidate, split_index)
-        return
-    
-    def get_node_split_nbrs(self, node_label, split_index):
-        # get the split, corresponding to the split index
+        # Get the split, corresponding to the split index
         for split_anchor, split_data in self.splits.items():
             if split_anchor == split_index:
                 split = split_data
                 break
-        # get the nbrs of the candidate node within the split
+        # Get the nbrs of the candidate node within the split
         nbrs = []
         node = self.get_node(node_label)
         for nbr in node.links:
             # print(nbr)
             nbrs.append(nbr)
-        # remove the candidate node from the split
+        # Remove the candidate node from the split
         reduced_split = copy.deepcopy(split)
         reduced_split.remove(node_label)
-
-'''
-NOPE
-        reduced_split_distance_map = {}
-        for processed_node, processed_node_data in self.distance_map.items():
-            if processed_node.label in reduced_split:
-                reduced_split_distance_map[processed_node] = {}
-                # reduce processed_node_data
-                reduced_processed_node_data = {}
-                for link_label, link_distance in processed_node_data.items():
-                    if link_label in reduced_split:
-                        reduced_processed_node_data[link_label] = {}
-                        reduced_processed_node_data[link_label] = link_distance
-                reduced_split_distance_map[processed_node] = reduced_processed_node_data
-'''        
-        # HERE
-        # create a copy of the graph, containing ONLY links connecting nodes from the split
-        # pick the first noe in the rediced split (without the candidate node)
-        # make a list of all nodes from the graph copy it has links to
-        # check if all nbrs are in that list
-        
-        for nbr in nbrs:
-            if self.confirm_path_from_node(split, nbrs, nbr):
-                print(f'{nbr} is connected')
-        # check 
-        return
-
-    def confirm_path_from_node(self, graph, group, node):
-        for target in group:
-            print(target)
+        # Create a copy of the graph, containing ONLY links connecting nodes from the split
+        reduced_split_node_list = []
+        for node_label in reduced_split:
+            node = self.get_node(node_label)
+            reduced_split_node_list.append(node)
+        # Crate distance map for the reduced split graph
+        split_distances = self.find_distances(reduced_split_node_list)
+        # Get the first of the nbrs of the reduced split graph
+        # If all nbrs are in the calculated distances, then the reduced split graph is not broken
 

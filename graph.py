@@ -1,4 +1,5 @@
 from typing import Dict, List
+from sympy import false
 
 from sympy.core.function import diff
 import workbench as wb
@@ -619,7 +620,8 @@ class Graph():
                     best_intermediate_update = possible_difference
                     if self.check_if_node_removal_breaks(donor_split_index, node_label):
                         candidate_node = node_label
-
+                    else:
+                        continue
             return candidate_node
 
         split_pairs = []
@@ -746,7 +748,7 @@ class Graph():
                 result_csv.write('\n')
         # print(symbol_map)
 
-    def check_if_node_removal_breaks(self, split_index, node_label):
+    def check_if_node_removal_breaks(self, split_index, removable):
         # Check if removing a node from a split will break it into two graphs
         # Get the split, corresponding to the split index
         for split_anchor, split_data in self.splits.items():
@@ -755,20 +757,47 @@ class Graph():
                 break
         # Get the nbrs of the candidate node within the split
         nbrs = []
-        node = self.get_node(node_label)
+        node = self.get_node(removable)
         for nbr in node.links:
             # print(nbr)
+            if not nbr in split:
+                continue
             nbrs.append(nbr)
         # Remove the candidate node from the split
         reduced_split = copy.deepcopy(split)
-        reduced_split.remove(node_label)
+        reduced_split.remove(removable)
         # Create a copy of the graph, containing ONLY links connecting nodes from the split
         reduced_split_node_list = []
         for node_label in reduced_split:
             node = self.get_node(node_label)
             reduced_split_node_list.append(node)
-        # Crate distance map for the reduced split graph
-        split_distances = self.find_distances(reduced_split_node_list)
-        # Get the first of the nbrs of the reduced split graph
-        # If all nbrs are in the calculated distances, then the reduced split graph is not broken
+        # Crate connections network for the reduced split graph, starting with one of the nbrs
+        start_node = nbrs[0]
+        connected_nodes = self.calculate_split_connections_network(start_node, reduced_split_node_list)
+        # If all nbrs are in the connections network, then the reduced split graph is not broken
+        for nbr in nbrs:
+            if not self.get_node(nbr) in connected_nodes:
+                return False
+        return True
 
+    def calculate_split_connections_network(self, start_node, split_node_list):
+        # fail check
+        if self.get_node(start_node) not in split_node_list:
+            raise Exception(f'Split graph brakage fail: node {start_node} is not in the split')
+
+        connected_nodes = []
+        processed_nodes = []
+        process_queue = []
+        connected_nodes.append(self.get_node(start_node))
+        processed_nodes.append(start_node)
+        process_queue.append(split_node_list[0])
+        while len(process_queue) > 0:
+            next_node = process_queue.pop()
+            for nbr in next_node.links:
+                if not self.get_node(nbr) in split_node_list:
+                    continue
+                if nbr in processed_nodes:
+                    continue
+                processed_nodes.append(nbr)
+                connected_nodes.append(self.get_node(nbr))
+        return connected_nodes

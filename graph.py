@@ -476,7 +476,7 @@ class Graph():
         if not anchors:
             anchors = self.anchors
 
-        logging.info(f'Split anchors selected: {anchors}')
+        logging.info(f'.. Split anchors selected: {anchors}')
         # build split networks and creep map
         splits = {}  # all split networks
         creep_map = {}  # holder for the creep counters
@@ -561,8 +561,9 @@ class Graph():
                 totals[anchor] = totals[anchor] + self.get_node(node).value
                 self.split_totals[anchor] = totals[anchor]
 
+        logging.info('.. Creep completed')
         for anchor in anchors:
-            logging.debug(
+            logging.info(
                 f'{splits[anchor][0]} > {totals[anchor]} > {splits[anchor]}')
 
     def negotiate_borders(self):

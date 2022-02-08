@@ -2,7 +2,6 @@ from typing import Dict, List
 from sympy import false
 
 from sympy.core.function import diff
-import workbench as wb
 import json
 import copy
 import logging
@@ -624,8 +623,6 @@ class Graph():
                     best_intermediate_update = possible_difference
                     if self.check_if_node_removal_breaks(donor_split_index, node_label):
                         candidate_node = node_label
-                    else:
-                        continue
             return candidate_node
 
         split_pairs = []
@@ -806,3 +803,7 @@ class Graph():
                 processed_nodes.append(nbr)
                 connected_nodes.append(self.get_node(nbr))
         return connected_nodes
+
+    def find_best_split(self, split_count):
+        # HERE
+        pass

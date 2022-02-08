@@ -2,7 +2,7 @@ from graph import Node, Graph
 from workbench import WorkBench
 import logging
 
-SPLIT_COUNT = 3
+SPLIT_COUNT = 2
 '''
 CRITICAL    50
 ERROR       40

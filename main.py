@@ -2,7 +2,7 @@ from graph import Node, Graph
 from workbench import WorkBench
 import logging
 
-SPLIT_COUNT = 2
+SPLIT_COUNT = 5
 '''
 CRITICAL    50
 ERROR       40
@@ -11,23 +11,12 @@ INFO        20
 DEBUG       10
 NOTSET      0
 '''
-log_level = 10
+log_level = 20
 
 def main():
     logging.info('START')
-    logging.info('Reading network from .graph file')
-    gr = create_graph_from_graph_file()
-    gr.validate(rectangular=True)
-    logging.info('Creating distance map')
-    gr.find_distances()
-    gr.get_peripheral_nodes(SPLIT_COUNT)
-    logging.info('Starting split network creep')
-    gr.creep_splits()
-    gr.negotiate_borders()
-    gr.print_splits()
-    logging.info('Composing split array')
-    gr.compose_split_graph()
-
+    gr = create_graph_from_graph_file(split_count = SPLIT_COUNT)
+    gr.process()
 
 
 def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:
@@ -42,10 +31,13 @@ def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:
         gr.add_node(node, 0)
     return gr
 
-def create_graph_from_graph_file(node_list_fliename: str = None) -> Graph:
+def create_graph_from_graph_file(node_list_fliename: str = None, split_count: int = None) -> Graph:
+    if not split_count:
+        split_count = 2
+    logging.info('Reading network from .graph file')
     wb = WorkBench()
     node_array, node_dict = wb.read_nodes_from_graph_file(node_list_fliename, save_json=True)
-    gr = Graph()
+    gr = Graph(split_count)
     for node_label, node_attributes in node_dict.items():
         label = node_label
         value = node_attributes['value']
@@ -53,6 +45,7 @@ def create_graph_from_graph_file(node_list_fliename: str = None) -> Graph:
         node = Node(label=label, value=value, links=links)
         gr.add_node(node, 0)
     gr.node_array = node_array
+    gr.validate(rectangular=True)
     return gr
 
 if __name__ == '__main__':

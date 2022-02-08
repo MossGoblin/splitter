@@ -63,12 +63,13 @@ class Graph():
     map_total = 0  # the total weight of all the level 0 nodes
     distance_map = {}  # an enchanced map of nodes, separated by level
     split_count = 0  # the total number of target splits
-    peripherals_list = []  # a list of all anchor groups
+    anchor_set_list = []  # a list of all anchor groups
     anchors = []  # a list of anchors selected from peripherals_list
     splits = {}  # a dictionary of all split networks, build around anchors
     split_totals = {}  # a list of the total values of each split
 
-    def __init__(self):
+    def __init__(self, split_count: int):
+        self.split_count = split_count
         pass
 
     def __str__(self):
@@ -104,8 +105,15 @@ class Graph():
             if valid:
                 logging.debug('The graph is valid')
         self.total_value = self.get_graph_total()
+        # calculate target values
+        self.split_average = self.total_value / self.split_count
+        self.average_deviation = (self.total_value % self.split_count) / 3
+        logging.info(f'.. Graph total: {self.total_value}')
+        logging.info(f'.. Mean deviation: {self.average_deviation}')
+
 
     def find_distances(self):
+        logging.info('Creating distance map')
         distance_queue = []
         processed_nodes = []
         distance_queue.append(self.nodes[0])
@@ -225,13 +233,13 @@ class Graph():
             logging.debug('')
         # logging.debug('\n')
 
-    def get_peripheral_nodes(self, node_number):
+    def get_peripheral_nodes(self):
         '''
         find [node_number] nodes that are as far away from each other as possible
         definition of "as far away from each other as possible":
             the minimum distance between any two of the selected nodes is as large as possible
         '''
-        self.split_count = node_number
+        logging.info('Acquiring anchor sets')
         distance_distribution = {}
         # get a list of all possible distances
         for node, distant_node in self.distance_map.items():
@@ -268,19 +276,19 @@ class Graph():
                 reduced_distribution)
 
             logging.debug(
-                f'SIFTING for {node_number} peripherals at cut off {cut_off}')
+                f'SIFTING for {self.split_count} anchors at cut off {cut_off}')
             peripherals_list, found = self.sift_for_peripherals(
-                distribution_flatmap, node_number)
+                distribution_flatmap, self.split_count)
             if found:
-                logging.info(f'.. Periferals found')
+                logging.info(f'.. {len(peripherals_list)} Anchor sets found:')
                 for peripherals in peripherals_list:
-                    logging.debug(f'{peripherals}')
-                self.peripherals_list = peripherals_list
+                    logging.info(f'{peripherals}')
+                self.anchor_set_list = peripherals_list
                 # TODO select the best group of peripherals
-                self.anchors = peripherals_list[-1]
+                self.anchors = peripherals_list[0]
                 return self.anchors
             else:
-                logging.debug('No prefipherals found')
+                logging.debug('No anchor sets found')
 
     def search_reduced_distribution_for_peripherals(self, distribution, group, count, checked_pairs):
         def node_number_condition(node_counter, count):
@@ -472,10 +480,10 @@ class Graph():
         Initiates one split network per anchor
         Starts acquiring adjacent nodes to each anchor, taking into account the size of the adjacent nodes - larger are added slower
         '''
+        self.split_totals = {}
         if not anchors:
             anchors = self.anchors
 
-        logging.info(f'.. Split anchors selected: {anchors}')
         # build split networks and creep map
         splits = {}  # all split networks
         creep_map = {}  # holder for the creep counters
@@ -550,7 +558,6 @@ class Graph():
                     creep_prospects[anchor] = []
                     for new_prospect in current_prospects:
                         creep_prospects[anchor].append(new_prospect)
-
         self.splits = splits
 
         totals = {}
@@ -560,22 +567,18 @@ class Graph():
                 totals[anchor] = totals[anchor] + self.get_node(node).value
                 self.split_totals[anchor] = totals[anchor]
 
-        logging.info('.. Creep completed')
+        logging.info(f'.. Creep completed in {tick} ticks')
         for anchor in anchors:
             logging.info(
                 f'{splits[anchor][0]} > {totals[anchor]} > {splits[anchor]}')
 
     def negotiate_borders(self):
-        logging.info('Creating border map')
+        logging.info('. Creating border map')
         self.create_border_map()
         for split_anchor, border_data in self.border_map.items():
             logging.debug(f'Border nodes for {split_anchor}: {border_data}')
 
-        # calculate target values
-        self.split_average = self.total_value / self.split_count
-        self.average_deviation = (self.total_value % self.split_count) / 3
-
-        logging.info('Start negotiations')
+        logging.info('. Start negotiations')
         self.run_negoriation()
         logging.info('.. Negotiations complete')
 
@@ -712,11 +715,12 @@ class Graph():
                 if node in split_nodes:
                     return split
 
+        logging.info('Composing split array')
         self.split_array = copy.deepcopy(self.node_array)
         for row_index, row in enumerate(self.node_array):
             for node_index, node in enumerate(row):
                 self.split_array[row_index][node_index] = get_split(node)
-        logging.info(f'Split array prepared')
+        logging.info(f'.. Split array prepared')
         split_array_string = '\n'
         with open('result.graph', 'w') as result_file:
             for row in self.split_array:
@@ -804,6 +808,46 @@ class Graph():
                 connected_nodes.append(self.get_node(nbr))
         return connected_nodes
 
-    def find_best_split(self, split_count):
-        # HERE
-        pass
+    def find_best_split(self):
+        # iterate through all sets of anchors and cache the results
+        # compare results and output the best
+        logging.info('Iterating anchor sets')
+        self.result_cache = {}
+        best_result_mean = self.total_value
+        best_result_anchor_set = None
+        for anchor_set in self.anchor_set_list:
+            logging.info(f'Processing anchors {anchor_set}')
+            anchor_set_label = ''.join(anchor_set)
+            self.result_cache[anchor_set_label] = {}
+            self.anchors = anchor_set
+            result = {}
+            result['anchors'] = anchor_set
+            # creep
+            self.creep_splits(anchor_set)
+            self.negotiate_borders()
+            result['splits'] = self.splits
+            result['split values'] = self.split_totals
+            mean_deviation = 0
+            total_deviation = 0
+            for split_total, split_total_value in self.split_totals.items():
+                total_deviation = total_deviation + abs(split_total_value - self.split_average)
+            mean_deviation = total_deviation / self.split_count
+            result['mean deviation'] = mean_deviation
+            anchor_set_result_string = f'.. Mean deviation {mean_deviation}'
+            if mean_deviation < best_result_mean:
+                anchor_set_result_string = anchor_set_result_string + f' -> provisionally best'
+                best_result_mean = mean_deviation
+                best_result_anchor_set = anchor_set
+            logging.info(anchor_set_result_string)
+            self.result_cache[anchor_set_label] = result
+        
+        logging.info(f'Best anchor set: {best_result_anchor_set}')
+        logging.info(f'Splits mean deviation : {best_result_mean}')
+        self.splits = self.result_cache[''.join(best_result_anchor_set)]['splits']
+        self.print_splits()
+        self.compose_split_graph()
+
+    def process(self):
+        self.find_distances()
+        self.get_peripheral_nodes()
+        self.find_best_split()

@@ -8,8 +8,9 @@
         * FIXED - negotiations can lead to split discontinuity - example 7_basic for 4 and 3
         *   DISCONTINUITY FIXED
         *   **FAILS** on graph 9, split count 5
+        *   **FAILS** intermittent bug on large graphs with high split count
 
 *   TODO:
-        *   needs optimization; discontinuity check limits the effect of negotiation
-        *   ITERATE anchors for best solution
+        *   DONE - needs optimization; discontinuity check limits the effect of negotiation
+        *   DONE - iterate anchors for best solution
     

@@ -1,3 +1,4 @@
+import itertools
 from typing import Dict, List
 from sympy import false
 
@@ -575,13 +576,18 @@ class Graph():
     def negotiate_borders(self):
         logging.info('. Creating border map')
         self.create_border_map()
-        for split_anchor, border_data in self.border_map.items():
-            logging.debug(f'Border nodes for {split_anchor}: {border_data}')
 
         logging.info('. Start negotiations')
         self.run_negoriation()
         logging.info('.. Negotiations complete')
 
+
+    def valid_border_map(self, border_map):
+        for anchor, anchor_data in border_map.items():
+            for nbr in anchor_data.keys():
+                if not anchor in border_map[nbr].keys():
+                    return False
+        return True
 
     def create_border_map(self):
         # create a map of border nodes
@@ -600,7 +606,12 @@ class Graph():
                         if not nbr_split in border_map[anchor]:
                             border_map[anchor][nbr_split] = []
                         border_map[anchor][nbr_split].append(own_node)
+        if not self.valid_border_map(border_map):
+            logging.error('Border map is invalid')
+            raise Exception('Border map is invalid')
         self.border_map = border_map
+        for split_anchor, border_data in self.border_map.items():
+            logging.debug(f'Border nodes for {split_anchor}: {border_data}')
 
     def print_splits(self):
         for split, split_data in self.splits.items():
@@ -608,38 +619,41 @@ class Graph():
                 f'{split} ({self.get_split_total(split_data)}) :: {split_data}')
 
     def run_negoriation(self):
-        def get_updatable_nodes(receiver_split_index, donor_split_index, difference):
+        def get_updatable_nodes(recepient_split_index, donor_split_index, difference):
             # find node in the boardmap of the splits that have a value as close to the abs of difference
             # moving a node would change the difference by 2*node
             candidate_node = None
             # trying to find an update that will get this value as close to 0 as possible
             difference_to_clear = math.floor(abs(difference) / 2)
             best_intermediate_update = difference_to_clear
-            for node_label in self.border_map[donor_split_index][receiver_split_index]:
-                # check if the node value is lower than the difference that we are trying to reduce
-                node_value = self.get_node(node_label).value
-                if node_value > difference_to_clear:
-                    continue
-                # check if using this node will be improvement over the previously chosen node
-                possible_difference = difference_to_clear - node_value
-                if possible_difference < best_intermediate_update:
-                    best_intermediate_update = possible_difference
-                    if self.check_if_node_removal_breaks(donor_split_index, node_label):
-                        candidate_node = node_label
+            try:
+                for node_label in self.border_map[donor_split_index][recepient_split_index]:
+                    # check if the node value is lower than the difference that we are trying to reduce
+                    node_value = self.get_node(node_label).value
+                    if node_value > difference_to_clear:
+                        continue
+                    # check if using this node will be improvement over the previously chosen node
+                    possible_difference = difference_to_clear - node_value
+                    if possible_difference < best_intermediate_update:
+                        best_intermediate_update = possible_difference
+                        if self.check_if_node_removal_breaks(donor_split_index, node_label):
+                            candidate_node = node_label
+            except Exception as e:
+                logging.error(e)
+                raise e
             return candidate_node
 
-        split_pairs = []
-        # build a list of split anchor pairs to be iterated through
-        for split_one, split_one_data in self.splits.items():
-            for split_two, split_two_data in self.splits.items():
-                if split_one == split_two:
-                    continue
-                if split_one not in self.border_map[split_two]:
-                    continue
-                split_pairs.append(sorted([split_one, split_two]))
-
         adjustments_completed = False
+
         while not adjustments_completed:
+            split_pairs = []
+            # build a list of split anchor pairs to be iterated through
+            for split_one, split_two in itertools.combinations(self.splits.keys(), 2):
+                if not split_one in self.border_map[split_two]:
+                    continue
+                split_pairs.append([split_one, split_two])
+            logging.debug(split_pairs)
+                
             logging.debug('= new negotiations round')
             adjustments_completed = True
             adjusted_pairs = []
@@ -650,7 +664,7 @@ class Graph():
                 split_two_data = self.splits[split_two]
                 if sorted([split_one, split_two]) in adjusted_pairs:
                     continue
-                # check the balance between both splits
+                # check the balance between the splits
                 split_one_total = self.get_split_total(split_one_data)
                 split_two_total = self.get_split_total(split_two_data)
                 difference = split_one_total - split_two_total
@@ -664,22 +678,23 @@ class Graph():
                     donor_split = split_one
                     receiver_split = split_two
                 logging.debug(
-                    f'-    {receiver_split} to receive from {donor_split} to cover diff {abs(difference)}')
+                    f'-    {donor_split} to provide to {receiver_split} to cover diff {abs(difference)}')
                 updatable = get_updatable_nodes(
-                    receiver_split, donor_split, difference)
+                        receiver_split, donor_split, difference)
                 if updatable:
-                    logging.debug(
-                        f'    -   {updatable} moved from {donor_split} to {receiver_split}')
+                    logging.debug(f'    -   {updatable} moved from {donor_split} to {receiver_split}')
                     adjusted_pairs.append(
                         sorted([donor_split, receiver_split]))
                     # update splits
                     self.splits[receiver_split].append(updatable)
                     self.splits[donor_split].remove(updatable)
-                    # update border map
-                    self.create_border_map()
                     adjustments_completed = False
+                    self.create_border_map()
+                    break
+                    # HERE
                 else:
                     logging.debug(f'    -   No suitable adjustments')
+                    self.create_border_map()
 
     def get_split_total(self, split):
         split_total = 0

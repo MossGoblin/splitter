@@ -3,7 +3,7 @@ from workbench import WorkBench
 import logging
 
 SPLIT_COUNT = 5
-'''
+''' 
 CRITICAL    50
 ERROR       40
 WARNING     30
@@ -11,7 +11,7 @@ INFO        20
 DEBUG       10
 NOTSET      0
 '''
-log_level = 20
+log_level = logging.DEBUG
 
 def main():
     logging.info('START')
@@ -32,6 +32,8 @@ def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:
     return gr
 
 def create_graph_from_graph_file(node_list_fliename: str = None, split_count: int = None) -> Graph:
+    if split_count == 1 or split_count == 0:
+        raise ValueError('Split count must be larger than 2 (missing split count defaults to 2)')
     if not split_count:
         split_count = 2
     logging.info('Reading network from .graph file')

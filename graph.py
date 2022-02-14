@@ -7,10 +7,7 @@ import json
 import copy
 import logging
 import math
-from string import ascii_letters, ascii_lowercase, ascii_uppercase
-
-# logging.basicConfig(filename='processing.log', encoding='utf-8', level=logging.debug)
-
+from string import ascii_letters
 
 class Node():
     label = ''
@@ -108,9 +105,10 @@ class Graph():
         self.total_value = self.get_graph_total()
         # calculate target values
         self.split_average = self.total_value / self.split_count
-        self.average_deviation = (self.total_value % self.split_count) / 3
+        # self.mean_deviation = (self.total_value % self.split_count) / self.split_count
+        self.mean_deviation = self.split_average % 1
         logging.info(f'.. Graph total: {self.total_value}')
-        logging.info(f'.. Mean deviation: {self.average_deviation}')
+        logging.info(f'.. Graph mean deviation: {self.mean_deviation}')
 
 
     def find_distances(self):
@@ -560,23 +558,10 @@ class Graph():
                     for new_prospect in current_prospects:
                         creep_prospects[anchor].append(new_prospect)
         self.splits = splits
+        logging.info(f'. Creep completed in {tick} ticks')
 
-        totals = {}
-        for anchor in anchors:
-            totals[anchor] = 0
-            for node in splits[anchor]:
-                totals[anchor] = totals[anchor] + self.get_node(node).value
-                self.split_totals[anchor] = totals[anchor]
-
-        logging.info(f'.. Creep completed in {tick} ticks')
-        for anchor in anchors:
-            logging.info(
-                f'{splits[anchor][0]} > {totals[anchor]} > {splits[anchor]}')
 
     def negotiate_borders(self):
-        logging.info('. Creating border map')
-        self.create_border_map()
-
         logging.info('. Start negotiations')
         self.run_negoriation()
         logging.info('.. Negotiations complete')
@@ -643,9 +628,14 @@ class Graph():
                 raise e
             return candidate_node
 
-        adjustments_completed = False
 
+        adjustments_completed = False
+        border_map_creation_logged = False
         while not adjustments_completed:
+            if not border_map_creation_logged:
+                logging.info('. Creating border map')
+                border_map_creation_logged = True
+            self.create_border_map()
             split_pairs = []
             # build a list of split anchor pairs to be iterated through
             for split_one, split_two in itertools.combinations(self.splits.keys(), 2):
@@ -689,12 +679,20 @@ class Graph():
                     self.splits[receiver_split].append(updatable)
                     self.splits[donor_split].remove(updatable)
                     adjustments_completed = False
-                    self.create_border_map()
                     break
-                    # HERE
                 else:
                     logging.debug(f'    -   No suitable adjustments')
-                    self.create_border_map()
+
+        totals = {}
+        for anchor in self.anchors:
+            totals[anchor] = 0
+            for node in self.splits[anchor]:
+                totals[anchor] = totals[anchor] + self.get_node(node).value
+                self.split_totals[anchor] = totals[anchor]
+
+        for anchor in self.anchors:
+            logging.info(f'{self.splits[anchor][0]} > {totals[anchor]} > {self.splits[anchor]}')
+
 
     def get_split_total(self, split):
         split_total = 0
@@ -748,6 +746,8 @@ class Graph():
         self.build_csv_output_file()
     
     def build_csv_output_file(self):
+        if self.split_count > 9:
+            logging.error('Can not export a .csv file : the split count is too large.')
         symbol_list = list([x for x in range(1, 10)])
         if self.split_count > 10 and self.split_count < 61:
             symbol_list.extend(list([x for x in ascii_letters]))
@@ -793,6 +793,9 @@ class Graph():
             reduced_split_node_list.append(node)
         # Crate connections network for the reduced split graph, starting with one of the nbrs
         # Get all the split nodes, connected to one of the nbrs
+        if len(nbrs) == 0:
+            logging.error(f'Node {removable} is somehow separated from its split')
+            raise Exception(f'Node {removable} is somehow separated from its split')
         start_node = nbrs[0]
         connected_nodes = self.get_split_connected_nodes(start_node, reduced_split_node_list)
         # If all nbrs are in the connections network, then the reduced split graph is not broken
@@ -838,26 +841,27 @@ class Graph():
             result = {}
             result['anchors'] = anchor_set
             # creep
+            self.splits = {}
             self.creep_splits(anchor_set)
             self.negotiate_borders()
             result['splits'] = self.splits
             result['split values'] = self.split_totals
-            mean_deviation = 0
-            total_deviation = 0
+            mean_splits_deviation = 0
+            total_splits_deviation = 0
             for split_total, split_total_value in self.split_totals.items():
-                total_deviation = total_deviation + abs(split_total_value - self.split_average)
-            mean_deviation = total_deviation / self.split_count
-            result['mean deviation'] = mean_deviation
-            anchor_set_result_string = f'.. Mean deviation {mean_deviation}'
-            if mean_deviation < best_result_mean:
+                total_splits_deviation = total_splits_deviation + abs(split_total_value - self.split_average)
+            mean_splits_deviation = total_splits_deviation / self.split_count
+            result['mean deviation'] = mean_splits_deviation
+            anchor_set_result_string = f'.. Splits mean deviation {mean_splits_deviation}'
+            if mean_splits_deviation < best_result_mean:
                 anchor_set_result_string = anchor_set_result_string + f' -> provisionally best'
-                best_result_mean = mean_deviation
+                best_result_mean = mean_splits_deviation
                 best_result_anchor_set = anchor_set
             logging.info(anchor_set_result_string)
             self.result_cache[anchor_set_label] = result
         
         logging.info(f'Best anchor set: {best_result_anchor_set}')
-        logging.info(f'Splits mean deviation : {best_result_mean}')
+        logging.info(f'Best splits mean deviation : {best_result_mean}')
         self.splits = self.result_cache[''.join(best_result_anchor_set)]['splits']
         self.print_splits()
         self.compose_split_graph()

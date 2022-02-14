@@ -1,8 +1,10 @@
+from datetime import datetime
 from graph import Node, Graph
 from workbench import WorkBench
 import logging
 
-SPLIT_COUNT = 5
+SPLIT_MAXIMUM = 9
+SPLIT_COUNT = 9
 ''' 
 CRITICAL    50
 ERROR       40
@@ -11,12 +13,15 @@ INFO        20
 DEBUG       10
 NOTSET      0
 '''
-log_level = logging.DEBUG
+log_level = logging.INFO
 
 def main():
     logging.info('START')
+    start_time = datetime.utcnow()
     gr = create_graph_from_graph_file(split_count = SPLIT_COUNT)
     gr.process()
+    run_time = datetime.utcnow() - start_time
+    logging.info(f'TOTAL TIME: {run_time} s')
 
 
 def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:
@@ -34,6 +39,8 @@ def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:
 def create_graph_from_graph_file(node_list_fliename: str = None, split_count: int = None) -> Graph:
     if split_count == 1 or split_count == 0:
         raise ValueError('Split count must be larger than 2 (missing split count defaults to 2)')
+    if split_count > SPLIT_MAXIMUM:
+        raise ValueError(f'Split maximum can not exceed {SPLIT_MAXIMUM}')
     if not split_count:
         split_count = 2
     logging.info('Reading network from .graph file')

@@ -1,10 +1,10 @@
 from datetime import datetime
 from graph import Node, Graph
-from workbench import WorkBench
+from workbench import WorkBench, SignatureGenerator
 import logging
 
 SPLIT_MAXIMUM = 9
-SPLIT_COUNT = 9
+SPLIT_COUNT = 3
 ''' 
 CRITICAL    50
 ERROR       40
@@ -13,9 +13,10 @@ INFO        20
 DEBUG       10
 NOTSET      0
 '''
-log_level = logging.INFO
+log_level = logging.DEBUG
 
 def main():
+    # get_next_signature()
     logging.info('START')
     start_time = datetime.utcnow()
     gr = create_graph_from_graph_file(split_count = SPLIT_COUNT)
@@ -35,6 +36,7 @@ def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:
         node = Node(label=label, value=value, links=links)
         gr.add_node(node, 0)
     return gr
+
 
 def create_graph_from_graph_file(node_list_fliename: str = None, split_count: int = None) -> Graph:
     if split_count == 1 or split_count == 0:
@@ -56,6 +58,7 @@ def create_graph_from_graph_file(node_list_fliename: str = None, split_count: in
     gr.node_array = node_array
     gr.validate(rectangular=True)
     return gr
+
 
 if __name__ == '__main__':
     logging.basicConfig(filename='processing.log', format='[%(levelname)-5s] %(message)s', filemode='w', encoding='utf-8', level=log_level)

@@ -47,9 +47,9 @@ def create_graph_from_graph_file(node_list_fliename: str = None, split_count: in
     if not split_count:
         split_count = 2
     logging.info('Reading network from .graph file')
-    wb = WorkBench()
+    wb = WorkBench(base_folder=BASE_FOLDER)
     node_array, node_dict = wb.read_nodes_from_graph_file(node_list_fliename, save_json=True)
-    gr = Graph(split_count, BASE_FOLDER)
+    gr = Graph(split_count, base_folder=BASE_FOLDER)
     for node_label, node_attributes in node_dict.items():
         label = node_label
         value = node_attributes['value']

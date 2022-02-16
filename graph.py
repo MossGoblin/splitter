@@ -69,7 +69,6 @@ class Graph():
     def __init__(self, split_count: int, base_folder = None):
         self.split_count = split_count
         self.base_folder = base_folder
-        pass
 
     def __str__(self):
         graph_str = ''

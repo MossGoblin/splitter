@@ -3,10 +3,8 @@ from graph import Node, Graph
 from workbench import WorkBench
 import logging
 
-
-BASE_FOLDER = 'data/'
 SPLIT_MAXIMUM = 9
-SPLIT_COUNT = 3
+SPLIT_COUNT = 9
 ''' 
 CRITICAL    50
 ERROR       40
@@ -15,7 +13,9 @@ INFO        20
 DEBUG       10
 NOTSET      0
 '''
-log_level = logging.DEBUG
+log_level = logging.INFO
+BASE_FOLDER = 'data/'
+
 
 def main():
     logging.info('START')
@@ -27,9 +27,9 @@ def main():
 
 
 def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:
-    wb = WorkBench()
+    wb = WorkBench(base_folder=BASE_FOLDER)
     node_dict = wb.read_node_list(node_list_fliename)
-    gr = Graph()
+    gr = Graph(base_folder = BASE_FOLDER)
     for node_label, node_attributes in node_dict.items():
         label = node_label
         value = node_attributes['value']

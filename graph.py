@@ -1,6 +1,8 @@
 import itertools
-from typing import List
+from typing import Dict, List
+from sympy import false
 
+from sympy.core.function import diff
 import json
 import copy
 import logging
@@ -64,10 +66,9 @@ class Graph():
     splits = {}  # a dictionary of all split networks, build around anchors
     split_totals = {}  # a list of the total values of each split
 
-    def __init__(self, split_count: int, base_folder: str = None):
-        self.base_folder = base_folder
+    def __init__(self, split_count: int, base_folder = None):
         self.split_count = split_count
-        pass
+        self.base_folder = base_folder
 
     def __str__(self):
         graph_str = ''
@@ -104,7 +105,6 @@ class Graph():
         self.total_value = self.get_graph_total()
         # calculate target values
         self.split_average = self.total_value / self.split_count
-        # self.mean_deviation = (self.total_value % self.split_count) / self.split_count
         self.mean_deviation = self.split_average % 1
         logging.info(f'.. Graph total: {self.total_value}')
         logging.info(f'.. Graph mean deviation: {self.mean_deviation}')
@@ -777,6 +777,7 @@ class Graph():
         nbrs = []
         node = self.get_node(removable)
         for nbr in node.links:
+            # print(nbr)
             if not nbr in split:
                 continue
             nbrs.append(nbr)
@@ -791,8 +792,9 @@ class Graph():
         # Crate connections network for the reduced split graph, starting with one of the nbrs
         # Get all the split nodes, connected to one of the nbrs
         if len(nbrs) == 0:
-            logging.error(f'Node {removable} is somehow separated from its split')
-            raise Exception(f'Node {removable} is somehow separated from its split')
+            error_mesage =f'Node {removable} is somehow separated from its split' 
+            logging.error(error_mesage)
+            raise Exception(error_mesage)
         start_node = nbrs[0]
         connected_nodes = self.get_split_connected_nodes(start_node, reduced_split_node_list)
         # If all nbrs are in the connections network, then the reduced split graph is not broken

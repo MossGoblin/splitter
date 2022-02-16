@@ -4,7 +4,7 @@ from workbench import WorkBench
 import logging
 
 SPLIT_MAXIMUM = 9
-SPLIT_COUNT = 3
+SPLIT_COUNT = 5
 ''' 
 CRITICAL    50
 ERROR       40

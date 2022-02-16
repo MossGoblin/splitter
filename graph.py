@@ -740,7 +740,8 @@ class Graph():
             for row in self.split_array:
                 for node in row:
                     result_file.write(node)
-                    split_array_string = split_array_string + node
+                    # split_array_string = split_array_string + '[' + f'{node}'.ljust(2) + ']'
+                    split_array_string = split_array_string + f'{node}'.ljust(2)
                 result_file.write('\n')
                 split_array_string = split_array_string + '\n'
         logging.info(split_array_string)

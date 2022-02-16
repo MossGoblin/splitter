@@ -3,8 +3,10 @@ from graph import Node, Graph
 from workbench import WorkBench
 import logging
 
+
+BASE_FOLDER = 'data/'
 SPLIT_MAXIMUM = 9
-SPLIT_COUNT = 9
+SPLIT_COUNT = 3
 ''' 
 CRITICAL    50
 ERROR       40
@@ -13,7 +15,7 @@ INFO        20
 DEBUG       10
 NOTSET      0
 '''
-log_level = logging.INFO
+log_level = logging.DEBUG
 
 def main():
     logging.info('START')
@@ -36,6 +38,7 @@ def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:
         gr.add_node(node, 0)
     return gr
 
+
 def create_graph_from_graph_file(node_list_fliename: str = None, split_count: int = None) -> Graph:
     if split_count == 1 or split_count == 0:
         raise ValueError('Split count must be larger than 2 (missing split count defaults to 2)')
@@ -46,7 +49,7 @@ def create_graph_from_graph_file(node_list_fliename: str = None, split_count: in
     logging.info('Reading network from .graph file')
     wb = WorkBench()
     node_array, node_dict = wb.read_nodes_from_graph_file(node_list_fliename, save_json=True)
-    gr = Graph(split_count)
+    gr = Graph(split_count, BASE_FOLDER)
     for node_label, node_attributes in node_dict.items():
         label = node_label
         value = node_attributes['value']
@@ -57,6 +60,7 @@ def create_graph_from_graph_file(node_list_fliename: str = None, split_count: in
     gr.validate(rectangular=True)
     return gr
 
+
 if __name__ == '__main__':
-    logging.basicConfig(filename='processing.log', format='[%(levelname)-5s] %(message)s', filemode='w', encoding='utf-8', level=log_level)
+    logging.basicConfig(filename=f'{BASE_FOLDER}processing.log', format='[%(levelname)-5s] %(message)s', filemode='w', encoding='utf-8', level=log_level)
     main()

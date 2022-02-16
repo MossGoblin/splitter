@@ -66,8 +66,9 @@ class Graph():
     splits = {}  # a dictionary of all split networks, build around anchors
     split_totals = {}  # a list of the total values of each split
 
-    def __init__(self, split_count: int):
+    def __init__(self, split_count: int, base_folder = None):
         self.split_count = split_count
+        self.base_folder = base_folder
         pass
 
     def __str__(self):
@@ -735,7 +736,7 @@ class Graph():
                 self.split_array[row_index][node_index] = get_split(node)
         logging.info(f'.. Split array prepared')
         split_array_string = '\n'
-        with open('result.graph', 'w') as result_file:
+        with open(f'{self.base_folder}result.graph', 'w') as result_file:
             for row in self.split_array:
                 for node in row:
                     result_file.write(node)
@@ -761,7 +762,7 @@ class Graph():
                 symbol_map[node] = None
                 symbol_map[node] = symbol_list[counter]
                 counter = counter + 1
-        with open('result.csv', 'w') as result_csv:
+        with open(f'{self.base_folder}result.csv', 'w') as result_csv:
             for row in self.split_array:
                 for node in row:
                     result_csv.write(str(symbol_map[node]) + ',')

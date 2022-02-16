@@ -1,6 +1,6 @@
 from datetime import datetime
 from graph import Node, Graph
-from workbench import WorkBench, SignatureGenerator
+from workbench import WorkBench
 import logging
 
 SPLIT_MAXIMUM = 9
@@ -16,7 +16,6 @@ NOTSET      0
 log_level = logging.DEBUG
 
 def main():
-    # get_next_signature()
     logging.info('START')
     start_time = datetime.utcnow()
     gr = create_graph_from_graph_file(split_count = SPLIT_COUNT)

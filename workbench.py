@@ -3,15 +3,15 @@ from string import ascii_letters, ascii_lowercase, ascii_uppercase
 from typing import Dict, List
 import json
 import copy
-import sympy
-from sympy.ntheory.generate import prime
 
 
 class WorkBench():
     label_list = {}
     label_list_level = 0
 
-    def __init__(self) -> None:
+    def __init__(self, base_folder = None) -> None:
+        if base_folder == None:
+            self.base_folder = 'data/'
         for letter in ascii_lowercase:
             self.label_list[letter] = False
 
@@ -81,7 +81,7 @@ class WorkBench():
         graph_dict = {}
         graph_array = []
         if not graph_filename:
-            graph_filename = 'basic.graph'
+            graph_filename = f'{self.base_folder}basic.graph'
         with open(graph_filename, 'r') as file:
             lines = file.readlines()
             line_length = 0
@@ -116,7 +116,8 @@ class WorkBench():
                 if not replacement_found:
                     replacement = next(s_iter)
                 node_array[row_index].append(replacement)
-
+        # DBG
+        print(node_array)
         for row_index, row in enumerate(node_array):
             for element_index, element in enumerate(row):
                 if element not in graph_dict:
@@ -135,7 +136,7 @@ class WorkBench():
             graph_dict[node]["value"] = node_count
 
         if save_json:
-            filename = f'json_data/graph_{len(node_array)}_{len(node_array[0])}.json'
+            filename = f'{self.base_folder}json_data/graph_{len(node_array)}_{len(node_array[0])}.json'
             with open(filename, 'w') as json_output:
                 json.dump(graph_dict, json_output)
 

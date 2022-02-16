@@ -4,7 +4,7 @@ from workbench import WorkBench
 import logging
 
 SPLIT_MAXIMUM = 9
-SPLIT_COUNT = 5
+SPLIT_COUNT = 9
 ''' 
 CRITICAL    50
 ERROR       40
@@ -13,12 +13,11 @@ INFO        20
 DEBUG       10
 NOTSET      0
 '''
-log_level = logging.DEBUG
+log_level = logging.INFO
 BASE_FOLDER = 'data/'
 
 
 def main():
-    # get_next_signature()
     logging.info('START')
     start_time = datetime.utcnow()
     gr = create_graph_from_graph_file(split_count = SPLIT_COUNT)

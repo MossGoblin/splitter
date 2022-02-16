@@ -9,11 +9,12 @@
         [x] negotiation fails on graph 9, split count 5
             * something wrong with picking split pairs for negotiation
               * duplicate split_pairs in split_pairs list
-        [ ] File "d:\Codee\package_splitter\splitter\graph.py", line 796, in check_if_node_removal_breaks
+        [x] File "d:\Codee\package_splitter\splitter\graph.py", line 796, in check_if_node_removal_breaks
                         start_node = nbrs[0]
                         IndexError: list index out of range
             *       Seems like it is an extreme case of a single node, separated from the split ??
-        [ ] ?? Splits mean deviation may be calculated inacurately - pyhon disagrees with excel
+            *       FOUND a bug in border creation -> get split parent
+        [ ] ?? Splits mean deviation may be calculated inacurately - pyhon disagrees with excel maybe; check eq
 *   TODO:
         *   DONE - needs optimization; discontinuity check limits the effect of negotiation
         *   DONE - iterate anchors for best solution

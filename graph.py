@@ -1,8 +1,6 @@
 import itertools
-from typing import Dict, List
-from sympy import false
+from typing import List
 
-from sympy.core.function import diff
 import json
 import copy
 import logging
@@ -739,8 +737,7 @@ class Graph():
         with open(f'{self.base_folder}result.graph', 'w') as result_file:
             for row in self.split_array:
                 for node in row:
-                    result_file.write(node)
-                    # split_array_string = split_array_string + '[' + f'{node}'.ljust(2) + ']'
+                    result_file.write(f'{node}'.ljust(2))
                     split_array_string = split_array_string + f'{node}'.ljust(2)
                 result_file.write('\n')
                 split_array_string = split_array_string + '\n'
@@ -780,7 +777,6 @@ class Graph():
         nbrs = []
         node = self.get_node(removable)
         for nbr in node.links:
-            # print(nbr)
             if not nbr in split:
                 continue
             nbrs.append(nbr)

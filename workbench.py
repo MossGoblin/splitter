@@ -1,45 +1,13 @@
-from pydoc import replace
-from string import ascii_letters, ascii_lowercase, ascii_uppercase
-from typing import Dict, List
+from typing import Dict
 import json
-import copy
-import sympy
-from sympy.ntheory.generate import prime
 
 
 class WorkBench():
     label_list = {}
     label_list_level = 0
 
-    def __init__(self, base_folder = None) -> None:
+    def __init__(self, base_folder=None) -> None:
         self.base_folder = base_folder
-        for letter in ascii_lowercase:
-            self.label_list[letter] = False
-
-    def get_label(self):
-        new_label = self.extract_label()
-        if new_label == None:
-            self.add_level_to_labels()
-            new_label = self.extract_label()
-        self.label_list[new_label] = True
-        return new_label
-
-    def extract_label(self):
-        new_label = None
-        for label, used in self.label_list.items():
-            if not used:
-                new_label = label
-                break
-        return new_label
-
-    def add_level_to_labels(self):
-        new_label_list = copy.deepcopy(self.label_list)
-        self.label_list_level = self.label_list_level + 1
-        for new_prefix in ascii_lowercase:
-            for label in ascii_lowercase:
-                new_label = new_prefix + label
-                new_label_list[new_label] = False
-        self.label_list = new_label_list
 
     def read_node_list(self, node_list_filename: str) -> Dict:
         if not node_list_filename:
@@ -49,20 +17,19 @@ class WorkBench():
             node_dict = json.load(file)
         return node_dict
 
-
-
     def read_nodes_from_graph_file(self, graph_filename: str = None, save_json: bool = False) -> Dict:
         def generate_similar_nbrs(array, row_dot, element_dot, index):
-                nbrs = []
-                nbr_indeces = [(-1, 0), (0, 1), (1, 0), (0, -1)]
-                for nbr_row, nbr_element in nbr_indeces:
-                    row_index = row_dot + nbr_row
-                    element_index = element_dot + nbr_element
-                    if row_index > -1 and row_index < len(array) and element_index > -1 and element_index < len(array[row_dot]):
-                        if array[row_index][element_index] == index:
-                            element = (array[row_index][element_index], row_index, element_index)
-                            nbrs.append(element)
-                return nbrs
+            nbrs = []
+            nbr_indeces = [(-1, 0), (0, 1), (1, 0), (0, -1)]
+            for nbr_row, nbr_element in nbr_indeces:
+                row_index = row_dot + nbr_row
+                element_index = element_dot + nbr_element
+                if row_index > -1 and row_index < len(array) and element_index > -1 and element_index < len(array[row_dot]):
+                    if array[row_index][element_index] == index:
+                        element = (array[row_index][element_index],
+                                   row_index, element_index)
+                        nbrs.append(element)
+            return nbrs
 
         def get_neighbours(graph_array, row_dot, element_dot):
             nbrs = []
@@ -97,7 +64,7 @@ class WorkBench():
                 else:
                     line_length = len(row)
                 graph_array.append(row)
-        
+
         node_array = []
         s_gen = SignatureGenerator()
         s_iter = iter(s_gen)
@@ -106,7 +73,8 @@ class WorkBench():
             node_array.append([])
             for element_index, element in enumerate(row):
                 # get all nbrs with the same node index
-                nbrs = generate_similar_nbrs(graph_array, row_index, element_index, element)
+                nbrs = generate_similar_nbrs(
+                    graph_array, row_index, element_index, element)
                 replacement_found = False
                 for nbr in nbrs:
                     # if the nbr has already been assigned a replacement - use it
@@ -142,10 +110,12 @@ class WorkBench():
 
         return node_array, graph_dict
 
+
 class SignatureGenerator():
-    def __init__(self, case = 0):
+    def __init__(self, case=0):
         if case > 1:
-            raise AttributeError('Order can be only 0 for lowercase and 1 for uppercase')
+            raise AttributeError(
+                'Order can be only 0 for lowercase and 1 for uppercase')
         self.offset = 65 if case == 1 else 97
 
     def __iter__(self):
@@ -158,7 +128,7 @@ class SignatureGenerator():
         if self.index < 676:
             clean_prefix = int(self.index/26)
             clean_suffix = self.index % 26
-            
+
             postfix_index = self.offset + clean_suffix
             postfix = chr(postfix_index)
             if clean_prefix > 0:
@@ -172,4 +142,3 @@ class SignatureGenerator():
 
         self.index = self.index + 1
         return self.sig
-    

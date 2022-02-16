@@ -711,7 +711,7 @@ class Graph():
         def get_split(node):
             for split, split_data in self.splits.items():
                 if node in split_data:
-                    return split[0]
+                    return split
 
         nbr_splits = []
         node_nbrs = self.get_node(node).links

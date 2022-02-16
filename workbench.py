@@ -117,6 +117,8 @@ class WorkBench():
                 if not replacement_found:
                     replacement = next(s_iter)
                 node_array[row_index].append(replacement)
+        # DBG
+        print(node_array)
 
         for row_index, row in enumerate(node_array):
             for element_index, element in enumerate(row):

@@ -1,6 +1,6 @@
 from datetime import datetime
 from graph import Node, Graph
-from workbench import WorkBench, SignatureGenerator
+from workbench import WorkBench
 import logging
 
 SPLIT_MAXIMUM = 9

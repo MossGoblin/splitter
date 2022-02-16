@@ -11,7 +11,8 @@ class WorkBench():
     label_list = {}
     label_list_level = 0
 
-    def __init__(self) -> None:
+    def __init__(self, base_folder = None) -> None:
+        self.base_folder = base_folder
         for letter in ascii_lowercase:
             self.label_list[letter] = False
 
@@ -42,8 +43,8 @@ class WorkBench():
 
     def read_node_list(self, node_list_filename: str) -> Dict:
         if not node_list_filename:
-            node_list_filename = 'splitter/node_list.json'
-            node_list_filename = 'node_list.json'
+            node_list_filename = f'splitter/{self.base_folder}node_list.json'
+            node_list_filename = f'{self.base_folder}node_list.json'
         with open(node_list_filename, 'r') as file:
             node_dict = json.load(file)
         return node_dict
@@ -81,7 +82,7 @@ class WorkBench():
         graph_dict = {}
         graph_array = []
         if not graph_filename:
-            graph_filename = 'basic.graph'
+            graph_filename = f'{self.base_folder}basic.graph'
         with open(graph_filename, 'r') as file:
             lines = file.readlines()
             line_length = 0
@@ -135,7 +136,7 @@ class WorkBench():
             graph_dict[node]["value"] = node_count
 
         if save_json:
-            filename = f'json_data/graph_{len(node_array)}_{len(node_array[0])}.json'
+            filename = f'{self.base_folder}json_data/graph_{len(node_array)}_{len(node_array[0])}.json'
             with open(filename, 'w') as json_output:
                 json.dump(graph_dict, json_output)
 

@@ -14,6 +14,8 @@ DEBUG       10
 NOTSET      0
 '''
 log_level = logging.DEBUG
+BASE_FOLDER = 'data/'
+
 
 def main():
     # get_next_signature()
@@ -26,9 +28,9 @@ def main():
 
 
 def create_graph_from_json_file(node_list_fliename: str = None) -> Graph:
-    wb = WorkBench()
+    wb = WorkBench(base_folder=BASE_FOLDER)
     node_dict = wb.read_node_list(node_list_fliename)
-    gr = Graph()
+    gr = Graph(base_folder = BASE_FOLDER)
     for node_label, node_attributes in node_dict.items():
         label = node_label
         value = node_attributes['value']
@@ -46,9 +48,9 @@ def create_graph_from_graph_file(node_list_fliename: str = None, split_count: in
     if not split_count:
         split_count = 2
     logging.info('Reading network from .graph file')
-    wb = WorkBench()
+    wb = WorkBench(base_folder=BASE_FOLDER)
     node_array, node_dict = wb.read_nodes_from_graph_file(node_list_fliename, save_json=True)
-    gr = Graph(split_count)
+    gr = Graph(split_count, base_folder=BASE_FOLDER)
     for node_label, node_attributes in node_dict.items():
         label = node_label
         value = node_attributes['value']
@@ -61,5 +63,5 @@ def create_graph_from_graph_file(node_list_fliename: str = None, split_count: in
 
 
 if __name__ == '__main__':
-    logging.basicConfig(filename='processing.log', format='[%(levelname)-5s] %(message)s', filemode='w', encoding='utf-8', level=log_level)
+    logging.basicConfig(filename=f'{BASE_FOLDER}processing.log', format='[%(levelname)-5s] %(message)s', filemode='w', encoding='utf-8', level=log_level)
     main()

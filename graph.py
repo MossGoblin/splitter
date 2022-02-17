@@ -9,6 +9,7 @@ import logging
 import math
 from string import ascii_letters
 
+
 class Node():
     label = ''
     value = 0
@@ -55,8 +56,8 @@ class Node():
 
 class Graph():
     nodes = []  # a list of all 0 level nodes
-    node_array = [] # an array, read from the input
-    split_array = [] # an array, displaying the splits
+    node_array = []  # an array, read from the input
+    split_array = []  # an array, displaying the splits
     node_map = {}  # an enchanced map of nodes, separated by level
     map_total = 0  # the total weight of all the level 0 nodes
     distance_map = {}  # an enchanced map of nodes, separated by level
@@ -66,7 +67,7 @@ class Graph():
     splits = {}  # a dictionary of all split networks, build around anchors
     split_totals = {}  # a list of the total values of each split
 
-    def __init__(self, split_count: int, base_folder = None):
+    def __init__(self, split_count: int, base_folder=None):
         self.split_count = split_count
         self.base_folder = base_folder
 
@@ -86,7 +87,6 @@ class Graph():
             if node.label == label:
                 return node
         return None
-        pass
 
     def validate(self, rectangular=True):
         if rectangular:
@@ -109,8 +109,11 @@ class Graph():
         logging.info(f'.. Graph total: {self.total_value}')
         logging.info(f'.. Graph mean deviation: {self.mean_deviation}')
 
-
-    def find_distances(self):
+    def find_distances(self) -> None:
+        '''
+        Calculate the minimal distances between each pair of nodes
+        and store them in self.distance_map
+        '''
         logging.info('Creating distance map')
         distance_queue = []
         processed_nodes = []
@@ -126,6 +129,9 @@ class Graph():
         self.print_distance_map()
 
     def add_node_to_distance_map(self, node):
+        '''
+        Add new node to self.distance_map
+        '''
         # Check if the node can be added - needs to be adjacent to at least on other node in the map
         if not self.verify_cmg(node):
             raise Exception(
@@ -148,6 +154,9 @@ class Graph():
         self.adjust_old_distances_through_node(node)
 
     def adjust_distances_to_node(self, node):
+        '''
+        Adjust the distances from the new node to the already processed nodes
+        '''
         logging.debug(f'*   Adding nbrs of {node.sig}')
         if len(self.distance_map) == 1:
             logging.debug(f'    *   No distances to adjust for {node.sig}')
@@ -176,6 +185,9 @@ class Graph():
             self.distance_map[distant_node][node.label] = min_distance
 
     def adjust_old_distances_through_node(self, node):
+        '''
+        Check the list of already recorded distances and adjust them if the inclusion of a new node changes any of them
+        '''
         logging.debug(
             f'    *   Checking distances between old nodes through {node.sig}')
         # Iterate pais of nodes (other than node)
@@ -191,6 +203,9 @@ class Graph():
                     f'      *   Distance between {node_one.sig} and {node_two.sig} adjusted to {self.distance_map[node_one][node_two.label]}')
 
     def distance_map_pairs(self, excluded_nodes):
+        '''
+        Generate distance pairs from self.distance_map
+        '''
         # used to avoid duplicates
         checked_pairs = []
         if isinstance(excluded_nodes, Node):
@@ -210,6 +225,9 @@ class Graph():
                 yield (node_one, node_two)
 
     def verify_cmg(self, node):
+        '''
+        Check if a node has nbrs in the map so far
+        '''
         if len(self.distance_map) == 0:
             return True
         # Check for Continuous Map Growth
@@ -219,6 +237,9 @@ class Graph():
         return False
 
     def print_distance_map(self):
+        '''
+        Logging
+        '''
         logging.debug('\n== Distance Map ==')
         for node in self.distance_map:
             logging.debug(f'{node.sig}:')
@@ -229,11 +250,10 @@ class Graph():
                     continue
                 logging.debug(f'    {link} : {distance}')
             logging.debug('')
-        # logging.debug('\n')
 
     def get_peripheral_nodes(self):
         '''
-        find [node_number] nodes that are as far away from each other as possible
+        Find [node_number] nodes that are as far away from each other as possible
         definition of "as far away from each other as possible":
             the minimum distance between any two of the selected nodes is as large as possible
         '''
@@ -253,11 +273,13 @@ class Graph():
         logging.info(f'.. Distance distrubution built')
         logging.debug(json.dumps(distance_distribution))
 
-        # select the peripherals
-        # try to find the requisite number in the highest distance category
-        # if there is no suitable combination, add the lower category and search in the highest two
-        # if needed, repeat by adding another one and so on
         '''
+        Process:
+            *   Select the peripherals
+            *   Try to find the requisite number in the highest distance category
+            *   If there is no suitable combination, add the lower category and search in the highest two
+            *   If needed, repeat by adding another one and so on
+        
         Conditions for peripherals in the current distribution:
         In the peripheral group there are
             *   exactly node_number unique nodes
@@ -282,13 +304,15 @@ class Graph():
                 for peripherals in peripherals_list:
                     logging.info(f'{peripherals}')
                 self.anchor_set_list = peripherals_list
-                # TODO select the best group of peripherals
                 self.anchors = peripherals_list[0]
                 return self.anchors
             else:
                 logging.debug('No anchor sets found')
 
     def search_reduced_distribution_for_peripherals(self, distribution, group, count, checked_pairs):
+        '''
+        Find if there is a suitable group of nodes in a given cut-off of self.distance_map
+        '''
         def node_number_condition(node_counter, count):
             if len(node_counter) < count:
                 # 1st bool - node number matching ?
@@ -383,7 +407,7 @@ class Graph():
         1. the groups has [target] number of nodes
         2. all the links between the nodes in the group are within the distribution
         PROCEDURE
-        1.  remomve nodes with less than target-1 links
+        1. remove nodes with less than target-1 links
         2. for each remaining node - iterate linked nodes
         2.1 for each linked node - check if it has links to each other linked node
         2.2 if not - remove one of the two - the one with shorter average link distance within the distribution
@@ -559,14 +583,15 @@ class Graph():
         self.splits = splits
         logging.info(f'. Creep completed in {tick} ticks')
 
-
     def negotiate_borders(self):
         logging.info('. Start negotiations')
         self.run_negoriation()
         logging.info('.. Negotiations complete')
 
-
     def valid_border_map(self, border_map):
+        '''
+        Check if every split in the border map appears in the records of the splits it has in it's own record
+        '''
         for anchor, anchor_data in border_map.items():
             for nbr in anchor_data.keys():
                 if not anchor in border_map[nbr].keys():
@@ -574,11 +599,13 @@ class Graph():
         return True
 
     def create_border_map(self):
-        # create a map of border nodes
-        # all nodes have been assigned by the creep
-        # for each pair of splits there are two sets of border nodes:
-        # - nodes that are part of split one and ones that are part of split two
-        # the border map has a part for each split and has it's border nodes for each borsering split
+        '''
+        Create a map of border nodes
+        All nodes have been assigned by the creep
+        For each pair of bordering splits there are two sets of border nodes:
+        - nodes that are part of split one and ones that are part of split two
+        The border map has a part for each split and has it's border nodes for each bordering split
+        '''
         border_map = {}
         for anchor in self.anchors:
             border_map[anchor] = {}
@@ -598,11 +625,20 @@ class Graph():
             logging.debug(f'Border nodes for {split_anchor}: {border_data}')
 
     def print_splits(self):
+        '''
+        Logging
+        '''
         for split, split_data in self.splits.items():
             logging.info(
                 f'{split} ({self.get_split_total(split_data)}) :: {split_data}')
 
     def run_negoriation(self):
+        '''
+        Iterate through all pairs of bordering splits
+        Check if moving any of the border nodes from one of the splits to the other will improve the average deviation of the splits
+        If so, move the split, recalculate the border map and repeat
+        Stop when it is determined that no border node change will improve the averate deviation
+        '''
         def get_updatable_nodes(recepient_split_index, donor_split_index, difference):
             # find node in the boardmap of the splits that have a value as close to the abs of difference
             # moving a node would change the difference by 2*node
@@ -627,7 +663,6 @@ class Graph():
                 raise e
             return candidate_node
 
-
         adjustments_completed = False
         border_map_creation_logged = False
         while not adjustments_completed:
@@ -642,7 +677,7 @@ class Graph():
                     continue
                 split_pairs.append([split_one, split_two])
             logging.debug(split_pairs)
-                
+
             logging.debug('= new negotiations round')
             adjustments_completed = True
             adjusted_pairs = []
@@ -669,9 +704,10 @@ class Graph():
                 logging.debug(
                     f'-    {donor_split} to provide to {receiver_split} to cover diff {abs(difference)}')
                 updatable = get_updatable_nodes(
-                        receiver_split, donor_split, difference)
+                    receiver_split, donor_split, difference)
                 if updatable:
-                    logging.debug(f'    -   {updatable} moved from {donor_split} to {receiver_split}')
+                    logging.debug(
+                        f'    -   {updatable} moved from {donor_split} to {receiver_split}')
                     adjusted_pairs.append(
                         sorted([donor_split, receiver_split]))
                     # update splits
@@ -690,22 +726,31 @@ class Graph():
                 self.split_totals[anchor] = totals[anchor]
 
         for anchor in self.anchors:
-            logging.info(f'{self.splits[anchor][0]} > {totals[anchor]} > {self.splits[anchor]}')
-
+            logging.info(
+                f'{self.splits[anchor][0]} > {totals[anchor]} > {self.splits[anchor]}')
 
     def get_split_total(self, split):
+        '''
+        The sum of all node values in a split
+        '''
         split_total = 0
         for node in split:
             split_total = split_total + self.get_node(node).value
         return split_total
 
     def get_graph_total(self):
+        '''
+        The sum of all node values in the network
+        '''
         total = 0
         for node in self.nodes:
             total = total + node.value
         return total
 
     def get_nbr_splits(self, anchor, node):
+        '''
+        Return the indices of all splits that a node is bordering
+        '''
         def get_split(node):
             for split, split_data in self.splits.items():
                 if node in split_data:
@@ -722,6 +767,9 @@ class Graph():
         return nbr_splits
 
     def compose_split_graph(self):
+        '''
+        Compose an array where the node labels are replaced with the indeces of the splits the nodes are part of
+        '''
         def get_split(node):
             for split, split_nodes in self.splits.items():
                 if node in split_nodes:
@@ -738,15 +786,17 @@ class Graph():
             for row in self.split_array:
                 for node in row:
                     result_file.write(f'{node}'.ljust(2))
-                    split_array_string = split_array_string + f'{node}'.ljust(2)
+                    split_array_string = split_array_string + \
+                        f'{node}'.ljust(2)
                 result_file.write('\n')
                 split_array_string = split_array_string + '\n'
         logging.info(split_array_string)
         self.build_csv_output_file()
-    
+
     def build_csv_output_file(self):
         if self.split_count > 9:
-            logging.error('Can not export a .csv file : the split count is too large.')
+            logging.error(
+                'Can not export a .csv file : the split count is too large.')
         symbol_list = list([x for x in range(1, 10)])
         if self.split_count > 10 and self.split_count < 61:
             symbol_list.extend(list([x for x in ascii_letters]))
@@ -767,6 +817,9 @@ class Graph():
                 result_csv.write('\n')
 
     def check_if_node_removal_breaks(self, split_index, removable):
+        '''
+        Check if removing a node from a split will break the split in two (or more) parts
+        '''
         # Check if removing a node from a split will break it into two graphs
         # Get the split, corresponding to the split index
         for split_anchor, split_data in self.splits.items():
@@ -777,7 +830,6 @@ class Graph():
         nbrs = []
         node = self.get_node(removable)
         for nbr in node.links:
-            # print(nbr)
             if not nbr in split:
                 continue
             nbrs.append(nbr)
@@ -792,11 +844,12 @@ class Graph():
         # Crate connections network for the reduced split graph, starting with one of the nbrs
         # Get all the split nodes, connected to one of the nbrs
         if len(nbrs) == 0:
-            error_mesage =f'Node {removable} is somehow separated from its split' 
+            error_mesage = f'Node {removable} is somehow separated from its split'
             logging.error(error_mesage)
             raise Exception(error_mesage)
         start_node = nbrs[0]
-        connected_nodes = self.get_split_connected_nodes(start_node, reduced_split_node_list)
+        connected_nodes = self.get_split_connected_nodes(
+            start_node, reduced_split_node_list)
         # If all nbrs are in the connections network, then the reduced split graph is not broken
         for nbr in nbrs:
             if not self.get_node(nbr) in connected_nodes:
@@ -804,9 +857,13 @@ class Graph():
         return True
 
     def get_split_connected_nodes(self, start_node, split_node_list):
+        '''
+        Get all the nodes within a split that are connected to a given node in the same split
+        '''
         # fail check
         if self.get_node(start_node) not in split_node_list:
-            raise Exception(f'Split graph brakage fail: node {start_node} is not in the split')
+            raise Exception(
+                f'Split graph brakage fail: node {start_node} is not in the split')
 
         connected_nodes = []
         processed_nodes = []
@@ -826,8 +883,10 @@ class Graph():
         return connected_nodes
 
     def find_best_split(self):
-        # iterate through all sets of anchors and cache the results
-        # compare results and output the best
+        '''
+        Iterate through all sets of anchors and cache the results
+        Compare results and output the best, based on the average deviation of the splits
+        '''
         logging.info('Iterating anchor sets')
         self.result_cache = {}
         best_result_mean = self.total_value
@@ -848,7 +907,8 @@ class Graph():
             mean_splits_deviation = 0
             total_splits_deviation = 0
             for split_total, split_total_value in self.split_totals.items():
-                total_splits_deviation = total_splits_deviation + abs(split_total_value - self.split_average)
+                total_splits_deviation = total_splits_deviation + \
+                    abs(split_total_value - self.split_average)
             mean_splits_deviation = total_splits_deviation / self.split_count
             result['mean deviation'] = mean_splits_deviation
             anchor_set_result_string = f'.. Splits mean deviation {mean_splits_deviation}'
@@ -858,10 +918,11 @@ class Graph():
                 best_result_anchor_set = anchor_set
             logging.info(anchor_set_result_string)
             self.result_cache[anchor_set_label] = result
-        
+
         logging.info(f'Best anchor set: {best_result_anchor_set}')
         logging.info(f'Best splits mean deviation : {best_result_mean}')
-        self.splits = self.result_cache[''.join(best_result_anchor_set)]['splits']
+        self.splits = self.result_cache[''.join(
+            best_result_anchor_set)]['splits']
         self.print_splits()
         self.compose_split_graph()
 

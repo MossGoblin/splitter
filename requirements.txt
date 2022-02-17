@@ -1,0 +1,6 @@
+autopep8==1.6.0
+infix==1.2
+mpmath==1.2.1
+pycodestyle==2.8.0
+sympy==1.9
+toml==0.10.2

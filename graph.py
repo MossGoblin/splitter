@@ -639,7 +639,7 @@ class Graph():
         If so, move the split, recalculate the border map and repeat
         Stop when it is determined that no border node change will improve the averate deviation
         '''
-        def get_updatable_nodes(recepient_split_index, donor_split_index, difference):
+        def get_updatable_nodes(recipient_split_index, donor_split_index, difference):
             # find node in the boardmap of the splits that have a value as close to the abs of difference
             # moving a node would change the difference by 2*node
             candidate_node = None
@@ -647,7 +647,7 @@ class Graph():
             difference_to_clear = math.floor(abs(difference) / 2)
             best_intermediate_update = difference_to_clear
             try:
-                for node_label in self.border_map[donor_split_index][recepient_split_index]:
+                for node_label in self.border_map[donor_split_index][recipient_split_index]:
                     # check if the node value is lower than the difference that we are trying to reduce
                     node_value = self.get_node(node_label).value
                     if node_value > difference_to_clear:

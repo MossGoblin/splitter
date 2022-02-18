@@ -104,11 +104,12 @@ And that's about it!
 **Input** - it ended up as good as I can think of right now - you give it a text file, in which each unit square is represented by a symbol. If you want a component rectangle to be 2 by 3, you have 6 equal symbols, arranged in a square. And the whole starting big rectangle that needs splitting is composed of such text-based smaller rectangles.
 
 Here's an example:
-
+```
 eee
 aab
 ccb
 ddb
+```
 
 We have:
 

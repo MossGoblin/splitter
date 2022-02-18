@@ -101,7 +101,7 @@ Development
 
 And that's about it!
 
-The input ended up as good as I can think of right now - you give it a text file, in which each unit square is represented by a symbol. If you want a component rectangle to be 2 by 3, you have 6 equal symbols, arranged in a square. And the whole starting big rectangle that needs splitting is composed of such text-based smaller rectangles.
+**Input** - it ended up as good as I can think of right now - you give it a text file, in which each unit square is represented by a symbol. If you want a component rectangle to be 2 by 3, you have 6 equal symbols, arranged in a square. And the whole starting big rectangle that needs splitting is composed of such text-based smaller rectangles.
 
 Here's an example:
 
@@ -128,13 +128,10 @@ So I modified the code to not case what symbols are used, but assign it's own si
 
 What this gives is the option to fill in the starting cells with only 4 symbols (see Four color theorem) and not bother with the whole keyboard.
 
-Output... less clear at the moment.
+**Output**... less clear at the moment.
 
 The resulting splits are provided in two ways - in the log file there is a copy of the starting text array, but all unit cells are replaced by the signature of the split they are part of.
 
 There is also a .csv file where split signatures are replaced with digits. This was done specifically so that (if you go through the tedious step of replacing commas with tabs) you can paste it into an excel file which colors has conditional formatting for the digits between 1 and 9. Clumsy, but the result is pleasing to the eye.
 
-**TODO**
-
-A coloured output directly to the console would be nice, but that's not implemented yet. There are libraries for easy use of color, so it would not be hard.
-
+Tha last addition is a coloured print in the console. The splits are marked with a background color. The cells are (currently) filled with the node signatures created and used in the graph object, not the original symbols, which can be a bit confusing. To be refactored.

@@ -136,3 +136,12 @@ The resulting splits are provided in two ways - in the log file there is a copy 
 There is also a .csv file where split signatures are replaced with digits. This was done specifically so that (if you go through the tedious step of replacing commas with tabs) you can paste it into an excel file which colors has conditional formatting for the digits between 1 and 9. Clumsy, but the result is pleasing to the eye.
 
 Tha last addition is a coloured print in the console. The splits are marked with a background color. The cells are (currently) filled with the node signatures created and used in the graph object, not the original symbols, which can be a bit confusing. To be refactored.
+
+**EXAMPLE**
+That's the heaviest example I could be bothered to create (you can see one part that has been copy-pasted four times and stitched together with custom cells)
+![input](/docs/assets/images/input.png)
+
+And here are 3 outputs - for 3, 5 and 9 splits. The outputs were taken from the result.csv file, edited (commas replaced with tabs) and placed in Excel with prepared conditional formatting.
+![output_3_splits](docs/assets/images/output_3.png)
+![output_3_splits](docs/assets/images/output_5.png)
+![output_3_splits](docs/assets/images/output_9.png)

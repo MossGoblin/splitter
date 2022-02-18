@@ -115,7 +115,7 @@ class SignatureGenerator():
     def __init__(self, case=0):
         if case > 1:
             raise AttributeError(
-                'Order can be only 0 for lowercase and 1 for uppercase')
+                'Order can be only 0 for lowercase and 1 for uppercase (None defaults to 0)')
         self.offset = 65 if case == 1 else 97
 
     def __iter__(self):

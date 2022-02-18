@@ -1,13 +1,12 @@
 import itertools
-from typing import Dict, List
-from sympy import false
+from typing import List
 
-from sympy.core.function import diff
 import json
 import copy
 import logging
 import math
 from string import ascii_letters
+from colored import bg
 
 
 class Node():
@@ -65,7 +64,8 @@ class Graph():
     anchor_set_list = []  # a list of all anchor groups
     anchors = []  # a list of anchors selected from peripherals_list
     splits = {}  # a dictionary of all split networks, build around anchors
-    split_totals = {}  # a list of the total values of each split
+    split_totals = {} # a list of the total values of each split
+    symbol_map = {} # a map of split indeces to digits to be used in the csv output
 
     def __init__(self, split_count: int, base_folder=None):
         self.split_count = split_count
@@ -801,19 +801,18 @@ class Graph():
         if self.split_count > 10 and self.split_count < 61:
             symbol_list.extend(list([x for x in ascii_letters]))
         # map nodes to symbols
-        symbol_map = {}
         counter = 0
         for row in self.split_array:
             for node in row:
-                if node in symbol_map:
+                if node in self.symbol_map:
                     continue
-                symbol_map[node] = None
-                symbol_map[node] = symbol_list[counter]
+                self.symbol_map[node] = None
+                self.symbol_map[node] = symbol_list[counter]
                 counter = counter + 1
         with open(f'{self.base_folder}result.csv', 'w') as result_csv:
             for row in self.split_array:
                 for node in row:
-                    result_csv.write(str(symbol_map[node]) + ',')
+                    result_csv.write(str(self.symbol_map[node]) + ',')
                 result_csv.write('\n')
 
     def check_if_node_removal_breaks(self, split_index, removable):
@@ -925,8 +924,20 @@ class Graph():
             best_result_anchor_set)]['splits']
         self.print_splits()
         self.compose_split_graph()
+        self.colour_output()
 
     def process(self):
         self.find_distances()
         self.get_peripheral_nodes()
         self.find_best_split()
+
+    def colour_output(self):
+        row_str = ''
+        for row_index, row in enumerate(self.node_array):
+            for element_index, element in enumerate(row):
+                split_code = self.split_array[row_index][element_index]
+                color_code = self.symbol_map[split_code]
+                row_str = row_str + f"{bg(color_code)}" + f"{element}".ljust(2)
+            row_str = row_str + bg(0)
+            row_str = row_str + '\n'
+        print(row_str)

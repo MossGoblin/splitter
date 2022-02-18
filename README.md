@@ -139,9 +139,13 @@ Tha last addition is a coloured print in the console. The splits are marked with
 
 **EXAMPLE**
 That's the heaviest example I could be bothered to create (you can see one part that has been copy-pasted four times and stitched together with custom cells)
+
 ![input](/docs/assets/images/input.png)
 
 And here are 3 outputs - for 3, 5 and 9 splits. The outputs were taken from the result.csv file, edited (commas replaced with tabs) and placed in Excel with prepared conditional formatting.
+
 ![output_3_splits](docs/assets/images/output_3.png)
+
 ![output_3_splits](docs/assets/images/output_5.png)
+
 ![output_3_splits](docs/assets/images/output_9.png)

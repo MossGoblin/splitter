@@ -125,11 +125,11 @@ We have:
 
 The program can work with that, but for larger inputs you hit the limit of symbols you can use. 10 digits plus 32 letters (lowercase and uppercase) + some special symbols give you a cap about 50 and you might want to try with more than 5 starting cells.
 
-So I modified the code to not case what symbols are used, but assign it's own signatures when reading the input. The signatures are strings, instead of characters. Essentially a base lowercase system - a through z, then aa through az, then ba onwards. This gives 676 possible starting cells which should be enough (unless it isn't).
+So I modified the code to not care what symbols are used, but assign it's own signatures when reading the input. The signatures are strings, instead of characters. Essentially it is a base lowercase system - a through z, then aa through az, then ba onwards. This gives 676 possible starting cells which should be enough (unless it isn't).
 
 What this gives is the option to fill in the starting cells with only 4 symbols (see Four color theorem) and not bother with the whole keyboard.
 
-**Output**... less clear at the moment.
+**Output**... less refined at the moment. Can't quite find a really good way to vosualize the result.
 
 The resulting splits are provided in two ways - in the log file there is a copy of the starting text array, but all unit cells are replaced by the signature of the split they are part of.
 

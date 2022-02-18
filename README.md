@@ -1,3 +1,7 @@
+SPLITTER
+===
+(foir the lack of a better name)
+
 Definition
 ===
 

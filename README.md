@@ -3,9 +3,9 @@ Definition
 
 *Task*: Create an algorithm that takes a rectangle composed of multiple rectangles (input ONE) and splits it into N (input TWO) portions, with areas as close to each other as possible.
 
-*Input*: ONE - A rectangle, composed of other rectangles. The format of the input is not essentially important. TWO - a number of desired regions.
+*Input*: ONE - A rectangle, composed of other rectangles. The format of the input is not essentially important. TWO - a number of desired regions for input ONE to be split into.
 
-*Conditions*: Try to avoid brute forcing the problem through recursion. The task has no intended real-life benefit, the goal is to find an interesting solution
+*Conditions*: Try to avoid brute forcing the problem through recursion. The task has no intended real-life benefit, the goal is to find an interesting solution.
 
 Development
 ===
@@ -19,10 +19,10 @@ Development
 * Selected method:
   * Try to create the splits simultaneously, instead of one by one.
   * What would that look like - N splits start with one node each. Then each split appropriates one of it's adjoining unclaimed nodes. Repeat until all nodes are claimed. Essentially a voronoi fill with a twist. [see Creep]
-  * Whenever a node is evaluated whether it could be adjoined to a split, if the node has already been claimed by another split, this limits the options for the network that needs to claim a new node. Ideally this should happen only at the end, when all free nodes are already claimed.
+  * Whenever a split evaluates nodes for whether they could be adjoined, if any of those nodes have already been claimed by another split, this limits the growth options of the split in question. So we would like for splits to 'meet' at nodes as late as possible, at the end steps of the claiming process.
   * Therefore it is better to avoid splits reaching each other for as long as possible.
   * To achieve this, let's select starting nodes that are as far from each other as possible [see Anchors].
-  * Once we have a list of N nodes that are as far from each other as possible, we init splits with them and we can start adding free nodes to the splits [see Creep].
+  * Once we have a list of N nodes that are as far from each other as possible (let's call them 'anchors'), we init splits with them and we can start adding free nodes to the splits [see Creep].
   * Once all free nodes have been claimed, we can check for the balance of the splits. We know the ideal deviation of the splits. For example, if we have a network with total value of 25 (a starting rectangle of 5×5) and we want to split it into 4 regions, the real number target area of each split would be 6.25. That would give an ideal deviation of 0.25. Splits with values 6, 6, 6, 7 would satisfy the requirements, as the average deviation will be equal to 0.25.
   * If the average deviation is too large, this means that there is at least one split with way too small value and at least one with way too large value.
   * Here comes the negotiation. We can check each pair of neighbouring splits and see if changing ownership of any of the nodes that are on the border of the pair would improve the average deviation [see Negotiation]. We do this a few times until we stop improving the average deviation.
@@ -31,8 +31,8 @@ Development
 **Anchors**
 
 * In order to ensure that the growing splits will not come in contact with each other for as long as possible, we need starting nodes (anchors) that are as far from each other as possible.
-* That '*as far from each other as possible*' part is ensured by an alternative definition of the overall network - a distance graph. While we are building the graph, we calculate the minimum distance between each pair of nodes. At the end I decided to do this dynamically, while adding the nodes to the network one by one. This means recalculating all already recorded minimal distances when a new node is added, but I felt that it was worth the computational time. What I gain by going this way is the ability to add a new node after the network is complete (even though that the current algorithm does not require it). So, we have the distance map. It is composed of a list of all minimal distances and the corresponding node pairs. And the list is, of course, ordered. Meaning that if the largest minimal distance is, say, 5, we have a list of all node pairs that are no less than 5 links apart. Same for pairs that are no less than 4 links apart and so on. The '0' distance part is the list of all nodes (each being 0 steps from itself).
-* From that distance map we need to extract N nodes that are far from each other as possible. Initially I tried recursively checking if I can combine distance records, starting with the higher values, until I get an N-set of 'each-to-each' nodes. What went wrong? I hit the max iteration depth with a relatively mediocre test network. Can you improve a recursive algorithm in that regard? I don't think so, but may be there's some trick I don't know. Irrelevant - when it did not work, I was pleased, as this kind of iteration is exactly the brute force approach I would like to avoid.
+* That '*as far from each other as possible*' part is ensured by an alternative definition of the overall network - a distance graph. While we are building the graph, we calculate the minimum distance between each pair of nodes. At the end I decided to do this dynamically, while adding the nodes to the network one by one. This means recalculating all already recorded minimal distances when a new node is added, but I felt that it was worth the computational time. What I gain by going this way is the ability to add a new node after the network is complete (even though that the current algorithm does not require it). So, we have the distance map. It is  an ordered list of all minimal distances and the corresponding node pairs. Meaning that if the largest minimal distance is, say, 5, we have a list of all node pairs that are no less than 5 links apart. Same for pairs that are no less than 4 links apart and so on. The '0' distance part is the list of all nodes (each being 0 steps from itself).
+* From that distance map we need to extract those N nodes that are far from each other as possible. Initially I tried recursively checking if I can combine distance records, starting with the higher values, until I get an N-set of 'each-to-each' nodes. What went wrong? I hit the max iteration depth with a relatively mediocre test network. Can you improve a recursive algorithm in that regard? I don't think so, but may be there's some trick I don't know. Irrelevant - when it did not work, I was pleased, as this kind of iteration is exactly the brute force approach I would like to avoid.
 * What worked (and that's one of the pieces I'm happy about) is... Well, I went a bit heuristic for a while. Imagine the network drawn on a board. If it is not too big (for a human brain, I mean) you can see the N nodes you need that are spread out as much as possible. All the rest is noise. It kind of bugged me that the object that you need (the N mini network you seek) actually exists within the big network and you only need to find a way do separate it from the rest. However you have only descriptions of the nodes and not of any collections of nodes, which mean you have perfect setup for iterating nodes, not evaluating combinations of nodes.
 * So what I thought would be an ideal solution is to have the following:
   * a definition of the object that is the sub-network of nodes
@@ -104,6 +104,7 @@ And that's about it!
 **Input** - it ended up as good as I can think of right now - you give it a text file, in which each unit square is represented by a symbol. If you want a component rectangle to be 2 by 3, you have 6 equal symbols, arranged in a square. And the whole starting big rectangle that needs splitting is composed of such text-based smaller rectangles.
 
 Here's an example:
+
 ```
 eee
 aab
@@ -129,7 +130,7 @@ So I modified the code to not care what symbols are used, but assign it's own si
 
 What this gives is the option to fill in the starting cells with only 4 symbols (see Four color theorem) and not bother with the whole keyboard.
 
-**Output**... less refined at the moment. Can't quite find a really good way to vosualize the result.
+**Output**... less refined at the moment. Can't quite find a really good way to visualize the result.
 
 The resulting splits are provided in two ways - in the log file there is a copy of the starting text array, but all unit cells are replaced by the signature of the split they are part of.
 
